@@ -7,6 +7,11 @@
 //
 
 import XCTest
+import Quick
+import Nimble
+import Nimble_Snapshots
+import KIF
+
 @testable import magicbyirineu
 
 class magicbyirineuTests: XCTestCase {
