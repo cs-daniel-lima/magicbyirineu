@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CLSearchBar: UISearchBar {
+class MagicSearchBar: UISearchBar {
     
     override func willMove(toSuperview newSuperview: UIView?) {
         
