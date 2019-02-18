@@ -11,12 +11,15 @@
 		473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
 		473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		478BC45A22171E27000579FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC45922171E27000579FE /* AppDelegate.swift */; };
-		478BC45C22171E27000579FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC45B22171E27000579FE /* ViewController.swift */; };
-		478BC45F22171E27000579FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC45D22171E27000579FE /* Main.storyboard */; };
 		478BC46122171E28000579FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46022171E28000579FE /* Assets.xcassets */; };
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
 		478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC46E22171E28000579FE /* magicbyirineuTests.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
+		DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C2E221AF1EA00426578 /* CardListRouter.swift */; };
+		DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C30221AF1F800426578 /* CardListInteractor.swift */; };
+		DDE32C34221AF20900426578 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C33221AF20900426578 /* CardListView.swift */; };
+		DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C35221AF21600426578 /* CardListPresenter.swift */; };
+		DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C37221AF22F00426578 /* CardListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +51,6 @@
 		473C8D6222174F400095CC4C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		478BC45622171E27000579FE /* magicbyirineu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicbyirineu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478BC45922171E27000579FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		478BC45B22171E27000579FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		478BC45E22171E27000579FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		478BC46022171E28000579FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		478BC46322171E28000579FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		478BC46522171E28000579FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +60,11 @@
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34616E3BD7F470AF4450BD /* Pods-magicbyirineu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.debug.xcconfig"; sourceTree = "<group>"; };
 		D72262C0173B8F562F887DAC /* Pods-magicbyirineu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.release.xcconfig"; sourceTree = "<group>"; };
+		DDE32C2E221AF1EA00426578 /* CardListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListRouter.swift; sourceTree = "<group>"; };
+		DDE32C30221AF1F800426578 /* CardListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListInteractor.swift; sourceTree = "<group>"; };
+		DDE32C33221AF20900426578 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
+		DDE32C35221AF21600426578 /* CardListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPresenter.swift; sourceTree = "<group>"; };
+		DDE32C37221AF22F00426578 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineuTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC925AEDA27E9C9572F65A81 /* Pods-magicbyirineuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,11 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				478BC45922171E27000579FE /* AppDelegate.swift */,
-				478BC45B22171E27000579FE /* ViewController.swift */,
-				478BC45D22171E27000579FE /* Main.storyboard */,
-				478BC46022171E28000579FE /* Assets.xcassets */,
-				478BC46222171E28000579FE /* LaunchScreen.storyboard */,
-				478BC46522171E28000579FE /* Info.plist */,
+				DDE32C2D221AF1C500426578 /* Modules */,
+				DDE32C2C221AF1B800426578 /* Manager */,
+				DDE32C2B221AF1B100426578 /* Entitites */,
+				DDE32C25221AF15F00426578 /* Supporting Files */,
 			);
 			path = magicbyirineu;
 			sourceTree = "<group>";
@@ -145,6 +150,82 @@
 				478BC47022171E28000579FE /* Info.plist */,
 			);
 			path = magicbyirineuTests;
+			sourceTree = "<group>";
+		};
+		DDE32C25221AF15F00426578 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				478BC46022171E28000579FE /* Assets.xcassets */,
+				478BC46222171E28000579FE /* LaunchScreen.storyboard */,
+				478BC46522171E28000579FE /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDE32C26221AF17800426578 /* CardList */ = {
+			isa = PBXGroup;
+			children = (
+				DDE32C2A221AF1A900426578 /* View */,
+				DDE32C29221AF1A300426578 /* Presenter */,
+				DDE32C28221AF19900426578 /* Interactor */,
+				DDE32C27221AF18B00426578 /* Router */,
+			);
+			path = CardList;
+			sourceTree = "<group>";
+		};
+		DDE32C27221AF18B00426578 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DDE32C2E221AF1EA00426578 /* CardListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DDE32C28221AF19900426578 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				DDE32C30221AF1F800426578 /* CardListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		DDE32C29221AF1A300426578 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DDE32C35221AF21600426578 /* CardListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DDE32C2A221AF1A900426578 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDE32C33221AF20900426578 /* CardListView.swift */,
+				DDE32C37221AF22F00426578 /* CardListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDE32C2B221AF1B100426578 /* Entitites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entitites;
+			sourceTree = "<group>";
+		};
+		DDE32C2C221AF1B800426578 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		DDE32C2D221AF1C500426578 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DDE32C26221AF17800426578 /* CardList */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +315,6 @@
 			files = (
 				478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */,
 				478BC46122171E28000579FE /* Assets.xcassets in Resources */,
-				478BC45F22171E27000579FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,8 +409,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				478BC45C22171E27000579FE /* ViewController.swift in Sources */,
+				DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */,
+				DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */,
 				478BC45A22171E27000579FE /* AppDelegate.swift in Sources */,
+				DDE32C34221AF20900426578 /* CardListView.swift in Sources */,
+				DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */,
+				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,14 +437,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		478BC45D22171E27000579FE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				478BC45E22171E27000579FE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		478BC46222171E28000579FE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -498,7 +574,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = magicbyirineu/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/magicbyirineu/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,7 +596,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = magicbyirineu/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/magicbyirineu/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
