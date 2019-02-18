@@ -14,7 +14,9 @@
 		47631B55221B2FA100B78A21 /* buscar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47631B52221B2FA100B78A21 /* buscar@2x.png */; };
 		47631B56221B2FA100B78A21 /* buscar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47631B53221B2FA100B78A21 /* buscar@3x.png */; };
 		47631B5F221B39AF00B78A21 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */; };
-		47631B61221B3F0300B78A21 /* CLSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B60221B3F0300B78A21 /* CLSearchBar.swift */; };
+		47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B60221B3F0300B78A21 /* MagicSearchBar.swift */; };
+		47631B66221B49AD00B78A21 /* CLSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B65221B49AD00B78A21 /* CLSearchBarSpec.swift */; };
+		47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B6F221B56C100B78A21 /* MagicTabBarController.swift */; };
 		478BC45A22171E27000579FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC45922171E27000579FE /* AppDelegate.swift */; };
 		478BC46122171E28000579FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46022171E28000579FE /* Assets.xcassets */; };
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
@@ -66,7 +68,9 @@
 		47631B52221B2FA100B78A21 /* buscar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buscar@2x.png"; sourceTree = "<group>"; };
 		47631B53221B2FA100B78A21 /* buscar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buscar@3x.png"; sourceTree = "<group>"; };
 		47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
-		47631B60221B3F0300B78A21 /* CLSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLSearchBar.swift; sourceTree = "<group>"; };
+		47631B60221B3F0300B78A21 /* MagicSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBar.swift; sourceTree = "<group>"; };
+		47631B65221B49AD00B78A21 /* CLSearchBarSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSearchBarSpec.swift; sourceTree = "<group>"; };
+		47631B6F221B56C100B78A21 /* MagicTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicTabBarController.swift; sourceTree = "<group>"; };
 		478BC45622171E27000579FE /* magicbyirineu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicbyirineu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478BC45922171E27000579FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		478BC46022171E28000579FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +149,21 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		47631B64221B472200B78A21 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				47631B6F221B56C100B78A21 /* MagicTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		47631B67221B4F8600B78A21 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		478BC44D22171E27000579FE = {
 			isa = PBXGroup;
 			children = (
@@ -181,8 +200,10 @@
 		478BC46D22171E28000579FE /* magicbyirineuTests */ = {
 			isa = PBXGroup;
 			children = (
+				47631B67221B4F8600B78A21 /* Mocks */,
 				478BC46E22171E28000579FE /* magicbyirineuTests.swift */,
 				478BC47022171E28000579FE /* Info.plist */,
+				47631B65221B49AD00B78A21 /* CLSearchBarSpec.swift */,
 			);
 			path = magicbyirineuTests;
 			sourceTree = "<group>";
@@ -260,7 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE32C33221AF20900426578 /* CardListView.swift */,
-				47631B60221B3F0300B78A21 /* CLSearchBar.swift */,
+				47631B60221B3F0300B78A21 /* MagicSearchBar.swift */,
 				DDE32C37221AF22F00426578 /* CardListViewController.swift */,
 			);
 			path = View;
@@ -285,6 +306,7 @@
 		DDE32C2D221AF1C500426578 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				47631B64221B472200B78A21 /* TabBar */,
 				DDE32C26221AF17800426578 /* CardList */,
 			);
 			path = Modules;
@@ -493,7 +515,8 @@
 				DDE32C34221AF20900426578 /* CardListView.swift in Sources */,
 				DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */,
 				DDE32C3F221B15F500426578 /* SetsTableViewDelegate.swift in Sources */,
-				47631B61221B3F0300B78A21 /* CLSearchBar.swift in Sources */,
+				47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */,
+				47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */,
 				DDE32C41221B160600426578 /* SetsTableViewDataSource.swift in Sources */,
 				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
 				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,
@@ -507,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */,
+				47631B66221B49AD00B78A21 /* CLSearchBarSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

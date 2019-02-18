@@ -16,18 +16,14 @@ final class CardListView : UIView{
         return view
     }()
     
-    lazy var searchBar:CLSearchBar = {
-        let view = CLSearchBar(frame: .zero)
-        //view.placeholder = "search for cards"
-        
+    lazy var searchBar:MagicSearchBar = {
+        let view = MagicSearchBar(frame: .zero)
         return view
     }()
     
     override init(frame: CGRect = .zero) {
-        
         super.init(frame: frame)
         setupView()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

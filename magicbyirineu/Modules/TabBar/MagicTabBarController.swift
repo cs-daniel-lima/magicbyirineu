@@ -9,14 +9,26 @@
 import UIKit
 
 class MagicTabBarController: UITabBarController {
-
+    
+    let firstViewController = CardListViewController()
+    let secondViewController = UIViewController()
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupTabBar()
+        
     }
     
-
+    func setupTabBar(){
+        
+        firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+        
+        viewControllers = [firstViewController, secondViewController]
+        
+    }
+    
     /*
     // MARK: - Navigation
 
