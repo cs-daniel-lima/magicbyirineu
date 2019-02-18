@@ -24,6 +24,8 @@
 		DDE32C34221AF20900426578 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C33221AF20900426578 /* CardListView.swift */; };
 		DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C35221AF21600426578 /* CardListPresenter.swift */; };
 		DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C37221AF22F00426578 /* CardListViewController.swift */; };
+		DDE32C3A221B11C700426578 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C39221B11C700426578 /* APIManager.swift */; };
+		DDE32C3C221B11E300426578 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C3B221B11E300426578 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		DDE32C33221AF20900426578 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		DDE32C35221AF21600426578 /* CardListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPresenter.swift; sourceTree = "<group>"; };
 		DDE32C37221AF22F00426578 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
+		DDE32C39221B11C700426578 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		DDE32C3B221B11E300426578 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineuTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC925AEDA27E9C9572F65A81 /* Pods-magicbyirineuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +241,7 @@
 		DDE32C2B221AF1B100426578 /* Entitites */ = {
 			isa = PBXGroup;
 			children = (
+				DDE32C3B221B11E300426578 /* Card.swift */,
 			);
 			path = Entitites;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 		DDE32C2C221AF1B800426578 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				DDE32C39221B11C700426578 /* APIManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -447,6 +453,8 @@
 				DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */,
 				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
 				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,
+				DDE32C3A221B11C700426578 /* APIManager.swift in Sources */,
+				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
