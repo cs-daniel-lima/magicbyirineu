@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		16036CA1BE8249F0FC89C44B /* Pods_magicbyirineuTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */; };
+		187D3430221B192D008E13C3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D342F221B192D008E13C3 /* Result.swift */; };
+		187D3433221B1958008E13C3 /* HTTPParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3432221B1958008E13C3 /* HTTPParameter.swift */; };
+		187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3434221B1988008E13C3 /* URLQueryEncoder.swift */; };
+		187D3438221B199E008E13C3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3437221B199D008E13C3 /* Error.swift */; };
+		187D343B221B19C6008E13C3 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D343A221B19C6008E13C3 /* APIRequest.swift */; };
+		187D343F221B1C4A008E13C3 /* GetSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D343E221B1C4A008E13C3 /* GetSets.swift */; };
+		187D3443221B1D1A008E13C3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3442221B1D1A008E13C3 /* CardSet.swift */; };
+		187D3446221B1E55008E13C3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3445221B1E55008E13C3 /* Logger.swift */; };
+		187D3448221B2023008E13C3 /* MagicAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3447221B2023008E13C3 /* MagicAPITest.swift */; };
+		187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3449221B21DA008E13C3 /* ResponseError.swift */; };
+		187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344B221B2205008E13C3 /* ResponseSets.swift */; };
+		187D344E221B40CC008E13C3 /* GetCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344D221B40CC008E13C3 /* GetCards.swift */; };
+		187D3450221B40D7008E13C3 /* ResponseCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344F221B40D7008E13C3 /* ResponseCards.swift */; };
 		473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
 		473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		478BC45A22171E27000579FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC45922171E27000579FE /* AppDelegate.swift */; };
@@ -54,6 +67,19 @@
 
 /* Begin PBXFileReference section */
 		0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		187D342F221B192D008E13C3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		187D3432221B1958008E13C3 /* HTTPParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPParameter.swift; sourceTree = "<group>"; };
+		187D3434221B1988008E13C3 /* URLQueryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryEncoder.swift; sourceTree = "<group>"; };
+		187D3437221B199D008E13C3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		187D343A221B19C6008E13C3 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		187D343E221B1C4A008E13C3 /* GetSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSets.swift; sourceTree = "<group>"; };
+		187D3442221B1D1A008E13C3 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
+		187D3445221B1E55008E13C3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		187D3447221B2023008E13C3 /* MagicAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicAPITest.swift; sourceTree = "<group>"; };
+		187D3449221B21DA008E13C3 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		187D344B221B2205008E13C3 /* ResponseSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSets.swift; sourceTree = "<group>"; };
+		187D344D221B40CC008E13C3 /* GetCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCards.swift; sourceTree = "<group>"; };
+		187D344F221B40D7008E13C3 /* ResponseCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCards.swift; sourceTree = "<group>"; };
 		473C8D6222174F400095CC4C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		478BC45622171E27000579FE /* magicbyirineu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicbyirineu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478BC45922171E27000579FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +149,59 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		187D3431221B1948008E13C3 /* Support Classes */ = {
+			isa = PBXGroup;
+			children = (
+				187D342F221B192D008E13C3 /* Result.swift */,
+				187D3432221B1958008E13C3 /* HTTPParameter.swift */,
+				187D3434221B1988008E13C3 /* URLQueryEncoder.swift */,
+			);
+			path = "Support Classes";
+			sourceTree = "<group>";
+		};
+		187D3436221B1998008E13C3 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				187D3437221B199D008E13C3 /* Error.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		187D3439221B19B9008E13C3 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				187D343A221B19C6008E13C3 /* APIRequest.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		187D343C221B1B09008E13C3 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				187D344D221B40CC008E13C3 /* GetCards.swift */,
+				187D343E221B1C4A008E13C3 /* GetSets.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		187D343D221B1B1C008E13C3 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				187D344F221B40D7008E13C3 /* ResponseCards.swift */,
+				187D344B221B2205008E13C3 /* ResponseSets.swift */,
+				187D3449221B21DA008E13C3 /* ResponseError.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		187D3444221B1E4F008E13C3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				187D3445221B1E55008E13C3 /* Logger.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		478BC44D22171E27000579FE = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				478BC45922171E27000579FE /* AppDelegate.swift */,
+				187D3444221B1E4F008E13C3 /* Util */,
 				DDE32C2D221AF1C500426578 /* Modules */,
 				DDE32C2C221AF1B800426578 /* Manager */,
 				DDE32C2B221AF1B100426578 /* Entitites */,
@@ -161,6 +241,7 @@
 			children = (
 				478BC46E22171E28000579FE /* magicbyirineuTests.swift */,
 				478BC47022171E28000579FE /* Info.plist */,
+				187D3447221B2023008E13C3 /* MagicAPITest.swift */,
 			);
 			path = magicbyirineuTests;
 			sourceTree = "<group>";
@@ -242,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE32C3B221B11E300426578 /* Card.swift */,
+				187D3442221B1D1A008E13C3 /* CardSet.swift */,
 			);
 			path = Entitites;
 			sourceTree = "<group>";
@@ -250,6 +332,11 @@
 			isa = PBXGroup;
 			children = (
 				DDE32C39221B11C700426578 /* APIManager.swift */,
+				187D343C221B1B09008E13C3 /* Request */,
+				187D343D221B1B1C008E13C3 /* Response */,
+				187D3439221B19B9008E13C3 /* Protocol */,
+				187D3431221B1948008E13C3 /* Support Classes */,
+				187D3436221B1998008E13C3 /* Errors */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -447,13 +534,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */,
+				187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */,
+				187D343F221B1C4A008E13C3 /* GetSets.swift in Sources */,
 				DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */,
+				187D3433221B1958008E13C3 /* HTTPParameter.swift in Sources */,
 				478BC45A22171E27000579FE /* AppDelegate.swift in Sources */,
 				DDE32C34221AF20900426578 /* CardListView.swift in Sources */,
 				DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */,
 				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
+				187D343B221B19C6008E13C3 /* APIRequest.swift in Sources */,
+				187D3430221B192D008E13C3 /* Result.swift in Sources */,
 				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,
+				187D3450221B40D7008E13C3 /* ResponseCards.swift in Sources */,
+				187D3443221B1D1A008E13C3 /* CardSet.swift in Sources */,
+				187D3446221B1E55008E13C3 /* Logger.swift in Sources */,
+				187D3438221B199E008E13C3 /* Error.swift in Sources */,
+				187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */,
 				DDE32C3A221B11C700426578 /* APIManager.swift in Sources */,
+				187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */,
+				187D344E221B40CC008E13C3 /* GetCards.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				187D3448221B2023008E13C3 /* MagicAPITest.swift in Sources */,
 				478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,6 +710,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -632,6 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -654,6 +756,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				INFOPLIST_FILE = magicbyirineuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -674,6 +777,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				INFOPLIST_FILE = magicbyirineuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
