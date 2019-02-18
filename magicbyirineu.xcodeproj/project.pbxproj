@@ -10,6 +10,11 @@
 		16036CA1BE8249F0FC89C44B /* Pods_magicbyirineuTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */; };
 		473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
 		473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		47631B54221B2FA100B78A21 /* buscar.png in Resources */ = {isa = PBXBuildFile; fileRef = 47631B51221B2FA100B78A21 /* buscar.png */; };
+		47631B55221B2FA100B78A21 /* buscar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47631B52221B2FA100B78A21 /* buscar@2x.png */; };
+		47631B56221B2FA100B78A21 /* buscar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47631B53221B2FA100B78A21 /* buscar@3x.png */; };
+		47631B5F221B39AF00B78A21 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */; };
+		47631B61221B3F0300B78A21 /* CLSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B60221B3F0300B78A21 /* CLSearchBar.swift */; };
 		478BC45A22171E27000579FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC45922171E27000579FE /* AppDelegate.swift */; };
 		478BC46122171E28000579FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46022171E28000579FE /* Assets.xcassets */; };
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
@@ -57,6 +62,11 @@
 /* Begin PBXFileReference section */
 		0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		473C8D6222174F400095CC4C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		47631B51221B2FA100B78A21 /* buscar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buscar.png; sourceTree = "<group>"; };
+		47631B52221B2FA100B78A21 /* buscar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buscar@2x.png"; sourceTree = "<group>"; };
+		47631B53221B2FA100B78A21 /* buscar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buscar@3x.png"; sourceTree = "<group>"; };
+		47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		47631B60221B3F0300B78A21 /* CLSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLSearchBar.swift; sourceTree = "<group>"; };
 		478BC45622171E27000579FE /* magicbyirineu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicbyirineu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478BC45922171E27000579FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		478BC46022171E28000579FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,6 +137,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		47631B5D221B397400B78A21 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		478BC44D22171E27000579FE = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +198,9 @@
 		478D92C4221B0DE3004EA8B3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				47631B51221B2FA100B78A21 /* buscar.png */,
+				47631B52221B2FA100B78A21 /* buscar@2x.png */,
+				47631B53221B2FA100B78A21 /* buscar@3x.png */,
 				478D92C6221B0E07004EA8B3 /* fundo.png */,
 				478D92C7221B0E07004EA8B3 /* fundo@2x.png */,
 				478D92C5221B0E07004EA8B3 /* fundo@3x.png */,
@@ -190,6 +211,7 @@
 		DDE32C25221AF15F00426578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				47631B5D221B397400B78A21 /* Fonts */,
 				478D92C4221B0DE3004EA8B3 /* Images */,
 				478BC46022171E28000579FE /* Assets.xcassets */,
 				478BC46222171E28000579FE /* LaunchScreen.storyboard */,
@@ -238,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE32C33221AF20900426578 /* CardListView.swift */,
+				47631B60221B3F0300B78A21 /* CLSearchBar.swift */,
 				DDE32C37221AF22F00426578 /* CardListViewController.swift */,
 			);
 			path = View;
@@ -362,6 +385,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				478D92C9221B0E07004EA8B3 /* fundo.png in Resources */,
+				47631B55221B2FA100B78A21 /* buscar@2x.png in Resources */,
+				47631B5F221B39AF00B78A21 /* SF-Pro-Display-Bold.otf in Resources */,
+				47631B54221B2FA100B78A21 /* buscar.png in Resources */,
+				47631B56221B2FA100B78A21 /* buscar@3x.png in Resources */,
 				478D92CA221B0E07004EA8B3 /* fundo@2x.png in Resources */,
 				478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */,
 				478BC46122171E28000579FE /* Assets.xcassets in Resources */,
@@ -466,6 +493,7 @@
 				DDE32C34221AF20900426578 /* CardListView.swift in Sources */,
 				DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */,
 				DDE32C3F221B15F500426578 /* SetsTableViewDelegate.swift in Sources */,
+				47631B61221B3F0300B78A21 /* CLSearchBar.swift in Sources */,
 				DDE32C41221B160600426578 /* SetsTableViewDataSource.swift in Sources */,
 				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
 				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,

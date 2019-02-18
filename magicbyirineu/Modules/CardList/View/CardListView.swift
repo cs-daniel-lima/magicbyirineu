@@ -16,6 +16,13 @@ final class CardListView : UIView{
         return view
     }()
     
+    lazy var searchBar:CLSearchBar = {
+        let view = CLSearchBar(frame: .zero)
+        //view.placeholder = "search for cards"
+        
+        return view
+    }()
+    
     override init(frame: CGRect = .zero) {
         
         super.init(frame: frame)
@@ -33,12 +40,20 @@ extension CardListView :CodeView{
     
     func buildViewHierarchy() {
         addSubview(backgroundImageView)
+        addSubview(searchBar)
     }
     
     func setupConstraints() {
         
         backgroundImageView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalTo(0)
+        }
+        
+        searchBar.snp.makeConstraints { (make) in
+            make.top.equalTo(44)
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().inset(16)
+            make.height.equalTo(56)
         }
         
     }
