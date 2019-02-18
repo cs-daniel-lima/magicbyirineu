@@ -16,7 +16,7 @@
 		187D343F221B1C4A008E13C3 /* GetSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D343E221B1C4A008E13C3 /* GetSets.swift */; };
 		187D3443221B1D1A008E13C3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3442221B1D1A008E13C3 /* CardSet.swift */; };
 		187D3446221B1E55008E13C3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3445221B1E55008E13C3 /* Logger.swift */; };
-		187D3448221B2023008E13C3 /* MagicAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3447221B2023008E13C3 /* MagicAPITest.swift */; };
+		187D3448221B2023008E13C3 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3447221B2023008E13C3 /* APIManagerTests.swift */; };
 		187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3449221B21DA008E13C3 /* ResponseError.swift */; };
 		187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344B221B2205008E13C3 /* ResponseSets.swift */; };
 		187D344E221B40CC008E13C3 /* GetCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344D221B40CC008E13C3 /* GetCards.swift */; };
@@ -75,7 +75,7 @@
 		187D343E221B1C4A008E13C3 /* GetSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSets.swift; sourceTree = "<group>"; };
 		187D3442221B1D1A008E13C3 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		187D3445221B1E55008E13C3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		187D3447221B2023008E13C3 /* MagicAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicAPITest.swift; sourceTree = "<group>"; };
+		187D3447221B2023008E13C3 /* APIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		187D3449221B21DA008E13C3 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		187D344B221B2205008E13C3 /* ResponseSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSets.swift; sourceTree = "<group>"; };
 		187D344D221B40CC008E13C3 /* GetCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCards.swift; sourceTree = "<group>"; };
@@ -202,6 +202,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		187D3451221B475A008E13C3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				187D3447221B2023008E13C3 /* APIManagerTests.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		478BC44D22171E27000579FE = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +249,7 @@
 			children = (
 				478BC46E22171E28000579FE /* magicbyirineuTests.swift */,
 				478BC47022171E28000579FE /* Info.plist */,
-				187D3447221B2023008E13C3 /* MagicAPITest.swift */,
+				187D3451221B475A008E13C3 /* Manager */,
 			);
 			path = magicbyirineuTests;
 			sourceTree = "<group>";
@@ -561,7 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187D3448221B2023008E13C3 /* MagicAPITest.swift in Sources */,
+				187D3448221B2023008E13C3 /* APIManagerTests.swift in Sources */,
 				478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

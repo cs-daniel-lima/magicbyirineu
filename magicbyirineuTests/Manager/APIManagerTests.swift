@@ -9,18 +9,16 @@
 import XCTest
 @testable import magicbyirineu
 
-class MagicAPITests: XCTestCase {
+class APIManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
     
     func testGetSetsRequest() {
         XCTAssert(GetSets.Response.self ==  ResponseSets.self, "Response condizente com o Request")
