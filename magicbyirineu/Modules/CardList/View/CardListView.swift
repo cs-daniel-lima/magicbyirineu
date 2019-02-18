@@ -12,7 +12,7 @@ final class CardListView : UIView{
     
     lazy var backgroundImageView:UIImageView = {
         let view = UIImageView(frame: .zero)
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
@@ -32,9 +32,7 @@ final class CardListView : UIView{
 extension CardListView :CodeView{
     
     func buildViewHierarchy() {
-        
         addSubview(backgroundImageView)
-        
     }
     
     func setupConstraints() {
