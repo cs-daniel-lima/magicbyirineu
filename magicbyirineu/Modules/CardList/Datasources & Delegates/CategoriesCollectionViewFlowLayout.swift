@@ -1,5 +1,5 @@
 //
-//  SetsTableViewDelegate.swift
+//  CategoriesCollectionViewFlowLayout.swift
 //  magicbyirineu
 //
 //  Created by andre.antonio.filho on 18/02/19.
@@ -8,6 +8,7 @@
 
 import UIKit
 
-class SetsTableViewDelegate: NSObject, UITableViewDelegate{
-   
+class CategoriesCollectionViewFlowLayout: NSOBject, UICollectionViewDelegateFlowLayout{
+    
+    
 }

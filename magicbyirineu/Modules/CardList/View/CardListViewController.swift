@@ -13,8 +13,14 @@ class CardListViewController: UIViewController {
     var presenter:CardListPresenter!
     let screen = CardListView()
     
+    var tableViewDelegate: SetsTableViewDelegate!
+    var tableViewDatasource: SetsTableViewDatasource!
+    
     override func loadView() {
+        super.loadView()
         self.view = screen
+        self.setupTableView()
+        
     }
     
     override func viewDidLoad() {
@@ -27,4 +33,16 @@ class CardListViewController: UIViewController {
         return UIStatusBarStyle.lightContent
     }
 
+}
+
+//TableView and Collection Views
+extension CardListViewController{
+    
+    func setupTableView(){
+        tableViewDatasource = SetsTableViewDatasource(tableView: self.screen.setsTableView)
+        tableViewDelegate = SetsTableViewDelegate()
+        self.screen.setsTableView.delegate = self.tableViewDelegate
+        self.screen.setsTableView.dataSource = self.tableViewDatasource
+    }
+    
 }

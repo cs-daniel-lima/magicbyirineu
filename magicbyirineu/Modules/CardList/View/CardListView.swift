@@ -16,6 +16,12 @@ final class CardListView : UIView{
         return view
     }()
     
+    var setsTableView: UITableView = {
+       let view = UITableView(frame: .zero)
+       view.backgroundColor = UIColor.clear
+       return view
+    }()
+    
     override init(frame: CGRect = .zero) {
         
         super.init(frame: frame)
@@ -33,6 +39,7 @@ extension CardListView :CodeView{
     
     func buildViewHierarchy() {
         addSubview(backgroundImageView)
+        addSubview(setsTableView)
     }
     
     func setupConstraints() {
@@ -40,13 +47,15 @@ extension CardListView :CodeView{
         backgroundImageView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalTo(0)
         }
+        setsTableView.snp.makeConstraints { (make) in
+            make.left.bottom.right.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.85)
+        }
         
     }
     
     func additionalSetup() {
-        
         backgroundImageView.image = UIImage(named: "fundo")
-        
     }
     
 }

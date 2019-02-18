@@ -28,6 +28,10 @@
 		DDE32C3C221B11E300426578 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C3B221B11E300426578 /* Card.swift */; };
 		DDE32C3F221B15F500426578 /* SetsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C3E221B15F500426578 /* SetsTableViewDelegate.swift */; };
 		DDE32C41221B160600426578 /* SetsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C40221B160600426578 /* SetsTableViewDataSource.swift */; };
+		DDE32C44221B20AE00426578 /* SetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C43221B20AE00426578 /* SetTableViewCell.swift */; };
+		DDE32C46221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C45221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift */; };
+		DDE32C48221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C47221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift */; };
+		DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		DDE32C3B221B11E300426578 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		DDE32C3E221B15F500426578 /* SetsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableViewDelegate.swift; sourceTree = "<group>"; };
 		DDE32C40221B160600426578 /* SetsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableViewDataSource.swift; sourceTree = "<group>"; };
+		DDE32C43221B20AE00426578 /* SetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTableViewCell.swift; sourceTree = "<group>"; };
+		DDE32C45221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		DDE32C47221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineuTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC925AEDA27E9C9572F65A81 /* Pods-magicbyirineuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +245,7 @@
 		DDE32C2A221AF1A900426578 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDE32C42221B209300426578 /* Cells */,
 				DDE32C33221AF20900426578 /* CardListView.swift */,
 				DDE32C37221AF22F00426578 /* CardListViewController.swift */,
 			);
@@ -272,8 +281,19 @@
 			children = (
 				DDE32C3E221B15F500426578 /* SetsTableViewDelegate.swift */,
 				DDE32C40221B160600426578 /* SetsTableViewDataSource.swift */,
+				DDE32C45221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift */,
+				DDE32C47221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift */,
 			);
 			path = "Datasources & Delegates";
+			sourceTree = "<group>";
+		};
+		DDE32C42221B209300426578 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DDE32C43221B20AE00426578 /* SetTableViewCell.swift */,
+				DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE32C44221B20AE00426578 /* SetTableViewCell.swift in Sources */,
 				DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */,
 				DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */,
 				478BC45A22171E27000579FE /* AppDelegate.swift in Sources */,
@@ -471,6 +492,9 @@
 				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,
 				DDE32C3A221B11C700426578 /* APIManager.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
+				DDE32C46221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift in Sources */,
+				DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */,
+				DDE32C48221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
