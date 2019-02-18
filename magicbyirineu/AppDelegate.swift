@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Initializing the Root ViewController for working with CodeView
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let router = CardListRouter()
+        let rootViewController = router.presenter.view
+        self.window?.rootViewController = rootViewController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

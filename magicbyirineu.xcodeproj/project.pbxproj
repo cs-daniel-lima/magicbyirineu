@@ -14,6 +14,10 @@
 		478BC46122171E28000579FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46022171E28000579FE /* Assets.xcassets */; };
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
 		478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC46E22171E28000579FE /* magicbyirineuTests.swift */; };
+		478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D92C2221B0C04004EA8B3 /* CodeView.swift */; };
+		478D92C8221B0E07004EA8B3 /* fundo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 478D92C5221B0E07004EA8B3 /* fundo@3x.png */; };
+		478D92C9221B0E07004EA8B3 /* fundo.png in Resources */ = {isa = PBXBuildFile; fileRef = 478D92C6221B0E07004EA8B3 /* fundo.png */; };
+		478D92CA221B0E07004EA8B3 /* fundo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 478D92C7221B0E07004EA8B3 /* fundo@2x.png */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
 		DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C2E221AF1EA00426578 /* CardListRouter.swift */; };
 		DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C30221AF1F800426578 /* CardListInteractor.swift */; };
@@ -57,6 +61,10 @@
 		478BC46A22171E28000579FE /* magicbyirineuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = magicbyirineuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		478BC46E22171E28000579FE /* magicbyirineuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magicbyirineuTests.swift; sourceTree = "<group>"; };
 		478BC47022171E28000579FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		478D92C2221B0C04004EA8B3 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		478D92C5221B0E07004EA8B3 /* fundo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fundo@3x.png"; sourceTree = "<group>"; };
+		478D92C6221B0E07004EA8B3 /* fundo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fundo.png; sourceTree = "<group>"; };
+		478D92C7221B0E07004EA8B3 /* fundo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fundo@2x.png"; sourceTree = "<group>"; };
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34616E3BD7F470AF4450BD /* Pods-magicbyirineu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.debug.xcconfig"; sourceTree = "<group>"; };
 		D72262C0173B8F562F887DAC /* Pods-magicbyirineu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +147,7 @@
 				DDE32C2C221AF1B800426578 /* Manager */,
 				DDE32C2B221AF1B100426578 /* Entitites */,
 				DDE32C25221AF15F00426578 /* Supporting Files */,
+				478D92C1221B0BBB004EA8B3 /* Protocols */,
 			);
 			path = magicbyirineu;
 			sourceTree = "<group>";
@@ -152,9 +161,28 @@
 			path = magicbyirineuTests;
 			sourceTree = "<group>";
 		};
+		478D92C1221B0BBB004EA8B3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				478D92C2221B0C04004EA8B3 /* CodeView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		478D92C4221B0DE3004EA8B3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				478D92C6221B0E07004EA8B3 /* fundo.png */,
+				478D92C7221B0E07004EA8B3 /* fundo@2x.png */,
+				478D92C5221B0E07004EA8B3 /* fundo@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		DDE32C25221AF15F00426578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				478D92C4221B0DE3004EA8B3 /* Images */,
 				478BC46022171E28000579FE /* Assets.xcassets */,
 				478BC46222171E28000579FE /* LaunchScreen.storyboard */,
 				478BC46522171E28000579FE /* Info.plist */,
@@ -313,8 +341,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				478D92C9221B0E07004EA8B3 /* fundo.png in Resources */,
+				478D92CA221B0E07004EA8B3 /* fundo@2x.png in Resources */,
 				478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */,
 				478BC46122171E28000579FE /* Assets.xcassets in Resources */,
+				478D92C8221B0E07004EA8B3 /* fundo@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +446,7 @@
 				DDE32C34221AF20900426578 /* CardListView.swift in Sources */,
 				DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */,
 				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
+				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

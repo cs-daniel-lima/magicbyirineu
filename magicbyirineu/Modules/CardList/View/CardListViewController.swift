@@ -9,17 +9,22 @@
 import UIKit
 
 class CardListViewController: UIViewController {
-
+    
     var presenter:CardListPresenter!
+    let screen = CardListView()
     
     override func loadView() {
-        self.view = CardListView()
+        self.view = screen
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return UIStatusBarStyle.lightContent
     }
 
 }
