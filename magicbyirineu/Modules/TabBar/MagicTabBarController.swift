@@ -22,21 +22,42 @@ class MagicTabBarController: UITabBarController {
     
     func setupTabBar(){
         
-        firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+        let cardsBarItem = UITabBarItem(title: "Cards", image: nil, tag: 0)
+        let favoritesBarItem = UITabBarItem(title: "Favorites", image: nil, tag: 1)
+        
+        firstViewController.tabBarItem = cardsBarItem
+        secondViewController.tabBarItem = favoritesBarItem
         
         viewControllers = [firstViewController, secondViewController]
         
+        let backgroundBar = UIImage(color: .clear, size: tabBar.frame.size)
+        
+        tabBar.backgroundColor = .clear
+        tabBar.tintColor = .white
+        tabBar.barTintColor = .white
+        tabBar.backgroundImage = backgroundBar
+        
+        setupTabBarItem(item: cardsBarItem)
+        setupTabBarItem(item: favoritesBarItem)
+        
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupTabBarItem(item:UITabBarItem){
+        
+        let tabbarFont = UIFont(name: "SFProDisplay-Bold", size: 16)
+        
+        item.setTitleTextAttributes([
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.font: tabbarFont as Any
+            ], for: UIControl.State.normal)
+        
+        item.setTitleTextAttributes([
+            NSAttributedString.Key.foregroundColor : UIColor(red:0.73, green:0.73, blue:0.78, alpha:1.0),
+            NSAttributedString.Key.font: tabbarFont as Any
+            ], for: UIControl.State.selected)
+        
+        item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
+        
     }
-    */
-
+    
 }

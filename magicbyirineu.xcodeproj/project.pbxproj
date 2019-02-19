@@ -17,6 +17,7 @@
 		47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B60221B3F0300B78A21 /* MagicSearchBar.swift */; };
 		47631B66221B49AD00B78A21 /* CLSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B65221B49AD00B78A21 /* CLSearchBarSpec.swift */; };
 		47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B6F221B56C100B78A21 /* MagicTabBarController.swift */; };
+		47631B73221B601200B78A21 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B72221B601200B78A21 /* UIImage.swift */; };
 		478BC45A22171E27000579FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC45922171E27000579FE /* AppDelegate.swift */; };
 		478BC46122171E28000579FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46022171E28000579FE /* Assets.xcassets */; };
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
@@ -71,6 +72,7 @@
 		47631B60221B3F0300B78A21 /* MagicSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBar.swift; sourceTree = "<group>"; };
 		47631B65221B49AD00B78A21 /* CLSearchBarSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSearchBarSpec.swift; sourceTree = "<group>"; };
 		47631B6F221B56C100B78A21 /* MagicTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicTabBarController.swift; sourceTree = "<group>"; };
+		47631B72221B601200B78A21 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		478BC45622171E27000579FE /* magicbyirineu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicbyirineu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478BC45922171E27000579FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		478BC46022171E28000579FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +166,14 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		47631B71221B5FEF00B78A21 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				47631B72221B601200B78A21 /* UIImage.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		478BC44D22171E27000579FE = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +203,7 @@
 				DDE32C2B221AF1B100426578 /* Entitites */,
 				DDE32C25221AF15F00426578 /* Supporting Files */,
 				478D92C1221B0BBB004EA8B3 /* Protocols */,
+				47631B71221B5FEF00B78A21 /* Utils */,
 			);
 			path = magicbyirineu;
 			sourceTree = "<group>";
@@ -522,6 +533,7 @@
 				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,
 				DDE32C3A221B11C700426578 /* APIManager.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
+				47631B73221B601200B78A21 /* UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
