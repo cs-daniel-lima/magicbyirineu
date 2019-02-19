@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+<<<<<<< HEAD
       codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -38,6 +39,9 @@
             ReferencedContainer = "container:magicbyirineu.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
+=======
+      shouldUseLaunchSchemeArgsEnv = "YES">
+>>>>>>> DynamicCellSizing
       <Testables>
          <TestableReference
             skipped = "NO">

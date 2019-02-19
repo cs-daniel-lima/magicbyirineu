@@ -31,6 +31,8 @@ class SetTableViewCell: UITableViewCell {
     func setupCell() {
         setupView()
         setupCollectionView()
+        self.contentView.layoutIfNeeded()
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,12 +52,23 @@ class SetTableViewCell: UITableViewCell {
             print("Error")
             return
         }
-        flowLayout.itemSize = CGSize(width: 60, height: 75)
-        flowLayout.sectionInset.bottom = 20
-        flowLayout.sectionInset.top = 20
-        flowLayout.sectionInset.left = 20
-        flowLayout.sectionInset.right = 20
+        flowLayout.itemSize = CGSize(width: 85, height: 118)
+        flowLayout.sectionInset.bottom = 16
+        flowLayout.sectionInset.top = 16
+        flowLayout.sectionInset.left = 16
+        flowLayout.sectionInset.right = 16
+        flowLayout.minimumInteritemSpacing = 16
+        flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+        self.categoryCollectionView.isScrollEnabled = false
         
+        
+    }
+    
+    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+        
+        self.categoryCollectionView.layoutIfNeeded()
+        
+        return self.categoryCollectionView.collectionViewLayout.collectionViewContentSize
     }
     
 }
@@ -69,14 +82,14 @@ extension SetTableViewCell: CodeView{
     
     func setupConstraints() {
         setTitleLabel.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview().inset(15)
-            make.height.equalToSuperview().multipliedBy(0.15)
-            make.width.equalToSuperview().multipliedBy(0.8)
+            make.top.equalToSuperview().inset(15)
+            make.left.right.equalToSuperview().inset(15)
         }
         
         categoryCollectionView.snp.makeConstraints { (make) in
+            make.top.equalTo(setTitleLabel.snp.bottom).inset(5)
             make.left.bottom.right.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.75)
+            
         }
     }
     

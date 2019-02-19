@@ -17,8 +17,6 @@ class SetsTableViewDatasource: NSObject, UITableViewDataSource{
     
     private func setupTableView(tableView: UITableView){
         tableView.register(SetTableViewCell.self, forCellReuseIdentifier: "setTableViewCell")
-        //tableView.rowHeight = UITableView.automaticDimension
-        tableView.rowHeight = 300
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,7 +24,11 @@ class SetsTableViewDatasource: NSObject, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "setTableViewCell", for: indexPath) as! SetTableViewCell
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "setTableViewCell", for: indexPath) as? SetTableViewCell else {
+            Logger.logError(in: self, message: "Error casting cell as SetTableViewCell")
+            return UITableViewCell()
+        }
         cell.setupCell()
         return cell
     }

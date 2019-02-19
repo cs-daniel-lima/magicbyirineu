@@ -33,4 +33,7 @@ class SetsTableViewDelegate: NSObject, UITableViewDelegate{
         return view
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
