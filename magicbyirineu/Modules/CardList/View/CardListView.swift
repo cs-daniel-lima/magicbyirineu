@@ -19,6 +19,8 @@ final class CardListView : UIView{
     lazy var searchBar:MagicSearchBar = {
         let view = MagicSearchBar(frame: .zero)
         return view
+    }()
+    
     var setsTableView: UITableView = {
        let view = UITableView(frame: .zero)
        view.backgroundColor = UIColor.clear
