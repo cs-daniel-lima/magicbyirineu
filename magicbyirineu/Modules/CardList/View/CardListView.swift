@@ -19,6 +19,9 @@ final class CardListView : UIView{
     var setsTableView: UITableView = {
        let view = UITableView(frame: .zero)
        view.backgroundColor = UIColor.clear
+       view.sectionHeaderHeight = 50
+       view.sectionIndexBackgroundColor = UIColor.clear
+       view.backgroundView?.backgroundColor = UIColor.clear
        return view
     }()
     

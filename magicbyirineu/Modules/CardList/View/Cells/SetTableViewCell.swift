@@ -16,7 +16,9 @@ class SetTableViewCell: UITableViewCell {
     
     lazy var setTitleLabel: UILabel = {
         var view = UILabel(frame: .zero)
-        view.textColor = UIColor.white
+        view.textColor = UIColor.lightGray
+        view.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+
         view.text = "Test"
         return view
     }()
@@ -68,7 +70,7 @@ extension SetTableViewCell: CodeView{
     
     func setupConstraints() {
         setTitleLabel.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview().inset(10)
+            make.top.left.equalToSuperview().inset(15)
             make.height.equalToSuperview().multipliedBy(0.15)
             make.width.equalToSuperview().multipliedBy(0.8)
         }

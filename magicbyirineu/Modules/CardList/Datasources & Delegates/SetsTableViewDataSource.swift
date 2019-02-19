@@ -38,9 +38,9 @@ class SetsTableViewDatasource: NSObject, UITableViewDataSource{
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Set A"
+            return "Creatures"
         case 1:
-            return "Set B"
+            return "Animals"
         default:
             return "This is a test"
         }

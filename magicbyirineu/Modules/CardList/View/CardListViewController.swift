@@ -40,7 +40,7 @@ extension CardListViewController{
     
     func setupTableView(){
         tableViewDatasource = SetsTableViewDatasource(tableView: self.screen.setsTableView)
-        tableViewDelegate = SetsTableViewDelegate()
+        tableViewDelegate = SetsTableViewDelegate(tableView: self.screen.setsTableView)
         self.screen.setsTableView.delegate = self.tableViewDelegate
         self.screen.setsTableView.dataSource = self.tableViewDatasource
     }
