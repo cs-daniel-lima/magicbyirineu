@@ -21,19 +21,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //Card List View Controller
+        /*
         let router = CardListRouter()
         let rootViewController = router.presenter.view
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
-        
         //Favorites View Controller
+        */
+        
          
         
-        /*
+        
         let rootViewController = MagicTabBarController()
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
-         */
+        
         
         return true
     }

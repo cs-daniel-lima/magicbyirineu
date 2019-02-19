@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CardListView : UIView{
+class CardListView : UIView{
     
     lazy var backgroundImageView:UIImageView = {
         let view = UIImageView(frame: .zero)
