@@ -17,8 +17,7 @@ class SetTableViewCell: UITableViewCell {
     lazy var setTitleLabel: UILabel = {
         var view = UILabel(frame: .zero)
         view.textColor = UIColor.lightGray
-        view.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
-
+        view.font = UIFont(name:"SFProDisplay-Bold", size: 16.0)
         view.text = "Test"
         return view
     }()
@@ -76,7 +75,7 @@ extension SetTableViewCell: CodeView{
         }
         
         categoryCollectionView.snp.makeConstraints { (make) in
-            make.left.bottom.right.equalToSuperview().inset(10)
+            make.left.bottom.right.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.75)
         }
     }

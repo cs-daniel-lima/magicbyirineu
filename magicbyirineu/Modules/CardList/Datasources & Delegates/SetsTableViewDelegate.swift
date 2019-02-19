@@ -21,7 +21,7 @@ class SetsTableViewDelegate: NSObject, UITableViewDelegate{
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
         let text = UILabel(frame: .zero)
         text.textColor = UIColor.white
-        text.font = UIFont(name:"HelveticaNeue-Bold", size: 38)
+        text.font = UIFont(name:"SFProDisplay-Bold", size: 38)
         text.text = tableView.dataSource?.tableView?(self.tableView, titleForHeaderInSection: section) ?? "Não foi 😱"
         view.addSubview(text)
         text.snp.makeConstraints { (make) in

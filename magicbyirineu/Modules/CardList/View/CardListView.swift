@@ -23,6 +23,8 @@ final class CardListView : UIView{
     
     var setsTableView: UITableView = {
        let view = UITableView(frame: .zero)
+       view.allowsSelection = false
+        view.separatorColor = UIColor.clear
        view.backgroundColor = UIColor.clear
        view.sectionHeaderHeight = 50
        view.sectionIndexBackgroundColor = UIColor.clear
