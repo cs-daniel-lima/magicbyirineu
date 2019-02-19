@@ -21,11 +21,15 @@ class CategoriesCollectionViewDataSource: NSObject, UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return Int.random(in: 3..<20)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCollectionViewCell", for: indexPath) as? CardCollectionViewCell else{
+            Logger.logError(in: self, message: "Could not cast cell as CardCollectionView")
+            return UICollectionViewCell()
+        }
         cell.setupCell()
         return cell
     }

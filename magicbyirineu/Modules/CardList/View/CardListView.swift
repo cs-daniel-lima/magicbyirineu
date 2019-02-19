@@ -22,14 +22,18 @@ final class CardListView : UIView{
     }()
     
     var setsTableView: UITableView = {
-       let view = UITableView(frame: .zero)
-       view.allowsSelection = false
+        let view = UITableView(frame: .zero)
+        view.allowsSelection = false
         view.separatorColor = UIColor.clear
-       view.backgroundColor = UIColor.clear
-       view.sectionHeaderHeight = 50
-       view.sectionIndexBackgroundColor = UIColor.clear
-       view.backgroundView?.backgroundColor = UIColor.clear
-       return view
+        view.backgroundColor = UIColor.clear
+        view.sectionHeaderHeight = 50
+        view.sectionIndexBackgroundColor = UIColor.clear
+        view.backgroundView?.backgroundColor = UIColor.clear
+        
+        view.rowHeight = UITableView.automaticDimension
+        view.estimatedRowHeight = 100
+        
+        return view
     }()
     
     override init(frame: CGRect = .zero) {
