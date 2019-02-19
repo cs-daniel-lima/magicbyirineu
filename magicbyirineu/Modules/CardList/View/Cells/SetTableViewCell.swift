@@ -50,11 +50,11 @@ class SetTableViewCell: UITableViewCell {
             print("Error")
             return
         }
-        flowLayout.itemSize = CGSize(width: 60, height: 75)
-        flowLayout.sectionInset.bottom = 20
-        flowLayout.sectionInset.top = 20
-        flowLayout.sectionInset.left = 20
-        flowLayout.sectionInset.right = 20
+        flowLayout.itemSize = CGSize(width: 85, height: 118)
+        flowLayout.sectionInset.bottom = 16
+        flowLayout.sectionInset.top = 16
+        flowLayout.sectionInset.left = 16
+        flowLayout.sectionInset.right = 16
         
     }
     
@@ -69,14 +69,15 @@ extension SetTableViewCell: CodeView{
     
     func setupConstraints() {
         setTitleLabel.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview().inset(15)
-            make.height.equalToSuperview().multipliedBy(0.15)
+            make.left.equalToSuperview().inset(15)
+            make.height.equalToSuperview().multipliedBy(0.1)
             make.width.equalToSuperview().multipliedBy(0.8)
         }
         
         categoryCollectionView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(25)
             make.left.bottom.right.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.75)
+            
         }
     }
     

@@ -7,11 +7,67 @@
 //
 
 import UIKit
+import SnapKit
 
 class CardCollectionViewCell: UICollectionViewCell {
     
+    lazy var shadowView: UIView = {
+        var view = UIView(frame: .zero)
+        view.backgroundColor = UIColor.blue
+        view.layer.cornerRadius = 4
+        
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowRadius = 1
+        view.layer.masksToBounds = false
+        
+        return view
+    }()
+    lazy var roundedView: UIView = {
+        var view = UIView(frame: .zero)
+        view.backgroundColor = UIColor.green
+        view.layer.cornerRadius = 4
+        view.clipsToBounds = true
+        return view
+    }()
+    lazy var backgroundImage: UIImageView = {
+        var view = UIImageView(image: nil, highlightedImage: nil)
+        view.backgroundColor = UIColor.brown
+        view.image = UIImage(named: "testCard")
+        return view
+    }()
+    
     func setupCell(){
-        self.contentView.backgroundColor = UIColor.orange
+        setupView()
     }
+    
+}
+
+extension CardCollectionViewCell: CodeView{
+    func buildViewHierarchy() {
+        self.addSubview(shadowView)
+        self.addSubview(roundedView)
+        self.roundedView.addSubview(backgroundImage)
+    }
+    
+    func setupConstraints() {
+        
+        shadowView.snp.makeConstraints { (make) in
+            make.top.bottom.left.right.equalToSuperview()
+        }
+        roundedView.snp.makeConstraints { (make) in
+            make.top.bottom.left.right.equalToSuperview()
+        }
+        backgroundImage.snp.makeConstraints { (make) in
+            make.top.bottom.left.right.equalToSuperview()
+        }
+        
+    }
+    
+    func additionalSetup() {
+        self.contentView.backgroundColor = UIColor.clear
+    }
+    
     
 }
