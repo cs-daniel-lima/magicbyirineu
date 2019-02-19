@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct Card: Decodable {
+    let name:String
+    let set:String
+    let setName:String
+    let imageUrl:String?
+}
