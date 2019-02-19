@@ -70,7 +70,8 @@ class MagicTabBarController: UITabBarController {
         }
         
         centerLine.snp.makeConstraints { (make) in
-            make.centerX.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalTo(6.8)
             make.width.equalTo(1)
             make.height.equalTo(28.2)
         }
