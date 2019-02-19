@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Reachability
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let reachability = Reachability()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -35,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
          */
         
+        self.startReachability()
+        
         return true
     }
 
@@ -46,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        self.reachability?.stopNotifier()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -54,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        self.startReachability()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -63,3 +69,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+//MARK - Recheability
+extension AppDelegate {
+    
+    func startReachability() {
+        do {
+            try self.reachability?.startNotifier()
+            
+            self.reachability?.whenUnreachable = { _ in
+                let alert = self.alert(tiltle: "Connection Warning", message: "Internet is unreachable")
+                
+                self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
+            
+        } catch {
+            Logger.logError(in: self, message: error.localizedDescription)
+        }
+    }
+    
+    func alert(tiltle:String? = nil, message:String? = nil, actions:[UIAlertAction]? = nil) -> UIAlertController {
+        let alert = UIAlertController(title: tiltle, message: message, preferredStyle: .alert)
+        
+        if let actions = actions {
+            for action in actions {
+                alert.addAction(action)
+            }
+        }else{
+            alert.addAction(
+                UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                    alert.dismiss(animated: true, completion: nil)
+                })
+            )
+        }
+        
+        return alert
+    }
+}

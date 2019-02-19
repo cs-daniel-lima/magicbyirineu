@@ -14,12 +14,14 @@ PODS:
     - iOSSnapshotTestCase (~> 5.0)
     - Nimble (~> 7.0)
   - Quick (1.3.4)
+  - ReachabilitySwift (4.3.0)
 
 DEPENDENCIES:
   - KIF
   - Nimble
   - Nimble-Snapshots
   - Quick
+  - ReachabilitySwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -28,6 +30,7 @@ SPEC REPOS:
     - Nimble
     - Nimble-Snapshots
     - Quick
+    - ReachabilitySwift
 
 SPEC CHECKSUMS:
   iOSSnapshotTestCase: 2d51aa06775e95cecb0a1fb9c5c159ccd1dd4596
@@ -35,7 +38,8 @@ SPEC CHECKSUMS:
   Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
   Nimble-Snapshots: bbd1ab264bacc24a9ce24a8363bc05aac783aeb0
   Quick: f4f7f063c524394c73ed93ac70983c609805d481
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
 
-PODFILE CHECKSUM: 03db6c2d27df654e1a8b6fcb8c568d7f407cf937
+PODFILE CHECKSUM: 0dc7764b0cfbcf4e3d23e11e5446a7e46df5e037
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0
