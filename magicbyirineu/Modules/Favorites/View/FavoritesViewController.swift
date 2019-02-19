@@ -28,6 +28,10 @@ class FavoritesViewController: UIViewController {
         screen.searchBar.setupSearchBar()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return UIStatusBarStyle.lightContent
+    }
+    
     /*
     // MARK: - Navigation
 

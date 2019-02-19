@@ -28,7 +28,7 @@
 		47631B56221B2FA100B78A21 /* buscar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47631B53221B2FA100B78A21 /* buscar@3x.png */; };
 		47631B5F221B39AF00B78A21 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */; };
 		47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B60221B3F0300B78A21 /* MagicSearchBar.swift */; };
-		47631B66221B49AD00B78A21 /* CLSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B65221B49AD00B78A21 /* CLSearchBarSpec.swift */; };
+		47631B66221B49AD00B78A21 /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B65221B49AD00B78A21 /* MagicSearchBarSpec.swift */; };
 		47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B6F221B56C100B78A21 /* MagicTabBarController.swift */; };
 		47631B73221B601200B78A21 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B72221B601200B78A21 /* UIImage.swift */; };
 		476D9D57221C729800272793 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D56221C729800272793 /* FavoritesViewController.swift */; };
@@ -36,6 +36,9 @@
 		476D9D5C221C730900272793 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D5B221C730900272793 /* FavoritesInteractor.swift */; };
 		476D9D5E221C731400272793 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D5D221C731400272793 /* FavoritesRouter.swift */; };
 		476D9D60221C810200272793 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D5F221C810200272793 /* FavoriteView.swift */; };
+		476D9D68221C882800272793 /* FavoritesViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */; };
+		476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D69221C884100272793 /* MagicTabBarControllerSpec.swift */; };
+		476D9D6C221C8BB800272793 /* MagicTabBarMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */; };
 		478BC45A22171E27000579FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC45922171E27000579FE /* AppDelegate.swift */; };
 		478BC46122171E28000579FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46022171E28000579FE /* Assets.xcassets */; };
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
@@ -105,7 +108,7 @@
 		47631B53221B2FA100B78A21 /* buscar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buscar@3x.png"; sourceTree = "<group>"; };
 		47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		47631B60221B3F0300B78A21 /* MagicSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBar.swift; sourceTree = "<group>"; };
-		47631B65221B49AD00B78A21 /* CLSearchBarSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSearchBarSpec.swift; sourceTree = "<group>"; };
+		47631B65221B49AD00B78A21 /* MagicSearchBarSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSearchBarSpec.swift; sourceTree = "<group>"; };
 		47631B6F221B56C100B78A21 /* MagicTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicTabBarController.swift; sourceTree = "<group>"; };
 		47631B72221B601200B78A21 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		476D9D56221C729800272793 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +116,9 @@
 		476D9D5B221C730900272793 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		476D9D5D221C731400272793 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		476D9D5F221C810200272793 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerSpec.swift; sourceTree = "<group>"; };
+		476D9D69221C884100272793 /* MagicTabBarControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicTabBarControllerSpec.swift; sourceTree = "<group>"; };
+		476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MagicTabBarMock.swift; path = magicbyirineuTests/Mocks/MagicTabBarMock.swift; sourceTree = SOURCE_ROOT; };
 		478BC45622171E27000579FE /* magicbyirineu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicbyirineu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478BC45922171E27000579FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		478BC46022171E28000579FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -264,13 +270,6 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		47631B67221B4F8600B78A21 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
 		47631B71221B5FEF00B78A21 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +335,7 @@
 		476D9D62221C850B00272793 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				476D9D69221C884100272793 /* MagicTabBarControllerSpec.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -343,6 +343,7 @@
 		476D9D63221C851300272793 /* CardList */ = {
 			isa = PBXGroup;
 			children = (
+				47631B65221B49AD00B78A21 /* MagicSearchBarSpec.swift */,
 			);
 			path = CardList;
 			sourceTree = "<group>";
@@ -350,8 +351,17 @@
 		476D9D65221C852400272793 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		476D9D6D221C8BD100272793 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		478BC44D22171E27000579FE = {
@@ -392,11 +402,10 @@
 		478BC46D22171E28000579FE /* magicbyirineuTests */ = {
 			isa = PBXGroup;
 			children = (
+				476D9D6D221C8BD100272793 /* Mocks */,
 				476D9D61221C84FE00272793 /* Modules */,
-				47631B67221B4F8600B78A21 /* Mocks */,
 				478BC46E22171E28000579FE /* magicbyirineuTests.swift */,
 				478BC47022171E28000579FE /* Info.plist */,
-				47631B65221B49AD00B78A21 /* CLSearchBarSpec.swift */,
 				187D3451221B475A008E13C3 /* Manager */,
 			);
 			path = magicbyirineuTests;
@@ -766,7 +775,10 @@
 			files = (
 				187D3448221B2023008E13C3 /* APIManagerTests.swift in Sources */,
 				478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */,
-				47631B66221B49AD00B78A21 /* CLSearchBarSpec.swift in Sources */,
+				47631B66221B49AD00B78A21 /* MagicSearchBarSpec.swift in Sources */,
+				476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */,
+				476D9D68221C882800272793 /* FavoritesViewControllerSpec.swift in Sources */,
+				476D9D6C221C8BB800272793 /* MagicTabBarMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
