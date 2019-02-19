@@ -1,5 +1,5 @@
 //
-//  CLSearchBarSpec.swift
+//  MagicSearchBarSpec.swift
 //  magicbyirineuTests
 //
 //  Created by daniel.da.cunha.lima on 18/02/19.
@@ -14,7 +14,7 @@ import Nimble_Snapshots
 
 @testable import magicbyirineu
 
-class CLSearchBarSpec:QuickSpec{
+class MagicSearchBarSpec:QuickSpec{
     
     override func spec() {
         
