@@ -97,8 +97,6 @@ class MagicTabBarController: UITabBarController {
         
         item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
         
-        print("asdf")
-        
     }
     
 }

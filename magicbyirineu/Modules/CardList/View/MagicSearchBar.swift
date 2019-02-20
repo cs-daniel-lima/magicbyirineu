@@ -25,7 +25,8 @@ class MagicSearchBar: UISearchBar {
         
         setupSearchBar()
         setupBarButtonItem()
-        
+        setupTextFieldBorders()
+        setupTextFieldPlaceholder()
         
     }
     

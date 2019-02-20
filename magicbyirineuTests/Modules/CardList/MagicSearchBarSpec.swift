@@ -23,7 +23,9 @@ class MagicSearchBarSpec:QuickSpec{
         
         beforeEach {
             viewController = UIViewController()
-            sut = MagicSearchBar(frame: CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: 56))
+            
+            sut = MagicSearchBar(frame: CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: 56), font: UIFont(name: "SFProDisplay-Bold", size: 14)!)
+            
             UIApplication.shared.keyWindow?.rootViewController = viewController
             viewController.view.addSubview(sut)
             sut.afterDisplaySetup()
