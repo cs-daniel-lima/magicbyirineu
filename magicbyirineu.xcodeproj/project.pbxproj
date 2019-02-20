@@ -23,9 +23,6 @@
 		187D3450221B40D7008E13C3 /* ResponseCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344F221B40D7008E13C3 /* ResponseCards.swift */; };
 		473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
 		473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		47631B54221B2FA100B78A21 /* buscar.png in Resources */ = {isa = PBXBuildFile; fileRef = 47631B51221B2FA100B78A21 /* buscar.png */; };
-		47631B55221B2FA100B78A21 /* buscar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47631B52221B2FA100B78A21 /* buscar@2x.png */; };
-		47631B56221B2FA100B78A21 /* buscar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47631B53221B2FA100B78A21 /* buscar@3x.png */; };
 		47631B5F221B39AF00B78A21 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */; };
 		47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B60221B3F0300B78A21 /* MagicSearchBar.swift */; };
 		47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B6F221B56C100B78A21 /* MagicTabBarController.swift */; };
@@ -43,9 +40,6 @@
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
 		478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC46E22171E28000579FE /* magicbyirineuTests.swift */; };
 		478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D92C2221B0C04004EA8B3 /* CodeView.swift */; };
-		478D92C8221B0E07004EA8B3 /* fundo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 478D92C5221B0E07004EA8B3 /* fundo@3x.png */; };
-		478D92C9221B0E07004EA8B3 /* fundo.png in Resources */ = {isa = PBXBuildFile; fileRef = 478D92C6221B0E07004EA8B3 /* fundo.png */; };
-		478D92CA221B0E07004EA8B3 /* fundo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 478D92C7221B0E07004EA8B3 /* fundo@2x.png */; };
 		47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
 		DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C2E221AF1EA00426578 /* CardListRouter.swift */; };
@@ -103,9 +97,6 @@
 		187D344D221B40CC008E13C3 /* GetCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCards.swift; sourceTree = "<group>"; };
 		187D344F221B40D7008E13C3 /* ResponseCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCards.swift; sourceTree = "<group>"; };
 		473C8D6222174F400095CC4C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		47631B51221B2FA100B78A21 /* buscar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buscar.png; sourceTree = "<group>"; };
-		47631B52221B2FA100B78A21 /* buscar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buscar@2x.png"; sourceTree = "<group>"; };
-		47631B53221B2FA100B78A21 /* buscar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buscar@3x.png"; sourceTree = "<group>"; };
 		47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		47631B60221B3F0300B78A21 /* MagicSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBar.swift; sourceTree = "<group>"; };
 		47631B6F221B56C100B78A21 /* MagicTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicTabBarController.swift; sourceTree = "<group>"; };
@@ -127,9 +118,6 @@
 		478BC46E22171E28000579FE /* magicbyirineuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magicbyirineuTests.swift; sourceTree = "<group>"; };
 		478BC47022171E28000579FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		478D92C2221B0C04004EA8B3 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
-		478D92C5221B0E07004EA8B3 /* fundo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fundo@3x.png"; sourceTree = "<group>"; };
-		478D92C6221B0E07004EA8B3 /* fundo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fundo.png; sourceTree = "<group>"; };
-		478D92C7221B0E07004EA8B3 /* fundo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fundo@2x.png"; sourceTree = "<group>"; };
 		47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBarSpec.swift; sourceTree = "<group>"; };
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34616E3BD7F470AF4450BD /* Pods-magicbyirineu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -419,24 +407,10 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		478D92C4221B0DE3004EA8B3 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				47631B51221B2FA100B78A21 /* buscar.png */,
-				47631B52221B2FA100B78A21 /* buscar@2x.png */,
-				47631B53221B2FA100B78A21 /* buscar@3x.png */,
-				478D92C6221B0E07004EA8B3 /* fundo.png */,
-				478D92C7221B0E07004EA8B3 /* fundo@2x.png */,
-				478D92C5221B0E07004EA8B3 /* fundo@3x.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		DDE32C25221AF15F00426578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				47631B5D221B397400B78A21 /* Fonts */,
-				478D92C4221B0DE3004EA8B3 /* Images */,
 				478BC46022171E28000579FE /* Assets.xcassets */,
 				478BC46222171E28000579FE /* LaunchScreen.storyboard */,
 				478BC46522171E28000579FE /* Info.plist */,
@@ -629,15 +603,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				478D92C9221B0E07004EA8B3 /* fundo.png in Resources */,
-				47631B55221B2FA100B78A21 /* buscar@2x.png in Resources */,
 				47631B5F221B39AF00B78A21 /* SF-Pro-Display-Bold.otf in Resources */,
-				47631B54221B2FA100B78A21 /* buscar.png in Resources */,
-				47631B56221B2FA100B78A21 /* buscar@3x.png in Resources */,
-				478D92CA221B0E07004EA8B3 /* fundo@2x.png in Resources */,
 				478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */,
 				478BC46122171E28000579FE /* Assets.xcassets in Resources */,
-				478D92C8221B0E07004EA8B3 /* fundo@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
