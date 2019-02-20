@@ -11,7 +11,7 @@ import UIKit
 class FavoritesViewController: UIViewController {
     
     var presenter:FavoritesPresenter!
-    let screen = FavoriteView()
+    let screen = CardListView()
     
     override func loadView() {
         super.loadView()

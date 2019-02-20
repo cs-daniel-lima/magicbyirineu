@@ -10,15 +10,15 @@ import Foundation
 import SnapKit
 
 protocol CodeView {
+    func additionalSetup()
     func buildViewHierarchy()
     func setupConstraints()
-    func additionalSetup()
 }
 
 extension CodeView{
     func setupView(){
+        additionalSetup()
         buildViewHierarchy()
         setupConstraints()
-        additionalSetup()
     }
 }

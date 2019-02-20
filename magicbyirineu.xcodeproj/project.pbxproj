@@ -31,7 +31,6 @@
 		476D9D5A221C72F400272793 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D59221C72F400272793 /* FavoritesPresenter.swift */; };
 		476D9D5C221C730900272793 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D5B221C730900272793 /* FavoritesInteractor.swift */; };
 		476D9D5E221C731400272793 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D5D221C731400272793 /* FavoritesRouter.swift */; };
-		476D9D60221C810200272793 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D5F221C810200272793 /* FavoriteView.swift */; };
 		476D9D68221C882800272793 /* FavoritesViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */; };
 		476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D69221C884100272793 /* MagicTabBarControllerSpec.swift */; };
 		476D9D6C221C8BB800272793 /* MagicTabBarMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */; };
@@ -105,7 +104,6 @@
 		476D9D59221C72F400272793 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		476D9D5B221C730900272793 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		476D9D5D221C731400272793 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
-		476D9D5F221C810200272793 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerSpec.swift; sourceTree = "<group>"; };
 		476D9D69221C884100272793 /* MagicTabBarControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicTabBarControllerSpec.swift; sourceTree = "<group>"; };
 		476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MagicTabBarMock.swift; path = magicbyirineuTests/Mocks/MagicTabBarMock.swift; sourceTree = SOURCE_ROOT; };
@@ -305,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				476D9D56221C729800272793 /* FavoritesViewController.swift */,
-				476D9D5F221C810200272793 /* FavoriteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -745,7 +742,6 @@
 				187D3443221B1D1A008E13C3 /* CardSet.swift in Sources */,
 				187D3446221B1E55008E13C3 /* Logger.swift in Sources */,
 				476D9D5C221C730900272793 /* FavoritesInteractor.swift in Sources */,
-				476D9D60221C810200272793 /* FavoriteView.swift in Sources */,
 				187D3438221B199E008E13C3 /* Error.swift in Sources */,
 				187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */,
 				DDE32C3A221B11C700426578 /* APIManager.swift in Sources */,

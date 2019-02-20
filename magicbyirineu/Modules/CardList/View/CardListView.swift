@@ -10,18 +10,18 @@ import UIKit
 
 class CardListView : UIView{
     
-    lazy var backgroundImageView:UIImageView = {
+    let backgroundImageView:UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
         return view
     }()
     
-    lazy var searchBar:MagicSearchBar = {
+    let searchBar:MagicSearchBar = {
         let view = MagicSearchBar(frame: .zero)
         return view
     }()
     
-    var setsTableView: UITableView = {
+    let setsTableView: UITableView = {
         let view = UITableView(frame: .zero)
         view.allowsSelection = false
         view.separatorColor = UIColor.clear
