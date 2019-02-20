@@ -703,7 +703,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KIF/KIF.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework",
@@ -722,7 +722,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FC8A87B0826EABB1F9A748EA /* [CP] Check Pods Manifest.lock */ = {

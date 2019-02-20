@@ -8,10 +8,10 @@ target 'magicbyirineu' do
   pod 'ReachabilitySwift'
   
   def testing_pods
-    pod 'Nimble-Snapshots'
-    pod 'Quick'
-    pod 'Nimble'
-    pod 'KIF', :configurations => ['Debug']
+    pod 'Nimble-Snapshots', '6.9.1'
+    pod 'Quick', '1.3.4'
+    pod 'Nimble', '7.3.4'
+    pod 'KIF', '3.7.4', :configurations => ['Debug']
   end
 
   # Pods for magicbyirineu
