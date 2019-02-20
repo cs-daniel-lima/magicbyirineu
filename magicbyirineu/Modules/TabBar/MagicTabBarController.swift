@@ -10,46 +10,49 @@ import UIKit
 
 class MagicTabBarController: UITabBarController {
     
-    let cardListRouter = CardListRouter()
-    let favoritesRouter = FavoritesRouter()
+    let tabBarViewControllers:[UIViewController]
+    
+    init(viewControllers:[UIViewController]){
+        self.tabBarViewControllers = viewControllers
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         setupTabBar()
+        setupTabBarColors()
+        setupTabBarBorders()
+    }
+    
+    func setupTabBar(){
+        
+        for viewController in tabBarViewControllers{
+            
+            let tabBarItem = UITabBarItem(title: viewController.title, image: nil, selectedImage: nil)
+            setupTabBarItem(item: tabBarItem)
+            viewController.tabBarItem = tabBarItem
+            
+        }
+        
+        viewControllers = tabBarViewControllers
         
     }
     
-    /**
-     Setup the appearance of the tabbar
-     */
-    func setupTabBar(){
-        
-        let firstViewController = cardListRouter.presenter.view
-        let secondViewController = favoritesRouter.presenter.view
-        
-        //Items
-        let cardsBarItem = UITabBarItem(title: "Cards", image: nil, tag: 0)
-        let favoritesBarItem = UITabBarItem(title: "Favorites", image: nil, tag: 1)
-        
-        //Set items
-        firstViewController.tabBarItem = cardsBarItem
-        secondViewController.tabBarItem = favoritesBarItem
-        
-        viewControllers = [firstViewController, secondViewController]
-        
-        //appearance
-        let backgroundBar = UIImage(color: .clear, size: tabBar.frame.size)
+    func setupTabBarColors(){
+        let tabBarBackground = UIImage(color: .clear, size: tabBar.frame.size)
         
         tabBar.backgroundColor = .clear
         tabBar.tintColor = .white
         tabBar.barTintColor = .white
-        tabBar.backgroundImage = backgroundBar
+        tabBar.backgroundImage = tabBarBackground
+    }
+    
+    func setupTabBarBorders(){
         
-        setupTabBarItem(item: cardsBarItem)
-        setupTabBarItem(item: favoritesBarItem)
-        
-        //borders
         tabBar.layer.borderWidth = 0
         tabBar.clipsToBounds = true
         
@@ -78,9 +81,6 @@ class MagicTabBarController: UITabBarController {
         
     }
     
-    /**
-     Setup the appearance of the TabBarItem
-     */
     func setupTabBarItem(item:UITabBarItem){
         
         let tabbarFont = UIFont(name: "SFProDisplay-Bold", size: 16)
@@ -96,6 +96,8 @@ class MagicTabBarController: UITabBarController {
             ], for: UIControl.State.selected)
         
         item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
+        
+        print("asdf")
         
     }
     

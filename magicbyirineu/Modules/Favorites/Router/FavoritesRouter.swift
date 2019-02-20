@@ -14,7 +14,7 @@ class FavoritesRouter {
     
     init(){
         
-        let viewController = FavoritesViewController()
+        let viewController = FavoritesViewController(title: "Favorites")
         let interactor = FavoritesInteractor()
         
         presenter = FavoritesPresenter(router: self, interactor: interactor, view: viewController)

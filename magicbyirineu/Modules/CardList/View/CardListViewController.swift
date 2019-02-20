@@ -16,6 +16,15 @@ class CardListViewController: UIViewController {
     var tableViewDelegate: SetsTableViewDelegate!
     var tableViewDatasource: SetsTableViewDatasource!
     
+    required init(title:String){
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         super.loadView()
         self.view = screen
@@ -30,7 +39,7 @@ class CardListViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        screen.searchBar.setupSearchBar()
+        screen.searchBar.afterDisplaySetup()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

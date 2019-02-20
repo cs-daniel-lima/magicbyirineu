@@ -21,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing the Root ViewController for working with CodeView
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        let rootViewController = MagicTabBarController()
+        let cardListRouter = CardListRouter()
+        let favoritesRouter = FavoritesRouter()
+        
+        let rootViewController = MagicTabBarController(viewControllers: [cardListRouter.presenter.view, favoritesRouter.presenter.view])
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
         

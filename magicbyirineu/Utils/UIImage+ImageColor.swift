@@ -1,5 +1,5 @@
 //
-//  UIImage.swift
+//  UIImage+ImageColor.swift
 //  magicbyirineu
 //
 //  Created by daniel.da.cunha.lima on 18/02/19.

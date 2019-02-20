@@ -15,10 +15,10 @@ class CardListRouter:NSObject {
     override init() {
         super.init()
         
-        let viewController = CardListViewController()
+        let viewController = CardListViewController(title: "Cards")
         let interactor = CardListInteractor()
-    
+        
         self.presenter = CardListPresenter(router:self, interactor:interactor, view:viewController)
+        
     }
-    
 }
