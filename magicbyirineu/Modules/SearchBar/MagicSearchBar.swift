@@ -52,7 +52,9 @@ class MagicSearchBar: UISearchBar {
     
     func setupTextFieldBorders(){
         
-        let textField = value(forKey: "_searchField") as! UITextField
+        guard let textField = value(forKey: "_searchField") as? UITextField else {
+            return
+        }
         
         textField.borderStyle = .none
         textField.backgroundColor = UIColor.clear
@@ -65,7 +67,9 @@ class MagicSearchBar: UISearchBar {
     
     func setupTextFieldPlaceholder(){
         
-        let textField = value(forKey: "_searchField") as! UITextField
+        guard let textField = value(forKey: "_searchField") as? UITextField else {
+            return
+        }
         
         textField.textColor = UIColor.white
         textField.attributedPlaceholder =
@@ -74,9 +78,11 @@ class MagicSearchBar: UISearchBar {
         
     }
     
-    func afterDisplaySetup(){
+    func additionalSetupAfterDisplay(){
         
-        let textField = value(forKey: "_searchField") as! UITextField
+        guard let textField = value(forKey: "_searchField") as? UITextField else {
+            return
+        }
         
         //Left padding
         let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
@@ -88,6 +94,5 @@ class MagicSearchBar: UISearchBar {
         textField.rightViewMode = .always
         
     }
-    
     
 }

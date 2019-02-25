@@ -32,7 +32,8 @@ class FavoritesViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        screen.searchBar.afterDisplaySetup()
+        super.viewDidAppear(animated)
+        screen.searchBar.additionalSetupAfterDisplay()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

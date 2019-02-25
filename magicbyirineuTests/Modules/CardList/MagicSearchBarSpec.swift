@@ -28,7 +28,7 @@ class MagicSearchBarSpec:QuickSpec{
             
             UIApplication.shared.keyWindow?.rootViewController = viewController
             viewController.view.addSubview(sut)
-            sut.afterDisplaySetup()
+            sut.additionalSetupAfterDisplay()
         }
         
         context("when it is initialized"){

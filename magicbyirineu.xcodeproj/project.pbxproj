@@ -404,6 +404,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		47941D222224193D00202E73 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				47631B60221B3F0300B78A21 /* MagicSearchBar.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		DDE32C25221AF15F00426578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,7 +464,6 @@
 			children = (
 				DDE32C42221B209300426578 /* Cells */,
 				DDE32C33221AF20900426578 /* CardListView.swift */,
-				47631B60221B3F0300B78A21 /* MagicSearchBar.swift */,
 				DDE32C37221AF22F00426578 /* CardListViewController.swift */,
 			);
 			path = View;
@@ -487,6 +494,7 @@
 		DDE32C2D221AF1C500426578 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				47941D222224193D00202E73 /* SearchBar */,
 				47631B64221B472200B78A21 /* TabBar */,
 				DDE32C26221AF17800426578 /* CardList */,
 				476D9D51221C723D00272793 /* Favorites */,
