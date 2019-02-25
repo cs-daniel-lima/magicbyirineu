@@ -1,5 +1,5 @@
 //
-//  GetCards.swift
+//  RequestCards.swift
 //  magicbyirineu
 //
 //  Created by kaique.magno.santos on 18/02/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class GetCards: APIRequest {
+final class RequestCards: APIRequest {
     typealias Response = ResponseCards
     
     var endpoint: String {

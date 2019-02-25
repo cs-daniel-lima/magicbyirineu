@@ -18,7 +18,7 @@ extension CardListPresenter:UISearchBarDelegate{
             print("Buscar: ", searchText)
             
             let manager = APIManager()
-            let request = GetCards(page: 0, name: searchText)
+            let request = RequestCards(page: 0, name: searchText)
             
             manager.fetch(request) { (result) in
                 

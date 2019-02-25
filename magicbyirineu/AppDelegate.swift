@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cardListRouter = CardListRouter()
         let favoritesRouter = FavoritesRouter()
         
-        let rootViewController = MagicTabBarController(viewControllers: [cardListRouter.presenter.view, favoritesRouter.presenter.view])
+        let rootViewController = MagicTabBarController(viewControllers: [cardListRouter.presenter!.view, favoritesRouter.presenter.view])
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
         

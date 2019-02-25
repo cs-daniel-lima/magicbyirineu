@@ -13,4 +13,5 @@ struct Card: Decodable {
     let set:String
     let setName:String
     let imageUrl:String?
+    let types:[String]
 }

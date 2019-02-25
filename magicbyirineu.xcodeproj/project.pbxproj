@@ -13,14 +13,19 @@
 		187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3434221B1988008E13C3 /* URLQueryEncoder.swift */; };
 		187D3438221B199E008E13C3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3437221B199D008E13C3 /* Error.swift */; };
 		187D343B221B19C6008E13C3 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D343A221B19C6008E13C3 /* APIRequest.swift */; };
-		187D343F221B1C4A008E13C3 /* GetSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D343E221B1C4A008E13C3 /* GetSets.swift */; };
+		187D343F221B1C4A008E13C3 /* RequestSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D343E221B1C4A008E13C3 /* RequestSets.swift */; };
 		187D3443221B1D1A008E13C3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3442221B1D1A008E13C3 /* CardSet.swift */; };
 		187D3446221B1E55008E13C3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3445221B1E55008E13C3 /* Logger.swift */; };
 		187D3448221B2023008E13C3 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3447221B2023008E13C3 /* APIManagerTests.swift */; };
 		187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3449221B21DA008E13C3 /* ResponseError.swift */; };
 		187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344B221B2205008E13C3 /* ResponseSets.swift */; };
-		187D344E221B40CC008E13C3 /* GetCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344D221B40CC008E13C3 /* GetCards.swift */; };
+		187D344E221B40CC008E13C3 /* RequestCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344D221B40CC008E13C3 /* RequestCards.swift */; };
 		187D3450221B40D7008E13C3 /* ResponseCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344F221B40D7008E13C3 /* ResponseCards.swift */; };
+		18834D34222466CC00565141 /* RequestCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834D33222466CC00565141 /* RequestCategories.swift */; };
+		18834D36222466EB00565141 /* ResponseCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834D35222466EB00565141 /* ResponseCategories.swift */; };
+		18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */; };
+		18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */; };
+		18D8A5A222246FA400663C44 /* UIImage+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A5A122246FA400663C44 /* UIImage+DownloadImage.swift */; };
 		473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
 		473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		47631B5F221B39AF00B78A21 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */; };
@@ -50,9 +55,6 @@
 		DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C37221AF22F00426578 /* CardListViewController.swift */; };
 		DDE32C3A221B11C700426578 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C39221B11C700426578 /* APIManager.swift */; };
 		DDE32C3C221B11E300426578 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C3B221B11E300426578 /* Card.swift */; };
-		DDE32C3F221B15F500426578 /* SetsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C3E221B15F500426578 /* SetsTableViewDelegate.swift */; };
-		DDE32C41221B160600426578 /* SetsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C40221B160600426578 /* SetsTableViewDataSource.swift */; };
-		DDE32C44221B20AE00426578 /* SetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C43221B20AE00426578 /* SetTableViewCell.swift */; };
 		DDE32C46221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C45221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift */; };
 		DDE32C48221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C47221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift */; };
 		DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */; };
@@ -89,14 +91,19 @@
 		187D3434221B1988008E13C3 /* URLQueryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryEncoder.swift; sourceTree = "<group>"; };
 		187D3437221B199D008E13C3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		187D343A221B19C6008E13C3 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		187D343E221B1C4A008E13C3 /* GetSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSets.swift; sourceTree = "<group>"; };
+		187D343E221B1C4A008E13C3 /* RequestSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSets.swift; sourceTree = "<group>"; };
 		187D3442221B1D1A008E13C3 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		187D3445221B1E55008E13C3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		187D3447221B2023008E13C3 /* APIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		187D3449221B21DA008E13C3 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		187D344B221B2205008E13C3 /* ResponseSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSets.swift; sourceTree = "<group>"; };
-		187D344D221B40CC008E13C3 /* GetCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCards.swift; sourceTree = "<group>"; };
+		187D344D221B40CC008E13C3 /* RequestCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCards.swift; sourceTree = "<group>"; };
 		187D344F221B40D7008E13C3 /* ResponseCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCards.swift; sourceTree = "<group>"; };
+		18834D33222466CC00565141 /* RequestCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCategories.swift; sourceTree = "<group>"; };
+		18834D35222466EB00565141 /* ResponseCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCategories.swift; sourceTree = "<group>"; };
+		18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCollectionReusableView.swift; sourceTree = "<group>"; };
+		18D8A5A122246FA400663C44 /* UIImage+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DownloadImage.swift"; sourceTree = "<group>"; };
 		473C8D6222174F400095CC4C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		47631B60221B3F0300B78A21 /* MagicSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBar.swift; sourceTree = "<group>"; };
@@ -131,9 +138,6 @@
 		DDE32C37221AF22F00426578 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		DDE32C39221B11C700426578 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		DDE32C3B221B11E300426578 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		DDE32C3E221B15F500426578 /* SetsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableViewDelegate.swift; sourceTree = "<group>"; };
-		DDE32C40221B160600426578 /* SetsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableViewDataSource.swift; sourceTree = "<group>"; };
-		DDE32C43221B20AE00426578 /* SetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTableViewCell.swift; sourceTree = "<group>"; };
 		DDE32C45221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		DDE32C47221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -212,8 +216,9 @@
 		187D343C221B1B09008E13C3 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				187D344D221B40CC008E13C3 /* GetCards.swift */,
-				187D343E221B1C4A008E13C3 /* GetSets.swift */,
+				187D344D221B40CC008E13C3 /* RequestCards.swift */,
+				187D343E221B1C4A008E13C3 /* RequestSets.swift */,
+				18834D33222466CC00565141 /* RequestCategories.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			children = (
 				187D344F221B40D7008E13C3 /* ResponseCards.swift */,
 				187D344B221B2205008E13C3 /* ResponseSets.swift */,
+				18834D35222466EB00565141 /* ResponseCategories.swift */,
 				187D3449221B21DA008E13C3 /* ResponseError.swift */,
 			);
 			path = Response;
@@ -242,6 +248,14 @@
 				187D3447221B2023008E13C3 /* APIManagerTests.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		18D8A5A022246F9300663C44 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				18D8A5A122246FA400663C44 /* UIImage+DownloadImage.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		47631B5D221B397400B78A21 /* Fonts */ = {
@@ -378,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				478BC45922171E27000579FE /* AppDelegate.swift */,
+				18D8A5A022246F9300663C44 /* Extensions */,
 				187D3444221B1E4F008E13C3 /* Util */,
 				DDE32C2D221AF1C500426578 /* Modules */,
 				DDE32C2C221AF1B800426578 /* Manager */,
@@ -511,8 +526,6 @@
 		DDE32C3D221B142C00426578 /* Datasources & Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				DDE32C3E221B15F500426578 /* SetsTableViewDelegate.swift */,
-				DDE32C40221B160600426578 /* SetsTableViewDataSource.swift */,
 				DDE32C45221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift */,
 				DDE32C47221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift */,
 			);
@@ -522,8 +535,9 @@
 		DDE32C42221B209300426578 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				DDE32C43221B20AE00426578 /* SetTableViewCell.swift */,
+				18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */,
 				DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */,
+				18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -733,19 +747,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDE32C44221B20AE00426578 /* SetTableViewCell.swift in Sources */,
+				18834D36222466EB00565141 /* ResponseCategories.swift in Sources */,
 				DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */,
 				187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */,
-				187D343F221B1C4A008E13C3 /* GetSets.swift in Sources */,
+				187D343F221B1C4A008E13C3 /* RequestSets.swift in Sources */,
 				DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */,
 				187D3433221B1958008E13C3 /* HTTPParameter.swift in Sources */,
 				478BC45A22171E27000579FE /* AppDelegate.swift in Sources */,
+				18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */,
 				DDE32C34221AF20900426578 /* CardListView.swift in Sources */,
 				DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */,
-				DDE32C3F221B15F500426578 /* SetsTableViewDelegate.swift in Sources */,
 				47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */,
 				47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */,
-				DDE32C41221B160600426578 /* SetsTableViewDataSource.swift in Sources */,
+				18D8A5A222246FA400663C44 /* UIImage+DownloadImage.swift in Sources */,
 				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
 				476D9D5E221C731400272793 /* FavoritesRouter.swift in Sources */,
 				187D343B221B19C6008E13C3 /* APIRequest.swift in Sources */,
@@ -757,10 +771,12 @@
 				187D3446221B1E55008E13C3 /* Logger.swift in Sources */,
 				476D9D5C221C730900272793 /* FavoritesInteractor.swift in Sources */,
 				187D3438221B199E008E13C3 /* Error.swift in Sources */,
+				18834D34222466CC00565141 /* RequestCategories.swift in Sources */,
 				187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */,
+				18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */,
 				DDE32C3A221B11C700426578 /* APIManager.swift in Sources */,
 				187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */,
-				187D344E221B40CC008E13C3 /* GetCards.swift in Sources */,
+				187D344E221B40CC008E13C3 /* RequestCards.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
 				47631B73221B601200B78A21 /* UIImage+ImageColor.swift in Sources */,
 				DDE32C46221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift in Sources */,
@@ -929,7 +945,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VY9L7K3A35;
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -952,7 +968,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VY9L7K3A35;
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

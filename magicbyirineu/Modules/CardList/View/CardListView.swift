@@ -21,17 +21,10 @@ class CardListView : UIView{
         return view
     }()
     
-    let setsTableView: UITableView = {
-        let view = UITableView(frame: .zero)
-        view.allowsSelection = false
-        view.separatorColor = UIColor.clear
-        view.backgroundColor = UIColor.clear
-        view.sectionHeaderHeight = 50
-        view.sectionIndexBackgroundColor = UIColor.clear
-        view.backgroundView?.backgroundColor = UIColor.clear
+    let collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()    )
         
-        view.rowHeight = UITableView.automaticDimension
-        view.estimatedRowHeight = 100
+        view.backgroundView?.backgroundColor = UIColor.clear
         
         return view
     }()
@@ -51,7 +44,7 @@ extension CardListView :CodeView{
     
     func buildViewHierarchy() {
         addSubview(backgroundImageView)
-        addSubview(setsTableView)
+        addSubview(collectionView)
         addSubview(searchBar)
     }
     
@@ -60,7 +53,7 @@ extension CardListView :CodeView{
         backgroundImageView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalTo(0)
         }
-        setsTableView.snp.makeConstraints { (make) in
+        collectionView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.85)
         }

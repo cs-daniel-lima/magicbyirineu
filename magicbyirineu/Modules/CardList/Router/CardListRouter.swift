@@ -16,7 +16,7 @@ class CardListRouter:NSObject {
         super.init()
         
         let viewController = CardListViewController(title: "Cards")
-        let interactor = CardListInteractor()
+        let interactor = CardListInteractor(apiManager: APIManager())
         
         self.presenter = CardListPresenter(router:self, interactor:interactor, view:viewController)
         

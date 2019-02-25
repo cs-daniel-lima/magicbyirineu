@@ -14,3 +14,5 @@ struct CardSet: Decodable {
     let type:String
     let releaseDate:Date
 }
+
+extension CardSet: Hashable {}

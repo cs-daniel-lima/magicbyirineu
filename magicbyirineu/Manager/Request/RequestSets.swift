@@ -1,5 +1,5 @@
 //
-//  GetSets.swift
+//  RequestSets.swift
 //  magicbyirineu
 //
 //  Created by kaique.magno.santos on 18/02/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class GetSets: APIRequest {
+final class RequestSets: APIRequest {
     typealias Response = ResponseSets
     
     var endpoint: String {
