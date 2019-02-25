@@ -49,6 +49,8 @@ class CardListInteractor: NSObject {
         case .loading:
             return [Card]()
         }
+        
+        return [Card]()
     }
     
     private var cardsPage:Int = 0
@@ -65,6 +67,7 @@ class CardListInteractor: NSObject {
         }
     }
     
+    
     private var _status:Status = .normal
     private(set) var status:Status {
         get{
@@ -76,13 +79,10 @@ class CardListInteractor: NSObject {
         }
         set{
             _status = newValue
-            self.status = _status
         }
     }
     
-    var objectsBySet:[CardSet:[Any]] {
-        return self.sequenceOfCategoriesAndCardsBySets()
-    }
+    var objectsBySet:[Int:[Any]] = [Int:[Any]]()
     
     //MARK: - NSObject functions
     init(apiManager:APIManager) {
@@ -149,11 +149,21 @@ class CardListInteractor: NSObject {
     }
     
     func fetchCards(page:Int? = 0) {
+        self.pageLastModified = self.page
+        if let pageVerified = page {
+            if pageVerified >= self.page {
+                self.cardsPage = pageVerified
+            } else {
+                self.cardsPage = self.page <= 1 ? 1: self.cardsPage - 1
+            }
+        }
+        
         let request = RequestCards(page: page, name: nil)
         self.apiManager.fetch(request) { (result) in
             switch result {
             case .success(let response):
-                self.fetchedCards = response.cards
+                self.fetchedCards.append(contentsOf: response.cards)
+                self.objectsBySet = self.sequenceOfCategoriesAndCardsBySection()
                 self.delegate?.didLoad()
                 
             case .failure(let error):
@@ -163,35 +173,28 @@ class CardListInteractor: NSObject {
     }
     
     func fetchSearchingCards(page:Int? = 0, cardName:String) {
+        self.pageLastModified = self.page
+        if let pageVerified = page {
+            if pageVerified >= self.page {
+                self.searchingCardsPage = pageVerified
+            } else {
+                self.searchingCardsPage = self.page <= 1 ? 1: self.searchingCardsPage - 1
+            }
+        }
+        
         let request = RequestCards(page: page, name: cardName)
         self.apiManager.fetch(request) { (result) in
             switch result {
             case .success(let response):
-                self.searchedCards = response.cards
+                self.searchedCards.append(contentsOf: response.cards)
+                self.objectsBySet = self.sequenceOfCategoriesAndCardsBySection()
+                self.delegate?.didLoad()
                 
             case .failure(let error):
                 self.delegate?.didLoad(error: error)
             }
         }
     }
-    
-    //MARK: Public
-    func reload() {
-        self.cleanAll()
-        
-        self.fetch()
-    }
-    
-    func cancelSearch() {
-        self.cleanSearchData()
-        self.status = .normal
-    }
-    
-    func change(status: Status) {
-        self.cleanSearchData()
-        self.status = status
-    }
-    
     
     func fetch(page: Int? = nil) {
         //Activate search
@@ -205,6 +208,26 @@ class CardListInteractor: NSObject {
             self.fetchCards()
         }
     }
+    
+    //MARK: Public
+    func reload() {
+        self.cleanAll()
+        
+        self.fetch()
+    }
+    
+    func cancelSearch() {
+        self.cleanSearchData()
+        self.status = .normal
+        self.objectsBySet = self.sequenceOfCategoriesAndCardsBySection()
+    }
+    
+    func change(status: Status) {
+        self.cleanSearchData()
+        self.status = status
+    }
+    
+    
     
     func postStatus() {
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: Constant.notificationUpdatedStatus.rawValue)))
@@ -271,26 +294,17 @@ class CardListInteractor: NSObject {
         return self.sequenceOfCategoriesAndCards(by: set)
     }
     
-    func sequenceOfCategoriesAndCardsBySets() -> [CardSet:[Any]] {
-        var objects:[CardSet:[Any]] = [CardSet:[Any]]()
+    func sequenceOfCategoriesAndCardsBySection() -> [Int:[Any]] {
+        var objects:[Int:[Any]] = [Int:[Any]]()
         
-        for set in self.sets {
+        for i in 0..<self.sets.count {
+            let set = self.sets[i]
             let objectsArray = self.sequenceOfCategoriesAndCards(by: set)
             if objectsArray.count > 0 {
-                objects[set] = objectsArray
+                objects[i] = objectsArray
             }
         }
         
         return objects
-    }
-    
-    
-    func object(by indexPath:IndexPath) -> Any {
-        let objects = self.sequenceOfCategoriesAndCardsBySets()
-        let set = self.sets[indexPath.section]
-        let objectsArray = objects[set]
-        let object = objectsArray![indexPath.row]
-        
-        return object
     }
 }

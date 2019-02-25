@@ -11,6 +11,9 @@ import SDWebImage
 
 class CardListPresenter:NSObject{
     
+    // MARK: Private
+    private var query:String?
+    
     var router: CardListRouter!
     var interactor: CardListInteractor!
     var view: CardListViewController!
@@ -23,8 +26,9 @@ class CardListPresenter:NSObject{
         super.init()
         
         self.view.screen.collectionView.dataSource = self
+        self.view.screen.collectionView.prefetchDataSource = self
         self.view.screen.collectionView.delegate = self
-        
+        self.view.screen.searchBar.delegate = self
         
         self.interactor.delegate = self
         
@@ -46,13 +50,14 @@ extension CardListPresenter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.interactor.sequenceOfCategoriesAndCards(by: section).count
+        return (self.interactor.objectsBySet[section] ?? [Any]()).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell:UICollectionViewCell = UICollectionViewCell()
         
-        let object = self.interactor.object(by: indexPath)
+        let object = self.interactor.objectsBySet[indexPath.section]![indexPath.row]
+        
         
         if let category = object as? String {
             guard let subsectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubSectionCollectionViewCell", for: indexPath) as? SubSectionCollectionViewCell else {
@@ -87,17 +92,27 @@ extension CardListPresenter: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
         
-        let x = self.interactor.objectsBySet.keys
-        let y = x.compactMap { (cardSet) -> CardSet in
-            return cardSet
-        }
-        
-        cell.label.text = y[indexPath.section].name
+        cell.label.text = self.interactor.sets[indexPath.section].name
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cardCell = cell as? CardCollectionViewCell {
+            cardCell.backgroundImage.image = nil
+        }
+    }
+    
 }
 
+extension CardListPresenter: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        let cardsCount = self.interactor.cards.count
+        if Double(cardsCount) * 0.8 < Double(indexPaths.first?.row ?? 50) {
+            self.interactor.fetch(page: self.interactor.pageLastModified+1)
+        }
+    }
+}
 
 extension CardListPresenter: UICollectionViewDelegate {
     
@@ -106,7 +121,7 @@ extension CardListPresenter: UICollectionViewDelegate {
 extension CardListPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let object = self.interactor.object(by: indexPath)
+        let object = (self.interactor.objectsBySet[indexPath.section] ?? ["Errooo"])[indexPath.row]
         
         if object is String {
             return CGSize(width: UIScreen.main.bounds.width, height: 40)
@@ -130,4 +145,30 @@ extension CardListPresenter: CardListInteractorDelegate {
             self.view.screen.collectionView.reloadData()
         }
     }
+}
+
+extension CardListPresenter: UISearchBarDelegate{
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        self.interactor.change(status: .normal)
+        self.view.screen.collectionView.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if let text = searchBar.text {
+            self.query = text
+            self.interactor.change(status: .searching(searchBar.text ?? ""))
+            self.interactor.fetch()
+        }
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if searchBar.text == nil || searchBar.text?.isEmpty ?? false {
+            self.interactor.cancelSearch()
+            self.view.screen.collectionView.reloadData()
+        }
+    }
+    
 }
