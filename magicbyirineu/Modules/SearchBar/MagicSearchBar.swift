@@ -95,4 +95,15 @@ class MagicSearchBar: UISearchBar {
         
     }
     
+    func cancelUserInteraction(){
+        
+        guard let textField = value(forKey: "_searchField") as? UITextField else {
+            return
+        }
+        
+        textField.text = ""
+        resignFirstResponder()
+        
+    }
+    
 }

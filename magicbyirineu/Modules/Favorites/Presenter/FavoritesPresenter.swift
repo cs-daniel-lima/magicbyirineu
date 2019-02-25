@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FavoritesPresenter{
+class FavoritesPresenter:NSObject{
     
     var router: FavoritesRouter
     var interactor: FavoritesInteractor
@@ -18,6 +18,8 @@ class FavoritesPresenter{
         self.router = router
         self.interactor = interactor
         self.view = view
+        
+        super.init()
         
         self.view.presenter = self
     }

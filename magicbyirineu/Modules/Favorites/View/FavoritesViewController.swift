@@ -28,6 +28,7 @@ class FavoritesViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        screen.searchBar.delegate = presenter
         super.viewDidLoad()
     }
     

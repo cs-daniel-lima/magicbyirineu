@@ -39,6 +39,8 @@
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
 		478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC46E22171E28000579FE /* magicbyirineuTests.swift */; };
 		478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D92C2221B0C04004EA8B3 /* CodeView.swift */; };
+		47941D242224319800202E73 /* CardListPresenter+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D232224319800202E73 /* CardListPresenter+UISearchBarDelegate.swift */; };
+		47941D262224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D252224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift */; };
 		47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
 		DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C2E221AF1EA00426578 /* CardListRouter.swift */; };
@@ -116,6 +118,8 @@
 		478BC46E22171E28000579FE /* magicbyirineuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magicbyirineuTests.swift; sourceTree = "<group>"; };
 		478BC47022171E28000579FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		478D92C2221B0C04004EA8B3 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		47941D232224319800202E73 /* CardListPresenter+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardListPresenter+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
+		47941D252224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesPresenter+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBarSpec.swift; sourceTree = "<group>"; };
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34616E3BD7F470AF4450BD /* Pods-magicbyirineu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				476D9D59221C72F400272793 /* FavoritesPresenter.swift */,
+				47941D252224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE32C35221AF21600426578 /* CardListPresenter.swift */,
+				47941D232224319800202E73 /* CardListPresenter+UISearchBarDelegate.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -760,7 +766,9 @@
 				DDE32C46221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift in Sources */,
 				DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */,
 				476D9D5A221C72F400272793 /* FavoritesPresenter.swift in Sources */,
+				47941D262224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift in Sources */,
 				DDE32C48221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift in Sources */,
+				47941D242224319800202E73 /* CardListPresenter+UISearchBarDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

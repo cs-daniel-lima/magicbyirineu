@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardListPresenter{
+class CardListPresenter:NSObject{
     
     var router: CardListRouter
     var interactor: CardListInteractor
@@ -18,6 +18,8 @@ class CardListPresenter{
         self.router = router
         self.interactor = interactor
         self.view = view
+        
+        super.init()
         
         self.view.presenter = self
     }
