@@ -75,7 +75,7 @@ extension CardListPresenter: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             
-            cardCell.setupCell()
+            cardCell.setupCell(cardHeight: (118 / 320) * collectionView.frame.size.width)
             
             if let imageURL = card.imageUrl {
                 cardCell.backgroundImage.sd_setImage(with: URL(string: imageURL), completed: nil)
@@ -124,10 +124,12 @@ extension CardListPresenter: UICollectionViewDelegateFlowLayout {
         let object = (self.interactor.objectsBySet[indexPath.section] ?? ["Errooo"])[indexPath.row]
         
         if object is String {
-            return CGSize(width: UIScreen.main.bounds.width, height: 40)
+            return CGSize(width: UIScreen.main.bounds.width, height: 16)
         }else{
-            return CGSize(width: 40, height: 80)
+            return CGSize(width: collectionView.frame.size.width/3, height: (118 / 320) * collectionView.frame.size.width)
         }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

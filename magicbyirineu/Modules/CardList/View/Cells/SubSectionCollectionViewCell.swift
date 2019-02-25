@@ -12,9 +12,9 @@ import SnapKit
 class SubSectionCollectionViewCell: UICollectionViewCell {
     lazy var label: UILabel = {
         var view = UILabel(frame: .zero)
-        view.textColor = UIColor.lightGray
-        view.font = UIFont(name:"SFProDisplay-Bold", size: 12.0)
-        view.text = "Test"
+        view.textColor = UIColor.white
+        view.alpha = 0.7
+        view.font = UIFont(name:"SFProDisplay-Bold", size: 14.0)
         return view
     }()
     
@@ -40,7 +40,8 @@ extension SubSectionCollectionViewCell: CodeView{
     
     func setupConstraints() {
         self.label.snp.makeConstraints { (make) in
-            make.left.top.trailing.bottom.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalTo(16)
         }
     }
     

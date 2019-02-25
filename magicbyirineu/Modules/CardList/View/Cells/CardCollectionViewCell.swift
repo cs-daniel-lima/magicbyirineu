@@ -11,7 +11,9 @@ import SnapKit
 
 class CardCollectionViewCell: UICollectionViewCell {
     
-    lazy var shadowView: UIView = {
+    var cardHeight:CGFloat?
+    
+    let shadowView: UIView = {
         var view = UIView(frame: .zero)
         view.backgroundColor = UIColor.blue
         view.layer.cornerRadius = 4
@@ -24,21 +26,23 @@ class CardCollectionViewCell: UICollectionViewCell {
         
         return view
     }()
-    lazy var roundedView: UIView = {
+    let roundedView: UIView = {
         var view = UIView(frame: .zero)
         view.backgroundColor = UIColor.green
         view.layer.cornerRadius = 4
         view.clipsToBounds = true
         return view
     }()
-    lazy var backgroundImage: UIImageView = {
+    let backgroundImage: UIImageView = {
         var view = UIImageView(image: nil, highlightedImage: nil)
         view.backgroundColor = UIColor.brown
         view.image = UIImage(named: "testCard")
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
-    func setupCell(){
+    func setupCell(cardHeight:CGFloat){
+        self.cardHeight = cardHeight
         setupView()
     }
     
@@ -53,14 +57,24 @@ extension CardCollectionViewCell: CodeView{
     
     func setupConstraints() {
         
+        guard let height = cardHeight else {
+            return
+        }
+        
         shadowView.snp.makeConstraints { (make) in
-            make.top.bottom.left.right.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo((85 / 118) * height)
+            make.centerX.equalToSuperview()
         }
         roundedView.snp.makeConstraints { (make) in
-            make.top.bottom.left.right.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo((85 / 118) * height)
+            make.centerX.equalToSuperview()
         }
         backgroundImage.snp.makeConstraints { (make) in
-            make.top.bottom.left.right.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo((85 / 118) * height)
+            make.centerX.equalToSuperview()
         }
         
     }
