@@ -22,7 +22,9 @@ class CardListView : UIView{
     }()
     
     let collectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()    )
+        
+        let layout = MagicFlowLayout()
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         view.backgroundView?.backgroundColor = UIColor.clear
         view.backgroundColor = .clear

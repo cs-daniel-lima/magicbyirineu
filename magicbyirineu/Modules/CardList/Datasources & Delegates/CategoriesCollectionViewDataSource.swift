@@ -30,7 +30,7 @@ class CategoriesCollectionViewDataSource: NSObject, UICollectionViewDataSource{
             Logger.logError(in: self, message: "Could not cast cell as CardCollectionView")
             return UICollectionViewCell()
         }
-        cell.setupCell()
+        cell.setupCell(cardHeight: (118 / 320) * collectionView.frame.size.width)
         return cell
     }
     
