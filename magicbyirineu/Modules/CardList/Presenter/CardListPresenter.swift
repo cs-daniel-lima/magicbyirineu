@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CardListPresenter:NSObject{
     
@@ -69,7 +70,11 @@ extension CardListPresenter: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             
-            cardCell.backgroundImage.downloaded(from: card.imageUrl!)
+            cardCell.setupCell()
+            
+            if let imageURL = card.imageUrl {
+                cardCell.backgroundImage.sd_setImage(with: URL(string: imageURL), completed: nil)
+            }
             
             cell = cardCell
         }

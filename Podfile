@@ -6,6 +6,7 @@ target 'magicbyirineu' do
   use_frameworks!
   
   pod 'ReachabilitySwift'
+  pod 'SDWebImage', '4.4.5'
   
   def testing_pods
     pod 'Nimble-Snapshots', '6.9.1'

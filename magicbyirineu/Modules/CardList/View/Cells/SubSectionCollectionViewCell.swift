@@ -10,30 +10,41 @@ import UIKit
 import SnapKit
 
 class SubSectionCollectionViewCell: UICollectionViewCell {
-    
-    var label:UILabel
+    lazy var label: UILabel = {
+        var view = UILabel(frame: .zero)
+        view.textColor = UIColor.lightGray
+        view.font = UIFont(name:"SFProDisplay-Bold", size: 12.0)
+        view.text = "Test"
+        return view
+    }()
     
     override init(frame: CGRect) {
-        self.label = UILabel(frame: .zero)
-        
         super.init(frame:frame)
         
-        self.setup()
+        self.setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.label = UILabel(frame: .zero)
-        
         super.init(coder: aDecoder)
         
-        self.setup()
+        self.setupView()
+    }
+}
+
+
+extension SubSectionCollectionViewCell: CodeView{
+    
+    func buildViewHierarchy() {
+        self.addSubview(self.label)
     }
     
-    private func setup() {
-        self.addSubview(self.label)
-        
+    func setupConstraints() {
         self.label.snp.makeConstraints { (make) in
             make.left.top.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    func additionalSetup() {
+        self.backgroundColor = .clear
     }
 }
