@@ -37,8 +37,8 @@ class CardListViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        screen.searchBar.additionalSetupAfterDisplay()
         super.viewDidAppear(animated)
+        screen.searchBar.additionalSetupAfterDisplay()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
