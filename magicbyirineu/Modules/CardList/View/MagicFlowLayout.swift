@@ -19,6 +19,7 @@ class MagicFlowLayout: UICollectionViewFlowLayout {
         
         minimumInteritemSpacing = 0
         minimumLineSpacing = 16
+        sectionHeadersPinToVisibleBounds = true
         
         headerReferenceSize = CGSize(width: 200, height: 41)
         

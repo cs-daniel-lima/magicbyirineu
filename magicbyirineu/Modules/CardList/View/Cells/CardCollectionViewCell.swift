@@ -15,8 +15,8 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     let shadowView: UIView = {
         var view = UIView(frame: .zero)
-        view.backgroundColor = UIColor.blue
-        view.layer.cornerRadius = 4
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        view.layer.cornerRadius = 5
         
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 0.1
@@ -28,14 +28,14 @@ class CardCollectionViewCell: UICollectionViewCell {
     }()
     let roundedView: UIView = {
         var view = UIView(frame: .zero)
-        view.backgroundColor = UIColor.green
-        view.layer.cornerRadius = 4
+        view.backgroundColor = UIColor.clear
+        view.layer.cornerRadius = 5
         view.clipsToBounds = true
         return view
     }()
     let backgroundImage: UIImageView = {
         var view = UIImageView(image: nil, highlightedImage: nil)
-        view.backgroundColor = UIColor.brown
+        view.backgroundColor = UIColor.clear
         view.image = UIImage(named: "testCard")
         view.contentMode = .scaleAspectFit
         return view

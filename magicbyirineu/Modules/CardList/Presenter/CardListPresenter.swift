@@ -75,6 +75,8 @@ extension CardListPresenter: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             
+            cardCell.backgroundImage.image = nil
+            
             cardCell.setupCell(cardHeight: (118 / 320) * collectionView.frame.size.width)
             
             if let imageURL = card.imageUrl {

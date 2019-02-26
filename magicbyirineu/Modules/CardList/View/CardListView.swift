@@ -26,6 +26,7 @@ class CardListView : UIView{
         let layout = MagicFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
+        view.semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
         view.backgroundView?.backgroundColor = UIColor.clear
         view.backgroundColor = .clear
         
