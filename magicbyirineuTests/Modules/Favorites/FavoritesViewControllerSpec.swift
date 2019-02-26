@@ -6,4 +6,32 @@
 //  Copyright © 2019 DanielLima. All rights reserved.
 //
 
-import Foundation
+import Quick
+import Nimble
+import Nimble_Snapshots
+
+@testable import magicbyirineu
+
+class FavoritesViewControllerSpec:QuickSpec{
+    
+    override func spec() {
+        
+        var sut:FavoritesViewController!
+        
+        beforeEach {
+            
+        }
+        
+        context("when it is initialized"){
+            it("should view match with snapshot"){
+                
+                expect(sut) == recordSnapshot()
+                //expect(sut) == snapshot()
+                
+            }
+        }
+        
+        
+        
+    }
+}

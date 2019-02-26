@@ -16,10 +16,6 @@ protocol CardListInteractorDelegate:class {
 
 class CardListInteractor: NSObject {
     
-    //TODO: Refactor Interactor to It self request the CardSet e Categories and only when it know both objects list, It change status to start request the cards.
-    //TODO: Create a function which will pass the Object(Card/Category) based at an indexPath
-    //List objects in a array[Any] to make it easier
-    
     enum Status {
         case normal
         case loading
