@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FavoritesPresenter:NSObject{
     
@@ -22,6 +23,29 @@ class FavoritesPresenter:NSObject{
         super.init()
         
         self.view.presenter = self
+    }
+    
+}
+
+
+extension FavoritesPresenter:UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        if let searchText = searchBar.text{
+            
+            print("Buscar: ", searchText)
+            
+        }
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        if let searchElement = searchBar as? MagicSearchBar{
+            searchElement.cancelUserInteraction()
+        }
+        
     }
     
 }

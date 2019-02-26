@@ -43,8 +43,8 @@
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
 		478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC46E22171E28000579FE /* magicbyirineuTests.swift */; };
 		478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D92C2221B0C04004EA8B3 /* CodeView.swift */; };
-		47941D262224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D252224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift */; };
 		47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D5E222482D900202E73 /* MagicFlowLayout.swift */; };
+		47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D6022256EB900202E73 /* CardListViewControllerSpec.swift */; };
 		47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
 		DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C2E221AF1EA00426578 /* CardListRouter.swift */; };
@@ -54,8 +54,6 @@
 		DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C37221AF22F00426578 /* CardListViewController.swift */; };
 		DDE32C3A221B11C700426578 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C39221B11C700426578 /* APIManager.swift */; };
 		DDE32C3C221B11E300426578 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C3B221B11E300426578 /* Card.swift */; };
-		DDE32C46221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C45221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift */; };
-		DDE32C48221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C47221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift */; };
 		DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,8 +121,8 @@
 		478BC46E22171E28000579FE /* magicbyirineuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magicbyirineuTests.swift; sourceTree = "<group>"; };
 		478BC47022171E28000579FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		478D92C2221B0C04004EA8B3 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
-		47941D252224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesPresenter+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		47941D5E222482D900202E73 /* MagicFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayout.swift; sourceTree = "<group>"; };
+		47941D6022256EB900202E73 /* CardListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewControllerSpec.swift; sourceTree = "<group>"; };
 		47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBarSpec.swift; sourceTree = "<group>"; };
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34616E3BD7F470AF4450BD /* Pods-magicbyirineu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,8 +134,6 @@
 		DDE32C37221AF22F00426578 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		DDE32C39221B11C700426578 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		DDE32C3B221B11E300426578 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		DDE32C45221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewDelegate.swift; sourceTree = "<group>"; };
-		DDE32C47221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineuTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC925AEDA27E9C9572F65A81 /* Pods-magicbyirineuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -303,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				476D9D59221C72F400272793 /* FavoritesPresenter.swift */,
-				47941D252224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -338,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */,
+				47941D6022256EB900202E73 /* CardListViewControllerSpec.swift */,
 			);
 			path = CardList;
 			sourceTree = "<group>";
@@ -435,7 +431,6 @@
 		DDE32C26221AF17800426578 /* CardList */ = {
 			isa = PBXGroup;
 			children = (
-				DDE32C3D221B142C00426578 /* Datasources & Delegates */,
 				DDE32C2A221AF1A900426578 /* View */,
 				DDE32C29221AF1A300426578 /* Presenter */,
 				DDE32C28221AF19900426578 /* Interactor */,
@@ -510,15 +505,6 @@
 				476D9D51221C723D00272793 /* Favorites */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		DDE32C3D221B142C00426578 /* Datasources & Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				DDE32C45221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift */,
-				DDE32C47221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift */,
-			);
-			path = "Datasources & Delegates";
 			sourceTree = "<group>";
 		};
 		DDE32C42221B209300426578 /* Cells */ = {
@@ -770,11 +756,8 @@
 				187D344E221B40CC008E13C3 /* RequestCards.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
 				47631B73221B601200B78A21 /* UIImage+ImageColor.swift in Sources */,
-				DDE32C46221B2C3F00426578 /* CategoriesCollectionViewDelegate.swift in Sources */,
 				DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */,
 				476D9D5A221C72F400272793 /* FavoritesPresenter.swift in Sources */,
-				47941D262224375100202E73 /* FavoritesPresenter+UISearchBarDelegate.swift in Sources */,
-				DDE32C48221B2C4C00426578 /* CategoriesCollectionViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +767,7 @@
 			files = (
 				187D3448221B2023008E13C3 /* APIManagerTests.swift in Sources */,
 				478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */,
+				47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */,
 				47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */,
 				476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */,
 				476D9D68221C882800272793 /* FavoritesViewControllerSpec.swift in Sources */,

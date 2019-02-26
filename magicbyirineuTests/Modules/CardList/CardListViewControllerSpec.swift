@@ -1,8 +1,8 @@
 //
-//  FavoritesViewControllerSpec.swift
+//  CardListViewControllerSpec.swift
 //  magicbyirineuTests
 //
-//  Created by daniel.da.cunha.lima on 19/02/19.
+//  Created by daniel.da.cunha.lima on 26/02/19.
 //  Copyright © 2019 DanielLima. All rights reserved.
 //
 
@@ -12,14 +12,14 @@ import Nimble_Snapshots
 
 @testable import magicbyirineu
 
-class FavoritesViewControllerSpec:QuickSpec{
+class CardListViewControllerSpec:QuickSpec{
     
     override func spec() {
         
-        var sut:FavoritesViewController!
+        var sut:CardListViewController!
         
         beforeEach {
-            sut = FavoritesViewController(title: "Favorites")
+            sut = CardListViewController(title: "CardList")
             UIApplication.shared.keyWindow?.rootViewController = sut
         }
         
