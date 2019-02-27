@@ -26,7 +26,6 @@ class CardListViewControllerSpec:QuickSpec{
         context("when it is initialized"){
             it("should view match with snapshot"){
                 
-                //expect(sut) == recordSnapshot()
                 expect(sut) == snapshot()
                 
             }
