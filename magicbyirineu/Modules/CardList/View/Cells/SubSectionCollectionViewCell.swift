@@ -10,7 +10,8 @@ import UIKit
 import SnapKit
 
 class SubSectionCollectionViewCell: UICollectionViewCell {
-    lazy var label: UILabel = {
+    
+     let label: UILabel = {
         var view = UILabel(frame: .zero)
         view.textColor = UIColor.white
         view.alpha = 0.7
