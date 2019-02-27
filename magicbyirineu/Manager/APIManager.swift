@@ -50,7 +50,7 @@ class APIManager {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                    let magicResponse = try decoder.decode(RequestType.Response.self, from: data)
+                    let magicResponse = try decoder.decode(EndpointType.Response.self, from: data)
                     
                     
                     self.setStatusBar(loading: false)
