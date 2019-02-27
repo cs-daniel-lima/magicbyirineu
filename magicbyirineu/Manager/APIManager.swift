@@ -25,7 +25,7 @@ class APIManager {
         }
     }
     
-    private func endpoint<RequestType: APIRequest>(for request: RequestType) -> URL {
+    private func endpoint<EndpointType: Endpoint>(for request: EndpointType) -> URL {
         guard let parameters = try? URLQueryEncoder.encode(request) else { fatalError("Wrong parameters") }
         
         var endpoint = "https://api.magicthegathering.io/v1/\(request.endpoint)"
@@ -38,7 +38,7 @@ class APIManager {
         return url
     }
     
-    func fetch<RequestType>(_ request: RequestType, completion: @escaping (Result<RequestType.Response>) -> Void) where RequestType:APIRequest {
+    func fetch<EndpointType>(_ request: EndpointType, completion: @escaping (Result<EndpointType.Response>) -> Void) where EndpointType:Endpoint {
         self.setStatusBar(loading: true)
         let endpoint = self.endpoint(for: request)
         

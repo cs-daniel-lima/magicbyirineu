@@ -117,7 +117,7 @@ class CardListInteractor: NSObject {
     }
     
     func fetchSets() {
-        let request = RequestSets()
+        let request = EndpointSets()
         self.apiManager.fetch(request) { (result) in
             switch result {
             case .success(let response):
@@ -131,7 +131,7 @@ class CardListInteractor: NSObject {
     }
     
     func fetchCategories() {
-        let request = RequestCategories()
+        let request = EndpointCategories()
         self.apiManager.fetch(request) { (result) in
             switch result {
             case .success(let response):
@@ -154,7 +154,7 @@ class CardListInteractor: NSObject {
             }
         }
         
-        let request = RequestCards(page: page, name: nil)
+        let request = EndpointCards(page: page, name: nil)
         self.apiManager.fetch(request) { (result) in
             switch result {
             case .success(let response):
@@ -178,7 +178,7 @@ class CardListInteractor: NSObject {
             }
         }
         
-        let request = RequestCards(page: page, name: cardName)
+        let request = EndpointCards(page: page, name: cardName)
         self.apiManager.fetch(request) { (result) in
             switch result {
             case .success(let response):

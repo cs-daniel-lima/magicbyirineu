@@ -1,5 +1,5 @@
 //
-//  APIRequest.swift
+//  Endpoint.swift
 //  magicbyirineu
 //
 //  Created by kaique.magno.santos on 18/02/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol APIRequest: Encodable {
+protocol Endpoint: Encodable {
     associatedtype Response: Decodable
     
     var endpoint: String { get }
