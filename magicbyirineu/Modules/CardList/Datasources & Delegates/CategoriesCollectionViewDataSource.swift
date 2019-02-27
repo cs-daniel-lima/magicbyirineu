@@ -17,7 +17,6 @@ class CategoriesCollectionViewDataSource: NSObject, UICollectionViewDataSource{
     
     private func setupCollectionView(collectionView: UICollectionView){
         collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "cardCollectionViewCell")
-        print("test")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

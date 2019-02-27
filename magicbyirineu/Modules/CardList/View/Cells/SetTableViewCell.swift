@@ -14,7 +14,7 @@ class SetTableViewCell: UITableViewCell {
     var collectionViewDelegate: CategoriesCollectionViewDelegate!
     var collectionViewDataSource: CategoriesCollectionViewDataSource!
     
-    lazy var setTitleLabel: UILabel = {
+     let setTitleLabel: UILabel = {
         var view = UILabel(frame: .zero)
         view.textColor = UIColor.lightGray
         view.font = UIFont(name:"SFProDisplay-Bold", size: 16.0)
@@ -22,7 +22,7 @@ class SetTableViewCell: UITableViewCell {
         return view
     }()
     
-    lazy var categoryCollectionView: UICollectionView = {
+    let categoryCollectionView: UICollectionView = {
        var view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
        view.backgroundColor = UIColor.clear
         return view
@@ -49,7 +49,7 @@ class SetTableViewCell: UITableViewCell {
         self.categoryCollectionView.dataSource = collectionViewDataSource
         
         guard let flowLayout = self.categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
-            print("Error")
+            
             return
         }
         flowLayout.itemSize = CGSize(width: 85, height: 118)

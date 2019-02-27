@@ -11,7 +11,7 @@ import SnapKit
 
 class CardCollectionViewCell: UICollectionViewCell {
     
-    lazy var shadowView: UIView = {
+    let shadowView: UIView = {
         var view = UIView(frame: .zero)
         view.backgroundColor = UIColor.blue
         view.layer.cornerRadius = 4
@@ -24,14 +24,14 @@ class CardCollectionViewCell: UICollectionViewCell {
         
         return view
     }()
-    lazy var roundedView: UIView = {
+    let roundedView: UIView = {
         var view = UIView(frame: .zero)
         view.backgroundColor = UIColor.green
         view.layer.cornerRadius = 4
         view.clipsToBounds = true
         return view
     }()
-    lazy var backgroundImage: UIImageView = {
+    let backgroundImage: UIImageView = {
         var view = UIImageView(image: nil, highlightedImage: nil)
         view.backgroundColor = UIColor.brown
         view.image = UIImage(named: "testCard")
