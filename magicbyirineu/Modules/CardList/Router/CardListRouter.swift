@@ -8,16 +8,14 @@
 
 import Foundation
 
-class CardListRouter:NSObject {
+class CardListRouter{
     
     var presenter: CardListPresenter!
     
-    override init() {
-        super.init()
-        
+    init() {
+
         let viewController = CardListViewController(title: "Cards")
         let interactor = CardListInteractor(apiManager: APIManager())
-        
         self.presenter = CardListPresenter(router:self, interactor:interactor, view:viewController)
         
     }

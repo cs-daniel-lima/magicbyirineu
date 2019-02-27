@@ -14,7 +14,7 @@ class CardListPresenter:NSObject{
     // MARK: Private
     private var query:String?
     
-    var router: CardListRouter!
+    var router: CardListRouter
     var interactor: CardListInteractor!
     var view: CardListViewController!
     
