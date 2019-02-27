@@ -1,5 +1,5 @@
 //
-//  RequestCards.swift
+//  EndpointSets.swift
 //  magicbyirineu
 //
 //  Created by kaique.magno.santos on 18/02/19.
@@ -8,18 +8,16 @@
 
 import Foundation
 
-final class RequestCards: APIRequest {
-    typealias Response = ResponseCards
+final class EndpointSets: Endpoint {
+    typealias Response = ResponseSets
     
     var endpoint: String {
-        return "cards"
+        return "sets"
     }
     
-    let page: Int?
     let name: String?
     
-    init(page: Int? = nil, name: String? = nil) {
-        self.page = page
+    init(name: String? = nil) {
         self.name = name
     }
 }

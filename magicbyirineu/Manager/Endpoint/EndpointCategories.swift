@@ -1,5 +1,5 @@
 //
-//  RequestCategories.swift
+//  EndpointCategories.swift
 //  magicbyirineu
 //
 //  Created by kaique.magno.santos on 25/02/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class RequestCategories: APIRequest {
+final class EndpointCategories: Endpoint {
     typealias Response = ResponseCategories
     
     var endpoint: String {
