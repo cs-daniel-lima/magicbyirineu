@@ -5,8 +5,8 @@ target 'magicbyirineu' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
-  pod 'ReachabilitySwift'
-  pod 'SDWebImage', '4.4.5'
+  pod 'ReachabilitySwift', '4.3.0'
+  pod 'Kingfisher', '5.1.1'
   
   def testing_pods
     pod 'Nimble-Snapshots', '6.9.1'

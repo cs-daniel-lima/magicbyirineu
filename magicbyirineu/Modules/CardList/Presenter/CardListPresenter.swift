@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SDWebImage
+import Kingfisher
 
 class CardListPresenter:NSObject{
     
@@ -80,7 +80,10 @@ extension CardListPresenter: UICollectionViewDataSource {
             cardCell.setupCell(cardHeight: (118 / 320) * collectionView.frame.size.width)
             
             if let imageURL = card.imageUrl {
-                cardCell.backgroundImage.sd_setImage(with: URL(string: imageURL), completed: nil)
+                
+                let url = URL(string: imageURL)
+                cardCell.backgroundImage.kf.setImage(with: url)
+                
             }
             
             cell = cardCell
