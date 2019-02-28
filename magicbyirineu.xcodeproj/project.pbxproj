@@ -52,6 +52,8 @@
 		DD9E78DC2228246000BF37F1 /* CardDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78DB2228246000BF37F1 /* CardDetailPresenter.swift */; };
 		DD9E78DF2228247300BF37F1 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */; };
 		DD9E78E12228292000BF37F1 /* CardDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78E02228292000BF37F1 /* CardDetailScreen.swift */; };
+		DD9E78E32228687500BF37F1 /* CardDetailViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78E22228687500BF37F1 /* CardDetailViewControllerMock.swift */; };
+		DD9E78E6222869DE00BF37F1 /* CardDetailViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78E5222869DE00BF37F1 /* CardDetailViewControllerSpec.swift */; };
 		DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C2E221AF1EA00426578 /* CardListRouter.swift */; };
 		DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C30221AF1F800426578 /* CardListInteractor.swift */; };
 		DDE32C34221AF20900426578 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C33221AF20900426578 /* CardListView.swift */; };
@@ -137,6 +139,8 @@
 		DD9E78DB2228246000BF37F1 /* CardDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenter.swift; sourceTree = "<group>"; };
 		DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		DD9E78E02228292000BF37F1 /* CardDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailScreen.swift; sourceTree = "<group>"; };
+		DD9E78E22228687500BF37F1 /* CardDetailViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewControllerMock.swift; sourceTree = "<group>"; };
+		DD9E78E5222869DE00BF37F1 /* CardDetailViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewControllerSpec.swift; sourceTree = "<group>"; };
 		DDE32C2E221AF1EA00426578 /* CardListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListRouter.swift; sourceTree = "<group>"; };
 		DDE32C30221AF1F800426578 /* CardListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListInteractor.swift; sourceTree = "<group>"; };
 		DDE32C33221AF20900426578 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 		476D9D61221C84FE00272793 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DD9E78E42228694400BF37F1 /* CardDetail */,
 				476D9D62221C850B00272793 /* TabBar */,
 				476D9D63221C851300272793 /* CardList */,
 				476D9D65221C852400272793 /* Favorites */,
@@ -360,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */,
+				DD9E78E22228687500BF37F1 /* CardDetailViewControllerMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -469,6 +475,14 @@
 				DD9E78D72228244900BF37F1 /* CardDetailRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		DD9E78E42228694400BF37F1 /* CardDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DD9E78E5222869DE00BF37F1 /* CardDetailViewControllerSpec.swift */,
+			);
+			path = CardDetail;
 			sourceTree = "<group>";
 		};
 		DDE32C25221AF15F00426578 /* Supporting Files */ = {
@@ -825,11 +839,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD9E78E6222869DE00BF37F1 /* CardDetailViewControllerSpec.swift in Sources */,
 				187D3448221B2023008E13C3 /* APIManagerTests.swift in Sources */,
 				478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */,
 				47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */,
 				47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */,
 				476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */,
+				DD9E78E32228687500BF37F1 /* CardDetailViewControllerMock.swift in Sources */,
 				476D9D68221C882800272793 /* FavoritesViewControllerSpec.swift in Sources */,
 				476D9D6C221C8BB800272793 /* MagicTabBarMock.swift in Sources */,
 			);
