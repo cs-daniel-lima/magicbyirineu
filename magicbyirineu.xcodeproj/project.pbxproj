@@ -38,6 +38,7 @@
 		476D9D68221C882800272793 /* FavoritesViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */; };
 		476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D69221C884100272793 /* MagicTabBarControllerSpec.swift */; };
 		476D9D6C221C8BB800272793 /* MagicTabBarMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */; };
+		47788865222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47788864222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift */; };
 		478BC45A22171E27000579FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BC45922171E27000579FE /* AppDelegate.swift */; };
 		478BC46122171E28000579FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46022171E28000579FE /* Assets.xcassets */; };
 		478BC46422171E28000579FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478BC46222171E28000579FE /* LaunchScreen.storyboard */; };
@@ -112,6 +113,7 @@
 		476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerSpec.swift; sourceTree = "<group>"; };
 		476D9D69221C884100272793 /* MagicTabBarControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicTabBarControllerSpec.swift; sourceTree = "<group>"; };
 		476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MagicTabBarMock.swift; path = magicbyirineuTests/Mocks/MagicTabBarMock.swift; sourceTree = SOURCE_ROOT; };
+		47788864222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayoutAttributes+AlignLeft.swift"; sourceTree = "<group>"; };
 		478BC45622171E27000579FE /* magicbyirineu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicbyirineu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478BC45922171E27000579FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		478BC46022171E28000579FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -218,14 +220,6 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
-		187D3444221B1E4F008E13C3 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				187D3445221B1E55008E13C3 /* Logger.swift */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
 		187D3451221B475A008E13C3 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,7 +257,9 @@
 		47631B71221B5FEF00B78A21 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				187D3445221B1E55008E13C3 /* Logger.swift */,
 				47631B72221B601200B78A21 /* UIImage+ImageColor.swift */,
+				47788864222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -378,7 +374,6 @@
 			isa = PBXGroup;
 			children = (
 				478BC45922171E27000579FE /* AppDelegate.swift */,
-				187D3444221B1E4F008E13C3 /* Util */,
 				DDE32C2D221AF1C500426578 /* Modules */,
 				DDE32C2C221AF1B800426578 /* Manager */,
 				DDE32C2B221AF1B100426578 /* Entitites */,
@@ -752,6 +747,7 @@
 				18AAD45222270D450059D3BA /* EndpointCategories.swift in Sources */,
 				DDE32C3A221B11C700426578 /* APIManager.swift in Sources */,
 				187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */,
+				47788865222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
 				18AAD45022270D450059D3BA /* EndpointCards.swift in Sources */,
 				47631B73221B601200B78A21 /* UIImage+ImageColor.swift in Sources */,
