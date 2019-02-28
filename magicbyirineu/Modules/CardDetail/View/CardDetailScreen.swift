@@ -11,14 +11,14 @@ import SnapKit
 
 class CardDetailScreen: UIView {
     
-    var dismissButton: UIButton = {
+    let dismissButton: UIButton = {
         var view = UIButton()
         view.setImage(UIImage(named: "close"), for: .normal)
         view.contentMode = .scaleAspectFill
         return view
     }()
     
-    var cardImage: UIImageView = {
+    let cardImage: UIImageView = {
         var view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
@@ -26,7 +26,7 @@ class CardDetailScreen: UIView {
         return view
     }()
     
-    var backgroundImage: UIImageView = {
+    let backgroundImage: UIImageView = {
         var view = UIImageView()
         view.image = UIImage(named: "fundo")
         view.contentMode = .scaleAspectFill
