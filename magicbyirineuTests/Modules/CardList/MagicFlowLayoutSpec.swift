@@ -18,14 +18,14 @@ class MagicFlowLayoutSpec:QuickSpec{
     override func spec() {
         
         var sut:MagicFlowLayoutMock!
-        var viewController:CollectionMockViewController!
+        var viewController:CollectionViewControllerMock!
         
         beforeEach {
             
             sut = MagicFlowLayoutMock()
             
             let view = CollectionMock(mockLayout: sut)
-            viewController = CollectionMockViewController(mockView: view)
+            viewController = CollectionViewControllerMock(mockView: view)
             
             UIApplication.shared.keyWindow?.rootViewController = viewController
             

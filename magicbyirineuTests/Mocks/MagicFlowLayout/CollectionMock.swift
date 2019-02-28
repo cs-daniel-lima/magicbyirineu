@@ -10,7 +10,7 @@ import UIKit
 
 @testable import magicbyirineu
 
-class CollectionMockViewController: UIViewController {
+class CollectionViewControllerMock: UIViewController {
     
     let screen:CollectionMock
     
