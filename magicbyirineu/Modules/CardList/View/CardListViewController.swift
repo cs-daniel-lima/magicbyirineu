@@ -24,8 +24,7 @@ class CardListViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        self.view = screen
-        
+        self.view = screen        
     }
     
     override func viewDidLoad() {
