@@ -14,13 +14,11 @@ class CardCollectionViewCell: UICollectionViewCell {
     var cardHeight:CGFloat?
     
     let shadowView: RoundedView = {
-        var view = RoundedView(frame: .zero)
-        view.setupAsShadowView()
+        var view = RoundedView(type: .roundedAndShaded)
         return view
     }()
     let roundedView: RoundedView = {
-        var view = RoundedView(frame: .zero)
-        view.setupAsRoundedView()
+        var view = RoundedView(type: .rounded)
         return view
     }()
     let backgroundImage: UIImageView = {
