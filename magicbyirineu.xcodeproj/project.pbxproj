@@ -14,7 +14,6 @@
 		187D3438221B199E008E13C3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3437221B199D008E13C3 /* Error.swift */; };
 		187D3443221B1D1A008E13C3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3442221B1D1A008E13C3 /* CardSet.swift */; };
 		187D3446221B1E55008E13C3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3445221B1E55008E13C3 /* Logger.swift */; };
-		187D3448221B2023008E13C3 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3447221B2023008E13C3 /* APIManagerTests.swift */; };
 		187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3449221B21DA008E13C3 /* ResponseError.swift */; };
 		187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344B221B2205008E13C3 /* ResponseSets.swift */; };
 		187D3450221B40D7008E13C3 /* ResponseCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344F221B40D7008E13C3 /* ResponseCards.swift */; };
@@ -90,7 +89,6 @@
 		187D3437221B199D008E13C3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		187D3442221B1D1A008E13C3 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		187D3445221B1E55008E13C3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		187D3447221B2023008E13C3 /* APIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		187D3449221B21DA008E13C3 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		187D344B221B2205008E13C3 /* ResponseSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSets.swift; sourceTree = "<group>"; };
 		187D344F221B40D7008E13C3 /* ResponseCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCards.swift; sourceTree = "<group>"; };
@@ -218,14 +216,6 @@
 				187D3449221B21DA008E13C3 /* ResponseError.swift */,
 			);
 			path = Response;
-			sourceTree = "<group>";
-		};
-		187D3451221B475A008E13C3 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				187D3447221B2023008E13C3 /* APIManagerTests.swift */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		18AAD44C22270D450059D3BA /* Endpoint */ = {
@@ -391,7 +381,6 @@
 				476D9D61221C84FE00272793 /* Modules */,
 				478BC46E22171E28000579FE /* magicbyirineuTests.swift */,
 				478BC47022171E28000579FE /* Info.plist */,
-				187D3451221B475A008E13C3 /* Manager */,
 			);
 			path = magicbyirineuTests;
 			sourceTree = "<group>";
@@ -761,7 +750,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187D3448221B2023008E13C3 /* APIManagerTests.swift in Sources */,
 				478BC46F22171E28000579FE /* magicbyirineuTests.swift in Sources */,
 				47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */,
 				47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */,
