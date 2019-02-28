@@ -47,6 +47,7 @@
 		47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D6022256EB900202E73 /* CardListViewControllerSpec.swift */; };
 		47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
+		DDCA2EDD22271BDE00DB7D81 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA2EDC22271BDE00DB7D81 /* RoundedView.swift */; };
 		DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C2E221AF1EA00426578 /* CardListRouter.swift */; };
 		DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C30221AF1F800426578 /* CardListInteractor.swift */; };
 		DDE32C34221AF20900426578 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C33221AF20900426578 /* CardListView.swift */; };
@@ -127,6 +128,7 @@
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34616E3BD7F470AF4450BD /* Pods-magicbyirineu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.debug.xcconfig"; sourceTree = "<group>"; };
 		D72262C0173B8F562F887DAC /* Pods-magicbyirineu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.release.xcconfig"; sourceTree = "<group>"; };
+		DDCA2EDC22271BDE00DB7D81 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		DDE32C2E221AF1EA00426578 /* CardListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListRouter.swift; sourceTree = "<group>"; };
 		DDE32C30221AF1F800426578 /* CardListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListInteractor.swift; sourceTree = "<group>"; };
 		DDE32C33221AF20900426578 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				DDE32C33221AF20900426578 /* CardListView.swift */,
 				DDE32C37221AF22F00426578 /* CardListViewController.swift */,
 				47941D5E222482D900202E73 /* MagicFlowLayout.swift */,
+				DDCA2EDC22271BDE00DB7D81 /* RoundedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				187D3438221B199E008E13C3 /* Error.swift in Sources */,
 				18AAD45122270D450059D3BA /* EndpointSets.swift in Sources */,
 				187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */,
+				DDCA2EDD22271BDE00DB7D81 /* RoundedView.swift in Sources */,
 				47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */,
 				18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */,
 				18AAD45222270D450059D3BA /* EndpointCategories.swift in Sources */,
