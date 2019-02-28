@@ -15,8 +15,11 @@ class CardListRouter{
     init() {
 
         let viewController = CardListViewController(title: "Cards")
-        let interactor = CardListInteractor(apiManager: APIManager())
+        let interactor = CardListInteractor(cardRepository: CardAPIClient(),
+                                            cardSetRepository: CardSetAPIClient(),
+                                            typeRepository: TypeAPIClient())
         self.presenter = CardListPresenter(router:self, interactor:interactor, view:viewController)
         
     }
 }
+

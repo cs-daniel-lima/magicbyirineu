@@ -18,11 +18,18 @@
 		187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3449221B21DA008E13C3 /* ResponseError.swift */; };
 		187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344B221B2205008E13C3 /* ResponseSets.swift */; };
 		187D3450221B40D7008E13C3 /* ResponseCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344F221B40D7008E13C3 /* ResponseCards.swift */; };
-		18834D36222466EB00565141 /* ResponseCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834D35222466EB00565141 /* ResponseCategories.swift */; };
+		18834D36222466EB00565141 /* ResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834D35222466EB00565141 /* ResponseTypes.swift */; };
 		18AAD45022270D450059D3BA /* EndpointCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD44D22270D450059D3BA /* EndpointCards.swift */; };
 		18AAD45122270D450059D3BA /* EndpointSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD44E22270D450059D3BA /* EndpointSets.swift */; };
-		18AAD45222270D450059D3BA /* EndpointCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD44F22270D450059D3BA /* EndpointCategories.swift */; };
+		18AAD45222270D450059D3BA /* EndpointTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD44F22270D450059D3BA /* EndpointTypes.swift */; };
 		18AAD45422270D550059D3BA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD45322270D550059D3BA /* Endpoint.swift */; };
+		18AAD4862228279F0059D3BA /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD4852228279F0059D3BA /* CardRepository.swift */; };
+		18AAD48E222845490059D3BA /* CardAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD48D222845490059D3BA /* CardAPIClient.swift */; };
+		18AAD49122285F1B0059D3BA /* CardSetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD49022285F1B0059D3BA /* CardSetRepository.swift */; };
+		18AAD49322285F270059D3BA /* TypeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD49222285F270059D3BA /* TypeRepository.swift */; };
+		18AAD495222874190059D3BA /* CardSetAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD494222874190059D3BA /* CardSetAPIClient.swift */; };
+		18AAD497222874BE0059D3BA /* TypeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD496222874BE0059D3BA /* TypeAPIClient.swift */; };
+		18AAD49B2228790F0059D3BA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD49A2228790F0059D3BA /* APIManager.swift */; };
 		18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */; };
 		18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */; };
 		473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
@@ -52,7 +59,6 @@
 		DDE32C34221AF20900426578 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C33221AF20900426578 /* CardListView.swift */; };
 		DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C35221AF21600426578 /* CardListPresenter.swift */; };
 		DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C37221AF22F00426578 /* CardListViewController.swift */; };
-		DDE32C3A221B11C700426578 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C39221B11C700426578 /* APIManager.swift */; };
 		DDE32C3C221B11E300426578 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C3B221B11E300426578 /* Card.swift */; };
 		DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -93,11 +99,18 @@
 		187D3449221B21DA008E13C3 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		187D344B221B2205008E13C3 /* ResponseSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSets.swift; sourceTree = "<group>"; };
 		187D344F221B40D7008E13C3 /* ResponseCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCards.swift; sourceTree = "<group>"; };
-		18834D35222466EB00565141 /* ResponseCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCategories.swift; sourceTree = "<group>"; };
+		18834D35222466EB00565141 /* ResponseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTypes.swift; sourceTree = "<group>"; };
 		18AAD44D22270D450059D3BA /* EndpointCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointCards.swift; sourceTree = "<group>"; };
 		18AAD44E22270D450059D3BA /* EndpointSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointSets.swift; sourceTree = "<group>"; };
-		18AAD44F22270D450059D3BA /* EndpointCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointCategories.swift; sourceTree = "<group>"; };
+		18AAD44F22270D450059D3BA /* EndpointTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTypes.swift; sourceTree = "<group>"; };
 		18AAD45322270D550059D3BA /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		18AAD4852228279F0059D3BA /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
+		18AAD48D222845490059D3BA /* CardAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAPIClient.swift; sourceTree = "<group>"; };
+		18AAD49022285F1B0059D3BA /* CardSetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetRepository.swift; sourceTree = "<group>"; };
+		18AAD49222285F270059D3BA /* TypeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRepository.swift; sourceTree = "<group>"; };
+		18AAD494222874190059D3BA /* CardSetAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetAPIClient.swift; sourceTree = "<group>"; };
+		18AAD496222874BE0059D3BA /* TypeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAPIClient.swift; sourceTree = "<group>"; };
+		18AAD49A2228790F0059D3BA /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCollectionReusableView.swift; sourceTree = "<group>"; };
 		473C8D6222174F400095CC4C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -132,7 +145,6 @@
 		DDE32C33221AF20900426578 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		DDE32C35221AF21600426578 /* CardListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPresenter.swift; sourceTree = "<group>"; };
 		DDE32C37221AF22F00426578 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
-		DDE32C39221B11C700426578 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		DDE32C3B221B11E300426578 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		DDE32C49221B2FCE00426578 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineuTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,18 +224,19 @@
 			children = (
 				187D344F221B40D7008E13C3 /* ResponseCards.swift */,
 				187D344B221B2205008E13C3 /* ResponseSets.swift */,
-				18834D35222466EB00565141 /* ResponseCategories.swift */,
+				18834D35222466EB00565141 /* ResponseTypes.swift */,
 				187D3449221B21DA008E13C3 /* ResponseError.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
 		};
-		187D3444221B1E4F008E13C3 /* Util */ = {
+		187D3444221B1E4F008E13C3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				187D3445221B1E55008E13C3 /* Logger.swift */,
+				47631B72221B601200B78A21 /* UIImage+ImageColor.swift */,
 			);
-			path = Util;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		187D3451221B475A008E13C3 /* Manager */ = {
@@ -239,9 +252,29 @@
 			children = (
 				18AAD44D22270D450059D3BA /* EndpointCards.swift */,
 				18AAD44E22270D450059D3BA /* EndpointSets.swift */,
-				18AAD44F22270D450059D3BA /* EndpointCategories.swift */,
+				18AAD44F22270D450059D3BA /* EndpointTypes.swift */,
 			);
 			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		18AAD487222828B90059D3BA /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				18AAD4852228279F0059D3BA /* CardRepository.swift */,
+				18AAD49022285F1B0059D3BA /* CardSetRepository.swift */,
+				18AAD49222285F270059D3BA /* TypeRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		18AAD48C222845370059D3BA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				18AAD48D222845490059D3BA /* CardAPIClient.swift */,
+				18AAD494222874190059D3BA /* CardSetAPIClient.swift */,
+				18AAD496222874BE0059D3BA /* TypeAPIClient.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		47631B5D221B397400B78A21 /* Fonts */ = {
@@ -258,14 +291,6 @@
 				47631B6F221B56C100B78A21 /* MagicTabBarController.swift */,
 			);
 			path = TabBar;
-			sourceTree = "<group>";
-		};
-		47631B71221B5FEF00B78A21 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				47631B72221B601200B78A21 /* UIImage+ImageColor.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		476D9D51221C723D00272793 /* Favorites */ = {
@@ -378,13 +403,13 @@
 			isa = PBXGroup;
 			children = (
 				478BC45922171E27000579FE /* AppDelegate.swift */,
-				187D3444221B1E4F008E13C3 /* Util */,
+				187D3444221B1E4F008E13C3 /* Utils */,
 				DDE32C2D221AF1C500426578 /* Modules */,
-				DDE32C2C221AF1B800426578 /* Manager */,
+				18AAD48C222845370059D3BA /* Services */,
+				DDE32C2C221AF1B800426578 /* Managers */,
 				DDE32C2B221AF1B100426578 /* Entitites */,
-				DDE32C25221AF15F00426578 /* Supporting Files */,
 				478D92C1221B0BBB004EA8B3 /* Protocols */,
-				47631B71221B5FEF00B78A21 /* Utils */,
+				DDE32C25221AF15F00426578 /* Supporting Files */,
 			);
 			path = magicbyirineu;
 			sourceTree = "<group>";
@@ -405,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				478D92C2221B0C04004EA8B3 /* CodeView.swift */,
+				18AAD487222828B90059D3BA /* Repository */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -483,17 +509,17 @@
 			path = Entitites;
 			sourceTree = "<group>";
 		};
-		DDE32C2C221AF1B800426578 /* Manager */ = {
+		DDE32C2C221AF1B800426578 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				DDE32C39221B11C700426578 /* APIManager.swift */,
+				18AAD49A2228790F0059D3BA /* APIManager.swift */,
 				18AAD44C22270D450059D3BA /* Endpoint */,
 				187D343D221B1B1C008E13C3 /* Response */,
 				187D3439221B19B9008E13C3 /* Protocol */,
 				187D3431221B1948008E13C3 /* Support Classes */,
 				187D3436221B1998008E13C3 /* Errors */,
 			);
-			path = Manager;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		DDE32C2D221AF1C500426578 /* Modules */ = {
@@ -724,9 +750,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18834D36222466EB00565141 /* ResponseCategories.swift in Sources */,
+				18834D36222466EB00565141 /* ResponseTypes.swift in Sources */,
+				18AAD497222874BE0059D3BA /* TypeAPIClient.swift in Sources */,
+				18AAD48E222845490059D3BA /* CardAPIClient.swift in Sources */,
 				DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */,
 				187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */,
+				18AAD495222874190059D3BA /* CardSetAPIClient.swift in Sources */,
 				DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */,
 				187D3433221B1958008E13C3 /* HTTPParameter.swift in Sources */,
 				478BC45A22171E27000579FE /* AppDelegate.swift in Sources */,
@@ -736,6 +765,7 @@
 				47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */,
 				47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */,
 				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
+				18AAD49322285F270059D3BA /* TypeRepository.swift in Sources */,
 				476D9D5E221C731400272793 /* FavoritesRouter.swift in Sources */,
 				187D3430221B192D008E13C3 /* Result.swift in Sources */,
 				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,
@@ -749,15 +779,17 @@
 				187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */,
 				47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */,
 				18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */,
-				18AAD45222270D450059D3BA /* EndpointCategories.swift in Sources */,
-				DDE32C3A221B11C700426578 /* APIManager.swift in Sources */,
+				18AAD45222270D450059D3BA /* EndpointTypes.swift in Sources */,
+				18AAD49122285F1B0059D3BA /* CardSetRepository.swift in Sources */,
 				187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */,
+				18AAD49B2228790F0059D3BA /* APIManager.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
 				18AAD45022270D450059D3BA /* EndpointCards.swift in Sources */,
 				47631B73221B601200B78A21 /* UIImage+ImageColor.swift in Sources */,
 				DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */,
 				18AAD45422270D550059D3BA /* Endpoint.swift in Sources */,
 				476D9D5A221C72F400272793 /* FavoritesPresenter.swift in Sources */,
+				18AAD4862228279F0059D3BA /* CardRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

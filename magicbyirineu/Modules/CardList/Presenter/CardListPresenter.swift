@@ -114,7 +114,11 @@ extension CardListPresenter: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let cardsCount = self.interactor.cards.count
         if Double(cardsCount) * 0.8 < Double(indexPaths.first?.row ?? 50) {
-            self.interactor.fetch(page: self.interactor.pageLastModified+1)
+            if self.interactor.isSearching {
+                self.interactor.fetchSearchingCards(cardName: self.query!)
+            }else{
+                self.interactor.fetchCards()
+            }
         }
     }
 }
@@ -159,15 +163,14 @@ extension CardListPresenter: UISearchBarDelegate{
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         searchBar.resignFirstResponder()
-        self.interactor.change(status: .normal)
+        self.query = nil
         self.view.screen.collectionView.reloadData()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         if let text = searchBar.text {
             self.query = text
-            self.interactor.change(status: .searching(searchBar.text ?? ""))
-            self.interactor.fetch()
+            self.interactor.fetchSearchingCards(cardName: self.query!)
         }
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
