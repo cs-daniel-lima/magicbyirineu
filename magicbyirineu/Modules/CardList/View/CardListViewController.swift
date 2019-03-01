@@ -25,7 +25,14 @@ class CardListViewController: UIViewController {
     override func loadView() {
         super.loadView()
         self.view = screen
-        
+    }
+    
+    func setupEmptyFeedback(){
+        self.screen.emptySearchLabel.isHidden = false
+    }
+    
+    func tearDownEmptyFeedback(){
+        self.screen.emptySearchLabel.isHidden = true
     }
     
     override func viewDidLoad() {
