@@ -36,24 +36,24 @@ class MagicFlowLayoutSpec:QuickSpec{
         
         context("when it is initialized"){
             
-            it("minimumInteritemSpacing should be 0"){
+            it("has minimumInteritemSpacing equal to 0"){
                 
                 expect(sut.minimumInteritemSpacing).to(equal(0))
                 
             }
             
-            it("minimumLineSpacing should be 16"){
+            it("has minimumInteritemSpacing equal to 0"){
                 
                 expect(sut.minimumLineSpacing).to(equal(16))
                 
             }
             
-            it("section header should pin to visible bounds"){
+            it("has section header should pin visible bounds"){
                 expect(sut.sectionHeadersPinToVisibleBounds).to(beTrue())
                 
             }
             
-            it("should view match with snapshot when displayed in a UIViewController") {
+            it("should view match with snapshot") {
                 
                 self.tester().waitForAnimationsToFinish()
                 expect(viewController) == snapshot()
@@ -63,7 +63,7 @@ class MagicFlowLayoutSpec:QuickSpec{
         }
         
         
-        context("on CollectionViewFlowLayout lifecicle"){
+        context("on CollectionViewFlowLayout lifecycle"){
             
             it("align method must be called"){
                 self.tester().waitForAnimationsToFinish()

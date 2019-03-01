@@ -240,15 +240,6 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
-		4754D21222287ADA00FCE704 /* MagicFlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */,
-				4754D21522287CF000FCE704 /* CollectionMock.swift */,
-			);
-			path = MagicFlowLayout;
-			sourceTree = "<group>";
-		};
 		4754D21822288A5000FCE704 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +358,8 @@
 			isa = PBXGroup;
 			children = (
 				476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */,
-				4754D21222287ADA00FCE704 /* MagicFlowLayout */,
+				4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */,
+				4754D21522287CF000FCE704 /* CollectionMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
