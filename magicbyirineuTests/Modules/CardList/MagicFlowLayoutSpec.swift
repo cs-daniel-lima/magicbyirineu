@@ -53,7 +53,7 @@ class MagicFlowLayoutSpec:QuickSpec{
                 
             }
             
-            it("should view match with snapshot") {
+      it("has built layout properly") {
                 
                 self.tester().waitForAnimationsToFinish()
                 expect(viewController) == snapshot()
