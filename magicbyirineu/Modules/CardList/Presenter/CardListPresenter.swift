@@ -125,6 +125,14 @@ extension CardListPresenter: UICollectionViewDataSourcePrefetching {
 
 extension CardListPresenter: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let object = self.interactor.objectsBySet[indexPath.section]![indexPath.row]
+        guard let card = object as? Card else {
+            Logger.log(in: self, message: "Couldn't cast object to type Card" )
+            return
+        }
+        self.router.goToCardDetail(card: card)
+    }
 }
 
 extension CardListPresenter: UICollectionViewDelegateFlowLayout {
