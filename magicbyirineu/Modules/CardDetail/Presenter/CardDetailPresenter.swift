@@ -11,12 +11,10 @@ import Foundation
 class CardDetailPresenter{
 
 var router: CardDetailRouter
-var interactor: CardDetailInteractor
 var view: CardDetailViewController
 
-init(router: CardDetailRouter, interactor: CardDetailInteractor, view: CardDetailViewController) {
+init(router: CardDetailRouter, view: CardDetailViewController) {
     self.router = router
-    self.interactor = interactor
     self.view = view
     
     self.view.presenter = self

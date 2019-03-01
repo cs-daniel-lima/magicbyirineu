@@ -15,9 +15,8 @@ var presenter: CardDetailPresenter!
 init() {
     
     let viewController = CardDetailViewController()
-    let interactor = CardDetailInteractor()
     
-    self.presenter = CardDetailPresenter(router:self, interactor:interactor, view:viewController)
+    self.presenter = CardDetailPresenter(router:self, view:viewController)
 }
     
 }
