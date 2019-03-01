@@ -19,4 +19,19 @@ class CardListRouter{
         self.presenter = CardListPresenter(router:self, interactor:interactor, view:viewController)
         
     }
+    
+    func goToCardDetail(card: Card){
+        
+        let router = CardDetailRouter()
+        
+        if let vc = router.presenter.view as? CardDetailViewController {
+            vc.card = card
+            self.presenter.view.present(vc, animated: true, completion: nil)
+        }else{
+            Logger.logError(in: self, message: "Could not present CardDetailViewController")
+        }
+        
+        
+    }
+    
 }
