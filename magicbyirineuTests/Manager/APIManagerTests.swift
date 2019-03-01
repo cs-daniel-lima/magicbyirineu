@@ -20,11 +20,11 @@ class APIManagerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testGetSetsRequest() {
-        XCTAssert(RequestSets.Response.self ==  ResponseSets.self, "Response condizente com o Request")
-    }
-    
-    func testGetCardsRequest() {
-        XCTAssert(RequestCards.Response.self ==  ResponseCards.self, "Response condizente com o Request")
-    }
+//    func testGetSetsRequest() {
+//        XCTAssert(RequestSets.Response.self ==  ResponseSets.self, "Response condizente com o Request")
+//    }
+//    
+//    func testGetCardsRequest() {
+//        XCTAssert(RequestCards.Response.self ==  ResponseCards.self, "Response condizente com o Request")
+//    }
 }

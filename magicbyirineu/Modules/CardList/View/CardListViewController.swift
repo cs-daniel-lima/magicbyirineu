@@ -8,7 +8,13 @@
 
 import UIKit
 
+enum Status {
+    case normal
+    case empty
+}
+
 class CardListViewController: UIViewController {
+    
     
     var presenter:CardListPresenter!
     let screen = CardListView()
@@ -27,16 +33,19 @@ class CardListViewController: UIViewController {
         self.view = screen
     }
     
-    func setupEmptyFeedback(){
-        self.screen.emptySearchLabel.isHidden = false
-    }
-    
-    func tearDownEmptyFeedback(){
-        self.screen.emptySearchLabel.isHidden = true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func set(status: Status){
+        
+        switch status {
+        case .normal:
+            self.screen.emptySearchLabel.isHidden = true
+        case .empty:
+            self.screen.emptySearchLabel.isHidden = false
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

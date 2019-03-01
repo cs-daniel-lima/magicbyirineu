@@ -52,9 +52,9 @@ extension CardListPresenter: UICollectionViewDataSource {
         var numberOfSections = self.interactor.objectsBySet.keys.count
         
         if numberOfSections == 0 && isFirstLoad == false {
-           self.view.setupEmptyFeedback()
+           self.view.set(status: .empty)
         }else{
-           self.view.tearDownEmptyFeedback()
+           self.view.set(status: .normal)
         }
         isFirstLoad = false
         return numberOfSections
