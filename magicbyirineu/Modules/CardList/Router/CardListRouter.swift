@@ -19,4 +19,15 @@ class CardListRouter{
         self.presenter = CardListPresenter(router:self, interactor:interactor, view:viewController)
         
     }
+    
+    func goToCardDetail(card: Card){
+        
+        let router = CardDetailRouter()
+        
+        router.presenter.view.card = card
+        self.presenter.view.present(router.presenter.view, animated: true, completion: nil)
+        
+        
+    }
+    
 }
