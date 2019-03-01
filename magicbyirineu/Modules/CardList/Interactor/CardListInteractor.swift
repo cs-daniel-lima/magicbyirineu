@@ -77,9 +77,15 @@ class CardListInteractor: NSObject {
         self.fetchedCards = [Card]()
     }
     
-    private func cleanAll() {
+    private func cleanCardData() {
         self.cleanSearchData()
         self.cleanCardsData()
+    }
+    
+    func cleanAll() {
+        self.sets = [CardSet]()
+        self.types = [String]()
+        self.cleanCardData()
     }
     
     //MARK: Public
