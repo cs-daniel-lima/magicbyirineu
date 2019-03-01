@@ -23,7 +23,7 @@ class CardDetailViewController: UIViewController {
             let url = URL(string: urlString)
             screen.cardImage.kf.setImage(with: url)
         }else{
-            Logger.logError(in: self, message: "Could not obtain image URL")
+            screen.cardImage.image = UIImage(named: "cartaVerso")
         }
         
         self.view = screen
