@@ -50,13 +50,27 @@ extension CardListPresenter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (self.interactor.objectsBySet[section] ?? [Any]()).count
+        let keys = self.interactor.objectsBySet.keys.map { (set) -> CardSet in
+            return set
+        }
+        let set = keys[section]
+        
+        guard let objectList = self.interactor.objectsBySet[set] else {
+            Logger.logError(in: self, message: "Could not get objectList in CardSet: \(set)")
+            return 0
+        }
+        
+        return objectList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell:UICollectionViewCell = UICollectionViewCell()
         
-        let object = self.interactor.objectsBySet[indexPath.section]![indexPath.row]
+        let keys = self.interactor.objectsBySet.keys.map { (set) -> CardSet in
+            return set
+        }
+        let set = keys[indexPath.section]
+        let object = self.interactor.objectsBySet[set]![indexPath.row]
         
         
         if let category = object as? String {
@@ -117,7 +131,7 @@ extension CardListPresenter: UICollectionViewDataSourcePrefetching {
             if self.interactor.isSearching {
                 self.interactor.fetchSearchingCards(cardName: self.query!)
             }else{
-                self.interactor.fetchCards()
+                self.interactor.fetchCards() {_ in}
             }
         }
     }
@@ -130,7 +144,17 @@ extension CardListPresenter: UICollectionViewDelegate {
 extension CardListPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let object = (self.interactor.objectsBySet[indexPath.section] ?? ["Errooo"])[indexPath.row]
+        let keys = self.interactor.objectsBySet.keys.map { (set) -> CardSet in
+            return set
+        }
+        let set = keys[indexPath.section]
+        
+        guard let objectList = self.interactor.objectsBySet[set] else {
+            Logger.logError(in: self, message: "Could not get the objectList from CardSet:\(set)")
+            return CGSize.zero
+        }
+        
+        let object = objectList[indexPath.row]
         
         if object is String {
             return CGSize(width: UIScreen.main.bounds.width, height: 16)

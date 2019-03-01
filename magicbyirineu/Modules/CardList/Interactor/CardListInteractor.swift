@@ -45,7 +45,7 @@ class CardListInteractor: NSObject {
         }
     }
     
-    var objectsBySet:[Int:[Any]] = [Int:[Any]]()
+    var objectsBySet:[CardSet:[Any]] = [CardSet:[Any]]()
     
     //MARK: - NSObject functions
     init(cardRepository:CardRepository, cardSetRepository:CardSetRepository, typeRepository:TypeRepository) {
@@ -55,8 +55,11 @@ class CardListInteractor: NSObject {
         
         super.init()
         
-        self.fetchSets()
-        self.fetchTypes()
+        self.fetchTypes { (result) in  
+            self.fetchSets { (result) in
+                self.fetchCards() {_ in }
+            }
+        }
     }
     
     
@@ -88,9 +91,11 @@ class CardListInteractor: NSObject {
                 self.sets.sort(by: { (before, after) -> Bool in
                     return before.releaseDate < after.releaseDate
                 })
+                completion?(true)
                 
             case .failure(let error):
                 self.delegate?.didLoad(error: error)
+                completion?(false)
             }
         }
     }
@@ -100,29 +105,33 @@ class CardListInteractor: NSObject {
             switch result {
             case .success(let types):
                 self.types = types
+                completion?(true)
                 
             case .failure(let error):
                 self.delegate?.didLoad(error: error)
+                completion?(false)
             }
+            
         }
     }
     
-    func fetchCards(completion: ((_ success:Bool) -> Void)? = nil ) {
+    func fetchCards(completion: @escaping (_ success:Bool) -> Void) {
         if self.isLoaded {
-            self.fetchedCardsPage += 1
             
             self.cardRepository.getAll(page: self.fetchedCardsPage, name: nil, setCode: nil, type: nil, completion: { (result) in
-                
                 switch result {
-                case .success(let cards):
-                    self.fetchedCards.append(contentsOf: cards)
-                    self.objectsBySet = self.sequenceOfCategoriesAndCardsBySection(self.fetchedCards)
-                    self.delegate?.didLoad()
+                case .success(let cardsResponse):
+                    self.fetchedCardsPage += 1
+                    self.fetchedCards.append(contentsOf: cardsResponse)
+                    self.objectsBySet = self.sequenceOfTypesAndCardsBySection(self.cards)
+                    completion(true)
                     
                 case .failure(let error):
                     self.delegate?.didLoad(error: error)
+                    completion(false)
                     
                 }
+                self.delegate?.didLoad()
             })
         }else if self.sets.count == 0 {
             self.fetchSets { (success) in
@@ -130,7 +139,7 @@ class CardListInteractor: NSObject {
                 case true:
                     self.fetchCards(completion: completion)
                 case false:
-                    completion?(false)
+                    completion(true)
                 }
             }
         }else if self.types.count == 0 {
@@ -139,11 +148,10 @@ class CardListInteractor: NSObject {
                 case true:
                     self.fetchCards(completion: completion)
                 case false:
-                    completion?(false)
+                    completion(false)
                 }
             }
         }
-        
     }
     
     func fetchSearchingCards(cardName:String) {
@@ -153,7 +161,6 @@ class CardListInteractor: NSObject {
             switch result {
             case .success(let cards):
                 self.searchedCards.append(contentsOf: cards)
-                self.objectsBySet = self.sequenceOfCategoriesAndCardsBySection(self.searchedCards)
                 self.delegate?.didLoad()
                 
             case .failure(let error):
@@ -168,9 +175,9 @@ class CardListInteractor: NSObject {
     }
     
     //MARK Card
-    func cards(_ cards:[Card], from category:String, in set:CardSet) -> [Card] {
+    func cards(_ cards:[Card], from type:String, in set:CardSet) -> [Card] {
         let someCards = cards.filter { (card) -> Bool in
-            return (card.set == set.code && card.types.contains(category))
+            return (card.set == set.code && card.types.contains(type))
         }
         
         return someCards.sorted { (before, after) -> Bool in
@@ -178,29 +185,29 @@ class CardListInteractor: NSObject {
         }
     }
     
-    func cardsByCategories(_ cards:[Card], in set:CardSet) -> [String:[Card]] {
-        var cardsByCategories:[String:[Card]] = [String:[Card]]()
+    func cardsByType(_ cards:[Card], in set:CardSet) -> [String:[Card]] {
+        var cardsByType:[String:[Card]] = [String:[Card]]()
         
-        for category in types {
-            cardsByCategories[category] = self.cards(cards, from: category, in: set)
+        for type in types {
+            cardsByType[type] = self.cards(cards, from: type, in: set)
         }
         
-        return cardsByCategories
+        return cardsByType
     }
     
-    func cardsByCategories(_ cards:[Card], in section:Int) -> [String:[Card]] {
+    func cardsByType(_ cards:[Card], in section:Int) -> [String:[Card]] {
         let set = self.sets[section]
         
-        return self.cardsByCategories(cards, in: set)
+        return self.cardsByType(cards, in: set)
     }
     
     
-    func sequenceOfCategoriesAndCards(_ cards:[Card], by set:CardSet) -> [Any] {
-        let cardsByCategories = self.cardsByCategories(cards, in: set)
+    func sequenceOfTypesAndCards(_ cards:[Card], by set:CardSet) -> [Any] {
+        let cardsByTypes = self.cardsByType(cards, in: set)
         
         var arraySequence = [Any]()
         
-        for object in cardsByCategories {
+        for object in cardsByTypes {
             if object.value.count > 0 {
                 arraySequence.append(object.key)
                 arraySequence.append(contentsOf: object.value)
@@ -210,22 +217,26 @@ class CardListInteractor: NSObject {
         return arraySequence
     }
     
-    func sequenceOfCategoriesAndCards(_ cards:[Card], by section:Int) -> [Any] {
+    func sequenceOfTypesAndCards(_ cards:[Card], by section:Int) -> [Any] {
         let set = self.sets[section]
         
-        return self.sequenceOfCategoriesAndCards(cards, by: set)
+        return self.sequenceOfTypesAndCards(cards, by: set)
     }
     
-    func sequenceOfCategoriesAndCardsBySection(_ cards:[Card]) -> [Int:[Any]] {
-        var objects:[Int:[Any]] = [Int:[Any]]()
+    func sequenceOfTypesAndCardsBySection(_ cards:[Card]) -> [CardSet:[Any]] {
+        var objects:[CardSet:[Any]] = [CardSet:[Any]]()
+        
+        var section = 0
         
         for i in 0..<self.sets.count {
             let set = self.sets[i]
-            let objectsArray = self.sequenceOfCategoriesAndCards(cards, by: set)
+            let objectsArray = self.sequenceOfTypesAndCards(cards, by: set)
             if objectsArray.count > 0 {
-                objects[i] = objectsArray
+                objects[set] = objectsArray
+                section += 1
             }
         }
+        
         
         return objects
     }
