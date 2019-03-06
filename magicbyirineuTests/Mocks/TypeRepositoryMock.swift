@@ -17,7 +17,7 @@ class TypeRepositoryMock:TypeRepository {
     
     var isSuccessful = true
     
-    func getAll(completion: @escaping (Result<[String]>) -> Void) {
+    func fetchTypes(completion: @escaping (Result<[String]>) -> Void) {
         if self.isSuccessful {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"

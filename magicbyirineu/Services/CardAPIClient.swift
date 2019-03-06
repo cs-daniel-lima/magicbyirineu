@@ -10,15 +10,15 @@ import Foundation
 
 class CardAPIClient {
     
-    var apiManager:APIManager
+    let apiManager:APIManager
     
-    init() {
-        self.apiManager = APIManager()
+    init(apiManager: APIManager = APIManager()) {
+        self.apiManager = apiManager
     }
 }
 
 extension CardAPIClient: CardRepository {
-    func getAll(page: Int?, name: String?, setCode: String?, type: String?, completion: @escaping (Result<[Card]>) -> Void) {
+    func fetchCards(page: Int?, name: String?, setCode: String?, type: String?, completion: @escaping (Result<[Card]>) -> Void) {
         let endpoint = EndpointCards(page: page, name:name, setCode:setCode, type:type)
         
         self.apiManager.fetch(endpoint) { (result) in

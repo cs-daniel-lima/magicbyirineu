@@ -17,7 +17,7 @@ class CardSetRepositoryMock:CardSetRepository {
     
     var isSuccessful = true
     
-    func getAll(completion: @escaping (Result<[CardSet]>) -> Void) {
+    func fetchCardSet(completion: @escaping (Result<[CardSet]>) -> Void) {
         if self.isSuccessful {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"

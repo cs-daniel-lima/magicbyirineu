@@ -90,7 +90,7 @@ class CardListInteractor: NSObject {
     
     //MARK: Public
     func fetchSets(completion: ((_ success:Bool) -> Void)? = nil ) {
-        self.cardSetRepository.getAll { (result) in
+        self.cardSetRepository.fetchCardSets { (result) in
             switch result {
             case .success(let sets):
                 self.sets = sets
@@ -107,7 +107,7 @@ class CardListInteractor: NSObject {
     }
     
     func fetchTypes(completion: ((_ success:Bool) -> Void)? = nil ) {
-        self.typeRepository.getAll { (result) in
+        self.typeRepository.fetchTypes { (result) in
             switch result {
             case .success(let types):
                 self.types = types
@@ -124,7 +124,7 @@ class CardListInteractor: NSObject {
     func fetchCards(completion: @escaping (_ success:Bool) -> Void) {
         if self.isLoaded {
             
-            self.cardRepository.getAll(page: self.fetchedCardsPage, name: nil, setCode: nil, type: nil, completion: { (result) in
+            self.cardRepository.fetchCards(page: self.fetchedCardsPage, name: nil, setCode: nil, type: nil, completion: { (result) in
                 switch result {
                 case .success(let cardsResponse):
                     self.fetchedCardsPage += 1
@@ -163,7 +163,7 @@ class CardListInteractor: NSObject {
     func fetchSearchingCards(cardName:String) {
         self.searchingCardsPage += 1
         
-        self.cardRepository.getAll(page: self.searchingCardsPage, name:cardName , setCode: nil, type: nil) { (result) in
+        self.cardRepository.fetchCards(page: self.searchingCardsPage, name:cardName , setCode: nil, type: nil) { (result) in
             switch result {
             case .success(let cards):
                 self.searchedCards.append(contentsOf: cards)

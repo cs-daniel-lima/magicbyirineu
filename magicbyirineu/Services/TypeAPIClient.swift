@@ -10,15 +10,15 @@ import Foundation
 
 class TypeAPIClient {
     
-    var apiManager:APIManager
+    let apiManager:APIManager
     
-    init() {
-        self.apiManager = APIManager()
+    init(apiManager: APIManager = APIManager()) {
+        self.apiManager = apiManager
     }
 }
 
 extension TypeAPIClient: TypeRepository {
-    func getAll(completion: @escaping (Result<[String]>) -> Void) {
+    func fetchTypes(completion: @escaping (Result<[String]>) -> Void) {
         let endpoint = EndpointTypes()
         
         self.apiManager.fetch(endpoint) { (result) in

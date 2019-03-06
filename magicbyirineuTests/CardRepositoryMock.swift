@@ -17,7 +17,7 @@ class CardRepositoryMock: CardRepository {
     
     var isSuccessfull = true
     
-    func getAll(page:Int?, name:String?, setCode:String?, type:String?, completion: @escaping (Result<[Card]>) -> Void) {
+    func fetchCards(page:Int?, name:String?, setCode:String?, type:String?, completion: @escaping (Result<[Card]>) -> Void) {
         
         if self.isSuccessfull {
             completion(.success([

@@ -10,5 +10,5 @@ import Foundation
 
 protocol CardSetRepository {
     
-    func getAll(completion: @escaping (Result<[CardSet]>) -> Void)
+    func fetchCardSets(completion: @escaping (Result<[CardSet]>) -> Void)
 }

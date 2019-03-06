@@ -10,5 +10,5 @@ import Foundation
 
 protocol TypeRepository {
     
-    func getAll(completion: @escaping (Result<[String]>) -> Void)
+    func fetchTypes(completion: @escaping (Result<[String]>) -> Void)
 }

@@ -10,5 +10,5 @@ import Foundation
 
 protocol CardRepository {
     
-    func getAll(page:Int?, name:String?, setCode:String?, type:String?, completion: @escaping (Result<[Card]>) -> Void)
+    func fetchCards(page:Int?, name:String?, setCode:String?, type:String?, completion: @escaping (Result<[Card]>) -> Void)
 }

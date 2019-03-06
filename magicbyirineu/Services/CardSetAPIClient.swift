@@ -10,15 +10,15 @@ import Foundation
 
 class CardSetAPIClient {
     
-    var apiManager:APIManager
+    let apiManager:APIManager
     
-    init() {
-        self.apiManager = APIManager()
+    init(apiManager: APIManager = APIManager()) {
+        self.apiManager = apiManager
     }
 }
 
 extension CardSetAPIClient: CardSetRepository {
-    func getAll(completion: @escaping (Result<[CardSet]>) -> Void) {
+    func fetchCardSets(completion: @escaping (Result<[CardSet]>) -> Void) {
         let endpoint = EndpointSets()
         
         self.apiManager.fetch(endpoint) { (result) in
