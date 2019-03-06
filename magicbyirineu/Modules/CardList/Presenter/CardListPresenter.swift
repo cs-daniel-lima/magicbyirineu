@@ -62,7 +62,17 @@ extension CardListPresenter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (self.interactor.objectsBySet[section] ?? [Any]()).count
+        let keys = self.interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
+            return set
+        }
+        let set = keys[section]
+        
+        guard let objectList = self.interactor.objectsBySet[set] else {
+            Logger.logError(in: self, message: "Could not get objectList in CardSet: \(set)")
+            return 0
+        }
+        
+        return objectList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,8 +80,15 @@ extension CardListPresenter: UICollectionViewDataSource {
         
         var cell:UICollectionViewCell = UICollectionViewCell()
         
-        let object = self.interactor.objectsBySet[indexPath.section]![indexPath.row]
+        let keys = self.interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
+            return set
+        }
+        let set = keys[indexPath.section]
         
+        guard let object = self.interactor.objectsBySet[set]?[indexPath.row] else {
+            Logger.logError(in: self, message: "Could not get an object")
+            return cell
+        }
         
         if let category = object as? String {
             guard let subsectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubSectionCollectionViewCell", for: indexPath) as? SubSectionCollectionViewCell else {
@@ -134,7 +151,15 @@ extension CardListPresenter: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let cardsCount = self.interactor.cards.count
         if Double(cardsCount) * 0.8 < Double(indexPaths.first?.row ?? 50) {
-            self.interactor.fetch(page: self.interactor.pageLastModified+1)
+            if self.interactor.isSearching {
+                guard let query = self.query else {
+                    Logger.logError(in: self, message: "Query is nil")
+                    return
+                }
+                self.interactor.fetchSearchingCards(cardName: query)
+            }else{
+                self.interactor.fetchCards() {_ in}
+            }
         }
     }
 }
@@ -142,7 +167,16 @@ extension CardListPresenter: UICollectionViewDataSourcePrefetching {
 extension CardListPresenter: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let object = self.interactor.objectsBySet[indexPath.section]![indexPath.row]
+        
+        let keys = self.interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
+            return set
+        }
+        let set = keys[indexPath.section]
+        guard let object = self.interactor.objectsBySet[set]?[indexPath.row] else {
+            Logger.logError(in: self, message: "Could not get an object")
+            return
+        }
+        
         guard let card = object as? Card else {
             Logger.log(in: self, message: "Couldn't cast object to type Card" )
             return
@@ -154,15 +188,23 @@ extension CardListPresenter: UICollectionViewDelegate {
 extension CardListPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let object = (self.interactor.objectsBySet[indexPath.section] ?? ["Errooo"])[indexPath.row]
+        let keys = self.interactor.objectsBySet.keys.map { (set) -> CardSet in
+            return set
+        }
+        let set = keys[indexPath.section]
+        
+        guard let objectList = self.interactor.objectsBySet[set] else {
+            Logger.logError(in: self, message: "Could not get the objectList from CardSet:\(set)")
+            return CGSize.zero
+        }
+        
+        let object = objectList[indexPath.row]
         
         if object is String {
             return CGSize(width: UIScreen.main.bounds.width, height: 16)
         }else{
             return CGSize(width: collectionView.frame.size.width/3, height: (118 / 320) * collectionView.frame.size.width)
         }
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -187,15 +229,18 @@ extension CardListPresenter: UISearchBarDelegate{
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         searchBar.resignFirstResponder()
-        self.interactor.change(status: .normal)
+        self.query = nil
         self.view.screen.collectionView.reloadData()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         if let text = searchBar.text {
             self.query = text
-            self.interactor.change(status: .searching(searchBar.text ?? ""))
-            self.interactor.fetch()
+            guard let query = self.query else {
+                Logger.logError(in: self, message: "Query is nil")
+                return
+            }
+            self.interactor.fetchSearchingCards(cardName: query)
         }
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

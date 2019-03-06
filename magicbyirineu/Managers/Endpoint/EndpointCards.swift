@@ -17,9 +17,14 @@ final class EndpointCards: Endpoint {
     
     let page: Int?
     let name: String?
+    let setCode: String?
+    let type: String?
     
-    init(page: Int? = nil, name: String? = nil) {
+    
+    init(page: Int? = nil, name: String? = nil, setCode: String? = nil, type: String? = nil) {
         self.page = page
         self.name = name
+        self.setCode = setCode
+        self.type = type
     }
 }

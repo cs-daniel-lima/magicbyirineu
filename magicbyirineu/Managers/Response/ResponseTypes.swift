@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ResponseCategories: Decodable {
+struct ResponseTypes: Decodable {
     
     let types:[String]
 }
