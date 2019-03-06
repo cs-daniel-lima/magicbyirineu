@@ -8,8 +8,8 @@
 
 import Foundation
 
-final class EndpointCategories: Endpoint {
-    typealias Response = ResponseCategories
+final class EndpointTypes: Endpoint {
+    typealias Response = ResponseTypes
     
     var endpoint: String {
         return "types"
