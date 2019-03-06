@@ -119,7 +119,7 @@ class CardListInteractor: NSObject {
         self.apiManager.fetch(request) { (result) in
             switch result {
             case .success(let response):
-                self.sets = response.sets
+                self.sets = self.setsSordedByDate(cardSets: response.sets)
                 self.postStatus()
                 
             case .failure(let error):
@@ -239,7 +239,7 @@ class CardListInteractor: NSObject {
     }
     
     
-    //MARK Card
+    //MARK:- Cards
     func cards(from category:String, in set:CardSet) -> [Card] {
         let someCards = self.cards.filter { (card) -> Bool in
             return (card.set == set.code && card.types.contains(category))
@@ -301,4 +301,12 @@ class CardListInteractor: NSObject {
         
         return objects
     }
+    
+    //MARK:- Sets
+    func setsSordedByDate(cardSets: [CardSet])->[CardSet]{
+        
+        return cardSets.sorted{ $0.releaseDate < $1.releaseDate }
+        
+    }
+    
 }
