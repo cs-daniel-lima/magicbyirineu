@@ -45,8 +45,6 @@ class CardListInteractor: NSObject {
         case .loading:
             return [Card]()
         }
-        
-        return [Card]()
     }
     
     private var cardsPage:Int = 0
