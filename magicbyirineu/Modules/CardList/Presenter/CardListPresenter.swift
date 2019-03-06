@@ -14,6 +14,8 @@ class CardListPresenter:NSObject{
     // MARK: Private
     private var query:String?
     
+    var isFirstLoad: Bool = true
+    
     var router: CardListRouter
     var interactor: CardListInteractor!
     var view: CardListViewController!
@@ -46,7 +48,17 @@ class CardListPresenter:NSObject{
 
 extension CardListPresenter: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.interactor.objectsBySet.keys.count
+        
+        var numberOfSections = self.interactor.objectsBySet.keys.count
+        
+        if numberOfSections == 0 && isFirstLoad == false {
+           self.view.set(status: .empty)
+        }else{
+           self.view.set(status: .normal)
+        }
+        isFirstLoad = false
+        return numberOfSections
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,6 +76,8 @@ extension CardListPresenter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
         var cell:UICollectionViewCell = UICollectionViewCell()
         
         let keys = self.interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
@@ -100,6 +114,10 @@ extension CardListPresenter: UICollectionViewDataSource {
                 
                 let url = URL(string: imageURL)
                 cardCell.backgroundImage.kf.setImage(with: url)
+                
+            }else{
+                
+                cardCell.backgroundImage.image = UIImage(named: "cartaVerso")
                 
             }
             

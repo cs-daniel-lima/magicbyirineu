@@ -26,12 +26,8 @@ class CardListRouter{
         
         let router = CardDetailRouter()
         
-        if let vc = router.presenter.view as? CardDetailViewController {
-            vc.card = card
-            self.presenter.view.present(vc, animated: true, completion: nil)
-        }else{
-            Logger.logError(in: self, message: "Could not present CardDetailViewController")
-        }
+        router.presenter.view.card = card
+        self.presenter.view.present(router.presenter.view, animated: true, completion: nil)
         
         
     }
