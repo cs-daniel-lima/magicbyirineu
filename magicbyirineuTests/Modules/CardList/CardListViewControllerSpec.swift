@@ -20,16 +20,37 @@ class CardListViewControllerSpec:QuickSpec{
         
         beforeEach {
             sut = CardListViewController(title: "CardList")
+            sut.presenter = CardListPresenterMock(router: CardListRouter(), interactor: CardListInteractor(apiManager: APIManager()), view: sut)
             UIApplication.shared.keyWindow?.rootViewController = sut
         }
         
         context("when it is initialized"){
             it("should view match with snapshot"){
-                
                 expect(sut) == snapshot()
-                
             }
+            
+            it("isFirstLoad should begin as true", closure: {
+                expect(sut.presenter.isFirstLoad).to(beTrue())
+            })
+            
+            it("router should not be nil", closure: {
+                expect(sut.presenter.router).notTo(beNil())
+            })
+            
+            it("interactor should not be nil", closure: {
+                expect(sut.presenter.interactor).notTo(beNil())
+            })
         }
+        
+        context("on cardListPresenter life cycle") {
+            
+            it("shoud call numberOfSections", closure: {
+                self.tester().waitForAnimationsToFinish()
+                expect((sut.presenter as! CardListPresenterMock).wasNumberOfSectionCalled).to(beTrue())
+            })
+            
+        }
+        
         
         
         
