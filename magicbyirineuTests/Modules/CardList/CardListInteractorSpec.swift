@@ -16,18 +16,21 @@ class CardListInteractorSpec:QuickSpec{
     
     override func spec() {
         
-        let cardRepositoryMock = CardRepositoryMock()
-        let cardSetRepositoryMock = CardSetRepositoryMock()
-        let typeRepositoryMock = TypeRepositoryMock()
+        var cardRepositoryMock:CardRepositoryMock!
+        var cardSetRepositoryMock:CardSetRepositoryMock!
+        var typeRepositoryMock:TypeRepositoryMock!
         
         var sut:CardListInteractor!
         
         beforeEach {
+            cardRepositoryMock = CardRepositoryMock()
+            cardSetRepositoryMock = CardSetRepositoryMock()
+            typeRepositoryMock = TypeRepositoryMock()
             sut = CardListInteractor(cardRepository: cardRepositoryMock, cardSetRepository: cardSetRepositoryMock, typeRepository: typeRepositoryMock)
         }
         
-        context("When it is initialized"){
-            it("should have CardSets"){
+        context("when it is initialized"){
+            it("has CardSets count greater than zero"){
                 expect(sut.sets.count > 0).to(beTrue())
             }
             it("should have Types"){
@@ -35,17 +38,17 @@ class CardListInteractorSpec:QuickSpec{
             }
         }
         
-        context("When it is called fetchCards"){
+        context("when it is called fetchCards"){
             it("should have 10 Cards"){
                 sut.fetchCards(completion: {_ in })
                 expect(sut.cards.count == 10).to(beTrue())
             }
-            it("the first card should have the name Forest"){
+            it("has the first card with name Forest"){
                 expect(sut.cards.first!.name == "Forest").to(beTrue())
             }
         }
         
-        context("When it is called fetchCardSet"){
+        context("when it is called fetchCardSet"){
             it("should have 4 Sets"){
                 sut.fetchSets()
                 expect(sut.sets.count == 4).to(beTrue())
@@ -55,7 +58,7 @@ class CardListInteractorSpec:QuickSpec{
             }
         }
         
-        context("When it is called fetchCards"){
+        context("when it is called fetchCards"){
             it("should have 17 types"){
                 sut.fetchTypes()
                 expect(sut.types.count == 17).to(beTrue())
@@ -66,7 +69,7 @@ class CardListInteractorSpec:QuickSpec{
         }
         
         afterEach {
-            sut!.cleanAll()
+            sut.cleanAll()
         }
     }
 }
