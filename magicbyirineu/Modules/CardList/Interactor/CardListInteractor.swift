@@ -110,7 +110,7 @@ class CardListInteractor: NSObject {
         self.typeRepository.fetchTypes { (result) in
             switch result {
             case .success(let types):
-                self.types = types
+                self.types = types.filter{$0 != "instant"}
                 completion?(true)
                 
             case .failure(let error):
