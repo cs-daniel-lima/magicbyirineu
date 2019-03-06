@@ -10,6 +10,17 @@ import UIKit
 
 class CardListView : UIView{
     
+    let emptySearchLabel: UILabel = {
+        let view = UILabel(frame: .zero)
+        view.font = UIFont(name: "SFProDisplay-Bold", size: 22)
+        view.text = "We couldn't find the card you were looking for."
+        view.textAlignment = .center
+        view.numberOfLines = 2
+        view.isHidden = true
+        view.textColor = UIColor.white
+        return view
+    }()
+    
     let backgroundImageView:UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
@@ -48,6 +59,7 @@ extension CardListView :CodeView{
     
     func buildViewHierarchy() {
         addSubview(backgroundImageView)
+        self.backgroundImageView.addSubview(self.emptySearchLabel)
         addSubview(collectionView)
         addSubview(searchBar)
     }
@@ -56,6 +68,12 @@ extension CardListView :CodeView{
         
         backgroundImageView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalTo(0)
+        }
+        emptySearchLabel.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.2)
         }
         collectionView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalToSuperview()
