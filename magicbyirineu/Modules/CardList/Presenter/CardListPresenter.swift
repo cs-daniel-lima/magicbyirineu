@@ -49,7 +49,7 @@ class CardListPresenter:NSObject{
 extension CardListPresenter: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        var numberOfSections = self.interactor.objectsBySet.keys.count
+        let numberOfSections = self.interactor.objectsBySet.keys.count
         
         if numberOfSections == 0 && isFirstLoad == false {
            self.view.set(status: .empty)
