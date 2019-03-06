@@ -97,10 +97,12 @@ extension CardListPresenter: UICollectionViewDataSource {
                 
                 let url = URL(string: imageURL)
                 cardCell.backgroundImage.kf.setImage(with: url)
+                cardCell.cardTitle.text = ""
                 
             }else{
                 
                 cardCell.backgroundImage.image = UIImage(named: "cartaVerso")
+                cardCell.cardTitle.text = card.name
                 
             }
             

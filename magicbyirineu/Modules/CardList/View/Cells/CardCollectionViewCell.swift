@@ -13,6 +13,19 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     var cardHeight:CGFloat?
     
+    let cardTitle: UILabel = {
+        var view = UILabel()
+        view.font = UIFont(name: "SFProDisplay-Bold", size: 14)
+        view.textAlignment = .center
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowRadius = 1
+        view.numberOfLines = 2
+        view.textColor = UIColor.white
+        return view
+    }()
+    
     let shadowView: RoundedView = {
         var view = RoundedView(type: .roundedAndShaded)
         return view
@@ -41,6 +54,7 @@ extension CardCollectionViewCell: CodeView{
         self.addSubview(shadowView)
         self.addSubview(roundedView)
         self.roundedView.addSubview(backgroundImage)
+        self.backgroundImage.addSubview(self.cardTitle)
     }
     
     func setupConstraints() {
@@ -63,6 +77,12 @@ extension CardCollectionViewCell: CodeView{
             make.top.bottom.equalToSuperview()
             make.width.equalTo((85 / 118) * height)
             make.centerX.equalToSuperview()
+        }
+        
+        cardTitle.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.left.right.equalToSuperview().inset(10)
         }
         
     }
