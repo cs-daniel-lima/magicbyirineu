@@ -26,7 +26,7 @@ class CardRepositoryMock: CardRepository {
                 Card(name: "Time Sieve", set: "ARB", setName: "Alara Reborn", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=189649&type=card", types: ["Artifact"]),
                 Card(name: "Vedalken Ghoul", set: "ARB", setName: "Alara Reborn", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=183010&type=card", types: ["Creature"]),
                 Card(name: "Naga Oracle", set: "AKH", setName: "Amonkhet", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426764&type=card", types: ["Creature"])
-                ]), nil)
+                ]), 5)
         } else {
             completion(.failure(CardRepositoryMockError.couldNotLoad), nil)
         }
