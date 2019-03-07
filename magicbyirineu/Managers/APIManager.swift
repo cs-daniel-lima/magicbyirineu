@@ -32,11 +32,6 @@ class APIManager {
         
         if parameters.count > 0 {
             endpoint.append("?\(parameters)")
-            
-            if request is EndpointCards{
-                endpoint.append("&orderBy=name")
-            }
-            
         }
         
         let url = URL(string: endpoint)!

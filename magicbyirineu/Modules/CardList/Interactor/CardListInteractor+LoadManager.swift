@@ -30,7 +30,7 @@ extension CardListInteractor:LoadManagerDelegate{
         
         if let setToload = set, let typeToLoad = type{
             
-            self.cardRepository.fetchCards(page: page, name: nil, setCode: setToload.code, type: typeToLoad, completion: { (result, totalCount) in
+            self.cardRepository.fetchCards(page: page, name: nil, setCode: setToload.code, type: typeToLoad, orderParameter: CardOrder.name, completion: { (result, totalCount) in
                 switch result {
                 case .success(let cardsResponse):
                     

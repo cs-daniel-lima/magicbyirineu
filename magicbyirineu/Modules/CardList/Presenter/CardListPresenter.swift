@@ -62,7 +62,26 @@ extension CardListPresenter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.interactor.numberOfElementsForSet(setIndex: section)
+        if(!interactor.isSearching){
+            
+            return self.interactor.numberOfElementsForSet(setIndex: section)
+            
+        }else{
+            
+            let keys = self.interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
+                return set
+            }
+            let set = keys[section]
+            
+            guard let objectList = self.interactor.objectsBySet[set] else {
+                Logger.logError(in: self, message: "Could not get objectList in CardSet: \(set)")
+                return 0
+            }
+            
+            return objectList.count
+            
+        }
+        
         
     }
     

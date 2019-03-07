@@ -13,6 +13,11 @@ protocol CardListInteractorDelegate:class {
     func didLoad(error:Error)
 }
 
+enum CardOrder:String{
+    case name = "name"
+    case type = "type"
+}
+
 class CardListInteractor: NSObject {
     
     //MARK: - Properties
@@ -30,7 +35,7 @@ class CardListInteractor: NSObject {
     private var fetchedSetCode:String?
     private var fetchedCardsType:String?
     private var currentCardTypePagination:Int = 0
-    private var searchingCardsPage:Int = 1
+    private var searchingCardsPage:Int = 0
     
     private var isLoaded:Bool {
         return self.sets.count != 0 && self.types.count != 0
@@ -51,6 +56,8 @@ class CardListInteractor: NSObject {
             return self.fetchedCards
         }
     }
+    
+    var objectsBySet:[CardSet:[Any]] = [CardSet:[Any]]()
     
     var cardOrganizer:CardOrganizer
     var loadManager:LoadManager
@@ -100,7 +107,12 @@ class CardListInteractor: NSObject {
     }
     
     func numberOfSets()->Int{
-        return cardOrganizer.decks.count
+        
+        if(!isSearching){
+            return cardOrganizer.decks.count
+        }else{
+            return objectsBySet.keys.count
+        }
     }
     
     func numberOfElementsForSet(setIndex:Int)->Int{
@@ -115,7 +127,26 @@ class CardListInteractor: NSObject {
     
     func getElementInSet(setIndex:Int, elementIndex:Int)->Any?{
         
-        return cardOrganizer.getElement(setIndex: setIndex, elementIndex: elementIndex)
+        if(!isSearching){
+            
+            return cardOrganizer.getElement(setIndex: setIndex, elementIndex: elementIndex)
+            
+        }else{
+            
+            let keys = objectsBySet.keys.map { (set) -> CardSet in
+                return set
+            }
+            let set = keys[setIndex]
+            
+            guard let objectList = self.objectsBySet[set] else {
+                Logger.logError(in: self, message: "Could not get the objectList from CardSet:\(set)")
+                return CGSize.zero
+            }
+            
+            return objectList[elementIndex]
+            
+        }
+        
         
     }
     
@@ -162,7 +193,7 @@ class CardListInteractor: NSObject {
     func fetchCards(completion: @escaping (_ success:Bool) -> Void) {
         if self.isLoaded {
             
-            self.cardRepository.fetchCards(page: self.fetchedCardsPage, name: nil, setCode: self.fetchedSetCode, type: self.fetchedCardsType, completion: { (result, totalCount) in
+            self.cardRepository.fetchCards(page: self.fetchedCardsPage, name: nil, setCode: self.fetchedSetCode, type: self.fetchedCardsType, orderParameter: CardOrder.name, completion: { (result, totalCount) in
                 switch result {
                 case .success(let cardsResponse):
                     self.fetchedCardsPage += 1
@@ -203,12 +234,15 @@ class CardListInteractor: NSObject {
     }
     
     func fetchSearchingCards(cardName:String) {
+        self.cleanSearchData()
+        self.isSearching = true
         self.searchingCardsPage += 1
         
-        self.cardRepository.fetchCards(page: self.searchingCardsPage, name:cardName , setCode: self.fetchedSetCode, type: self.fetchedCardsType) { (result, totalCount) in
+        self.cardRepository.fetchCards(page: self.searchingCardsPage, name:cardName , setCode: nil, type: nil, orderParameter: CardOrder.type) { (result, totalCount) in
             switch result {
             case .success(let cards):
                 self.searchedCards.append(contentsOf: cards)
+                self.objectsBySet = self.sequenceOfTypesAndCardsBySection(self.cards)
                 self.delegate?.didLoad()
                 
             case .failure(let error):
@@ -220,6 +254,8 @@ class CardListInteractor: NSObject {
     //MARK: Public
     func cancelSearch() {
         self.cleanSearchData()
+        self.isSearching = false
+        delegate?.didLoad()
     }
     
     //MARK Card
@@ -305,15 +341,22 @@ class CardListInteractor: NSObject {
         
         waitingAPIResponse = true
         
-        if(currentCardTypePagination < types.count - 1){
-            currentCardTypePagination += 1
-            fetchCards()
-        }else{
-            if(currentSetPagination < sets.count - 1){
-                currentSetPagination += 1
-                currentCardTypePagination = 0
+        if(!isSearching){
+            
+            if(currentCardTypePagination < types.count - 1){
+                currentCardTypePagination += 1
                 fetchCards()
+            }else{
+                if(currentSetPagination < sets.count - 1){
+                    currentSetPagination += 1
+                    currentCardTypePagination = 0
+                    fetchCards()
+                }
             }
+            
+        }else{
+            
+            
         }
         
     }

@@ -19,11 +19,13 @@ final class EndpointCards: Endpoint {
     let name: String?
     let set: String?
     let type: String?
+    let orderBy:String?
     
-    init(page: Int? = nil, name: String? = nil, setCode: String? = nil, type: String? = nil) {
+    init(page: Int? = nil, name: String? = nil, setCode: String? = nil, type: String? = nil, orderParameter: CardOrder? = nil) {
         self.page = page
         self.name = name
         self.set = setCode
         self.type = type
+        self.orderBy = orderParameter?.rawValue
     }
 }
