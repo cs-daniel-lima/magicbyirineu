@@ -14,6 +14,10 @@ class CardDetailViewController: UIViewController {
     var card: Card?
     var presenter: CardDetailPresenter!
     var screen = CardDetailScreen()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func loadView() {
         super.loadView()
@@ -37,14 +41,6 @@ class CardDetailViewController: UIViewController {
     
     @objc func dismissButtonTapped(){
         self.dismiss(animated: true, completion: nil)
-    }
-    
-}
-
-extension CardDetailViewController{
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
 }
