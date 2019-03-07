@@ -32,13 +32,18 @@ class APIManager {
         
         if parameters.count > 0 {
             endpoint.append("?\(parameters)")
+            
+            if request is EndpointCards{
+                endpoint.append("&orderBy=name")
+            }
+            
         }
         
         let url = URL(string: endpoint)!
         return url
     }
     
-    func fetch<EndpointType>(_ request: EndpointType, completion: @escaping (Result<EndpointType.Response>) -> Void) where EndpointType:Endpoint {
+    func fetch<EndpointType>(_ request: EndpointType, completion: @escaping (Result<EndpointType.Response>, Int?) -> Void) where EndpointType:Endpoint {
         self.setStatusBar(loading: true)
         let endpoint = self.endpoint(for: request)
         
@@ -54,7 +59,7 @@ class APIManager {
                     
                     
                     self.setStatusBar(loading: false)
-                    completion(Result.success(magicResponse))
+                    completion(Result.success(magicResponse), self.extractTotalCount(fromResponse: response))
                     
                 } catch {
                     self.setStatusBar(loading: false)
@@ -66,20 +71,36 @@ class APIManager {
                                                     code: htmlResponse.statusCode,
                                                     userInfo: ["description" : responseError.statusMessage ?? ""]
                             )
-                            completion(.failure(httpError))
+                            completion(.failure(httpError), nil)
                         }
                     }else{
-                        completion(.failure(error))
+                        completion(.failure(error), nil)
                     }
                     
                     
                 }
             } else if let error = error {
                 self.setStatusBar(loading: false)
-                completion(.failure(error))
+                completion(.failure(error), nil)
             }
         }
         task.resume()
     }
+    
+    func extractTotalCount(fromResponse response: URLResponse?)->Int?{
+        
+        if let httpResponse = response as? HTTPURLResponse {
+            if let value = httpResponse.allHeaderFields["Total-Count".lowercased()]{
+                
+                if let intValue:Int32 = (value as? NSString)?.intValue{
+                    return Int(intValue)
+                }
+                
+            }
+        }
+        
+        return nil
+    }
+    
     
 }
