@@ -28,7 +28,7 @@ class CardDetailScreen: UIView {
     
     let cardName: UILabel = {
        var view = UILabel()
-       view.font = UIFont(name:"SFProDisplay-Bold", size: 26.0)
+       view.font = UIFont.sfProDisplay(size: 26, weight: .bold)
        view.numberOfLines = 2
        view.textAlignment = .center
        view.textColor = UIColor.white
