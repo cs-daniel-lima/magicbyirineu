@@ -23,6 +23,10 @@ extension UICollectionViewLayoutAttributes{
                     xPosition = 0
                 }
                 
+                if(frame.size.width == UIScreen.main.bounds.width){
+                    xPosition = 0
+                }
+                
                 frame.origin.x = xPosition
             }
             
