@@ -60,7 +60,7 @@ class CardListInteractor: NSObject {
     var objectsBySet:[CardSet:[Any]] = [CardSet:[Any]]()
     
     var cardOrganizer:CardOrganizer
-    var loadManager:LoadManager
+    var loadManager:CardsLoader
     
     //MARK: - NSObject functions
     init(cardRepository:CardRepository, cardSetRepository:CardSetRepository, typeRepository:TypeRepository) {
@@ -69,7 +69,7 @@ class CardListInteractor: NSObject {
         self.typeRepository = typeRepository
         
         self.cardOrganizer = CardOrganizer()
-        self.loadManager = LoadManager()
+        self.loadManager = CardsLoader()
         
         super.init()
         

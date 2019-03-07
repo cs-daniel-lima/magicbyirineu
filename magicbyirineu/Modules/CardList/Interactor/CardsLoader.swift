@@ -1,5 +1,5 @@
 //
-//  LoadManager.swift
+//  CardsLoader.swift
 //  magicbyirineu
 //
 //  Created by daniel.da.cunha.lima on 07/03/19.
@@ -15,7 +15,7 @@ protocol LoadManagerDelegate{
     
 }
 
-class LoadManager{
+class CardsLoader{
     
     var delegate:LoadManagerDelegate?
     
