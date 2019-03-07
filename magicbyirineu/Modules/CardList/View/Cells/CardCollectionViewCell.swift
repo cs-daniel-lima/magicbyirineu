@@ -15,7 +15,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     let cardTitle: UILabel = {
         var view = UILabel()
-        view.font = UIFont(name: "SFProDisplay-Bold", size: 14)
+        view.font = UIFont.sfProDisplay(size: 14, weight: .bold)
         view.textAlignment = .center
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 0.1

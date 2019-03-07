@@ -14,7 +14,7 @@ class SetCollectionReusableView:  UICollectionReusableView {
     let label: UILabel = {
         var view = UILabel(frame: .zero)
         view.textColor = UIColor.white
-        view.font = UIFont(name:"SFProDisplay-Bold", size: 36.0)
+        view.font = UIFont.sfProDisplay(size: 36, weight: .bold)
         return view
     }()
     
