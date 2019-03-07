@@ -20,12 +20,14 @@ class CardListViewControllerSpec:QuickSpec{
         
         beforeEach {
             sut = CardListViewController(title: "CardList")
-            sut.presenter = CardListPresenterMock(router: CardListRouter(), interactor: CardListInteractor(apiManager: APIManager()), view: sut)
+            let interactor = CardListInteractor(cardRepository: CardRepositoryMock(), cardSetRepository: CardSetRepositoryMock(), typeRepository: TypeRepositoryMock())
+            sut.presenter = CardListPresenterMock(router: CardListRouter(), interactor: interactor, view: sut)
             UIApplication.shared.keyWindow?.rootViewController = sut
         }
         
         context("when it is initialized"){
             it("should view match with snapshot"){
+                self.tester().waitForAnimationsToFinish()
                 expect(sut) == snapshot()
             }
             
