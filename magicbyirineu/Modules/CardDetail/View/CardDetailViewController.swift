@@ -9,16 +9,12 @@
 import UIKit
 import Kingfisher
 
-class CardDetailViewController: UIViewController {
+class CardDetailViewController: MagicViewController {
     
     var card: Card?
     var presenter: CardDetailPresenter!
     var screen = CardDetailScreen()
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
     override func loadView() {
         super.loadView()
         if let urlString = card?.imageUrl {
