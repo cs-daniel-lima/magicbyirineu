@@ -18,6 +18,13 @@ class SetCollectionReusableView:  UICollectionReusableView {
         return view
     }()
     
+    let blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        var blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.5
+        return blurEffectView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame:frame)
         
@@ -35,6 +42,7 @@ class SetCollectionReusableView:  UICollectionReusableView {
 extension SetCollectionReusableView: CodeView{
     
     func buildViewHierarchy() {
+        self.addSubview(self.blurEffectView)
         self.addSubview(self.label)
     }
     
@@ -42,6 +50,10 @@ extension SetCollectionReusableView: CodeView{
         self.label.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.right.equalTo(16)
+        }
+        
+        self.blurEffectView.snp.makeConstraints { (make) in
+            make.left.right.top.bottom.equalToSuperview()
         }
     }
     
