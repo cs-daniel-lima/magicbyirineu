@@ -34,7 +34,6 @@ class MagicSearchBarSpec:QuickSpec{
         context("when it is initialized"){
             it("should view match with snapshot when displayed in a UIViewController") {
                 
-                //expect(sut) == recordSnapshot("CLSearchBarSpec")
                 expect(sut) == snapshot("CLSearchBarSpec")
                 
             }
