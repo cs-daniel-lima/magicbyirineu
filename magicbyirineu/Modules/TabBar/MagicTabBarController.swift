@@ -43,12 +43,23 @@ class MagicTabBarController: UITabBarController {
     }
     
     func setupTabBarColors(){
+        
+        //Gradient
+        let blackColor = UIColor.black.cgColor
+        let clearColor = UIColor.clear.cgColor
+        let layerGradient = CAGradientLayer()
+        layerGradient.colors = [clearColor,blackColor]
+        layerGradient.startPoint = CGPoint(x: 0.5, y: 0)
+        layerGradient.endPoint = CGPoint(x: 0.5, y: 0.1)
+        layerGradient.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+        self.tabBar.layer.addSublayer(layerGradient)
+        
         let tabBarBackground = UIImage(color: .clear, size: tabBar.frame.size)
         
         tabBar.backgroundColor = .clear
         tabBar.tintColor = .white
         tabBar.barTintColor = .white
-        tabBar.backgroundImage = tabBarBackground
+        self.tabBar.backgroundImage = tabBarBackground
     }
     
     func setupTabBarBorders(){
