@@ -22,16 +22,16 @@ class CardDetailScreen: UIView {
         var view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
-        view.layer.cornerRadius = 11
+        view.layer.cornerRadius = 20
         return view
     }()
     
     let cardName: UILabel = {
        var view = UILabel()
-       view.font = UIFont(name:"SFProDisplay-Bold", size: 18.0)
+       view.font = UIFont.sfProDisplay(size: 26, weight: .bold)
        view.numberOfLines = 2
        view.textAlignment = .center
-       view.textColor = UIColor.lightGray
+       view.textColor = UIColor.white
        return view
     }()
     
@@ -57,7 +57,7 @@ extension CardDetailScreen: CodeView{
     
     func buildViewHierarchy() {
         self.addSubview(backgroundImage)
-        self.addSubview(cardName)
+        self.cardImage.addSubview(cardName)
         self.addSubview(cardImage)
         self.addSubview(dismissButton)
     }
@@ -70,7 +70,7 @@ extension CardDetailScreen: CodeView{
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.4647)
-            make.width.equalToSuperview().multipliedBy(0.59375)
+            make.width.equalTo(self.cardImage.snp.height).multipliedBy(0.71)
         }
         
         self.dismissButton.snp.makeConstraints { (make) in
@@ -80,9 +80,10 @@ extension CardDetailScreen: CodeView{
         }
         
         self.cardName.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.cardImage.snp.centerX)
-            make.bottom.equalTo(self.cardImage.snp.top).offset(-15)
-            make.width.equalTo(self.cardImage.snp.width)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalToSuperview().inset(30)
+            make.height.equalToSuperview().multipliedBy(0.4)
         }
         
     }

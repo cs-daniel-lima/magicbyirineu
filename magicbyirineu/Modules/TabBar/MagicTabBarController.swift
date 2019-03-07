@@ -94,7 +94,7 @@ class MagicTabBarController: UITabBarController {
     
     func setupTabBarItem(item:UITabBarItem){
         
-        let tabbarFont = UIFont(name: "SFProDisplay-Bold", size: 16)
+        let tabbarFont = UIFont.sfProDisplay(size: 16, weight: .bold)
         
         item.setTitleTextAttributes([
             NSAttributedString.Key.foregroundColor : UIColor(red:0.73, green:0.73, blue:0.78, alpha:1.0),

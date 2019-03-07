@@ -9,12 +9,12 @@
 import UIKit
 import Kingfisher
 
-class CardDetailViewController: UIViewController {
+class CardDetailViewController: MagicViewController {
     
     var card: Card?
     var presenter: CardDetailPresenter!
     var screen = CardDetailScreen()
-
+    
     override func loadView() {
         super.loadView()
         if let urlString = card?.imageUrl {
@@ -39,5 +39,4 @@ class CardDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
 }

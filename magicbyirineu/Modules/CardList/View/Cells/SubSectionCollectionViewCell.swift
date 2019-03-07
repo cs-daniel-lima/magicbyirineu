@@ -15,7 +15,7 @@ class SubSectionCollectionViewCell: UICollectionViewCell {
         var view = UILabel(frame: .zero)
         view.textColor = UIColor.white
         view.alpha = 0.7
-        view.font = UIFont(name:"SFProDisplay-Bold", size: 14.0)
+        view.font = UIFont.sfProDisplay(size: 14, weight: .bold)
         return view
     }()
     

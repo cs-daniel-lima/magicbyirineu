@@ -12,7 +12,7 @@ class CardListView : UIView{
     
     let emptySearchLabel: UILabel = {
         let view = UILabel(frame: .zero)
-        view.font = UIFont(name: "SFProDisplay-Bold", size: 22)
+        view.font = UIFont.sfProDisplay(size: 22, weight: .bold)
         view.text = "We couldn't find the card you were looking for."
         view.textAlignment = .center
         view.numberOfLines = 2
@@ -28,7 +28,7 @@ class CardListView : UIView{
     }()
     
     let searchBar:MagicSearchBar = {
-        let view = MagicSearchBar(frame: .zero, font: UIFont(name: "SFProDisplay-Bold", size: 14) ?? UIFont.systemFont(ofSize: 14))
+        let view = MagicSearchBar(frame: .zero, font: UIFont.sfProDisplay(size: 14, weight: .bold) ?? UIFont.systemFont(ofSize: 14))
         return view
     }()
     

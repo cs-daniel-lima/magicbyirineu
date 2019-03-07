@@ -40,7 +40,6 @@ class MagicTabBarControllerSpec:QuickSpec{
             }
             
             it("tabbar subview should match with snapshot"){
-                //expect(sut.tabBar) == recordSnapshot()
                 expect(sut.tabBar) == snapshot()
             }
         }

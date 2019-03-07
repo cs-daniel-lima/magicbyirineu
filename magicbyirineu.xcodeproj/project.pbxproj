@@ -63,6 +63,8 @@
 		47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */; };
 		47E25B1A2229CFDB0031482F /* CardListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E25B192229CFDB0031482F /* CardListPresenterMock.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
+		DD60C6CD223187E4005865B9 /* MagicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CC223187E4005865B9 /* MagicViewController.swift */; };
+		DD60C6CF22318B5F005865B9 /* UIFont + FontWeightt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */; };
 		DD9E78D82228244900BF37F1 /* CardDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78D72228244900BF37F1 /* CardDetailRouter.swift */; };
 		DD9E78DC2228246000BF37F1 /* CardDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78DB2228246000BF37F1 /* CardDetailPresenter.swift */; };
 		DD9E78DF2228247300BF37F1 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */; };
@@ -164,6 +166,8 @@
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34616E3BD7F470AF4450BD /* Pods-magicbyirineu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.debug.xcconfig"; sourceTree = "<group>"; };
 		D72262C0173B8F562F887DAC /* Pods-magicbyirineu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.release.xcconfig"; sourceTree = "<group>"; };
+		DD60C6CC223187E4005865B9 /* MagicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicViewController.swift; sourceTree = "<group>"; };
+		DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + FontWeightt.swift"; sourceTree = "<group>"; };
 		DD9E78D72228244900BF37F1 /* CardDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailRouter.swift; sourceTree = "<group>"; };
 		DD9E78DB2228246000BF37F1 /* CardDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenter.swift; sourceTree = "<group>"; };
 		DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
@@ -268,16 +272,10 @@
 				187D3445221B1E55008E13C3 /* Logger.swift */,
 				47631B72221B601200B78A21 /* UIImage+ImageColor.swift */,
 				47788864222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift */,
+				DD60C6CC223187E4005865B9 /* MagicViewController.swift */,
+				DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		4754D21822288A5000FCE704 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4754D21922288A5D00FCE704 /* KIFExtensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		18AAD44C22270D450059D3BA /* Endpoint */ = {
@@ -310,6 +308,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		4754D21822288A5000FCE704 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4754D21922288A5D00FCE704 /* KIFExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		47631B5D221B397400B78A21 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,7 +332,6 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-				
 		476D9D51221C723D00272793 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -843,6 +848,7 @@
 				18AAD48E222845490059D3BA /* CardAPIClient.swift in Sources */,
 				DD9E78E12228292000BF37F1 /* CardDetailScreen.swift in Sources */,
 				18834D36222466EB00565141 /* ResponseTypes.swift in Sources */,
+				DD60C6CF22318B5F005865B9 /* UIFont + FontWeightt.swift in Sources */,
 				DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */,
 				187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */,
 				18AAD495222874190059D3BA /* CardSetAPIClient.swift in Sources */,
@@ -861,6 +867,7 @@
 				187D3430221B192D008E13C3 /* Result.swift in Sources */,
 				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,
 				476D9D57221C729800272793 /* FavoritesViewController.swift in Sources */,
+				DD60C6CD223187E4005865B9 /* MagicViewController.swift in Sources */,
 				187D3450221B40D7008E13C3 /* ResponseCards.swift in Sources */,
 				187D3443221B1D1A008E13C3 /* CardSet.swift in Sources */,
 				187D3446221B1E55008E13C3 /* Logger.swift in Sources */,
@@ -894,7 +901,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD9E78E6222869DE00BF37F1 /* CardDetailViewControllerSpec.swift in Sources */,
-				187D3448221B2023008E13C3 /* APIManagerTests.swift in Sources */,
 				183398D72229B535006A1EF3 /* CardSetRepositoryMock.swift in Sources */,
 				47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */,
 				183398DB2229B76F006A1EF3 /* CardListInteractorSpec.swift in Sources */,
