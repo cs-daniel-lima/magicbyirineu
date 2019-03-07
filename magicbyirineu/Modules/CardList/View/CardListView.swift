@@ -28,7 +28,7 @@ class CardListView : UIView{
     }()
     
     let searchBar:MagicSearchBar = {
-        let view = MagicSearchBar(frame: .zero, font: UIFont.sfProDisplay(size: 14, weight: .bold) ?? UIFont.systemFont(ofSize: 14))
+        let view = MagicSearchBar(frame: .zero, font: UIFont.sfProDisplay(size: 14, weight: .bold) )
         return view
     }()
     
