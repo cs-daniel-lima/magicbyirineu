@@ -28,10 +28,10 @@ class CardDetailScreen: UIView {
     
     let cardName: UILabel = {
        var view = UILabel()
-       view.font = UIFont(name:"SFProDisplay-Bold", size: 18.0)
+       view.font = UIFont(name:"SFProDisplay-Bold", size: 26.0)
        view.numberOfLines = 2
        view.textAlignment = .center
-       view.textColor = UIColor.lightGray
+       view.textColor = UIColor.white
        return view
     }()
     
@@ -57,7 +57,7 @@ extension CardDetailScreen: CodeView{
     
     func buildViewHierarchy() {
         self.addSubview(backgroundImage)
-        self.addSubview(cardName)
+        self.cardImage.addSubview(cardName)
         self.addSubview(cardImage)
         self.addSubview(dismissButton)
     }
@@ -80,9 +80,10 @@ extension CardDetailScreen: CodeView{
         }
         
         self.cardName.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.cardImage.snp.centerX)
-            make.bottom.equalTo(self.cardImage.snp.top).offset(-15)
-            make.width.equalTo(self.cardImage.snp.width)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalToSuperview().inset(30)
+            make.height.equalToSuperview().multipliedBy(0.4)
         }
         
     }
