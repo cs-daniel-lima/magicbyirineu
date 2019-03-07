@@ -39,5 +39,12 @@ class CardDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+}
 
+extension CardDetailViewController{
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
 }
