@@ -22,7 +22,7 @@ class CardDetailScreen: UIView {
         var view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
-        view.layer.cornerRadius = 11
+        view.layer.cornerRadius = 20
         return view
     }()
     
@@ -70,7 +70,7 @@ extension CardDetailScreen: CodeView{
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.4647)
-            make.width.equalToSuperview().multipliedBy(0.59375)
+            make.width.equalTo(self.cardImage.snp.height).multipliedBy(0.71)
         }
         
         self.dismissButton.snp.makeConstraints { (make) in
