@@ -13,7 +13,7 @@ enum Status {
     case empty
 }
 
-class CardListViewController: UIViewController {
+class CardListViewController: MagicViewController {
     
     
     var presenter:CardListPresenter!
