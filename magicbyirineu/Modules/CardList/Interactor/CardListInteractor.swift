@@ -16,16 +16,21 @@ protocol CardListInteractorDelegate:class {
 class CardListInteractor: NSObject {
     
     //MARK: - Properties
-    private var cardRepository:CardRepository
-    private var cardSetRepository:CardSetRepository
-    private var typeRepository:TypeRepository
+    
+    var cardRepository:CardRepository
+    var cardSetRepository:CardSetRepository
+    var typeRepository:TypeRepository
+    
+    var fetchedCardsPage:Int = 1
+    var currentSetPagination:Int = 0
     
     private var fetchedCards:[Card] = [Card]()
     private var searchedCards:[Card] = [Card]()
     
-    private var fetchedCardsPage:Int = 0
-    private var searchingCardsPage:Int = 0
-    private var pageLastModified:Int = 0
+    private var fetchedSetCode:String?
+    private var fetchedCardsType:String?
+    private var currentCardTypePagination:Int = 0
+    private var searchingCardsPage:Int = 1
     
     private var isLoaded:Bool {
         return self.sets.count != 0 && self.types.count != 0
@@ -34,6 +39,8 @@ class CardListInteractor: NSObject {
     private(set) var isSearching:Bool = false
     
     weak var delegate:CardListInteractorDelegate?
+    
+    var waitingAPIResponse = false
     
     private(set) var sets:[CardSet] = [CardSet]()
     private(set) var types:[String] = [String]()
@@ -45,7 +52,8 @@ class CardListInteractor: NSObject {
         }
     }
     
-    var objectsBySet:[CardSet:[Any]] = [CardSet:[Any]]()
+    var cardOrganizer:CardOrganizer
+    var loadManager:LoadManager
     
     //MARK: - NSObject functions
     init(cardRepository:CardRepository, cardSetRepository:CardSetRepository, typeRepository:TypeRepository) {
@@ -53,11 +61,16 @@ class CardListInteractor: NSObject {
         self.cardSetRepository = cardSetRepository
         self.typeRepository = typeRepository
         
+        self.cardOrganizer = CardOrganizer()
+        self.loadManager = LoadManager()
+        
         super.init()
+        
+        self.loadManager.delegate = self
         
         self.fetchTypes { (result) in  
             self.fetchSets { (result) in
-                self.fetchCards() {_ in }
+                self.fetchCards()
             }
         }
     }
@@ -66,13 +79,11 @@ class CardListInteractor: NSObject {
     //MARK: - Functions
     //MARK: Private
     private func cleanSearchData() {
-        self.searchingCardsPage = 0
-        self.pageLastModified = 0
+        self.searchingCardsPage = 1
         self.searchedCards = [Card]()
     }
     
     private func cleanCardsData() {
-        self.pageLastModified = 1
         self.fetchedCardsPage = 1
         self.fetchedCards = [Card]()
     }
@@ -88,6 +99,26 @@ class CardListInteractor: NSObject {
         self.cleanCardData()
     }
     
+    func numberOfSets()->Int{
+        return cardOrganizer.decks.count
+    }
+    
+    func numberOfElementsForSet(setIndex:Int)->Int{
+        
+        if(cardOrganizer.decks.indices.contains(setIndex)){
+            return cardOrganizer.decks[setIndex].getElements().count
+        }else{
+            return 0
+        }
+        
+    }
+    
+    func getElementInSet(setIndex:Int, elementIndex:Int)->Any?{
+        
+        return cardOrganizer.getElement(setIndex: setIndex, elementIndex: elementIndex)
+        
+    }
+    
     //MARK: Public
     func fetchSets(completion: ((_ success:Bool) -> Void)? = nil ) {
         self.cardSetRepository.fetchCardSets { (result) in
@@ -97,6 +128,7 @@ class CardListInteractor: NSObject {
                 self.sets.sort(by: { (before, after) -> Bool in
                     return before.releaseDate < after.releaseDate
                 })
+                self.updatePagination()
                 completion?(true)
                 
             case .failure(let error):
@@ -121,15 +153,24 @@ class CardListInteractor: NSObject {
         }
     }
     
+    func fetchCards(){
+        
+        loadManager.loadCards(fromSet: sets[currentSetPagination], withType: types[currentCardTypePagination], page: 1)
+        
+    }
+    
     func fetchCards(completion: @escaping (_ success:Bool) -> Void) {
         if self.isLoaded {
             
-            self.cardRepository.fetchCards(page: self.fetchedCardsPage, name: nil, setCode: nil, type: nil, completion: { (result) in
+            self.cardRepository.fetchCards(page: self.fetchedCardsPage, name: nil, setCode: self.fetchedSetCode, type: self.fetchedCardsType, completion: { (result, totalCount) in
                 switch result {
                 case .success(let cardsResponse):
                     self.fetchedCardsPage += 1
-                    self.fetchedCards.append(contentsOf: cardsResponse)
-                    self.objectsBySet = self.sequenceOfTypesAndCardsBySection(self.cards)
+                    
+                    if let total = totalCount{
+                        self.appendCards(cardsResponse, totalExpected: total)
+                    }
+                    
                     completion(true)
                     
                 case .failure(let error):
@@ -139,6 +180,7 @@ class CardListInteractor: NSObject {
                 }
                 self.delegate?.didLoad()
             })
+            
         }else if self.sets.count == 0 {
             self.fetchSets { (success) in
                 switch success {
@@ -163,7 +205,7 @@ class CardListInteractor: NSObject {
     func fetchSearchingCards(cardName:String) {
         self.searchingCardsPage += 1
         
-        self.cardRepository.fetchCards(page: self.searchingCardsPage, name:cardName , setCode: nil, type: nil) { (result) in
+        self.cardRepository.fetchCards(page: self.searchingCardsPage, name:cardName , setCode: self.fetchedSetCode, type: self.fetchedCardsType) { (result, totalCount) in
             switch result {
             case .success(let cards):
                 self.searchedCards.append(contentsOf: cards)
@@ -247,11 +289,35 @@ class CardListInteractor: NSObject {
         return objects
     }
     
-    //MARK:- Sets
-    func setsSordedByDate(cardSets: [CardSet])->[CardSet]{
+    func appendCards(_ cards:[Card], totalExpected:Int){
         
-        return cardSets.sorted{ $0.releaseDate < $1.releaseDate }
+        
         
     }
+    
+    //MARK:- Pagination
+    func updatePagination(){
+        fetchedSetCode = sets[currentSetPagination].code
+        fetchedCardsType = types[currentCardTypePagination]
+    }
+    
+    func paginate(){
+        
+        waitingAPIResponse = true
+        
+        if(currentCardTypePagination < types.count - 1){
+            currentCardTypePagination += 1
+            fetchCards()
+        }else{
+            if(currentSetPagination < sets.count - 1){
+                currentSetPagination += 1
+                currentCardTypePagination = 0
+                fetchCards()
+            }
+        }
+        
+    }
+    
+    
     
 }

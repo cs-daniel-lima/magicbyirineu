@@ -21,7 +21,7 @@ extension TypeAPIClient: TypeRepository {
     func fetchTypes(completion: @escaping (Result<[String]>) -> Void) {
         let endpoint = EndpointTypes()
         
-        self.apiManager.fetch(endpoint) { (result) in
+        self.apiManager.fetch(endpoint) { (result, totalCount) in
             switch result {
             case .success(let response):
                 completion(.success(response.types))

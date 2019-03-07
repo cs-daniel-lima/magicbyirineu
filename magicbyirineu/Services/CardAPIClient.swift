@@ -18,15 +18,16 @@ class CardAPIClient {
 }
 
 extension CardAPIClient: CardRepository {
-    func fetchCards(page: Int?, name: String?, setCode: String?, type: String?, completion: @escaping (Result<[Card]>) -> Void) {
+    
+    func fetchCards(page: Int?, name: String?, setCode: String?, type: String?, completion: @escaping (Result<[Card]>, Int?) -> Void) {
         let endpoint = EndpointCards(page: page, name:name, setCode:setCode, type:type)
         
-        self.apiManager.fetch(endpoint) { (result) in
+        self.apiManager.fetch(endpoint) { (result, totalCount) in
             switch result {
             case .success(let response):
-                completion(.success(response.cards))
+                completion(.success(response.cards), totalCount)
             case .failure(let error):
-                completion(.failure(error))
+                completion(.failure(error), nil)
             }
         }
     }

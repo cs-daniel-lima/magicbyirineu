@@ -28,7 +28,6 @@ class CardListPresenter:NSObject{
         super.init()
         
         self.view.screen.collectionView.dataSource = self
-        self.view.screen.collectionView.prefetchDataSource = self
         self.view.screen.collectionView.delegate = self
         self.view.screen.searchBar.delegate = self
         
@@ -49,7 +48,7 @@ class CardListPresenter:NSObject{
 extension CardListPresenter: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        let numberOfSections = self.interactor.objectsBySet.keys.count
+        let numberOfSections = self.interactor.numberOfSets()
         
         if numberOfSections == 0 && isFirstLoad == false {
            self.view.set(status: .empty)
@@ -62,17 +61,9 @@ extension CardListPresenter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let keys = self.interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
-            return set
-        }
-        let set = keys[section]
         
-        guard let objectList = self.interactor.objectsBySet[set] else {
-            Logger.logError(in: self, message: "Could not get objectList in CardSet: \(set)")
-            return 0
-        }
+        return self.interactor.numberOfElementsForSet(setIndex: section)
         
-        return objectList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -80,12 +71,7 @@ extension CardListPresenter: UICollectionViewDataSource {
         
         var cell:UICollectionViewCell = UICollectionViewCell()
         
-        let keys = self.interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
-            return set
-        }
-        let set = keys[indexPath.section]
-        
-        guard let object = self.interactor.objectsBySet[set]?[indexPath.row] else {
+        guard let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
             Logger.logError(in: self, message: "Could not get an object")
             return cell
         }
@@ -147,35 +133,16 @@ extension CardListPresenter: UICollectionViewDataSource {
     
 }
 
-extension CardListPresenter: UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        let cardsCount = self.interactor.cards.count
-        if Double(cardsCount) * 0.8 < Double(indexPaths.first?.row ?? 50) {
-            if self.interactor.isSearching {
-                guard let query = self.query else {
-                    Logger.logError(in: self, message: "Query is nil")
-                    return
-                }
-                self.interactor.fetchSearchingCards(cardName: query)
-            }else{
-                self.interactor.fetchCards() {_ in}
-            }
-        }
-    }
-}
 
 extension CardListPresenter: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let keys = self.interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
-            return set
-        }
-        let set = keys[indexPath.section]
-        guard let object = self.interactor.objectsBySet[set]?[indexPath.row] else {
+        guard let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
             Logger.logError(in: self, message: "Could not get an object")
             return
         }
+        
         
         guard let card = object as? Card else {
             Logger.log(in: self, message: "Couldn't cast object to type Card" )
@@ -183,22 +150,28 @@ extension CardListPresenter: UICollectionViewDelegate {
         }
         self.router.goToCardDetail(card: card)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        let currentSet = collectionView.numberOfItems(inSection: indexPath.section) - 1
+        
+        if(indexPath.row == currentSet && !interactor.waitingAPIResponse){
+            
+            interactor.paginate()
+            
+        }
+        
+    }
+    
 }
 
 extension CardListPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let keys = self.interactor.objectsBySet.keys.map { (set) -> CardSet in
-            return set
-        }
-        let set = keys[indexPath.section]
-        
-        guard let objectList = self.interactor.objectsBySet[set] else {
-            Logger.logError(in: self, message: "Could not get the objectList from CardSet:\(set)")
+        guard let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+            Logger.logError(in: self, message: "Could not get the object from CardSet at index:\(indexPath.section)")
             return CGSize.zero
         }
-        
-        let object = objectList[indexPath.row]
         
         if object is String {
             return CGSize(width: UIScreen.main.bounds.width, height: 16)

@@ -21,7 +21,7 @@ extension CardSetAPIClient: CardSetRepository {
     func fetchCardSets(completion: @escaping (Result<[CardSet]>) -> Void) {
         let endpoint = EndpointSets()
         
-        self.apiManager.fetch(endpoint) { (result) in
+        self.apiManager.fetch(endpoint) { (result, totalCount) in
             switch result {
             case .success(let response):
                 completion(.success(response.sets))
