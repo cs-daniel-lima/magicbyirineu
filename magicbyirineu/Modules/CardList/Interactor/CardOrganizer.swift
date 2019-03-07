@@ -35,13 +35,11 @@ struct CardDeck {
     }
     
     func getElement(at index:Int)->Any?{
-        
         if(elements.indices.contains(index)){
             return elements[index]
         }else{
             return nil
         }
-        
     }
     
 }
@@ -51,7 +49,6 @@ class CardOrganizer {
     var decks:Array<CardDeck> = Array()
     
     func append(cards:[Card], set:CardSet, type:String, setIndex:Int){
-        
         if decks.indices.contains(setIndex){
             decks[setIndex].add(type: type)
             decks[setIndex].add(cards: cards)
@@ -61,17 +58,14 @@ class CardOrganizer {
             deck.add(cards: cards)
             decks.append(deck)
         }
-        
     }
     
     func getElement(setIndex:Int, elementIndex:Int)->Any?{
-        
         if decks.indices.contains(setIndex){
             return decks[setIndex].getElement(at: elementIndex)
         }else{
             return nil
         }
-        
     }
     
     

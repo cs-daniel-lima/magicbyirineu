@@ -18,13 +18,13 @@ enum CardOrder:String{
     case type = "type"
 }
 
-class CardListInteractor: NSObject {
+class CardListInteractor {
     
     //MARK: - Properties
     
-    var cardRepository:CardRepository
-    var cardSetRepository:CardSetRepository
-    var typeRepository:TypeRepository
+    let cardRepository:CardRepository
+    let cardSetRepository:CardSetRepository
+    let typeRepository:TypeRepository
     
     var fetchedCardsPage:Int = 1
     var currentSetPagination:Int = 0
@@ -70,8 +70,6 @@ class CardListInteractor: NSObject {
         
         self.cardOrganizer = CardOrganizer()
         self.loadManager = CardsLoader()
-        
-        super.init()
         
         self.loadManager.delegate = self
         

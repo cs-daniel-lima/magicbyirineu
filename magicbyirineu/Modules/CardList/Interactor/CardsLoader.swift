@@ -19,10 +19,10 @@ class CardsLoader{
     
     var delegate:LoadManagerDelegate?
     
-    var currentType:String?
-    var currentSet:CardSet?
-    var currentPage = 0
-    var loadedCards:Array<Card> = Array()
+    private var currentType:String?
+    private var currentSet:CardSet?
+    private var currentPage = 0
+    private var loadedCards:Array<Card> = Array()
     
     func loadCards(fromSet set:CardSet, withType type:String, page:Int){
         
