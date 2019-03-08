@@ -37,7 +37,6 @@ class CardListPresenter:NSObject{
     }
     
     func setup() {
-        self.view.screen.backgroundColor = .magenta
         self.view.screen.collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
         self.view.screen.collectionView.register(SubSectionCollectionViewCell.self, forCellWithReuseIdentifier: "SubSectionCollectionViewCell")
         self.view.screen.collectionView.register(SetCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SetCollectionReusableView")
@@ -167,7 +166,9 @@ extension CardListPresenter: UICollectionViewDelegate {
             Logger.log(in: self, message: "Couldn't cast object to type Card" )
             return
         }
-        self.router.goToCardDetail(card: card)
+        
+        self.router.goToCardDetail(cards: [], selectedCard: card)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

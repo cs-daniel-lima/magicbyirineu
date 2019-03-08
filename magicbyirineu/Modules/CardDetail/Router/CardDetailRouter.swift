@@ -9,15 +9,22 @@
 import Foundation
 
 class CardDetailRouter{
-
-var presenter: CardDetailPresenter!
-
-init() {
     
-    let viewController = CardDetailViewController()
+    let presenter: CardDetailPresenter
     
-    self.presenter = CardDetailPresenter(router:self, view:viewController)
+    init(cards:Array<Card>, selectedCard:Card) {
+        
+        let viewController = CardDetailViewController()
+        let interactor = CardDetailInteractor(cards: cards, selectedCard: selectedCard)
+        
+        self.presenter = CardDetailPresenter(interactor: interactor, view:viewController)
+        
+        setupPresenter()
+        
+    }
+    
+    func setupPresenter(){
+        presenter.router = self
+    }
+    
 }
-    
-}
-

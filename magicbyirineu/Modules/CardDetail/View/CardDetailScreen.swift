@@ -42,6 +42,21 @@ class CardDetailScreen: UIView {
         return view
     }()
     
+    let collectionView: UICollectionView = {
+        
+        let layout = MagicCarouselFlowLayout()
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        view.semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
+        view.backgroundView?.backgroundColor = UIColor.clear
+        view.backgroundColor = .clear
+        view.isPagingEnabled = true
+        view.decelerationRate = UIScrollView.DecelerationRate.fast
+        
+        
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupView()
@@ -59,6 +74,7 @@ extension CardDetailScreen: CodeView{
         self.addSubview(backgroundImage)
         self.cardImage.addSubview(cardName)
         self.addSubview(cardImage)
+        self.addSubview(collectionView)
         self.addSubview(dismissButton)
     }
     
@@ -86,11 +102,17 @@ extension CardDetailScreen: CodeView{
             make.height.equalToSuperview().multipliedBy(0.4)
         }
         
+        collectionView.snp.makeConstraints { (make) in
+            make.left.bottom.right.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.85)
+        }
+        
     }
     
     func additionalSetup() {
         self.backgroundColor = UIColor.clear
     }
+    
     
 }
 

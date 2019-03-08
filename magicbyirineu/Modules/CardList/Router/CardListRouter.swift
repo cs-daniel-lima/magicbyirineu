@@ -22,11 +22,11 @@ class CardListRouter{
         
     }
     
-    func goToCardDetail(card: Card){
+    func goToCardDetail(cards:Array<Card>, selectedCard: Card){
         
-        let router = CardDetailRouter()
+        let router = CardDetailRouter(cards: cards, selectedCard: selectedCard)
         
-        router.presenter.view.card = card
+        
         self.presenter.view.present(router.presenter.view, animated: true, completion: nil)
         
         
