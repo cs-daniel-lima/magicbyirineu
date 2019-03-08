@@ -41,7 +41,6 @@ class APIManager {
     func fetch<EndpointType>(_ request: EndpointType, completion: @escaping (Result<EndpointType.Response>, Int?) -> Void) where EndpointType:Endpoint {
         self.setStatusBar(loading: true)
         let endpoint = self.endpoint(for: request)
-        
         let task = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
             if let data = data {
                 do {

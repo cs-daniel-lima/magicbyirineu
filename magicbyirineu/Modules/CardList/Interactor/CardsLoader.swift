@@ -24,6 +24,8 @@ class CardsLoader{
     private var currentPage = 0
     private var loadedCards:Array<Card> = Array()
     
+    private var tempCount = 0
+    
     func loadCards(fromSet set:CardSet, withType type:String, page:Int){
         
         currentType = type
@@ -43,7 +45,14 @@ class CardsLoader{
         
         loadedCards = cards
         
-        if(loadedCards.count == totalExpected){
+        if(currentPage == 1){
+            tempCount = loadedCards.count
+        }else{
+            tempCount +=  loadedCards.count
+        }
+        
+        
+        if(tempCount == totalExpected){
             
             if let type = currentType, let set = currentSet{
                 delegate?.loaded(cards: loadedCards, forType: type, andSet: set)
