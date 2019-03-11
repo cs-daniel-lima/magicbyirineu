@@ -68,6 +68,7 @@
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
 		DD60C6CD223187E4005865B9 /* MagicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CC223187E4005865B9 /* MagicViewController.swift */; };
 		DD60C6CF22318B5F005865B9 /* UIFont + FontWeightt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */; };
+		DD60C6D12236A021005865B9 /* ForeignNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6D02236A021005865B9 /* ForeignNames.swift */; };
 		DD9E78D82228244900BF37F1 /* CardDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78D72228244900BF37F1 /* CardDetailRouter.swift */; };
 		DD9E78DC2228246000BF37F1 /* CardDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78DB2228246000BF37F1 /* CardDetailPresenter.swift */; };
 		DD9E78DF2228247300BF37F1 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */; };
@@ -174,6 +175,7 @@
 		D72262C0173B8F562F887DAC /* Pods-magicbyirineu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.release.xcconfig"; sourceTree = "<group>"; };
 		DD60C6CC223187E4005865B9 /* MagicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicViewController.swift; sourceTree = "<group>"; };
 		DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + FontWeightt.swift"; sourceTree = "<group>"; };
+		DD60C6D02236A021005865B9 /* ForeignNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignNames.swift; sourceTree = "<group>"; };
 		DD9E78D72228244900BF37F1 /* CardDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailRouter.swift; sourceTree = "<group>"; };
 		DD9E78DB2228246000BF37F1 /* CardDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenter.swift; sourceTree = "<group>"; };
 		DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 			children = (
 				DDE32C3B221B11E300426578 /* Card.swift */,
 				187D3442221B1D1A008E13C3 /* CardSet.swift */,
+				DD60C6D02236A021005865B9 /* ForeignNames.swift */,
 			);
 			path = Entitites;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 				18AAD45122270D450059D3BA /* EndpointSets.swift in Sources */,
 				187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */,
 				DDCA2EDD22271BDE00DB7D81 /* RoundedView.swift in Sources */,
+				DD60C6D12236A021005865B9 /* ForeignNames.swift in Sources */,
 				47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */,
 				18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */,
 				18AAD49122285F1B0059D3BA /* CardSetRepository.swift in Sources */,

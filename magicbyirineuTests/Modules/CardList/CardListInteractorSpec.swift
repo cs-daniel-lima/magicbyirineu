@@ -66,7 +66,7 @@ class CardListInteractorSpec:QuickSpec{
                 expect(sut.sets.count == 4).to(beTrue())
             }
             it("the first Set should have the name Unlimited Edition"){
-                expect(sut.sets.first!.name == "Unlimited Edition").to(beTrue())
+                expect(sut.sets.first!.name == "Tenth Edition").to(beTrue())
             }
         }
         

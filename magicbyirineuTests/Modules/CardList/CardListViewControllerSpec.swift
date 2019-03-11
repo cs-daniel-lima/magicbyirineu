@@ -45,16 +45,18 @@ class CardListViewControllerSpec:QuickSpec{
         }
         
         context("on cardListPresenter life cycle") {
-            
+
             it("shoud call numberOfSections", closure: {
                 self.tester().waitForAnimationsToFinish()
                 expect((sut.presenter as! CardListPresenterMock).wasNumberOfSectionCalled).to(beTrue())
             })
             
+            it("should call numberOfSections", closure: {
+                self.tester().waitForAnimationsToFinish()
+                expect((sut.presenter as! CardListPresenterMock).wasCellForItemAtCalled).to(beTrue())
+            })
+            
         }
-        
-        
-        
-        
+       
     }
 }

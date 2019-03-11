@@ -21,11 +21,11 @@ class CardRepositoryMock: CardRepository {
         
         if self.isSuccessfull {
             completion(.success([
-                Card(name: "Forest", set: "2ED", setName: "Unlimited Edition", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=890&type=card", types: ["Land"]),
-                Card(name: "Kamahl, Pit Fighter", set: "P15A", setName: "15th Anniversary Cards", imageUrl: nil, types: ["Creature"]),
-                Card(name: "Time Sieve", set: "ARB", setName: "Alara Reborn", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=189649&type=card", types: ["Artifact"]),
-                Card(name: "Vedalken Ghoul", set: "ARB", setName: "Alara Reborn", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=183010&type=card", types: ["Creature"]),
-                Card(name: "Naga Oracle", set: "AKH", setName: "Amonkhet", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426764&type=card", types: ["Creature"])
+                Card(name: "Forest", set: "2ED", setName: "Unlimited Edition", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=890&type=card", types: ["Land"], foreignNames: nil),
+                Card(name: "Kamahl, Pit Fighter", set: "P15A", setName: "15th Anniversary Cards", imageUrl: nil, types: ["Creature"], foreignNames: nil),
+                Card(name: "Time Sieve", set: "ARB", setName: "Alara Reborn", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=189649&type=card", types: ["Artifact"], foreignNames: nil),
+                Card(name: "Vedalken Ghoul", set: "ARB", setName: "Alara Reborn", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=183010&type=card", types: ["Creature"], foreignNames: nil),
+                Card(name: "Naga Oracle", set: "AKH", setName: "Amonkhet", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426764&type=card", types: ["Creature"], foreignNames: nil),
                 ]), 5)
         } else {
             completion(.failure(CardRepositoryMockError.couldNotLoad), nil)
