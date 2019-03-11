@@ -230,6 +230,8 @@ extension CardListPresenter: UISearchBarDelegate{
         searchBar.resignFirstResponder()
         self.query = nil
         self.view.screen.collectionView.reloadData()
+        self.view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -239,6 +241,8 @@ extension CardListPresenter: UISearchBarDelegate{
                 Logger.logError(in: self, message: "Query is nil")
                 return
             }
+            self.view.screen.collectionView.reloadData()
+            self.view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             self.interactor.fetchSearchingCards(cardName: query)
         }
     }
@@ -247,6 +251,8 @@ extension CardListPresenter: UISearchBarDelegate{
         if searchBar.text == nil || searchBar.text?.isEmpty ?? false {
             self.interactor.cancelSearch()
             self.view.screen.collectionView.reloadData()
+            self.view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+
         }
     }
     
