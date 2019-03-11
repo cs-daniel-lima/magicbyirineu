@@ -18,23 +18,6 @@ class CardDetailScreen: UIView {
         return view
     }()
     
-    let cardImage: UIImageView = {
-        var view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 20
-        return view
-    }()
-    
-    let cardName: UILabel = {
-       var view = UILabel()
-       view.font = UIFont.sfProDisplay(size: 26, weight: .bold)
-       view.numberOfLines = 2
-       view.textAlignment = .center
-       view.textColor = UIColor.white
-       return view
-    }()
-    
     let backgroundImage: UIImageView = {
         var view = UIImageView()
         view.image = UIImage(named: "fundo")
@@ -71,8 +54,6 @@ extension CardDetailScreen: CodeView{
     
     func buildViewHierarchy() {
         self.addSubview(backgroundImage)
-        self.cardImage.addSubview(cardName)
-        self.addSubview(cardImage)
         self.addSubview(collectionView)
         self.addSubview(dismissButton)
     }
@@ -81,24 +62,11 @@ extension CardDetailScreen: CodeView{
         self.backgroundImage.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalToSuperview()
         }
-        self.cardImage.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.4647)
-            make.width.equalTo(self.cardImage.snp.height).multipliedBy(0.71)
-        }
         
         self.dismissButton.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(22)
             make.left.equalToSuperview().inset(8)
             make.height.width.equalTo(44)
-        }
-        
-        self.cardName.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.width.equalToSuperview().inset(30)
-            make.height.equalToSuperview().multipliedBy(0.4)
         }
         
         collectionView.snp.makeConstraints { (make) in

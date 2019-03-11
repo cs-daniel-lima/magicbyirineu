@@ -22,7 +22,6 @@ class CardDetailInteractor{
     
     func changeSelectedCard(index:Int){
         selectedCard = cards[index]
-        print(selectedCard)
     }
     
 }

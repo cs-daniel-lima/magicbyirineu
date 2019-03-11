@@ -56,13 +56,34 @@ extension CardDetailPresenter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell{
+        if let  cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell{
             
+            let card = interactor.cards[indexPath.row]
             
-            cell.setupCell(cardHeight: 264)
+            cardCell.backgroundImage.image = nil
+            cardCell.setupCell(cardHeight: 264)
             
+            if let imageURL = card.imageUrl {
+                
+                let url = URL(string: imageURL)
+                cardCell.backgroundImage.kf.setImage(with: url)
+                cardCell.cardTitle.text = ""
+                
+            }else{
+                
+                if let foreignNames = card.foreignNames,
+                    foreignNames.count > 0 {
+                    if let foreignImageUrl = foreignNames[0].imageUrl {
+                        let url = URL(string: foreignImageUrl)
+                        cardCell.backgroundImage.kf.setImage(with: url)
+                    }
+                }else{
+                    cardCell.backgroundImage.image = UIImage(named: "cartaVerso")
+                    cardCell.cardTitle.text = card.name
+                }
+            }
             
-            return cell
+            return cardCell
             
         }else{
             return UICollectionViewCell()
