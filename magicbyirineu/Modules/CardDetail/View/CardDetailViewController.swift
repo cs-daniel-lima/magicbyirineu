@@ -24,13 +24,11 @@ class CardDetailViewController: MagicViewController {
             screen.cardImage.kf.setImage(with: url)
         }else{
             
-            if let foreignNames = card?.foreignNames {
-                if foreignNames.count > 0 {
+            if let foreignNames = card?.foreignNames, foreignNames.count > 0  {
                     if let foreignImageUrl = foreignNames[0].imageUrl {
                         let url = URL(string: foreignImageUrl)
                         screen.cardImage.kf.setImage(with: url)
                     }
-                }
             }else{
                 screen.cardImage.image = UIImage(named: "cartaVerso")
                 screen.isHidden = false
