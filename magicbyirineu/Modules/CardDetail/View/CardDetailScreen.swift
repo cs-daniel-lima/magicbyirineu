@@ -44,15 +44,14 @@ class CardDetailScreen: UIView {
     
     let collectionView: UICollectionView = {
         
-        let layout = MagicCarouselFlowLayout()
+        let layout = MagicCarouselFlowLayout(visibleOffset: 64)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         view.semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
         view.backgroundView?.backgroundColor = UIColor.clear
         view.backgroundColor = .clear
-        view.isPagingEnabled = true
+        view.isPagingEnabled = false
         view.decelerationRate = UIScrollView.DecelerationRate.fast
-        
         
         return view
     }()

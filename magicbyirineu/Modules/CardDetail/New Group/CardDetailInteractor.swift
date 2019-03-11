@@ -11,13 +11,18 @@ import Foundation
 class CardDetailInteractor{
     
     let cards:Array<Card>
-    let selectedCard:Card
+    var selectedCard:Card
     
     init(cards:Array<Card>, selectedCard:Card){
         
         self.cards = cards
         self.selectedCard = selectedCard
         
+    }
+    
+    func changeSelectedCard(index:Int){
+        selectedCard = cards[index]
+        print(selectedCard)
     }
     
 }

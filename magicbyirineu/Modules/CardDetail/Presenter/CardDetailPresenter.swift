@@ -15,6 +15,14 @@ class CardDetailPresenter:NSObject{
     let view: CardDetailViewController
     let interactor:CardDetailInteractor
     
+    var pageSize:CGSize{
+        if let layout = self.view.screen.collectionView.collectionViewLayout as? MagicCarouselFlowLayout{
+            return CGSize(width: layout.minimumLineSpacing, height: layout.itemSize.height)
+        }else{
+            return CGSize.zero
+        }
+    }
+    
     init(interactor:CardDetailInteractor, view: CardDetailViewController) {
         self.view = view
         self.interactor = interactor
@@ -32,7 +40,10 @@ class CardDetailPresenter:NSObject{
     
     func setup(){
         self.view.screen.collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
-        
+    }
+    
+    public func collectionViewDidScroolToItemAt(indexPath: IndexPath){
+        interactor.changeSelectedCard(index: indexPath.row)
     }
     
 }
@@ -40,7 +51,7 @@ class CardDetailPresenter:NSObject{
 extension CardDetailPresenter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return interactor.cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,35 +74,15 @@ extension CardDetailPresenter: UICollectionViewDataSource {
 
 extension CardDetailPresenter: UICollectionViewDelegate {
     
-    /*
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        let pageWidth = Float(itemWidth + itemSpacing)
-        let targetXContentOffset = Float(targetContentOffset.pointee.x)
-        let contentWidth = Float(collectionView!.contentSize.width  )
-        var newPage = Float(self.pageControl.currentPage)
+        let centerPosition = CGPoint(x: self.view.screen.bounds.midX, y: self.view.screen.bounds.midY)
+        let relatedPositionInCollectionView = self.view.screen.convert(centerPosition, to: self.view.screen.collectionView)
         
-        if velocity.x == 0 {
-            newPage = floor( (targetXContentOffset - Float(pageWidth) / 2) / Float(pageWidth)) + 1.0
-        } else {
-            newPage = Float(velocity.x > 0 ? self.pageControl.currentPage + 1 : self.pageControl.currentPage - 1)
-            if newPage < 0 {
-                newPage = 0
-            }
-            if (newPage > contentWidth / pageWidth) {
-                newPage = ceil(contentWidth / pageWidth) - 1.0
-            }
+        if let indexPath = self.view.screen.collectionView.indexPathForItem(at: relatedPositionInCollectionView) {
+            collectionViewDidScroolToItemAt(indexPath: indexPath)
         }
         
-        self.pageControl.currentPage = Int(newPage)
-        let point = CGPoint (x: CGFloat(newPage * pageWidth), y: targetContentOffset.pointee.y)
-        targetContentOffset.pointee = point
-    }*/
-    
-}
-
-extension CardDetailPresenter: UICollectionViewDelegateFlowLayout {
-    
-    
+    }
     
 }
