@@ -25,10 +25,7 @@ class CardListRouter{
     func goToCardDetail(cards:Array<Card>, selectedCard: Card){
         
         let router = CardDetailRouter(cards: cards, selectedCard: selectedCard)
-        
-        
         self.presenter.view.present(router.presenter.view, animated: true, completion: nil)
-        
         
     }
     

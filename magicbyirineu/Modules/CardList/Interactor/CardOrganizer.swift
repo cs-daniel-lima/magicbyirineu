@@ -34,6 +34,16 @@ struct CardDeck {
         return elements
     }
     
+    func getCards()->Array<Card>{
+        
+        guard let cards = elements.filter({$0 is Card}) as? Array<Card> else{
+            return []
+        }
+        
+        return cards
+        
+    }
+    
     func getElement(at index:Int)->Any?{
         if(elements.indices.contains(index)){
             return elements[index]
@@ -68,5 +78,15 @@ class CardOrganizer {
         }
     }
     
+    func getAllCards()->Array<Card>{
+        
+        var allCards:Array<Card> = Array()
+        
+        for deck in decks{
+            allCards.append(contentsOf: deck.getCards())
+        }
+        
+        return allCards
+    }
     
 }

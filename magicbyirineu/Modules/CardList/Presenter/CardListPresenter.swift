@@ -167,7 +167,7 @@ extension CardListPresenter: UICollectionViewDelegate {
             return
         }
         
-        self.router.goToCardDetail(cards: [], selectedCard: card)
+        self.router.goToCardDetail(cards: interactor.cardOrganizer.getAllCards(), selectedCard: card)
         
     }
     
