@@ -24,4 +24,16 @@ class CardDetailInteractor{
         selectedCard = cards[index]
     }
     
+    func indexOfSelectedCard()->Int{
+        
+        guard let index = cards.firstIndex(where: { (card) -> Bool in
+            card == selectedCard
+        }) else{
+            return 0
+        }
+        
+        return index
+        
+    }
+    
 }

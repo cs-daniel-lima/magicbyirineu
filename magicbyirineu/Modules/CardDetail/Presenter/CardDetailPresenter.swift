@@ -42,6 +42,13 @@ class CardDetailPresenter:NSObject{
         self.view.screen.collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
     }
     
+    public func scroolToSelectedCard(){
+        
+        let index = interactor.indexOfSelectedCard()
+        view.screen.collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+        
+    }
+    
     public func collectionViewDidScroolToItemAt(indexPath: IndexPath){
         interactor.changeSelectedCard(index: indexPath.row)
     }
