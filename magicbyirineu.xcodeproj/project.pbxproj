@@ -432,6 +432,7 @@
 				4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */,
 				4754D21522287CF000FCE704 /* CollectionMock.swift */,
 				47E25B192229CFDB0031482F /* CardListPresenterMock.swift */,
+				183398D42229B12D006A1EF3 /* CardRepositoryMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -476,7 +477,6 @@
 			children = (
 				476D9D6D221C8BD100272793 /* Mocks */,
 				476D9D61221C84FE00272793 /* Modules */,
-				183398D42229B12D006A1EF3 /* CardRepositoryMock.swift */,
 				478BC47022171E28000579FE /* Info.plist */,
 			);
 			path = magicbyirineuTests;
