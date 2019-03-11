@@ -33,12 +33,9 @@
 		18AAD49B2228790F0059D3BA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD49A2228790F0059D3BA /* APIManager.swift */; };
 		18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */; };
 		18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */; };
-		473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
-		473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */; };
 		4754D21422287C2400FCE704 /* MagicFlowLayoutMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */; };
 		4754D21622287CF000FCE704 /* CollectionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21522287CF000FCE704 /* CollectionMock.swift */; };
-		4754D217222880B300FCE704 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
 		4754D21A22288A5D00FCE704 /* KIFExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21922288A5D00FCE704 /* KIFExtensions.swift */; };
 		47631B5F221B39AF00B78A21 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */; };
 		47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B60221B3F0300B78A21 /* MagicSearchBar.swift */; };
@@ -94,20 +91,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		473C8D6622174F450095CC4C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		183398D42229B12D006A1EF3 /* CardRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepositoryMock.swift; sourceTree = "<group>"; };
@@ -137,7 +120,6 @@
 		18AAD49A2228790F0059D3BA /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCollectionReusableView.swift; sourceTree = "<group>"; };
-		473C8D6222174F400095CC4C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayoutSpec.swift; sourceTree = "<group>"; };
 		4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayoutMock.swift; sourceTree = "<group>"; };
 		4754D21522287CF000FCE704 /* CollectionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMock.swift; sourceTree = "<group>"; };
@@ -197,7 +179,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */,
 				D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,7 +188,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16036CA1BE8249F0FC89C44B /* Pods_magicbyirineuTests.framework in Frameworks */,
-				4754D217222880B300FCE704 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +197,6 @@
 		10391439FB88BE94A6C8E1DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				473C8D6222174F400095CC4C /* SnapKit.framework */,
 				0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */,
 				DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */,
 			);
@@ -656,7 +635,6 @@
 				478BC45222171E27000579FE /* Sources */,
 				478BC45322171E27000579FE /* Frameworks */,
 				478BC45422171E27000579FE /* Resources */,
-				473C8D6622174F450095CC4C /* Embed Frameworks */,
 				B109EEBB09CDE890BEE129A7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -780,6 +758,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -787,6 +766,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1074,10 +1054,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VY9L7K3A35;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/magicbyirineu/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1085,6 +1062,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.magicbyirineu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1097,10 +1075,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VY9L7K3A35;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/magicbyirineu/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1108,6 +1083,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.magicbyirineu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1119,7 +1095,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VY9L7K3A35;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1144,7 +1120,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VY9L7K3A35;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
