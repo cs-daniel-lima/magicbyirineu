@@ -35,6 +35,8 @@
 		18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */; };
 		473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
 		473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		474F44F922372137008F3468 /* MagicCarouselFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */; };
+		474F44FB223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */; };
 		4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */; };
 		4754D21422287C2400FCE704 /* MagicFlowLayoutMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */; };
 		4754D21622287CF000FCE704 /* CollectionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21522287CF000FCE704 /* CollectionMock.swift */; };
@@ -141,6 +143,8 @@
 		18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCollectionReusableView.swift; sourceTree = "<group>"; };
 		473C8D6222174F400095CC4C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutSpec.swift; sourceTree = "<group>"; };
+		474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutMock.swift; sourceTree = "<group>"; };
 		4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayoutSpec.swift; sourceTree = "<group>"; };
 		4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayoutMock.swift; sourceTree = "<group>"; };
 		4754D21522287CF000FCE704 /* CollectionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMock.swift; sourceTree = "<group>"; };
@@ -434,6 +438,7 @@
 				183398D82229B6BD006A1EF3 /* TypeRepositoryMock.swift */,
 				DD9E78E22228687500BF37F1 /* CardDetailViewControllerMock.swift */,
 				4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */,
+				474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */,
 				4754D21522287CF000FCE704 /* CollectionMock.swift */,
 				47E25B192229CFDB0031482F /* CardListPresenterMock.swift */,
 				183398D42229B12D006A1EF3 /* CardRepositoryMock.swift */,
@@ -553,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9E78E5222869DE00BF37F1 /* CardDetailViewControllerSpec.swift */,
+				474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */,
 			);
 			path = CardDetail;
 			sourceTree = "<group>";
@@ -934,8 +940,10 @@
 				DD9E78E6222869DE00BF37F1 /* CardDetailViewControllerSpec.swift in Sources */,
 				183398D72229B535006A1EF3 /* CardSetRepositoryMock.swift in Sources */,
 				47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */,
+				474F44FB223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift in Sources */,
 				183398DB2229B76F006A1EF3 /* CardListInteractorSpec.swift in Sources */,
 				4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */,
+				474F44F922372137008F3468 /* MagicCarouselFlowLayoutSpec.swift in Sources */,
 				47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */,
 				476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */,
 				4754D21422287C2400FCE704 /* MagicFlowLayoutMock.swift in Sources */,
