@@ -123,9 +123,16 @@ extension CardListPresenter: UICollectionViewDataSource {
                 
             }else{
                 
-                cardCell.backgroundImage.image = UIImage(named: "cartaVerso")
-                cardCell.cardTitle.text = card.name
-                
+                if let foreignNames = card.foreignNames,
+                    foreignNames.count > 0 {
+                    if let foreignImageUrl = foreignNames[0].imageUrl {
+                        let url = URL(string: foreignImageUrl)
+                        cardCell.backgroundImage.kf.setImage(with: url)
+                    }
+                }else{
+                    cardCell.backgroundImage.image = UIImage(named: "cartaVerso")
+                    cardCell.cardTitle.text = card.name
+                }
             }
             
             cell = cardCell
