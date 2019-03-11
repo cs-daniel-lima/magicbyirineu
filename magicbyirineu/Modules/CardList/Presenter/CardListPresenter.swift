@@ -122,9 +122,16 @@ extension CardListPresenter: UICollectionViewDataSource {
                 
             }else{
                 
-                cardCell.backgroundImage.image = UIImage(named: "cartaVerso")
-                cardCell.cardTitle.text = card.name
-                
+                if let foreignNames = card.foreignNames,
+                    foreignNames.count > 0 {
+                    if let foreignImageUrl = foreignNames[0].imageUrl {
+                        let url = URL(string: foreignImageUrl)
+                        cardCell.backgroundImage.kf.setImage(with: url)
+                    }
+                }else{
+                    cardCell.backgroundImage.image = UIImage(named: "cartaVerso")
+                    cardCell.cardTitle.text = card.name
+                }
             }
             
             cell = cardCell
@@ -224,6 +231,8 @@ extension CardListPresenter: UISearchBarDelegate{
         searchBar.resignFirstResponder()
         self.query = nil
         self.view.screen.collectionView.reloadData()
+        self.view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -233,6 +242,8 @@ extension CardListPresenter: UISearchBarDelegate{
                 Logger.logError(in: self, message: "Query is nil")
                 return
             }
+            self.view.screen.collectionView.reloadData()
+            self.view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             self.interactor.fetchSearchingCards(cardName: query)
         }
     }
@@ -241,6 +252,8 @@ extension CardListPresenter: UISearchBarDelegate{
         if searchBar.text == nil || searchBar.text?.isEmpty ?? false {
             self.interactor.cancelSearch()
             self.view.screen.collectionView.reloadData()
+            self.view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+
         }
     }
     

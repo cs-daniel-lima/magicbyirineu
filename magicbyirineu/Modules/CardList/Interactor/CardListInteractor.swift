@@ -155,7 +155,7 @@ class CardListInteractor {
             case .success(let sets):
                 self.sets = sets
                 self.sets.sort(by: { (before, after) -> Bool in
-                    return before.releaseDate < after.releaseDate
+                    return before.releaseDate > after.releaseDate
                 })
                 self.updatePagination()
                 completion?(true)

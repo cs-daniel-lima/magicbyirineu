@@ -45,16 +45,73 @@ class CardListViewControllerSpec:QuickSpec{
         }
         
         context("on cardListPresenter life cycle") {
-            
+
             it("shoud call numberOfSections", closure: {
                 self.tester().waitForAnimationsToFinish()
                 expect((sut.presenter as! CardListPresenterMock).wasNumberOfSectionCalled).to(beTrue())
             })
             
+            it("should call numberOfSections", closure: {
+                self.tester().waitForAnimationsToFinish()
+                expect((sut.presenter as! CardListPresenterMock).wasCellForItemAtCalled).to(beTrue())
+            })
+            
+            
+            context("Regarding loaded cards", {
+                
+                var cards = [Card]()
+                
+                beforeEach {
+                    
+                    cards = []
+                    
+                    let card1 = sut.presenter.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 1)
+                    let card2 = sut.presenter.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 2)
+                    let card3 = sut.presenter.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 3)
+                    let card4 = sut.presenter.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 4)
+
+                    cards.append(card1 as! Card)
+                    cards.append(card2 as! Card)
+                    cards.append(card3 as! Card)
+                    cards.append(card4 as! Card)
+
+                }
+                
+                context("when imageUrl exists and foreignLanguage exists", {
+                    it("should display the main image", closure: {
+                        expect(cards[0].imageUrl).notTo(beNil())
+                        expect(cards[0].foreignNames).notTo(beNil())
+                    })
+                })
+                
+                context("when imageUrl exists and foreignLanguage doesn't", {
+                    it("should display the main image", closure: {
+                         expect(cards[1].imageUrl).notTo(beNil())
+                         expect(cards[1].foreignNames).to(beNil())
+                    })
+                })
+                
+                context("when imageUrl doens't exists and foreignLanguage exists", {
+                    it("should display a foreign language", closure: {
+                        expect(cards[2].imageUrl).to(beNil())
+                        expect(cards[2].foreignNames).notTo(beNil())
+
+                    })
+                })
+                
+                context("when imageUrl doesn't exists and foreignLanguage doesn't exists", {
+                    it("should display a placeholder image", closure: {
+                        expect(cards[3].imageUrl).to(beNil())
+                        expect(cards[3].foreignNames).to(beNil())
+
+                    })
+                })
+                
+            })
+            
+            
+            
         }
-        
-        
-        
-        
+       
     }
 }
