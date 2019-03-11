@@ -10,11 +10,17 @@ import UIKit
 
 class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
     
-    let lateralItemsScale:CGFloat = 0.7
+    private let lateralItemsScale:CGFloat = 0.73
+    let visibleSpacingOffset:CGFloat
     
-    override init() {
+    required init(visibleOffset:CGFloat) {
+        visibleSpacingOffset = visibleOffset
         super.init()
         setupDefaultLayout()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override open func prepare() {
@@ -23,11 +29,9 @@ class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
     }
     
     private func setupDefaultLayout(){
-        
         scrollDirection = .horizontal
         minimumInteritemSpacing = 16
         itemSize = CGSize(width: 190, height: 264)
-        
     }
     
     fileprivate func setupCollectionViewLayout(){
@@ -42,19 +46,15 @@ class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
         let xInset = (size.width - self.itemSize.width) / 2
         self.sectionInset = UIEdgeInsets.init(top: yInset, left: xInset, bottom: yInset, right: xInset)
         
-        /*
         let lateralSize = self.itemSize.width
         let scaledItemOffset =  (lateralSize - lateralSize*self.lateralItemsScale) / 2
         
-        let visibleOffset:CGFloat = 16
-        let fullSizeSideItemOverlap = visibleOffset + scaledItemOffset
+        let fullSizeSideItemOverlap = visibleSpacingOffset + scaledItemOffset
         self.minimumLineSpacing = xInset - fullSizeSideItemOverlap
-        */
         
     }
     
     override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        
         guard let attributes = copyDefaultLayout(attributes: super.layoutAttributesForElements(in: rect)) else{
             return nil
         }
@@ -62,13 +62,25 @@ class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
         return attributes.map({ self.configLayoutAttribute(attributes: $0) })
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
     }
     
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         
-        return true
+        guard let collectionView = collectionView , !collectionView.isPagingEnabled,
+            let layoutAttributes = self.layoutAttributesForElements(in: collectionView.bounds) else {
+                return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
+        }
+        
+        let centralPosition = collectionView.bounds.size.width / 2
+        let proposedContentOffsetCenterOrigin = proposedContentOffset.x + centralPosition
+        
+        let closestItemAttribute = layoutAttributes.sorted { abs($0.center.x - proposedContentOffsetCenterOrigin) < abs($1.center.x - proposedContentOffsetCenterOrigin) }.first ?? UICollectionViewLayoutAttributes()
+        
+        let targetContentOffset = CGPoint(x: floor(closestItemAttribute.center.x - centralPosition), y: proposedContentOffset.y)
+        
+        return targetContentOffset
         
     }
     
@@ -99,6 +111,5 @@ class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
     func copyDefaultLayout(attributes: [UICollectionViewLayoutAttributes]?) -> [UICollectionViewLayoutAttributes]?{
         return attributes?.map{ $0.copy() } as? [UICollectionViewLayoutAttributes]
     }
-    
     
 }
