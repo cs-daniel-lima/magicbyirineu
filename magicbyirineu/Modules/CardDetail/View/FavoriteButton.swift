@@ -1,62 +1,46 @@
-//
-//  FavoriteButton.swift
-//  magicbyirineu
-//
-//  Created by andre.antonio.filho on 12/03/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import UIKit
 
 class FavoriteButton: UIButton {
-    
     var isFavorite: Bool {
-        didSet{
+        didSet {
             setup(status: isFavorite)
         }
     }
 
-     init(status: Bool) {
-        self.isFavorite = status
+    init(status: Bool) {
+        isFavorite = status
         super.init(frame: .zero)
-        self.setup(status: self.isFavorite)
+        setup(status: isFavorite)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func setup(status: Bool){
-        
-        self.setupAppearance()
+
+    private func setup(status: Bool) {
+        setupAppearance()
         switch status {
         case true:
-            self.setTitle("remove card from deck", for: .normal)
+            setTitle("remove card from deck", for: .normal)
         case false:
-            self.setTitle("add card to deck", for: .normal)
+            setTitle("add card to deck", for: .normal)
         }
-        
     }
-    
-    private func setupAppearance(){
-        self.backgroundColor = UIColor.clear
-        self.titleLabel?.font = UIFont.sfProDisplay(size: 16, weight: .bold)
-        self.layer.borderColor = UIColor.white.cgColor
-        self.layer.borderWidth = 1
-        self.layer.cornerRadius = 5
+
+    private func setupAppearance() {
+        backgroundColor = UIColor.clear
+        titleLabel?.font = UIFont.sfProDisplay(size: 16, weight: .bold)
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 5
     }
-    
+
     public func setFavorite(isFavorite: Bool) {
-        
         switch isFavorite {
         case true:
             self.isFavorite = true
         case false:
             self.isFavorite = false
         }
-        
     }
-    
 }
-
-

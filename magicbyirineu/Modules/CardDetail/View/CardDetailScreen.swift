@@ -2,12 +2,11 @@ import SnapKit
 import UIKit
 
 class CardDetailScreen: UIView {
-    
     let favoriteButton: FavoriteButton = {
         var view = FavoriteButton(status: false)
         return view
     }()
-    
+
     let dismissButton: UIButton = {
         var view = UIButton()
         view.setImage(UIImage(named: "close"), for: .normal)
@@ -43,13 +42,13 @@ class CardDetailScreen: UIView {
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func switchButtonStatus(){
-        switch self.favoriteButton.isFavorite {
+
+    func switchButtonStatus() {
+        switch favoriteButton.isFavorite {
         case true:
-            self.favoriteButton.setFavorite(isFavorite: false)
+            favoriteButton.setFavorite(isFavorite: false)
         case false:
-            self.favoriteButton.setFavorite(isFavorite: true)
+            favoriteButton.setFavorite(isFavorite: true)
         }
     }
 }
@@ -77,12 +76,11 @@ extension CardDetailScreen: CodeView {
             make.left.bottom.right.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.85)
         }
-        
-        self.favoriteButton.snp.makeConstraints { (make) in
+
+        favoriteButton.snp.makeConstraints { make in
             make.left.bottom.right.equalToSuperview().inset(16)
             make.height.equalToSuperview().multipliedBy(0.0845)
         }
-        
     }
 
     func additionalSetup() {

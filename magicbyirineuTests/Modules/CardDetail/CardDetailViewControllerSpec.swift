@@ -28,16 +28,12 @@ class CardDetailViewControllerSpec: QuickSpec {
             sut = router.presenter.view
             UIApplication.shared.keyWindow?.rootViewController = sut
         }
-        
+
         context("when it is initialized with card as favorite") {
-            it("should match view with snapshot"){
+            it("should match view with snapshot") {
                 sut.screen.favoriteButton.setFavorite(isFavorite: true)
                 self.tester().waitForAnimationsToFinish()
                 expect(sut.screen.favoriteButton.isFavorite).to(beTrue())
-
-        context("when it is initialized") {
-            it("should match view with snapshot") {
-                self.tester().waitForAnimationsToFinish()
                 expect(sut) == snapshot()
             }
         }
@@ -65,7 +61,7 @@ class CardDetailViewControllerSpec: QuickSpec {
                 expect(sut) == snapshot()
             }
         }
-        
+
         context("when it is initialized with card as not favorite ") {
             it("should match view with snapshot", closure: {
                 sut.screen.favoriteButton.setFavorite(isFavorite: false)
@@ -73,9 +69,6 @@ class CardDetailViewControllerSpec: QuickSpec {
                 expect(sut.screen.favoriteButton.isFavorite).notTo(beTrue())
                 expect(sut) == snapshot()
             })
-            
-            
         }
-        
     }
 }
