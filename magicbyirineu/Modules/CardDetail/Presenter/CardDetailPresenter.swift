@@ -62,7 +62,7 @@ extension CardDetailPresenter: UICollectionViewDataSource {
         let card = interactor.cards[indexPath.row]
         
         cardCell.backgroundImage.image = nil
-        cardCell.setupCell(cardHeight: 264)
+        cardCell.type = .detailScreenCell
         
         if let imageURL = card.imageUrl {
             let url = URL(string: imageURL)

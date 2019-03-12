@@ -10,9 +10,20 @@ import UIKit
 import SnapKit
 import Reusable
 
+enum CardCollectionViewCellType{
+    case homeScreenCell
+    case detailScreenCell
+}
+
 class CardCollectionViewCell: UICollectionViewCell, Reusable {
     
     var cardHeight:CGFloat?
+    
+    var type:CardCollectionViewCellType?{
+        didSet{
+            setupCell()
+        }
+    }
     
     let cardTitle: UILabel = {
         var view = UILabel()
@@ -43,9 +54,22 @@ class CardCollectionViewCell: UICollectionViewCell, Reusable {
         return view
     }()
     
-    func setupCell(cardHeight:CGFloat){
-        self.cardHeight = cardHeight
+    func setupCell(){
+        
+        guard let currentType = type else{
+            setupView()
+            return
+        }
+        
+        switch currentType {
+        case .homeScreenCell:
+            self.cardHeight = (118 / 320) * UIScreen.main.bounds.width
+        case .detailScreenCell:
+            self.cardHeight = 264
+        }
+        
         setupView()
+        
     }
     
 }
