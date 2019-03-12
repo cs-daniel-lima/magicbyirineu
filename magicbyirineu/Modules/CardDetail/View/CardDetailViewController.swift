@@ -51,12 +51,7 @@ class CardDetailViewController: MagicViewController {
     }
     
     @objc func favoriteButtonTapped(){
-        switch self.screen.favoriteButton.isFavorite {
-        case true:
-            self.screen.favoriteButton.setAsNotFavorite()
-        case false:
-            self.screen.favoriteButton.setAsFavorite()
-        }
+        self.screen.switchButtonStatus()
     }
     
 }

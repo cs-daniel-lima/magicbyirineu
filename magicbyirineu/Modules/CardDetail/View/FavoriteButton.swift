@@ -7,11 +7,14 @@
 //
 
 import UIKit
-import SnapKit
 
 class FavoriteButton: UIButton {
     
-    var isFavorite: Bool
+    var isFavorite: Bool {
+        didSet{
+            setup(status: isFavorite)
+        }
+    }
 
      init(status: Bool) {
         self.isFavorite = status
@@ -43,14 +46,15 @@ class FavoriteButton: UIButton {
         self.layer.cornerRadius = 5
     }
     
-    public func setAsFavorite(){
-        self.isFavorite = true
-        self.setTitle("remove card from deck", for: .normal)
-    }
-    
-    public func setAsNotFavorite(){
-        self.isFavorite = false
-        self.setTitle("add card to deck", for: .normal)
+    public func setFavorite(isFavorite: Bool) {
+        
+        switch isFavorite {
+        case true:
+            self.isFavorite = true
+        case false:
+            self.isFavorite = false
+        }
+        
     }
     
 }

@@ -56,6 +56,14 @@ class CardDetailScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func switchButtonStatus(){
+        switch self.favoriteButton.isFavorite {
+        case true:
+            self.favoriteButton.setFavorite(isFavorite: false)
+        case false:
+            self.favoriteButton.setFavorite(isFavorite: true)
+        }
+    }
 }
 
 extension CardDetailScreen: CodeView{
