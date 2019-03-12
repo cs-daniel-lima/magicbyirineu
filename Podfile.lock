@@ -22,6 +22,7 @@ PODS:
   - Reusable/Storyboard (4.0.5)
   - Reusable/View (4.0.5)
   - SnapKit (4.2.0)
+  - SwiftFormat/CLI (0.39.0)
 
 DEPENDENCIES:
   - KIF (= 3.7.4)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - ReachabilitySwift (= 4.3.0)
   - Reusable (= 4.0.5)
   - SnapKit (= 4.2.0)
+  - SwiftFormat/CLI (= 0.39.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -44,6 +46,7 @@ SPEC REPOS:
     - ReachabilitySwift
     - Reusable
     - SnapKit
+    - SwiftFormat
 
 SPEC CHECKSUMS:
   iOSSnapshotTestCase: 2d51aa06775e95cecb0a1fb9c5c159ccd1dd4596
@@ -55,7 +58,8 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftFormat: a27a799eeaf246313c3b388ad6d5ae33c78eb6f3
 
-PODFILE CHECKSUM: a98cab97774ffa78a78005e43e3e4ab3a66122fb
+PODFILE CHECKSUM: eed7c26e0c918acd80e7be0922e01b1eaac9d333
 
 COCOAPODS: 1.6.0
