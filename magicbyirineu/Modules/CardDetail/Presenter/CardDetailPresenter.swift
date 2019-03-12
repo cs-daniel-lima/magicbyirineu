@@ -37,7 +37,7 @@ class CardDetailPresenter: NSObject {
     }
     
     func setup() {
-        self.view.screen.collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
+        self.view.screen.collectionView.register(cellType: CardCollectionViewCell.self)
     }
     
     public func scroolToSelectedCard() {
@@ -56,35 +56,34 @@ extension CardDetailPresenter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell {
-            let card = interactor.cards[indexPath.row]
-            
-            cardCell.backgroundImage.image = nil
-            cardCell.setupCell(cardHeight: 264)
-            
-            if let imageURL = card.imageUrl {
-                let url = URL(string: imageURL)
-                cardCell.backgroundImage.kf.setImage(with: url)
-                cardCell.cardTitle.text = ""
-                
-            } else {
-                if let foreignNames = card.foreignNames,
-                    foreignNames.count > 0 {
-                    if let foreignImageUrl = foreignNames[0].imageUrl {
-                        let url = URL(string: foreignImageUrl)
-                        cardCell.backgroundImage.kf.setImage(with: url)
-                    }
-                } else {
-                    cardCell.backgroundImage.image = UIImage(named: "cartaVerso")
-                    cardCell.cardTitle.text = card.name
-                }
-            }
-            
-            return cardCell
+        
+        let cardCell:CardCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        
+        let card = interactor.cards[indexPath.row]
+        
+        cardCell.backgroundImage.image = nil
+        cardCell.setupCell(cardHeight: 264)
+        
+        if let imageURL = card.imageUrl {
+            let url = URL(string: imageURL)
+            cardCell.backgroundImage.kf.setImage(with: url)
+            cardCell.cardTitle.text = ""
             
         } else {
-            return UICollectionViewCell()
+            if let foreignNames = card.foreignNames,
+                foreignNames.count > 0 {
+                if let foreignImageUrl = foreignNames[0].imageUrl {
+                    let url = URL(string: foreignImageUrl)
+                    cardCell.backgroundImage.kf.setImage(with: url)
+                }
+            } else {
+                cardCell.backgroundImage.image = UIImage(named: "cartaVerso")
+                cardCell.cardTitle.text = card.name
+            }
         }
+        
+        return cardCell
+        
     }
 }
 

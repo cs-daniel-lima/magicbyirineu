@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import Reusable
 
-class SetCollectionReusableView:  UICollectionReusableView {
+class SetCollectionReusableView:  UICollectionReusableView, Reusable {
     
     let label: UILabel = {
         var view = UILabel(frame: .zero)

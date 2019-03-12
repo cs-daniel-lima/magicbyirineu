@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import Reusable
 
-class SubSectionCollectionViewCell: UICollectionViewCell {
+class SubSectionCollectionViewCell: UICollectionViewCell, Reusable {
     
      let label: UILabel = {
         var view = UILabel(frame: .zero)

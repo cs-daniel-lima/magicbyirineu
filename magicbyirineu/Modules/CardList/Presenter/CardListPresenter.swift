@@ -37,9 +37,9 @@ class CardListPresenter: NSObject {
     }
     
     func setup() {
-        self.view.screen.collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
-        self.view.screen.collectionView.register(SubSectionCollectionViewCell.self, forCellWithReuseIdentifier: "SubSectionCollectionViewCell")
-        self.view.screen.collectionView.register(SetCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SetCollectionReusableView")
+        self.view.screen.collectionView.register(cellType: CardCollectionViewCell.self)
+        self.view.screen.collectionView.register(cellType: SubSectionCollectionViewCell.self)
+        self.view.screen.collectionView.register(supplementaryViewType: SetCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
     }
 }
 
@@ -84,20 +84,16 @@ extension CardListPresenter: UICollectionViewDataSource {
         }
         
         if let category = object as? String {
-            guard let subsectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubSectionCollectionViewCell", for: indexPath) as? SubSectionCollectionViewCell else {
-                Logger.logError(in: self, message: "Could not cast to SubSectionCollectionViewCell")
-                return UICollectionViewCell()
-            }
+            
+            let subsectionCell:SubSectionCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
             
             subsectionCell.label.text = category.capitalized
             
             cell = subsectionCell
             
         } else if let card = object as? Card {
-            guard let cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell else {
-                Logger.logError(in: self, message: "Could not cast to CardCollectionViewCell")
-                return UICollectionViewCell()
-            }
+            
+            let cardCell:CardCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
             
             cardCell.backgroundImage.image = nil
             
@@ -128,13 +124,12 @@ extension CardListPresenter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let cell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SetCollectionReusableView", for: indexPath) as? SetCollectionReusableView else {
-            return UICollectionReusableView()
-        }
         
-        cell.label.text = self.interactor.sets[indexPath.section].name
+        let view:SetCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
         
-        return cell
+        view.label.text = self.interactor.sets[indexPath.section].name
+        
+        return view
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

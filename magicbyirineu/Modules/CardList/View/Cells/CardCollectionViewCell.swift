@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import Reusable
 
-class CardCollectionViewCell: UICollectionViewCell {
+class CardCollectionViewCell: UICollectionViewCell, Reusable {
     
     var cardHeight:CGFloat?
     
