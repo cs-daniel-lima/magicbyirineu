@@ -9,33 +9,31 @@
 import UIKit
 
 class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
+    private let lateralItemsScale: CGFloat = 0.73
+    let visibleSpacingOffset: CGFloat
     
-    private let lateralItemsScale:CGFloat = 0.73
-    let visibleSpacingOffset:CGFloat
-    
-    required init(visibleOffset:CGFloat) {
-        visibleSpacingOffset = visibleOffset
+    required init(visibleOffset: CGFloat) {
+        self.visibleSpacingOffset = visibleOffset
         super.init()
-        setupDefaultLayout()
+        self.setupDefaultLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override open func prepare() {
+    open override func prepare() {
         super.prepare()
-        setupCollectionViewLayout()
+        self.setupCollectionViewLayout()
     }
     
-    private func setupDefaultLayout(){
+    private func setupDefaultLayout() {
         scrollDirection = .horizontal
         minimumInteritemSpacing = 16
         itemSize = CGSize(width: 190, height: 264)
     }
     
-    fileprivate func setupCollectionViewLayout(){
-        
+    fileprivate func setupCollectionViewLayout() {
         guard let collectionView = self.collectionView else { return }
         
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
@@ -44,18 +42,17 @@ class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
         
         let yInset = (size.height - self.itemSize.height) / 2
         let xInset = (size.width - self.itemSize.width) / 2
-        self.sectionInset = UIEdgeInsets.init(top: yInset, left: xInset, bottom: yInset, right: xInset)
+        self.sectionInset = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
         
         let lateralSize = self.itemSize.width
-        let scaledItemOffset =  (lateralSize - lateralSize*self.lateralItemsScale) / 2
+        let scaledItemOffset = (lateralSize - lateralSize * self.lateralItemsScale) / 2
         
         let fullSizeSideItemOverlap = visibleSpacingOffset + scaledItemOffset
         self.minimumLineSpacing = xInset - fullSizeSideItemOverlap
-        
     }
     
-    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        guard let attributes = copyDefaultLayout(attributes: super.layoutAttributesForElements(in: rect)) else{
+    open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        guard let attributes = copyDefaultLayout(attributes: super.layoutAttributesForElements(in: rect)) else {
             return nil
         }
         
@@ -67,10 +64,9 @@ class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
     }
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        
-        guard let collectionView = collectionView , !collectionView.isPagingEnabled,
+        guard let collectionView = collectionView, !collectionView.isPagingEnabled,
             let layoutAttributes = self.layoutAttributesForElements(in: collectionView.bounds) else {
-                return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
+            return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
         }
         
         let centralPosition = collectionView.bounds.size.width / 2
@@ -81,20 +77,18 @@ class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
         let targetContentOffset = CGPoint(x: floor(closestItemAttribute.center.x - centralPosition), y: proposedContentOffset.y)
         
         return targetContentOffset
-        
     }
     
     func configLayoutAttribute(attributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        
         guard let collectionView = self.collectionView else { return attributes }
         
-        let center = collectionView.frame.size.width/2
+        let center = collectionView.frame.size.width / 2
         let offset = collectionView.contentOffset.x
         let calculatedCenter = attributes.center.x - offset
         
         let maxDistance = self.itemSize.width + self.minimumLineSpacing
         let distance = min(abs(center - calculatedCenter), maxDistance)
-        let ratio = (maxDistance - distance)/maxDistance
+        let ratio = (maxDistance - distance) / maxDistance
         
         let scale = ratio * (1 - self.lateralItemsScale) + self.lateralItemsScale
         let positionChange = (1 - ratio) * self.lateralItemsScale
@@ -105,11 +99,9 @@ class MagicCarouselFlowLayout: UICollectionViewFlowLayout {
         attributes.center.y = attributes.center.y + positionChange
         
         return attributes
-        
     }
     
-    func copyDefaultLayout(attributes: [UICollectionViewLayoutAttributes]?) -> [UICollectionViewLayoutAttributes]?{
-        return attributes?.map{ $0.copy() } as? [UICollectionViewLayoutAttributes]
+    func copyDefaultLayout(attributes: [UICollectionViewLayoutAttributes]?) -> [UICollectionViewLayoutAttributes]? {
+        return attributes?.map { $0.copy() } as? [UICollectionViewLayoutAttributes]
     }
-    
 }

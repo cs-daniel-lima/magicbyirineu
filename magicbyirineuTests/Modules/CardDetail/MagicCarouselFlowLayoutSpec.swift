@@ -6,22 +6,19 @@
 //  Copyright © 2019 DanielLima. All rights reserved.
 //
 
-import Quick
+import KIF
 import Nimble
 import Nimble_Snapshots
-import KIF
+import Quick
 
 @testable import magicbyirineu
 
 class MagicCarouselFlowLayoutSpec: QuickSpec {
-    
     override func spec() {
-        
-        var sut:MagicCarouselFlowLayoutMock!
-        var viewController:CollectionViewControllerMock!
+        var sut: MagicCarouselFlowLayoutMock!
+        var viewController: CollectionViewControllerMock!
         
         beforeEach {
-            
             sut = MagicCarouselFlowLayoutMock(visibleOffset: 64)
             
             let view = CollectionMock(mockLayout: sut)
@@ -30,47 +27,37 @@ class MagicCarouselFlowLayoutSpec: QuickSpec {
             UIApplication.shared.keyWindow?.rootViewController = viewController
             
             _ = viewController.view
-            
         }
         
-        
-        context("when it is initialized"){
-            
-            it("has minimumInteritemSpacing equal to 0"){
+        context("when it is initialized") {
+            it("has minimumInteritemSpacing equal to 0") {
                 expect(sut.minimumInteritemSpacing).to(equal(16))
             }
             
-            it("has minimumInteritemSpacing equal to 0"){
+            it("has minimumInteritemSpacing equal to 0") {
                 expect(sut.minimumLineSpacing).to(equal(10))
             }
             
-            it("has section header should pin visible bounds"){
+            it("has section header should pin visible bounds") {
                 expect(sut.collectionView?.isPagingEnabled).to(beFalse())
             }
             
             it("has built layout properly") {
-                
                 self.tester().waitForAnimationsToFinish()
                 expect(viewController) == snapshot()
-                
             }
-            
         }
         
-        context("on CollectionViewFlowLayout lifecycle"){
-            
-            it("layoutAttributesForElements method must be called"){
+        context("on CollectionViewFlowLayout lifecycle") {
+            it("layoutAttributesForElements method must be called") {
                 self.tester().waitForAnimationsToFinish()
                 expect(sut.layoutAttributesForElementsWasCalled).to(beTrue())
             }
             
-            it("configLayoutAttribute method must be called"){
+            it("configLayoutAttribute method must be called") {
                 self.tester().waitForAnimationsToFinish()
                 expect(sut.configLayoutAttributeWassCalled).to(beTrue())
             }
-            
         }
-        
     }
-    
 }

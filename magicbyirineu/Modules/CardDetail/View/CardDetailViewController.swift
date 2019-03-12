@@ -6,11 +6,10 @@
 //  Copyright © 2019 DanielLima. All rights reserved.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 class CardDetailViewController: MagicViewController {
-    
     var presenter: CardDetailPresenter!
     var screen = CardDetailScreen()
     
@@ -27,11 +26,10 @@ class CardDetailViewController: MagicViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        presenter.scroolToSelectedCard()
+        self.presenter.scroolToSelectedCard()
     }
     
-    @objc func dismissButtonTapped(){
+    @objc func dismissButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

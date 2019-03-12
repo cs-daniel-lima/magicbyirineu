@@ -8,26 +8,19 @@
 
 import Foundation
 
-class CardListRouter{
-    
+class CardListRouter {
     var presenter: CardListPresenter!
     
     init() {
-        
         let viewController = CardListViewController(title: "Cards")
         let interactor = CardListInteractor(cardRepository: CardAPIClient(),
                                             cardSetRepository: CardSetAPIClient(),
                                             typeRepository: TypeAPIClient())
-        self.presenter = CardListPresenter(router:self, interactor:interactor, view:viewController)
-        
+        self.presenter = CardListPresenter(router: self, interactor: interactor, view: viewController)
     }
     
-    func goToCardDetail(cards:Array<Card>, selectedCard: Card){
-        
+    func goToCardDetail(cards: [Card], selectedCard: Card) {
         let router = CardDetailRouter(cards: cards, selectedCard: selectedCard)
         self.presenter.view.present(router.presenter.view, animated: true, completion: nil)
-        
     }
-    
 }
-

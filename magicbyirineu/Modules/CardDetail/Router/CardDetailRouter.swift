@@ -8,23 +8,19 @@
 
 import Foundation
 
-class CardDetailRouter{
-    
+class CardDetailRouter {
     let presenter: CardDetailPresenter
     
-    init(cards:Array<Card>, selectedCard:Card) {
-        
+    init(cards: [Card], selectedCard: Card) {
         let viewController = CardDetailViewController()
         let interactor = CardDetailInteractor(cards: cards, selectedCard: selectedCard)
         
-        self.presenter = CardDetailPresenter(interactor: interactor, view:viewController)
+        presenter = CardDetailPresenter(interactor: interactor, view: viewController)
         
         setupPresenter()
-        
     }
     
-    func setupPresenter(){
+    func setupPresenter() {
         presenter.router = self
     }
-    
 }
