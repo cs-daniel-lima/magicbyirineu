@@ -38,6 +38,7 @@ class CardDetailViewController: MagicViewController {
         
         self.view = screen
         self.screen.dismissButton.addTarget(self, action: #selector(self.dismissButtonTapped), for: .touchUpInside)
+        self.screen.favoriteButton.addTarget(self, action: #selector(self.favoriteButtonTapped), for: .touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -47,6 +48,15 @@ class CardDetailViewController: MagicViewController {
     
     @objc func dismissButtonTapped(){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func favoriteButtonTapped(){
+        switch self.screen.favoriteButton.isFavorite {
+        case true:
+            self.screen.favoriteButton.setAsNotFavorite()
+        case false:
+            self.screen.favoriteButton.setAsFavorite()
+        }
     }
     
 }

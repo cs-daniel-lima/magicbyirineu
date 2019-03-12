@@ -63,6 +63,7 @@
 		47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */; };
 		47E25B1A2229CFDB0031482F /* CardListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E25B192229CFDB0031482F /* CardListPresenterMock.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
+		DD0C62632238183E003831FB /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C62622238183E003831FB /* FavoriteButton.swift */; };
 		DD60C6CD223187E4005865B9 /* MagicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CC223187E4005865B9 /* MagicViewController.swift */; };
 		DD60C6CF22318B5F005865B9 /* UIFont + FontWeightt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */; };
 		DD60C6D12236A021005865B9 /* ForeignNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6D02236A021005865B9 /* ForeignNames.swift */; };
@@ -155,6 +156,7 @@
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34616E3BD7F470AF4450BD /* Pods-magicbyirineu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.debug.xcconfig"; sourceTree = "<group>"; };
 		D72262C0173B8F562F887DAC /* Pods-magicbyirineu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.release.xcconfig"; sourceTree = "<group>"; };
+		DD0C62622238183E003831FB /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		DD60C6CC223187E4005865B9 /* MagicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicViewController.swift; sourceTree = "<group>"; };
 		DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + FontWeightt.swift"; sourceTree = "<group>"; };
 		DD60C6D02236A021005865B9 /* ForeignNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignNames.swift; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 			children = (
 				DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */,
 				DD9E78E02228292000BF37F1 /* CardDetailScreen.swift */,
+				DD0C62622238183E003831FB /* FavoriteButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				18AAD49B2228790F0059D3BA /* APIManager.swift in Sources */,
 				47788865222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
+				DD0C62632238183E003831FB /* FavoriteButton.swift in Sources */,
 				18AAD45022270D450059D3BA /* EndpointCards.swift in Sources */,
 				47631B73221B601200B78A21 /* UIImage+ImageColor.swift in Sources */,
 				DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */,

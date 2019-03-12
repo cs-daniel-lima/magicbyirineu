@@ -11,6 +11,11 @@ import SnapKit
 
 class CardDetailScreen: UIView {
     
+    let favoriteButton: FavoriteButton = {
+        var view = FavoriteButton(status: false)
+        return view
+    }()
+    
     let dismissButton: UIButton = {
         var view = UIButton()
         view.setImage(UIImage(named: "close"), for: .normal)
@@ -60,6 +65,7 @@ extension CardDetailScreen: CodeView{
         self.cardImage.addSubview(cardName)
         self.addSubview(cardImage)
         self.addSubview(dismissButton)
+        self.addSubview(favoriteButton)
     }
     
     func setupConstraints() {
@@ -84,6 +90,11 @@ extension CardDetailScreen: CodeView{
             make.centerY.equalToSuperview()
             make.width.equalToSuperview().inset(30)
             make.height.equalToSuperview().multipliedBy(0.4)
+        }
+        
+        self.favoriteButton.snp.makeConstraints { (make) in
+            make.left.bottom.right.equalToSuperview().inset(16)
+            make.height.equalToSuperview().multipliedBy(0.0845)
         }
         
     }

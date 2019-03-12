@@ -22,10 +22,24 @@ class CardDetailViewControllerSpec: QuickSpec{
             UIApplication.shared.keyWindow?.rootViewController = sut
         }
         
-        context("when it is initialized") {
+        context("when it is initialized with card as favorite") {
             it("should match view with snapshot"){
+                sut.screen.favoriteButton.setAsFavorite()
+                self.tester().waitForAnimationsToFinish()
+                expect(sut.screen.favoriteButton.isFavorite).to(beTrue())
                 expect(sut) == snapshot()
             }
+        }
+        
+        context("when it is initialized with card as not favorite ") {
+            it("should match view with snapshot", closure: {
+                sut.screen.favoriteButton.setAsNotFavorite()
+                self.tester().waitForAnimationsToFinish()
+                expect(sut.screen.favoriteButton.isFavorite).notTo(beTrue())
+                expect(sut) == snapshot()
+            })
+            
+            
         }
         
     }

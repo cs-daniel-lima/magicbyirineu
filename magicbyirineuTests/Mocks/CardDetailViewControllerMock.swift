@@ -12,14 +12,14 @@ import UIKit
 
 
 class CardDetailViewControllerMock: CardDetailViewController{
-    
-    
+
     override func loadView() {
         super.loadView()
         
         self.screen.cardImage.image = UIImage(named: "testCard")
         self.view = screen
         self.screen.dismissButton.addTarget(self, action: #selector(self.dismissButtonTapped), for: .touchUpInside)
+
     }
     
     override func viewDidLoad() {
