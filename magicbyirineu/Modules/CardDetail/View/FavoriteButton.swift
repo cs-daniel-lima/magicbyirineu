@@ -34,13 +34,4 @@ class FavoriteButton: UIButton {
         layer.borderWidth = 1
         layer.cornerRadius = 5
     }
-
-    public func setFavorite(isFavorite: Bool) {
-        switch isFavorite {
-        case true:
-            self.isFavorite = true
-        case false:
-            self.isFavorite = false
-        }
-    }
 }

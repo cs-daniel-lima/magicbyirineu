@@ -46,9 +46,9 @@ class CardDetailScreen: UIView {
     func switchButtonStatus() {
         switch favoriteButton.isFavorite {
         case true:
-            favoriteButton.setFavorite(isFavorite: false)
+            favoriteButton.isFavorite = false
         case false:
-            favoriteButton.setFavorite(isFavorite: true)
+            favoriteButton.isFavorite = true
         }
     }
 }
