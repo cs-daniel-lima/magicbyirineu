@@ -1,17 +1,8 @@
-//
-//  TypeAPIClient.swift
-//  magicbyirineu
-//
-//  Created by kaique.magno.santos on 28/02/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import Foundation
 
 class TypeAPIClient {
-    
-    let apiManager:APIManager
-    
+    let apiManager: APIManager
+
     init(apiManager: APIManager = APIManager()) {
         self.apiManager = apiManager
     }
@@ -20,12 +11,12 @@ class TypeAPIClient {
 extension TypeAPIClient: TypeRepository {
     func fetchTypes(completion: @escaping (Result<[String]>) -> Void) {
         let endpoint = EndpointTypes()
-        
-        self.apiManager.fetch(endpoint) { (result, totalCount) in
+
+        apiManager.fetch(endpoint) { result, _ in
             switch result {
-            case .success(let response):
+            case let .success(response):
                 completion(.success(response.types))
-            case .failure(let error):
+            case let .failure(error):
                 completion(.failure(error))
             }
         }

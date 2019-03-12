@@ -1,64 +1,53 @@
-//
-//  SetCollectionReusableView.swift
-//  magicbyirineu
-//
-//  Created by andre.antonio.filho on 18/02/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
-import UIKit
-import SnapKit
 import Reusable
+import SnapKit
+import UIKit
 
-class SetCollectionReusableView:  UICollectionReusableView, Reusable {
-    
+class SetCollectionReusableView: UICollectionReusableView, Reusable {
     let label: UILabel = {
         var view = UILabel(frame: .zero)
         view.textColor = UIColor.white
         view.font = UIFont.sfProDisplay(size: 36, weight: .bold)
         return view
     }()
-    
+
     let blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         var blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0.5
         return blurEffectView
     }()
-    
+
     override init(frame: CGRect) {
-        super.init(frame:frame)
-        
-        self.setupView()
+        super.init(frame: frame)
+
+        setupView()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        self.setupView()
+
+        setupView()
     }
 }
 
-
-extension SetCollectionReusableView: CodeView{
-    
+extension SetCollectionReusableView: CodeView {
     func buildViewHierarchy() {
-        self.addSubview(self.blurEffectView)
-        self.addSubview(self.label)
+        addSubview(blurEffectView)
+        addSubview(label)
     }
-    
+
     func setupConstraints() {
-        self.label.snp.makeConstraints { (make) in
+        label.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.left.right.equalTo(16)
         }
-        
-        self.blurEffectView.snp.makeConstraints { (make) in
+
+        blurEffectView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
         }
     }
-    
+
     func additionalSetup() {
-        self.backgroundColor = .clear
+        backgroundColor = .clear
     }
 }

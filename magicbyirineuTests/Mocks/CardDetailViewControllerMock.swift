@@ -1,11 +1,3 @@
-//
-//  DetailViewControllerMock.swift
-//  magicbyirineuTests
-//
-//  Created by andre.antonio.filho on 28/02/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import UIKit
 
 @testable import magicbyirineu
@@ -13,8 +5,8 @@ import UIKit
 class CardDetailViewControllerMock: CardDetailViewController {
     override func loadView() {
         super.loadView()
-        self.view = screen
-        self.screen.dismissButton.addTarget(self, action: #selector(self.dismissButtonTapped), for: .touchUpInside)
+        view = screen
+        screen.dismissButton.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
     }
 
     override func viewDidLoad() {
@@ -23,6 +15,6 @@ class CardDetailViewControllerMock: CardDetailViewController {
     }
 
     @objc override func dismissButtonTapped() {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

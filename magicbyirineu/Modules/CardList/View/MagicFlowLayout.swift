@@ -1,82 +1,63 @@
-//
-//  MagicFlowLayout.swift
-//  magicbyirineu
-//
-//  Created by daniel.da.cunha.lima on 25/02/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import UIKit
 
 class MagicFlowLayout: UICollectionViewFlowLayout {
-    
     override init() {
         super.init()
         setupDefaultLayout()
     }
-    
-    private func setupDefaultLayout(){
+
+    private func setupDefaultLayout() {
         minimumInteritemSpacing = 0
         minimumLineSpacing = 16
-        
+
         sectionHeadersPinToVisibleBounds = true
         headerReferenceSize = CGSize(width: 200, height: 41)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        
-        guard let layoutAttributesList = copyDefaultLayout(attributes: super.layoutAttributesForElements(in: rect)) else{
+        guard let layoutAttributesList = copyDefaultLayout(attributes: super.layoutAttributesForElements(in: rect)) else {
             return nil
         }
-        
-        for layoutAttributes in layoutAttributesList{
-            
+
+        for layoutAttributes in layoutAttributesList {
             align(layoutAttributes: layoutAttributes)
-            
         }
-        
+
         return layoutAttributesList
-        
     }
-    
-    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        
-        guard let attributes = super.layoutAttributesForItem(at: indexPath)?.copy() as? UICollectionViewLayoutAttributes else{
+
+    open override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        guard let attributes = super.layoutAttributesForItem(at: indexPath)?.copy() as? UICollectionViewLayoutAttributes else {
             return nil
         }
-        
+
         return attributes
     }
-    
-    func getCollectionWidth()->CGFloat{
-        
-        if let width = collectionView?.frame.size.width{
+
+    func getCollectionWidth() -> CGFloat {
+        if let width = collectionView?.frame.size.width {
             return width
-        }else{
+        } else {
             return UIScreen.main.bounds.size.width
         }
-        
     }
-    
-    func copyDefaultLayout(attributes: [UICollectionViewLayoutAttributes]?) -> [UICollectionViewLayoutAttributes]?{
-        return attributes?.map{ $0.copy() } as? [UICollectionViewLayoutAttributes]
+
+    func copyDefaultLayout(attributes: [UICollectionViewLayoutAttributes]?) -> [UICollectionViewLayoutAttributes]? {
+        return attributes?.map { $0.copy() } as? [UICollectionViewLayoutAttributes]
     }
-    
-    func align(layoutAttributes:UICollectionViewLayoutAttributes){
-        if(layoutAttributes.representedElementCategory == .cell){
-            
+
+    func align(layoutAttributes: UICollectionViewLayoutAttributes) {
+        if layoutAttributes.representedElementCategory == .cell {
             let currentIndexPath = layoutAttributes.indexPath
-            
-            if let currentItemAttributes = layoutAttributesForItem(at: currentIndexPath){
+
+            if let currentItemAttributes = layoutAttributesForItem(at: currentIndexPath) {
                 currentItemAttributes.alignLeft(usingLayout: self, collectionWidth: getCollectionWidth())
                 layoutAttributes.frame = currentItemAttributes.frame
             }
-            
         }
     }
-    
 }

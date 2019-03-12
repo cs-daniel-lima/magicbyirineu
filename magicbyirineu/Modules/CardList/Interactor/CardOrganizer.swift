@@ -1,46 +1,38 @@
-//
-//  CardOrganizer.swift
-//  magicbyirineu
-//
-//  Created by daniel.da.cunha.lima on 07/03/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import Foundation
 
 struct CardDeck {
     let identification: CardSet
     private var elements: [Any]
-    
+
     init(set: CardSet) {
         identification = set
         elements = Array()
     }
-    
+
     mutating func add(type: String) {
         elements.append(type)
     }
-    
+
     mutating func add(card: Card) {
         elements.append(card)
     }
-    
+
     mutating func add(cards: [Card]) {
         elements.append(contentsOf: cards)
     }
-    
+
     func getElements() -> [Any] {
         return elements
     }
-    
+
     func getCards() -> [Card] {
         guard let cards = elements.filter({ $0 is Card }) as? [Card] else {
             return []
         }
-        
+
         return cards
     }
-    
+
     func getElement(at index: Int) -> Any? {
         if elements.indices.contains(index) {
             return elements[index]
@@ -52,7 +44,7 @@ struct CardDeck {
 
 class CardOrganizer {
     var decks: [CardDeck] = Array()
-    
+
     func append(cards: [Card], set: CardSet, type: String, setIndex: Int) {
         if decks.indices.contains(setIndex) {
             decks[setIndex].add(type: type)
@@ -64,7 +56,7 @@ class CardOrganizer {
             decks.append(deck)
         }
     }
-    
+
     func getElement(setIndex: Int, elementIndex: Int) -> Any? {
         if decks.indices.contains(setIndex) {
             return decks[setIndex].getElement(at: elementIndex)
@@ -72,14 +64,14 @@ class CardOrganizer {
             return nil
         }
     }
-    
+
     func getAllCards() -> [Card] {
         var allCards: [Card] = Array()
-        
+
         for deck in decks {
             allCards.append(contentsOf: deck.getCards())
         }
-        
+
         return allCards
     }
 }
