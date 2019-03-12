@@ -1,23 +1,18 @@
-//
-//  CardDetailRouter.swift
-//  magicbyirineu
-//
-//  Created by andre.antonio.filho on 28/02/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import Foundation
 
-class CardDetailRouter{
+class CardDetailRouter {
+    let presenter: CardDetailPresenter
 
-var presenter: CardDetailPresenter!
+    init(cards: [Card], selectedCard: Card) {
+        let viewController = CardDetailViewController()
+        let interactor = CardDetailInteractor(cards: cards, selectedCard: selectedCard)
 
-init() {
-    
-    let viewController = CardDetailViewController()
-    
-    self.presenter = CardDetailPresenter(router:self, view:viewController)
+        presenter = CardDetailPresenter(interactor: interactor, view: viewController)
+
+        setupPresenter()
+    }
+
+    func setupPresenter() {
+        presenter.router = self
+    }
 }
-    
-}
-

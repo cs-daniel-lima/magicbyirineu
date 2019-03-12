@@ -1,18 +1,21 @@
-//
-//  CardCollectionViewCell.swift
-//  magicbyirineu
-//
-//  Created by andre.antonio.filho on 18/02/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
-import UIKit
+import Reusable
 import SnapKit
+import UIKit
 
-class CardCollectionViewCell: UICollectionViewCell {
-    
-    var cardHeight:CGFloat?
-    
+enum CardCollectionViewCellType {
+    case homeScreenCell
+    case detailScreenCell
+}
+
+class CardCollectionViewCell: UICollectionViewCell, Reusable {
+    var cardHeight: CGFloat?
+
+    var type: CardCollectionViewCellType? {
+        didSet {
+            setupCell()
+        }
+    }
+
     let cardTitle: UILabel = {
         var view = UILabel()
         view.font = UIFont.sfProDisplay(size: 14, weight: .bold)
@@ -25,15 +28,17 @@ class CardCollectionViewCell: UICollectionViewCell {
         view.textColor = UIColor.white
         return view
     }()
-    
+
     let shadowView: RoundedView = {
         var view = RoundedView(type: .roundedAndShaded)
         return view
     }()
+
     let roundedView: RoundedView = {
         var view = RoundedView(type: .rounded)
         return view
     }()
+
     let backgroundImage: UIImageView = {
         var view = UIImageView(image: nil, highlightedImage: nil)
         view.backgroundColor = UIColor.clear
@@ -41,55 +46,61 @@ class CardCollectionViewCell: UICollectionViewCell {
         view.contentMode = .scaleAspectFit
         return view
     }()
-    
-    func setupCell(cardHeight:CGFloat){
-        self.cardHeight = cardHeight
+
+    func setupCell() {
+        guard let currentType = type else {
+            setupView()
+            return
+        }
+
+        switch currentType {
+        case .homeScreenCell:
+            cardHeight = (118 / 320) * UIScreen.main.bounds.width
+        case .detailScreenCell:
+            cardHeight = 264
+        }
+
         setupView()
     }
-    
 }
 
-extension CardCollectionViewCell: CodeView{
+extension CardCollectionViewCell: CodeView {
     func buildViewHierarchy() {
-        self.addSubview(shadowView)
-        self.addSubview(roundedView)
-        self.roundedView.addSubview(backgroundImage)
-        self.backgroundImage.addSubview(self.cardTitle)
+        addSubview(shadowView)
+        addSubview(roundedView)
+        roundedView.addSubview(backgroundImage)
+        backgroundImage.addSubview(cardTitle)
     }
-    
+
     func setupConstraints() {
-        
         guard let height = cardHeight else {
             return
         }
-        
-        shadowView.snp.makeConstraints { (make) in
+
+        shadowView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.width.equalTo((85 / 118) * height)
             make.centerX.equalToSuperview()
         }
-        roundedView.snp.makeConstraints { (make) in
+        roundedView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.width.equalTo((85 / 118) * height)
             make.centerX.equalToSuperview()
         }
-        backgroundImage.snp.makeConstraints { (make) in
+        backgroundImage.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.width.equalTo((85 / 118) * height)
             make.centerX.equalToSuperview()
         }
-        
-        cardTitle.snp.makeConstraints { (make) in
+
+        cardTitle.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.left.right.equalToSuperview().inset(10)
         }
-        
     }
-    
+
     func additionalSetup() {
-        self.contentView.backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.clear
     }
-    
-    
 }
