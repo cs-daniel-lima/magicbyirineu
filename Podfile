@@ -7,6 +7,7 @@ target 'magicbyirineu' do
   
   pod 'ReachabilitySwift', '4.3.0'
   pod 'Kingfisher', '5.1.1'
+  pod 'SnapKit', ' 4.2.0'
   
   def testing_pods
     pod 'Nimble-Snapshots', '6.9.1'
