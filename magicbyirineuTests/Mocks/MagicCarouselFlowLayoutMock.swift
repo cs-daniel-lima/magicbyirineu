@@ -13,7 +13,6 @@ import UIKit
 class MagicCarouselFlowLayoutMock: MagicCarouselFlowLayout {
     
     var layoutAttributesForElementsWasCalled = false
-    var targetContentOffsetWasCalled = false
     var configLayoutAttributeWassCalled = false
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -23,14 +22,6 @@ class MagicCarouselFlowLayoutMock: MagicCarouselFlowLayout {
         let layoutAttributesList = super.layoutAttributesForElements(in: rect)
         
         return layoutAttributesList
-        
-    }
-    
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        
-        targetContentOffsetWasCalled = true
-        
-        return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
         
     }
     

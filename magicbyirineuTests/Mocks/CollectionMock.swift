@@ -41,10 +41,9 @@ class CollectionViewControllerMock: UIViewController {
 
 final class CollectionMock : UIView{
     
-    let layout: MagicFlowLayoutMock
+    let layout: UICollectionViewFlowLayout
     
-    
-    init(mockLayout:MagicFlowLayoutMock){
+    init(mockLayout:UICollectionViewFlowLayout){
         layout = mockLayout
         
         super.init(frame: CGRect(x: 0, y: 0, width: 320, height: 540))

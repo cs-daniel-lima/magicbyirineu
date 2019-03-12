@@ -17,12 +17,12 @@ class MagicCarouselFlowLayoutSpec: QuickSpec {
     
     override func spec() {
         
-        var sut:MagicFlowLayoutMock!
+        var sut:MagicCarouselFlowLayoutMock!
         var viewController:CollectionViewControllerMock!
         
         beforeEach {
             
-            sut = MagicFlowLayoutMock()
+            sut = MagicCarouselFlowLayoutMock(visibleOffset: 64)
             
             let view = CollectionMock(mockLayout: sut)
             viewController = CollectionViewControllerMock(mockView: view)
@@ -37,15 +37,15 @@ class MagicCarouselFlowLayoutSpec: QuickSpec {
         context("when it is initialized"){
             
             it("has minimumInteritemSpacing equal to 0"){
-                expect(sut.minimumInteritemSpacing).to(equal(0))
+                expect(sut.minimumInteritemSpacing).to(equal(16))
             }
             
             it("has minimumInteritemSpacing equal to 0"){
-                expect(sut.minimumLineSpacing).to(equal(16))
+                expect(sut.minimumLineSpacing).to(equal(10))
             }
             
             it("has section header should pin visible bounds"){
-                expect(sut.sectionHeadersPinToVisibleBounds).to(beTrue())
+                expect(sut.collectionView?.isPagingEnabled).to(beFalse())
             }
             
             it("has built layout properly") {
@@ -59,24 +59,14 @@ class MagicCarouselFlowLayoutSpec: QuickSpec {
         
         context("on CollectionViewFlowLayout lifecycle"){
             
-            it("align method must be called"){
-                self.tester().waitForAnimationsToFinish()
-                expect(sut.alignWasCalled).to(beTrue())
-            }
-            
-            it("layoutAttributesForItem method must be called"){
-                self.tester().waitForAnimationsToFinish()
-                expect(sut.layoutAttributesForItemWasCalled).to(beTrue())
-            }
-            
             it("layoutAttributesForElements method must be called"){
                 self.tester().waitForAnimationsToFinish()
                 expect(sut.layoutAttributesForElementsWasCalled).to(beTrue())
             }
             
-            it("getCollectionWidth method must be called"){
+            it("configLayoutAttribute method must be called"){
                 self.tester().waitForAnimationsToFinish()
-                expect(sut.getCollectionWidthWasCalled).to(beTrue())
+                expect(sut.configLayoutAttributeWassCalled).to(beTrue())
             }
             
         }
