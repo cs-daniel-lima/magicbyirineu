@@ -3,10 +3,10 @@ import UIKit
 
 class FavoritesPresenter: NSObject {
     var router: FavoritesRouter
-    var interactor: FavoritesInteractor
+    var interactor: CardListInteractor
     var view: FavoritesViewController
-
-    init(router: FavoritesRouter, interactor: FavoritesInteractor, view: FavoritesViewController) {
+    
+    init(router: FavoritesRouter, interactor: CardListInteractor, view: FavoritesViewController) {
         self.router = router
         self.interactor = interactor
         self.view = view

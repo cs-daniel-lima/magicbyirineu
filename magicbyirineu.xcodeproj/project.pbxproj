@@ -33,6 +33,11 @@
 		18AAD49B2228790F0059D3BA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD49A2228790F0059D3BA /* APIManager.swift */; };
 		18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */; };
 		18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */; };
+		4720528622384E7F00ACAF01 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720528522384E7F00ACAF01 /* DatabaseManager.swift */; };
+		472052882238524400ACAF01 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052872238524400ACAF01 /* Utils.swift */; };
+		4720528F22385FDB00ACAF01 /* RealmCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720528E22385FDB00ACAF01 /* RealmCards.swift */; };
+		4720529122385FE500ACAF01 /* RealmSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720529022385FE500ACAF01 /* RealmSets.swift */; };
+		4720529322385FF700ACAF01 /* RealmTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720529222385FF700ACAF01 /* RealmTypes.swift */; };
 		474F44F922372137008F3468 /* MagicCarouselFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */; };
 		474F44FB223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */; };
 		4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */; };
@@ -50,7 +55,6 @@
 		4766BA282231708400986ADD /* CardListInteractor+LoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766BA272231708400986ADD /* CardListInteractor+LoadManager.swift */; };
 		476D9D57221C729800272793 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D56221C729800272793 /* FavoritesViewController.swift */; };
 		476D9D5A221C72F400272793 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D59221C72F400272793 /* FavoritesPresenter.swift */; };
-		476D9D5C221C730900272793 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D5B221C730900272793 /* FavoritesInteractor.swift */; };
 		476D9D5E221C731400272793 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D5D221C731400272793 /* FavoritesRouter.swift */; };
 		476D9D68221C882800272793 /* FavoritesViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */; };
 		476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D69221C884100272793 /* MagicTabBarControllerSpec.swift */; };
@@ -125,6 +129,11 @@
 		18AAD49A2228790F0059D3BA /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCollectionReusableView.swift; sourceTree = "<group>"; };
+		4720528522384E7F00ACAF01 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		472052872238524400ACAF01 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4720528E22385FDB00ACAF01 /* RealmCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCards.swift; sourceTree = "<group>"; };
+		4720529022385FE500ACAF01 /* RealmSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSets.swift; sourceTree = "<group>"; };
+		4720529222385FF700ACAF01 /* RealmTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTypes.swift; sourceTree = "<group>"; };
 		474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutSpec.swift; sourceTree = "<group>"; };
 		474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutMock.swift; sourceTree = "<group>"; };
 		4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayoutSpec.swift; sourceTree = "<group>"; };
@@ -140,7 +149,6 @@
 		4766BA272231708400986ADD /* CardListInteractor+LoadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardListInteractor+LoadManager.swift"; sourceTree = "<group>"; };
 		476D9D56221C729800272793 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		476D9D59221C72F400272793 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
-		476D9D5B221C730900272793 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		476D9D5D221C731400272793 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerSpec.swift; sourceTree = "<group>"; };
 		476D9D69221C884100272793 /* MagicTabBarControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicTabBarControllerSpec.swift; sourceTree = "<group>"; };
@@ -269,6 +277,7 @@
 				47788864222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift */,
 				DD60C6CC223187E4005865B9 /* MagicViewController.swift */,
 				DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */,
+				472052872238524400ACAF01 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -303,6 +312,32 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		4720528B22385AB400ACAF01 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				4720528D22385AD000ACAF01 /* Repository */,
+				4720528C22385AC800ACAF01 /* Entities */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		4720528C22385AC800ACAF01 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		4720528D22385AD000ACAF01 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4720528E22385FDB00ACAF01 /* RealmCards.swift */,
+				4720529022385FE500ACAF01 /* RealmSets.swift */,
+				4720529222385FF700ACAF01 /* RealmTypes.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		4754D21822288A5000FCE704 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,7 +367,6 @@
 			children = (
 				476D9D58221C72C700272793 /* View */,
 				476D9D54221C726600272793 /* Presenter */,
-				476D9D53221C726300272793 /* Interactor */,
 				476D9D52221C725300272793 /* Router */,
 			);
 			path = Favorites;
@@ -344,14 +378,6 @@
 				476D9D5D221C731400272793 /* FavoritesRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		476D9D53221C726300272793 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				476D9D5B221C730900272793 /* FavoritesInteractor.swift */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		476D9D54221C726600272793 /* Presenter */ = {
@@ -451,6 +477,7 @@
 				478BC45922171E27000579FE /* AppDelegate.swift */,
 				187D3444221B1E4F008E13C3 /* Utils */,
 				DDE32C2D221AF1C500426578 /* Modules */,
+				4720528B22385AB400ACAF01 /* Persistence */,
 				18AAD48C222845370059D3BA /* Services */,
 				DDE32C2C221AF1B800426578 /* Managers */,
 				DDE32C2B221AF1B100426578 /* Entitites */,
@@ -617,6 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				18AAD49A2228790F0059D3BA /* APIManager.swift */,
+				4720528522384E7F00ACAF01 /* DatabaseManager.swift */,
 				18AAD44C22270D450059D3BA /* Endpoint */,
 				187D343D221B1B1C008E13C3 /* Response */,
 				187D3439221B19B9008E13C3 /* Protocol */,
@@ -676,6 +704,7 @@
 			buildConfigurationList = 478BC47622171E28000579FE /* Build configuration list for PBXNativeTarget "magicbyirineuTests" */;
 			buildPhases = (
 				FC8A87B0826EABB1F9A748EA /* [CP] Check Pods Manifest.lock */,
+				4720528A223852EA00ACAF01 /* ShellScript */,
 				47FF13EF22382CFD0085AA22 /* ShellScript */,
 				478BC46622171E28000579FE /* Sources */,
 				478BC46722171E28000579FE /* Frameworks */,
@@ -751,6 +780,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4720528A223852EA00ACAF01 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"${SRCROOT}/magicbyirineu/\" --header --swiftversion 4.2 --enable isEmpty\n";
+		};
 		47FF13EF22382CFD0085AA22 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -783,7 +829,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"${SRCROOT}/magicbyirineu/\" --header --swiftversion 4.2 --enable isEmpty\n";
+			shellScript = "#\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"${SRCROOT}/magicbyirineu/\" --header --swiftversion 4.2 --enable isEmpty\n";
 		};
 		48B0D9F767EAB5A9399A8FF3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -910,13 +956,17 @@
 				DD9E78DC2228246000BF37F1 /* CardDetailPresenter.swift in Sources */,
 				DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */,
 				187D3433221B1958008E13C3 /* HTTPParameter.swift in Sources */,
+				4720528622384E7F00ACAF01 /* DatabaseManager.swift in Sources */,
 				478BC45A22171E27000579FE /* AppDelegate.swift in Sources */,
 				4766BA2622314E9500986ADD /* CardsLoader.swift in Sources */,
 				18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */,
 				DDE32C34221AF20900426578 /* CardListView.swift in Sources */,
+				4720529322385FF700ACAF01 /* RealmTypes.swift in Sources */,
+				4720528F22385FDB00ACAF01 /* RealmCards.swift in Sources */,
 				DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */,
 				47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */,
 				47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */,
+				4720529122385FE500ACAF01 /* RealmSets.swift in Sources */,
 				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
 				18AAD49322285F270059D3BA /* TypeRepository.swift in Sources */,
 				4766BA222231403400986ADD /* CardOrganizer.swift in Sources */,
@@ -928,7 +978,7 @@
 				187D3450221B40D7008E13C3 /* ResponseCards.swift in Sources */,
 				187D3443221B1D1A008E13C3 /* CardSet.swift in Sources */,
 				187D3446221B1E55008E13C3 /* Logger.swift in Sources */,
-				476D9D5C221C730900272793 /* FavoritesInteractor.swift in Sources */,
+				472052882238524400ACAF01 /* Utils.swift in Sources */,
 				187D3438221B199E008E13C3 /* Error.swift in Sources */,
 				18AAD45122270D450059D3BA /* EndpointSets.swift in Sources */,
 				187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */,
@@ -1167,10 +1217,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VY9L7K3A35;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = magicbyirineuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1192,10 +1239,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VY9L7K3A35;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = magicbyirineuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
