@@ -38,7 +38,7 @@ class APIManager {
         return url
     }
     
-    func fetch<EndpointType>(_ request: EndpointType, completion: @escaping (Result<EndpointType.Response>, Int?) -> Void) where EndpointType:Endpoint {
+    func fetch<EndpointType>(_ request: EndpointType, completion: @escaping (Result<EndpointType.Response>, [AnyHashable:Any]?) -> Void) where EndpointType:Endpoint {
         self.setStatusBar(loading: true)
         let endpoint = self.endpoint(for: request)
         let task = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
@@ -50,19 +50,19 @@ class APIManager {
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
                     let magicResponse = try decoder.decode(EndpointType.Response.self, from: data)
-                    
+                    let httpResponse = response as? HTTPURLResponse
                     
                     self.setStatusBar(loading: false)
-                    completion(Result.success(magicResponse), self.extractTotalCount(fromResponse: response))
+                    completion(Result.success(magicResponse), httpResponse?.allHeaderFields)
                     
                 } catch {
                     self.setStatusBar(loading: false)
                     
                     let decoder = JSONDecoder()
                     if let responseError = try? decoder.decode(ResponseError.self, from: data) {
-                        if let htmlResponse = response as? HTTPURLResponse {
+                        if let httpResponse = response as? HTTPURLResponse {
                             let httpError = NSError(domain: endpoint.absoluteString,
-                                                    code: htmlResponse.statusCode,
+                                                    code: httpResponse.statusCode,
                                                     userInfo: ["description" : responseError.statusMessage ?? ""]
                             )
                             completion(.failure(httpError), nil)
@@ -70,8 +70,6 @@ class APIManager {
                     }else{
                         completion(.failure(error), nil)
                     }
-                    
-                    
                 }
             } else if let error = error {
                 self.setStatusBar(loading: false)
@@ -92,9 +90,6 @@ class APIManager {
                 
             }
         }
-        
         return nil
     }
-    
-    
 }
