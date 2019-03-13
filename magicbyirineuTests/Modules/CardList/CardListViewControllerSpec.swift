@@ -45,6 +45,14 @@ class CardListViewControllerSpec: QuickSpec {
                 expect((sut.presenter as! CardListPresenterMock).wasCellForItemAtCalled).to(beTrue())
             })
 
+            context("when querying for cards", {
+                it("should display the activity indicator", closure: {
+                    sut.set(searchStatus: .querying)
+                    self.tester().waitForAnimationsToFinish()
+                    expect(sut) == snapshot()
+                })
+            })
+
             context("Regarding loaded cards", {
                 var cards = [Card]()
 

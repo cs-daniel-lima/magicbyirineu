@@ -5,9 +5,16 @@ enum Status {
     case empty
 }
 
+enum SearchStatus {
+    case querying
+    case normal
+}
+
 class CardListViewController: MagicViewController {
     var presenter: CardListPresenter!
     let screen = CardListView()
+
+    var isQuering = false
 
     required init(title: String) {
         super.init(nibName: nil, bundle: nil)
@@ -30,13 +37,27 @@ class CardListViewController: MagicViewController {
     func set(status: Status) {
         switch status {
         case .normal:
-            screen.emptySearchLabel.isHidden = true
-            screen.emptySearchLabel.text = ""
+            screen.set(status: .normal)
         case .empty:
-            screen.emptySearchLabel.isHidden = false
-            screen.emptySearchLabel.text = "We couldn't find the card you were looking for."
+            if isQuering == false {
+                screen.emptySearchLabel.isHidden = false
+            }
+            screen.set(status: .empty)
         }
     }
+
+    func set(searchStatus: SearchStatus) {
+        switch searchStatus {
+        case .normal:
+            isQuering = false
+            screen.set(searchStatus: .normal)
+        case .querying:
+            isQuering = true
+            screen.set(searchStatus: .querying)
+        }
+    }
+
+    func switchActivityIndicator(status _: Status) {}
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
