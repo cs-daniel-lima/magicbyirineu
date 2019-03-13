@@ -18,5 +18,19 @@ class FavoritesViewControllerSpec: QuickSpec {
                 expect(sut) == snapshot()
             }
         }
+
+        context("when it is initialized with empty collection view") {
+            it("should match view with snapshot", closure: {
+                sut.set(status: .empty)
+                expect(sut) == snapshot()
+            })
+        }
+
+        context("when it is initialized with at least one favorite") {
+            it("should match view with snapshot", closure: {
+                sut.set(status: .normal)
+                expect(sut) == snapshot()
+            })
+        }
     }
 }

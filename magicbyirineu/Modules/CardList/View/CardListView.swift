@@ -4,7 +4,6 @@ class CardListView: UIView {
     let emptySearchLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.sfProDisplay(size: 22, weight: .bold)
-        view.text = "We couldn't find the card you were looking for."
         view.textAlignment = .center
         view.numberOfLines = 2
         view.isHidden = true

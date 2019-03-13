@@ -31,8 +31,10 @@ class CardListViewController: MagicViewController {
         switch status {
         case .normal:
             screen.emptySearchLabel.isHidden = true
+            screen.emptySearchLabel.text = ""
         case .empty:
             screen.emptySearchLabel.isHidden = false
+            screen.emptySearchLabel.text = "We couldn't find the card you were looking for."
         }
     }
 
