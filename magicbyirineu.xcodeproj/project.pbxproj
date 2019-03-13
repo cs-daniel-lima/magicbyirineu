@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		16036CA1BE8249F0FC89C44B /* Pods_magicbyirineuTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */; };
-		183398D52229B12D006A1EF3 /* CardRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398D42229B12D006A1EF3 /* CardRepositoryMock.swift */; };
 		183398D72229B535006A1EF3 /* CardSetRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398D62229B535006A1EF3 /* CardSetRepositoryMock.swift */; };
 		183398D92229B6BD006A1EF3 /* TypeRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398D82229B6BD006A1EF3 /* TypeRepositoryMock.swift */; };
 		183398DB2229B76F006A1EF3 /* CardListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398DA2229B76F006A1EF3 /* CardListInteractorSpec.swift */; };
@@ -27,6 +26,9 @@
 		187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3449221B21DA008E13C3 /* ResponseError.swift */; };
 		187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344B221B2205008E13C3 /* ResponseSets.swift */; };
 		187D3450221B40D7008E13C3 /* ResponseCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D344F221B40D7008E13C3 /* ResponseCards.swift */; };
+		18A96DF42239792D00FFFEAE /* CardDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479456AF2231CAFB002A4CA3 /* CardDetailInteractor.swift */; };
+		18A96DF622397A7E00FFFEAE /* CardRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A96DF522397A7E00FFFEAE /* CardRepositoryMock.swift */; };
+		18A96DF822397A9000FFFEAE /* FavoritesPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A96DF722397A9000FFFEAE /* FavoritesPresenterMock.swift */; };
 		18AAD45022270D450059D3BA /* EndpointCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD44D22270D450059D3BA /* EndpointCards.swift */; };
 		18AAD45122270D450059D3BA /* EndpointSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD44E22270D450059D3BA /* EndpointSets.swift */; };
 		18AAD45422270D550059D3BA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD45322270D550059D3BA /* Endpoint.swift */; };
@@ -67,14 +69,12 @@
 		478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D92C2221B0C04004EA8B3 /* CodeView.swift */; };
 		47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D5E222482D900202E73 /* MagicFlowLayout.swift */; };
 		47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D6022256EB900202E73 /* CardListViewControllerSpec.swift */; };
-		479456B02231CAFB002A4CA3 /* CardDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479456AF2231CAFB002A4CA3 /* CardDetailInteractor.swift */; };
 		479456B22231D617002A4CA3 /* MagicCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479456B12231D616002A4CA3 /* MagicCarouselFlowLayout.swift */; };
 		47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */; };
 		47E25B1A2229CFDB0031482F /* CardListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E25B192229CFDB0031482F /* CardListPresenterMock.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
 		DD0C62632238183E003831FB /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C62622238183E003831FB /* FavoriteButton.swift */; };
 		DD2895AC22394BA00009D8CC /* FavoritesPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2895AB22394BA00009D8CC /* FavoritesPresenterSpec.swift */; };
-		DD2895AE22394BED0009D8CC /* FavoritesPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2895AD22394BED0009D8CC /* FavoritesPresenterMock.swift */; };
 		DD60C6CD223187E4005865B9 /* MagicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CC223187E4005865B9 /* MagicViewController.swift */; };
 		DD60C6CF22318B5F005865B9 /* UIFont + FontWeightt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */; };
 		DD60C6D12236A021005865B9 /* ForeignNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6D02236A021005865B9 /* ForeignNames.swift */; };
@@ -106,7 +106,6 @@
 
 /* Begin PBXFileReference section */
 		0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		183398D42229B12D006A1EF3 /* CardRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepositoryMock.swift; sourceTree = "<group>"; };
 		183398D62229B535006A1EF3 /* CardSetRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetRepositoryMock.swift; sourceTree = "<group>"; };
 		183398D82229B6BD006A1EF3 /* TypeRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRepositoryMock.swift; sourceTree = "<group>"; };
 		183398DA2229B76F006A1EF3 /* CardListInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListInteractorSpec.swift; sourceTree = "<group>"; };
@@ -126,6 +125,8 @@
 		187D344B221B2205008E13C3 /* ResponseSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSets.swift; sourceTree = "<group>"; };
 		187D344F221B40D7008E13C3 /* ResponseCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCards.swift; sourceTree = "<group>"; };
 		18834D35222466EB00565141 /* ResponseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTypes.swift; sourceTree = "<group>"; };
+		18A96DF522397A7E00FFFEAE /* CardRepositoryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardRepositoryMock.swift; sourceTree = "<group>"; };
+		18A96DF722397A9000FFFEAE /* FavoritesPresenterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterMock.swift; sourceTree = "<group>"; };
 		18AAD44D22270D450059D3BA /* EndpointCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointCards.swift; sourceTree = "<group>"; };
 		18AAD44E22270D450059D3BA /* EndpointSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointSets.swift; sourceTree = "<group>"; };
 		18AAD44F22270D450059D3BA /* EndpointTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTypes.swift; sourceTree = "<group>"; };
@@ -178,7 +179,6 @@
 		D72262C0173B8F562F887DAC /* Pods-magicbyirineu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.release.xcconfig"; sourceTree = "<group>"; };
 		DD0C62622238183E003831FB /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		DD2895AB22394BA00009D8CC /* FavoritesPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterSpec.swift; sourceTree = "<group>"; };
-		DD2895AD22394BED0009D8CC /* FavoritesPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterMock.swift; sourceTree = "<group>"; };
 		DD60C6CC223187E4005865B9 /* MagicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicViewController.swift; sourceTree = "<group>"; };
 		DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + FontWeightt.swift"; sourceTree = "<group>"; };
 		DD60C6D02236A021005865B9 /* ForeignNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignNames.swift; sourceTree = "<group>"; };
@@ -469,8 +469,10 @@
 		476D9D6D221C8BD100272793 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				18A96DF722397A9000FFFEAE /* FavoritesPresenterMock.swift */,
 				476D9D6B221C8BB800272793 /* MagicTabBarMock.swift */,
 				183398D62229B535006A1EF3 /* CardSetRepositoryMock.swift */,
+				18A96DF522397A7E00FFFEAE /* CardRepositoryMock.swift */,
 				183398D82229B6BD006A1EF3 /* TypeRepositoryMock.swift */,
 				DD9E78E22228687500BF37F1 /* CardDetailViewControllerMock.swift */,
 				4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */,
@@ -958,6 +960,7 @@
 				DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */,
 				187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */,
 				18AAD495222874190059D3BA /* CardSetAPIClient.swift in Sources */,
+				18A96DF42239792D00FFFEAE /* CardDetailInteractor.swift in Sources */,
 				DD9E78DC2228246000BF37F1 /* CardDetailPresenter.swift in Sources */,
 				183398E32236D19D006A1EF3 /* HTTPHeaderCards.swift in Sources */,
 				DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */,
@@ -1011,11 +1014,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD2895AE22394BED0009D8CC /* FavoritesPresenterMock.swift in Sources */,
 				DD9E78E6222869DE00BF37F1 /* CardDetailViewControllerSpec.swift in Sources */,
 				183398ED22393DA5006A1EF3 /* ErrorMock.swift in Sources */,
 				183398D72229B535006A1EF3 /* CardSetRepositoryMock.swift in Sources */,
 				47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */,
+				18A96DF822397A9000FFFEAE /* FavoritesPresenterMock.swift in Sources */,
 				474F44FB223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift in Sources */,
 				183398DB2229B76F006A1EF3 /* CardListInteractorSpec.swift in Sources */,
 				4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */,
@@ -1030,10 +1033,10 @@
 				476D9D68221C882800272793 /* FavoritesViewControllerSpec.swift in Sources */,
 				183398EB22393C4F006A1EF3 /* CardsLoaderMock.swift in Sources */,
 				476D9D6C221C8BB800272793 /* MagicTabBarMock.swift in Sources */,
-				183398D52229B12D006A1EF3 /* CardRepositoryMock.swift in Sources */,
 				183398D92229B6BD006A1EF3 /* TypeRepositoryMock.swift in Sources */,
 				47E25B1A2229CFDB0031482F /* CardListPresenterMock.swift in Sources */,
 				4754D21622287CF000FCE704 /* CollectionMock.swift in Sources */,
+				18A96DF622397A7E00FFFEAE /* CardRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
