@@ -8,13 +8,12 @@ class CardDao: Object {
     @objc dynamic var imageUrl: String?
     let types = List<RealmString>()
     let foreignNames = List<ForeignNamesDao>()
-    
-    @objc dynamic var uniqueIdentifierId:String = ""
-    
+
+    @objc dynamic var uniqueIdentifierId = UUID().uuidString
+
     override static func primaryKey() -> String? {
         return "uniqueIdentifierId"
     }
-    
 }
 
 extension CardDao {

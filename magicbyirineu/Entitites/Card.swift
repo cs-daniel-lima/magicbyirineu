@@ -8,7 +8,7 @@ struct Card: Decodable, Equatable {
     let imageUrl: String?
     let types: [String]
     let foreignNames: [ForeignNames]?
-    
+
     static func == (lhs: Card, rhs: Card) -> Bool {
         if lhs.name != rhs.name {
             return false

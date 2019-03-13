@@ -52,6 +52,16 @@ class DatabaseManager {
     }
 
     // MARK: - Select Data
+    
+    func isfavorited(card:Card)->Bool{
+        
+        if realm.object(ofType: CardDao.self, forPrimaryKey: card.id) != nil{
+            return true
+        }else{
+            return false
+        }
+        
+    }
 
     func getSets() -> [CardSet] {
         let result = realm.objects(CardSetDao.self)
@@ -77,18 +87,64 @@ class DatabaseManager {
         let result = realm.objects(CardDao.self).filter(NSPredicate(format: "set = %@", setCode))
         return result.toArray()
     }
+    
+    func getCards(type:String)-> [Card]{
+        
+        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "%@ IN foreignNames.name", type))
+        return result.toArray()
+        
+    }
 
     // MARK: - Delete Data
 
     func removeFavorite(card: Card, set: CardSet) {
         
-        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name = %@ AND set = %@", card.name, set.code))
+        if let favoritedCard = realm.object(ofType: CardDao.self, forPrimaryKey: card.id){
+            
+            try! realm.write {
+                realm.delete(favoritedCard)
+            }
+            
+            removeFavorite(set: set)
+            removeFavorite(types: card.types)
+            
+        }
         
-        removeFavorite(set: set)
-        removeFavorite(types: card.types)
     }
 
-    private func removeFavorite(set _: CardSet) {}
+    private func removeFavorite(set: CardSet) {
+        
+        let cardsWithSet = getCards(setCode: set.code)
+        
+        if(cardsWithSet.isEmpty){
+            
+            let result = realm.objects(CardSetDao.self).filter(NSPredicate(format: "code = %@", set.code))
+            
+            try! realm.write {
+                realm.delete(result)
+            }
+            
+        }
+        
+    }
 
-    private func removeFavorite(types _: [String]) {}
+    private func removeFavorite(types: [String]) {
+        
+        for type in types{
+            let cardsWithType = getCards(type: type)
+            
+            if(cardsWithType.isEmpty){
+                
+                let result = realm.objects(CardTypeDao.self).filter(NSPredicate(format: "name = %@", type))
+                
+                try! realm.write {
+                    realm.delete(result)
+                }
+                
+            }
+            
+        }
+        
+        
+    }
 }
