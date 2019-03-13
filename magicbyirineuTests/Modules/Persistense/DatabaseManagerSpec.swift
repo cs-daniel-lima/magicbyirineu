@@ -62,12 +62,68 @@ class DatabaseManagerSpec: QuickSpec {
                 expect(storedCards.count).to(equal(5))
             }
 
-            it("has storedTypes count equal to 10") {
-                expect(storedTypes.count).to(equal(10))
+            it("has storedTypes count equal to 3") {
+                expect(storedTypes.count).to(equal(3))
             }
 
-            it("has storedSets count equal to 5") {
-                expect(storedSets.count).to(equal(5))
+            it("has storedSets count equal to 4") {
+                expect(storedSets.count).to(equal(4))
+            }
+
+            context("when searching for specific card name") {
+                var specificCards: [Card]!
+
+                beforeEach {
+                    specificCards = sut.getCards(name: "Forest")
+                }
+
+                it("has specificCards count equal to 1") {
+                    expect(specificCards.count).to(equal(1))
+                }
+
+                it("found card has set equal to 2ED") {
+                    expect(specificCards.first?.set).to(equal("2ED"))
+                }
+
+                it("found card imageUrl is not null") {
+                    expect(specificCards.first?.imageUrl).toNot(beNil())
+                }
+
+                it("found card har foreignNames count equal to 1") {
+                    expect(specificCards.first?.foreignNames?.count).to(equal(1))
+                }
+
+                it("found card har foreignName equal to Floresta") {
+                    expect(specificCards.first?.foreignNames?.first?.name).to(equal("Floresta"))
+                }
+            }
+
+            context("when searching for specific card name specific setcode") {
+                var specificCards: [Card]!
+
+                beforeEach {
+                    specificCards = sut.getCards(name: "Time Sieve", setCode: "10E")
+                }
+
+                it("has specificCards count equal to 1") {
+                    expect(specificCards.count).to(equal(1))
+                }
+
+                it("found card has set equal to 10E") {
+                    expect(specificCards.first?.set).to(equal("10E"))
+                }
+
+                it("found card imageUrl is not null") {
+                    expect(specificCards.first?.imageUrl).to(beNil())
+                }
+
+                it("found card har foreignNames count equal to 1") {
+                    expect(specificCards.first?.foreignNames?.count).to(equal(1))
+                }
+
+                it("found card har foreignName equal to Peneira de Tempo") {
+                    expect(specificCards.first?.foreignNames?.first?.name).to(equal("Peneira de Tempo"))
+                }
             }
         }
     }

@@ -28,9 +28,9 @@ class DatabaseManager {
     private func addFavorite(set: CardSet) {
         let newSet = CardSetDao(set: set)
 
-        let savedSets = realm.objects(CardSetDao.self)
+        let preExistingSets = realm.objects(CardSetDao.self).filter(NSPredicate(format: "code = %@", newSet.code))
 
-        if !savedSets.contains(newSet) {
+        if preExistingSets.isEmpty {
             try! realm.write {
                 realm.add(newSet)
             }
@@ -38,12 +38,12 @@ class DatabaseManager {
     }
 
     private func addFavorite(types: [String]) {
-        let savedTypes = realm.objects(CardTypeDao.self)
-
         for type in types {
             let newType = CardTypeDao(type: type)
 
-            if !savedTypes.contains(newType) {
+            let preExistingTypes = realm.objects(CardTypeDao.self).filter(NSPredicate(format: "name = %@", newType.name))
+
+            if preExistingTypes.isEmpty {
                 try! realm.write {
                     realm.add(newType)
                 }
@@ -63,12 +63,14 @@ class DatabaseManager {
         return result.toArrayOfString()
     }
 
-    func getCards(name _: String, setCode _: String) -> [Card] {
-        return []
+    func getCards(name: String, setCode: String) -> [Card] {
+        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name = %@ AND set = %@", name, setCode))
+        return result.toArray()
     }
 
-    func getCards(name _: String) -> [Card] {
-        return []
+    func getCards(name: String) -> [Card] {
+        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name = %@", name))
+        return result.toArray()
     }
 
     func getCards(setCode: String) -> [Card] {

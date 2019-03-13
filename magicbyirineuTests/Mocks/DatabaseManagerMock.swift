@@ -11,7 +11,7 @@ class DatabaseManagerMock: DatabaseManager {
         try! realm.write {
             realm.delete(cardsToDelete)
             realm.delete(setsToDelete)
-            realm.delete(cardsToDelete)
+            realm.delete(typesToDelete)
         }
     }
 

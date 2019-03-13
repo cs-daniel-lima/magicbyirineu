@@ -18,5 +18,9 @@ extension CardDao {
         setName = card.setName
         imageUrl = card.imageUrl
         types.append(strings: card.types)
+
+        if let cardForeignNames = card.foreignNames {
+            foreignNames.append(foreignNames: cardForeignNames)
+        }
     }
 }
