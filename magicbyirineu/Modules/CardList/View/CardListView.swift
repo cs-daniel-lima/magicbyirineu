@@ -53,18 +53,12 @@ class CardListView: UIView {
         case .normal:
             emptySearchLabel.isHidden = true
             emptySearchLabel.text = ""
-        case .empty:
-            emptySearchLabel.text = "We couldn't find the card you were looking for."
-        }
-    }
-
-    func set(searchStatus: SearchStatus) {
-        switch searchStatus {
-        case .normal:
             activityIndicator.isHidden = true
             collectionView.isHidden = false
             activityIndicator.stopAnimating()
-        case .querying:
+        case .empty:
+            emptySearchLabel.text = "We couldn't find the card you were looking for."
+        case .searching:
             emptySearchLabel.isHidden = true
             collectionView.isHidden = true
             activityIndicator.isHidden = false
