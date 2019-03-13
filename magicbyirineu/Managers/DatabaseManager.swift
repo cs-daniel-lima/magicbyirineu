@@ -81,6 +81,9 @@ class DatabaseManager {
     // MARK: - Delete Data
 
     func removeFavorite(card: Card, set: CardSet) {
+        
+        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name = %@ AND set = %@", card.name, set.code))
+        
         removeFavorite(set: set)
         removeFavorite(types: card.types)
     }

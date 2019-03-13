@@ -1,13 +1,14 @@
 import Foundation
 
 struct Card: Decodable, Equatable {
+    let id: String
     let name: String
     let set: String
     let setName: String
     let imageUrl: String?
     let types: [String]
     let foreignNames: [ForeignNames]?
-
+    
     static func == (lhs: Card, rhs: Card) -> Bool {
         if lhs.name != rhs.name {
             return false
@@ -40,5 +41,6 @@ extension Card {
         imageUrl = object.imageUrl
         types = object.types.toStrings()
         foreignNames = object.foreignNames.toArray()
+        id = object.uniqueIdentifierId
     }
 }

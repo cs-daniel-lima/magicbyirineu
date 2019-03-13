@@ -8,6 +8,13 @@ class CardDao: Object {
     @objc dynamic var imageUrl: String?
     let types = List<RealmString>()
     let foreignNames = List<ForeignNamesDao>()
+    
+    @objc dynamic var uniqueIdentifierId:String = ""
+    
+    override static func primaryKey() -> String? {
+        return "uniqueIdentifierId"
+    }
+    
 }
 
 extension CardDao {
@@ -18,6 +25,7 @@ extension CardDao {
         setName = card.setName
         imageUrl = card.imageUrl
         types.append(strings: card.types)
+        uniqueIdentifierId = card.id
 
         if let cardForeignNames = card.foreignNames {
             foreignNames.append(foreignNames: cardForeignNames)
