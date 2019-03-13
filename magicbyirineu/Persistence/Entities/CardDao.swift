@@ -8,26 +8,15 @@ class CardDao: Object {
     @objc dynamic var imageUrl: String?
     let types = List<RealmString>()
     let foreignNames = List<ForeignNamesDao>()
+}
 
-    required init(card: Card) {
+extension CardDao {
+    convenience init(card: Card) {
+        self.init()
         name = card.name
         set = card.set
         setName = card.setName
         imageUrl = card.imageUrl
         types.append(strings: card.types)
-
-        super.init()
-    }
-
-    required init() {
-        super.init()
-    }
-
-    required init(value: Any, schema: RLMSchema) {
-        super.init(value: value, schema: schema)
-    }
-
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init(realm: realm, schema: schema)
     }
 }

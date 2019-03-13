@@ -167,7 +167,9 @@ class CardListInteractor {
     }
 
     func fetchCards() {
-        loadManager.loadCards(fromSet: sets[currentSetPagination], withType: types[currentCardTypePagination], page: 1)
+        if !sets.isEmpty, !types.isEmpty {
+            loadManager.loadCards(fromSet: sets[currentSetPagination], withType: types[currentCardTypePagination], page: 1)
+        }
     }
 
     func fetchCards(completion: @escaping (_ success: Bool) -> Void) {
@@ -308,8 +310,13 @@ class CardListInteractor {
     // MARK: - Pagination
 
     func updatePagination() {
-        fetchedSetCode = sets[currentSetPagination].code
-        fetchedCardsType = types[currentCardTypePagination]
+        if !sets.isEmpty {
+            fetchedSetCode = sets[currentSetPagination].code
+        }
+
+        if !types.isEmpty {
+            fetchedCardsType = types[currentCardTypePagination]
+        }
     }
 
     func paginate() {

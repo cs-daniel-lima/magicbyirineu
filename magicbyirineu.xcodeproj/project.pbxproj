@@ -33,11 +33,24 @@
 		18AAD49B2228790F0059D3BA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD49A2228790F0059D3BA /* APIManager.swift */; };
 		18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */; };
 		18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */; };
+		4718D2FE22397D9C006F3B4F /* CardSetDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718D2FD22397D9C006F3B4F /* CardSetDao.swift */; };
+		4718D3002239850E006F3B4F /* CardTypeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718D2FF2239850E006F3B4F /* CardTypeDao.swift */; };
+		4718D302223989B2006F3B4F /* Results+CardSetDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718D301223989B2006F3B4F /* Results+CardSetDao.swift */; };
+		4718D30422398A5F006F3B4F /* Results+CardTypeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718D30322398A5F006F3B4F /* Results+CardTypeDao.swift */; };
 		4720528622384E7F00ACAF01 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720528522384E7F00ACAF01 /* DatabaseManager.swift */; };
 		472052882238524400ACAF01 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052872238524400ACAF01 /* Utils.swift */; };
 		4720528F22385FDB00ACAF01 /* RealmCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720528E22385FDB00ACAF01 /* RealmCards.swift */; };
 		4720529122385FE500ACAF01 /* RealmSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720529022385FE500ACAF01 /* RealmSets.swift */; };
 		4720529322385FF700ACAF01 /* RealmTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720529222385FF700ACAF01 /* RealmTypes.swift */; };
+		472052952239458F00ACAF01 /* DatabaseManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052942239458F00ACAF01 /* DatabaseManagerMock.swift */; };
+		472052982239463100ACAF01 /* DatabaseManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052972239463100ACAF01 /* DatabaseManagerSpec.swift */; };
+		4720529A223947BC00ACAF01 /* CardDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47205299223947BC00ACAF01 /* CardDao.swift */; };
+		4720529C2239565500ACAF01 /* RealmString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720529B2239565400ACAF01 /* RealmString.swift */; };
+		4720529E2239568000ACAF01 /* List+RealmString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720529D2239568000ACAF01 /* List+RealmString.swift */; };
+		472052A0223956DB00ACAF01 /* Array+CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720529F223956DB00ACAF01 /* Array+CardSet.swift */; };
+		472052A22239611900ACAF01 /* Results+CardDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052A12239611900ACAF01 /* Results+CardDao.swift */; };
+		472052A422396D0200ACAF01 /* ForeignNamesDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052A322396D0200ACAF01 /* ForeignNamesDao.swift */; };
+		472052A622396D8000ACAF01 /* List+ForeignNamesDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052A522396D8000ACAF01 /* List+ForeignNamesDao.swift */; };
 		474F44F922372137008F3468 /* MagicCarouselFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */; };
 		474F44FB223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */; };
 		4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */; };
@@ -129,11 +142,24 @@
 		18AAD49A2228790F0059D3BA /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCollectionReusableView.swift; sourceTree = "<group>"; };
+		4718D2FD22397D9C006F3B4F /* CardSetDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetDao.swift; sourceTree = "<group>"; };
+		4718D2FF2239850E006F3B4F /* CardTypeDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeDao.swift; sourceTree = "<group>"; };
+		4718D301223989B2006F3B4F /* Results+CardSetDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+CardSetDao.swift"; sourceTree = "<group>"; };
+		4718D30322398A5F006F3B4F /* Results+CardTypeDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+CardTypeDao.swift"; sourceTree = "<group>"; };
 		4720528522384E7F00ACAF01 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		472052872238524400ACAF01 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4720528E22385FDB00ACAF01 /* RealmCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCards.swift; sourceTree = "<group>"; };
 		4720529022385FE500ACAF01 /* RealmSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSets.swift; sourceTree = "<group>"; };
 		4720529222385FF700ACAF01 /* RealmTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTypes.swift; sourceTree = "<group>"; };
+		472052942239458F00ACAF01 /* DatabaseManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerMock.swift; sourceTree = "<group>"; };
+		472052972239463100ACAF01 /* DatabaseManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerSpec.swift; sourceTree = "<group>"; };
+		47205299223947BC00ACAF01 /* CardDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDao.swift; sourceTree = "<group>"; };
+		4720529B2239565400ACAF01 /* RealmString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmString.swift; sourceTree = "<group>"; };
+		4720529D2239568000ACAF01 /* List+RealmString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+RealmString.swift"; sourceTree = "<group>"; };
+		4720529F223956DB00ACAF01 /* Array+CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+CardSet.swift"; sourceTree = "<group>"; };
+		472052A12239611900ACAF01 /* Results+CardDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+CardDao.swift"; sourceTree = "<group>"; };
+		472052A322396D0200ACAF01 /* ForeignNamesDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignNamesDao.swift; sourceTree = "<group>"; };
+		472052A522396D8000ACAF01 /* List+ForeignNamesDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+ForeignNamesDao.swift"; sourceTree = "<group>"; };
 		474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutSpec.swift; sourceTree = "<group>"; };
 		474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutMock.swift; sourceTree = "<group>"; };
 		4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayoutSpec.swift; sourceTree = "<group>"; };
@@ -278,6 +304,12 @@
 				DD60C6CC223187E4005865B9 /* MagicViewController.swift */,
 				DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */,
 				472052872238524400ACAF01 /* Utils.swift */,
+				4720529D2239568000ACAF01 /* List+RealmString.swift */,
+				472052A522396D8000ACAF01 /* List+ForeignNamesDao.swift */,
+				4720529F223956DB00ACAF01 /* Array+CardSet.swift */,
+				472052A12239611900ACAF01 /* Results+CardDao.swift */,
+				4718D301223989B2006F3B4F /* Results+CardSetDao.swift */,
+				4718D30322398A5F006F3B4F /* Results+CardTypeDao.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -324,6 +356,11 @@
 		4720528C22385AC800ACAF01 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				47205299223947BC00ACAF01 /* CardDao.swift */,
+				4718D2FD22397D9C006F3B4F /* CardSetDao.swift */,
+				4718D2FF2239850E006F3B4F /* CardTypeDao.swift */,
+				4720529B2239565400ACAF01 /* RealmString.swift */,
+				472052A322396D0200ACAF01 /* ForeignNamesDao.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -336,6 +373,14 @@
 				4720529222385FF700ACAF01 /* RealmTypes.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		47205296223945F400ACAF01 /* Persistense */ = {
+			isa = PBXGroup;
+			children = (
+				472052972239463100ACAF01 /* DatabaseManagerSpec.swift */,
+			);
+			path = Persistense;
 			sourceTree = "<group>";
 		};
 		4754D21822288A5000FCE704 /* Extensions */ = {
@@ -404,6 +449,7 @@
 				476D9D62221C850B00272793 /* TabBar */,
 				476D9D63221C851300272793 /* CardList */,
 				476D9D65221C852400272793 /* Favorites */,
+				47205296223945F400ACAF01 /* Persistense */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -447,6 +493,7 @@
 				4754D21522287CF000FCE704 /* CollectionMock.swift */,
 				47E25B192229CFDB0031482F /* CardListPresenterMock.swift */,
 				183398D42229B12D006A1EF3 /* CardRepositoryMock.swift */,
+				472052942239458F00ACAF01 /* DatabaseManagerMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -944,7 +991,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4720529C2239565500ACAF01 /* RealmString.swift in Sources */,
 				4766BA2422314DE200986ADD /* ResponseTypes.swift in Sources */,
+				4718D30422398A5F006F3B4F /* Results+CardTypeDao.swift in Sources */,
+				472052A422396D0200ACAF01 /* ForeignNamesDao.swift in Sources */,
 				4766BA2322314D9E00986ADD /* EndpointTypes.swift in Sources */,
 				18AAD497222874BE0059D3BA /* TypeAPIClient.swift in Sources */,
 				18AAD48E222845490059D3BA /* CardAPIClient.swift in Sources */,
@@ -952,17 +1002,22 @@
 				DD60C6CF22318B5F005865B9 /* UIFont + FontWeightt.swift in Sources */,
 				DDE32C38221AF22F00426578 /* CardListViewController.swift in Sources */,
 				187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */,
+				4718D302223989B2006F3B4F /* Results+CardSetDao.swift in Sources */,
 				18AAD495222874190059D3BA /* CardSetAPIClient.swift in Sources */,
 				DD9E78DC2228246000BF37F1 /* CardDetailPresenter.swift in Sources */,
 				DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */,
 				187D3433221B1958008E13C3 /* HTTPParameter.swift in Sources */,
 				4720528622384E7F00ACAF01 /* DatabaseManager.swift in Sources */,
+				4718D2FE22397D9C006F3B4F /* CardSetDao.swift in Sources */,
 				478BC45A22171E27000579FE /* AppDelegate.swift in Sources */,
 				4766BA2622314E9500986ADD /* CardsLoader.swift in Sources */,
 				18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */,
 				DDE32C34221AF20900426578 /* CardListView.swift in Sources */,
 				4720529322385FF700ACAF01 /* RealmTypes.swift in Sources */,
 				4720528F22385FDB00ACAF01 /* RealmCards.swift in Sources */,
+				472052A0223956DB00ACAF01 /* Array+CardSet.swift in Sources */,
+				4720529A223947BC00ACAF01 /* CardDao.swift in Sources */,
+				472052A22239611900ACAF01 /* Results+CardDao.swift in Sources */,
 				DDE32C31221AF1F800426578 /* CardListInteractor.swift in Sources */,
 				47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */,
 				47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */,
@@ -972,6 +1027,7 @@
 				4766BA222231403400986ADD /* CardOrganizer.swift in Sources */,
 				476D9D5E221C731400272793 /* FavoritesRouter.swift in Sources */,
 				187D3430221B192D008E13C3 /* Result.swift in Sources */,
+				4720529E2239568000ACAF01 /* List+RealmString.swift in Sources */,
 				478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */,
 				476D9D57221C729800272793 /* FavoritesViewController.swift in Sources */,
 				DD60C6CD223187E4005865B9 /* MagicViewController.swift in Sources */,
@@ -984,6 +1040,7 @@
 				187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */,
 				DDCA2EDD22271BDE00DB7D81 /* RoundedView.swift in Sources */,
 				DD60C6D12236A021005865B9 /* ForeignNames.swift in Sources */,
+				472052A622396D8000ACAF01 /* List+ForeignNamesDao.swift in Sources */,
 				47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */,
 				18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */,
 				18AAD49122285F1B0059D3BA /* CardSetRepository.swift in Sources */,
@@ -997,6 +1054,7 @@
 				47788865222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
 				18AAD45022270D450059D3BA /* EndpointCards.swift in Sources */,
+				4718D3002239850E006F3B4F /* CardTypeDao.swift in Sources */,
 				47631B73221B601200B78A21 /* UIImage+ImageColor.swift in Sources */,
 				DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */,
 				18AAD45422270D550059D3BA /* Endpoint.swift in Sources */,
@@ -1016,6 +1074,7 @@
 				183398DB2229B76F006A1EF3 /* CardListInteractorSpec.swift in Sources */,
 				4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */,
 				474F44F922372137008F3468 /* MagicCarouselFlowLayoutSpec.swift in Sources */,
+				472052982239463100ACAF01 /* DatabaseManagerSpec.swift in Sources */,
 				47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */,
 				476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */,
 				4754D21422287C2400FCE704 /* MagicFlowLayoutMock.swift in Sources */,
@@ -1027,6 +1086,7 @@
 				183398D92229B6BD006A1EF3 /* TypeRepositoryMock.swift in Sources */,
 				47E25B1A2229CFDB0031482F /* CardListPresenterMock.swift in Sources */,
 				4754D21622287CF000FCE704 /* CollectionMock.swift in Sources */,
+				472052952239458F00ACAF01 /* DatabaseManagerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

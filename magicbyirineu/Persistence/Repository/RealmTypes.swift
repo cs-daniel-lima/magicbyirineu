@@ -1,21 +1,17 @@
-//
-//  RealmTypes.swift
-//  magicbyirineu
-//
-//  Created by daniel.da.cunha.lima on 12/03/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import Foundation
 
-class RealmTypes{
-    
-    
-    
+class RealmTypes {
+    let databaseManager: DatabaseManager
+
+    init(databaseManager: DatabaseManager = DatabaseManager()) {
+        self.databaseManager = databaseManager
+    }
 }
 
-extension RealmTypes:TypeRepository{
+extension RealmTypes: TypeRepository {
     func fetchTypes(completion: @escaping (Result<[String]>) -> Void) {
-        
+        let types = databaseManager.getTypes()
+
+        completion(.success(types))
     }
 }

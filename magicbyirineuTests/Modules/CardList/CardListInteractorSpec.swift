@@ -38,7 +38,6 @@ class CardListInteractorSpec: QuickSpec {
         context("when it is called fetchCards") {
             it("the first set should have 12 Elements") {
                 sut.fetchCards()
-                print(sut.cardOrganizer.decks[0].getElements().count)
                 expect(sut.cardOrganizer.decks[0].getElements().count).to(be(12))
             }
             it("has the first card with name Forest") {

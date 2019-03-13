@@ -8,7 +8,7 @@ class FavoritesRouter {
         let interactor = CardListInteractor(cardRepository: RealmCards(),
                                             cardSetRepository: RealmSets(),
                                             typeRepository: RealmTypes())
-        
+
         presenter = FavoritesPresenter(router: self, interactor: interactor, view: viewController)
     }
 }
