@@ -14,14 +14,14 @@ protocol CardsLoaderDelegate {
 }
 
 ///Carrega cartas de um Set
-class CardsLoader{
+class CardsLoader {
     
+    //MARK: - Properties
+    //MARK: Private
     private let cardRepository:CardRepository
     private let cardSetRepository:CardSetRepository
     private let typeRepository:TypeRepository
     
-    private var types:[String] = [String]()
-    private var sets:[CardSet] = [CardSet]()
     private var currentType:String?
     private var currentSet:CardSet?
     private var typesIterator:IndexingIterator<[String]>?
@@ -30,39 +30,26 @@ class CardsLoader{
     private var currentPage = 1
     private var requestedCardsCounter = 0
     
-    //Computed
-    private var isSetsAndTypesLoaded:Bool {
+    //MARK: Public
+    private(set) var types:[String] = [String]()
+    private(set) var sets:[CardSet] = [CardSet]()
+    
+    
+    var isSetsAndTypesLoaded:Bool {
         return self.types.count > 0 && self.sets.count > 0
-    }
-    private var orignalTypes:[String] = [String](){
-        didSet{
-            self.types = self.orignalTypes
-        }
-    }
-    private var orignalSets:[CardSet] = [CardSet](){
-        didSet{
-            self.sets = self.orignalSets
-        }
     }
     
     var delegate:CardsLoaderDelegate?
     
+    //MARK: - Init
     init(cardRepository:CardRepository, cardSetRepository:CardSetRepository, typeRepository:TypeRepository) {
         self.cardRepository = cardRepository
         self.cardSetRepository = cardSetRepository
         self.typeRepository = typeRepository
     }
     
-    //MARK - Functions
-    //MARK Private
-    private func loadCards(fromSet set:CardSet, withType type:String, page:Int) {
-        self.currentType = type
-        self.currentSet = set
-        self.currentPage = page
-        self.loadedCards = Array()
-    }
+    //MARK: - Functions
     
-    //MARK Public
     func clean() {
         self.sets = [CardSet]()
         self.types = [String]()
@@ -223,17 +210,5 @@ class CardsLoader{
         }else{
             self.requestedCardsCounter +=  numberOfCards
         }
-    }
-    
-    func iterateSetBased(totalExpected:Int? = nil) -> CardSet? {
-        
-        if let totalExpected = totalExpected,
-            self.requestedCardsCounter == totalExpected {
-            self.requestedCardsCounter = 0
-            self.currentSet = self.setsIterator?.next()
-        }else{
-            self.currentPage += 1
-        }
-        return self.currentSet
     }
 }
