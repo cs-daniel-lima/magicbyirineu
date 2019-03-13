@@ -39,12 +39,11 @@
 		18AAD49B2228790F0059D3BA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD49A2228790F0059D3BA /* APIManager.swift */; };
 		18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */; };
 		18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */; };
-		473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
-		473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		474F44F922372137008F3468 /* MagicCarouselFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */; };
+		474F44FB223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */; };
 		4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */; };
 		4754D21422287C2400FCE704 /* MagicFlowLayoutMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */; };
 		4754D21622287CF000FCE704 /* CollectionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21522287CF000FCE704 /* CollectionMock.swift */; };
-		4754D217222880B300FCE704 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473C8D6222174F400095CC4C /* SnapKit.framework */; };
 		4754D21A22288A5D00FCE704 /* KIFExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21922288A5D00FCE704 /* KIFExtensions.swift */; };
 		47631B5F221B39AF00B78A21 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47631B5E221B39AF00B78A21 /* SF-Pro-Display-Bold.otf */; };
 		47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47631B60221B3F0300B78A21 /* MagicSearchBar.swift */; };
@@ -68,11 +67,17 @@
 		478D92C3221B0C04004EA8B3 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D92C2221B0C04004EA8B3 /* CodeView.swift */; };
 		47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D5E222482D900202E73 /* MagicFlowLayout.swift */; };
 		47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D6022256EB900202E73 /* CardListViewControllerSpec.swift */; };
+		479456B02231CAFB002A4CA3 /* CardDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479456AF2231CAFB002A4CA3 /* CardDetailInteractor.swift */; };
+		479456B22231D617002A4CA3 /* MagicCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479456B12231D616002A4CA3 /* MagicCarouselFlowLayout.swift */; };
 		47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */; };
 		47E25B1A2229CFDB0031482F /* CardListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E25B192229CFDB0031482F /* CardListPresenterMock.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
+		DD0C62632238183E003831FB /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C62622238183E003831FB /* FavoriteButton.swift */; };
+		DD2895AC22394BA00009D8CC /* FavoritesPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2895AB22394BA00009D8CC /* FavoritesPresenterSpec.swift */; };
+		DD2895AE22394BED0009D8CC /* FavoritesPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2895AD22394BED0009D8CC /* FavoritesPresenterMock.swift */; };
 		DD60C6CD223187E4005865B9 /* MagicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CC223187E4005865B9 /* MagicViewController.swift */; };
 		DD60C6CF22318B5F005865B9 /* UIFont + FontWeightt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */; };
+		DD60C6D12236A021005865B9 /* ForeignNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60C6D02236A021005865B9 /* ForeignNames.swift */; };
 		DD9E78D82228244900BF37F1 /* CardDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78D72228244900BF37F1 /* CardDetailRouter.swift */; };
 		DD9E78DC2228246000BF37F1 /* CardDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78DB2228246000BF37F1 /* CardDetailPresenter.swift */; };
 		DD9E78DF2228247300BF37F1 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */; };
@@ -98,20 +103,6 @@
 			remoteInfo = magicbyirineu;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		473C8D6622174F450095CC4C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				473C8D6522174F450095CC4C /* SnapKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicbyirineu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +139,8 @@
 		18AAD49A2228790F0059D3BA /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		18D8A59C22246D2D00663C44 /* SubSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18D8A59E22246EBA00663C44 /* SetCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCollectionReusableView.swift; sourceTree = "<group>"; };
-		473C8D6222174F400095CC4C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutSpec.swift; sourceTree = "<group>"; };
+		474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutMock.swift; sourceTree = "<group>"; };
 		4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayoutSpec.swift; sourceTree = "<group>"; };
 		4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayoutMock.swift; sourceTree = "<group>"; };
 		4754D21522287CF000FCE704 /* CollectionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMock.swift; sourceTree = "<group>"; };
@@ -177,13 +169,19 @@
 		478D92C2221B0C04004EA8B3 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		47941D5E222482D900202E73 /* MagicFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayout.swift; sourceTree = "<group>"; };
 		47941D6022256EB900202E73 /* CardListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewControllerSpec.swift; sourceTree = "<group>"; };
+		479456AF2231CAFB002A4CA3 /* CardDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailInteractor.swift; sourceTree = "<group>"; };
+		479456B12231D616002A4CA3 /* MagicCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBarSpec.swift; sourceTree = "<group>"; };
 		47E25B192229CFDB0031482F /* CardListPresenterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListPresenterMock.swift; sourceTree = "<group>"; };
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34616E3BD7F470AF4450BD /* Pods-magicbyirineu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.debug.xcconfig"; sourceTree = "<group>"; };
 		D72262C0173B8F562F887DAC /* Pods-magicbyirineu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineu.release.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu.release.xcconfig"; sourceTree = "<group>"; };
+		DD0C62622238183E003831FB /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		DD2895AB22394BA00009D8CC /* FavoritesPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterSpec.swift; sourceTree = "<group>"; };
+		DD2895AD22394BED0009D8CC /* FavoritesPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterMock.swift; sourceTree = "<group>"; };
 		DD60C6CC223187E4005865B9 /* MagicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicViewController.swift; sourceTree = "<group>"; };
 		DD60C6CE22318B5F005865B9 /* UIFont + FontWeightt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + FontWeightt.swift"; sourceTree = "<group>"; };
+		DD60C6D02236A021005865B9 /* ForeignNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignNames.swift; sourceTree = "<group>"; };
 		DD9E78D72228244900BF37F1 /* CardDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailRouter.swift; sourceTree = "<group>"; };
 		DD9E78DB2228246000BF37F1 /* CardDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenter.swift; sourceTree = "<group>"; };
 		DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				473C8D6322174F400095CC4C /* SnapKit.framework in Frameworks */,
 				D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,7 +214,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16036CA1BE8249F0FC89C44B /* Pods_magicbyirineuTests.framework in Frameworks */,
-				4754D217222880B300FCE704 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +223,6 @@
 		10391439FB88BE94A6C8E1DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				473C8D6222174F400095CC4C /* SnapKit.framework */,
 				0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */,
 				DFFE759530F7B0A434A32EFC /* Pods_magicbyirineuTests.framework */,
 			);
@@ -466,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				476D9D67221C882800272793 /* FavoritesViewControllerSpec.swift */,
+				DD2895AB22394BA00009D8CC /* FavoritesPresenterSpec.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -478,6 +474,7 @@
 				183398D82229B6BD006A1EF3 /* TypeRepositoryMock.swift */,
 				DD9E78E22228687500BF37F1 /* CardDetailViewControllerMock.swift */,
 				4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */,
+				474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */,
 				4754D21522287CF000FCE704 /* CollectionMock.swift */,
 				47E25B192229CFDB0031482F /* CardListPresenterMock.swift */,
 				183398EA22393C4F006A1EF3 /* CardsLoaderMock.swift */,
@@ -526,7 +523,6 @@
 			children = (
 				476D9D6D221C8BD100272793 /* Mocks */,
 				476D9D61221C84FE00272793 /* Modules */,
-				183398D42229B12D006A1EF3 /* CardRepositoryMock.swift */,
 				478BC47022171E28000579FE /* Info.plist */,
 			);
 			path = magicbyirineuTests;
@@ -549,12 +545,22 @@
 			path = SearchBar;
 			sourceTree = "<group>";
 		};
+		479456AE2231CABC002A4CA3 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				479456AF2231CAFB002A4CA3 /* CardDetailInteractor.swift */,
+			);
+			name = Interactor;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		DD9E78D2222823C100BF37F1 /* CardDetail */ = {
 			isa = PBXGroup;
 			children = (
-				DD9E78D62228240800BF37F1 /* Router */,
-				DD9E78D4222823F300BF37F1 /* Presenter */,
 				DD9E78D3222823EA00BF37F1 /* View */,
+				DD9E78D4222823F300BF37F1 /* Presenter */,
+				479456AE2231CABC002A4CA3 /* Interactor */,
+				DD9E78D62228240800BF37F1 /* Router */,
 			);
 			path = CardDetail;
 			sourceTree = "<group>";
@@ -564,6 +570,8 @@
 			children = (
 				DD9E78DE2228247300BF37F1 /* CardDetailViewController.swift */,
 				DD9E78E02228292000BF37F1 /* CardDetailScreen.swift */,
+				DD0C62622238183E003831FB /* FavoriteButton.swift */,
+				479456B12231D616002A4CA3 /* MagicCarouselFlowLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -588,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9E78E5222869DE00BF37F1 /* CardDetailViewControllerSpec.swift */,
+				474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */,
 			);
 			path = CardDetail;
 			sourceTree = "<group>";
@@ -658,6 +667,7 @@
 			children = (
 				DDE32C3B221B11E300426578 /* Card.swift */,
 				187D3442221B1D1A008E13C3 /* CardSet.swift */,
+				DD60C6D02236A021005865B9 /* ForeignNames.swift */,
 			);
 			path = Entitites;
 			sourceTree = "<group>";
@@ -700,10 +710,10 @@
 			buildConfigurationList = 478BC47322171E28000579FE /* Build configuration list for PBXNativeTarget "magicbyirineu" */;
 			buildPhases = (
 				48B0D9F767EAB5A9399A8FF3 /* [CP] Check Pods Manifest.lock */,
+				47FF13F022382D560085AA22 /* ShellScript */,
 				478BC45222171E27000579FE /* Sources */,
 				478BC45322171E27000579FE /* Frameworks */,
 				478BC45422171E27000579FE /* Resources */,
-				473C8D6622174F450095CC4C /* Embed Frameworks */,
 				B109EEBB09CDE890BEE129A7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -720,6 +730,7 @@
 			buildConfigurationList = 478BC47622171E28000579FE /* Build configuration list for PBXNativeTarget "magicbyirineuTests" */;
 			buildPhases = (
 				FC8A87B0826EABB1F9A748EA /* [CP] Check Pods Manifest.lock */,
+				47FF13EF22382CFD0085AA22 /* ShellScript */,
 				478BC46622171E28000579FE /* Sources */,
 				478BC46722171E28000579FE /* Frameworks */,
 				478BC46822171E28000579FE /* Resources */,
@@ -794,6 +805,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		47FF13EF22382CFD0085AA22 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"${SRCROOT}/magicbyirineuTests/\" --header --swiftversion 4.2 --enable isEmpty\n";
+		};
+		47FF13F022382D560085AA22 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"${SRCROOT}/magicbyirineu/\" --header --swiftversion 4.2 --enable isEmpty\n";
+		};
 		48B0D9F767EAB5A9399A8FF3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -827,6 +872,8 @@
 				"${PODS_ROOT}/Target Support Files/Pods-magicbyirineu/Pods-magicbyirineu-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -834,6 +881,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -936,16 +985,19 @@
 				18AAD45122270D450059D3BA /* EndpointSets.swift in Sources */,
 				187D344A221B21DA008E13C3 /* ResponseError.swift in Sources */,
 				DDCA2EDD22271BDE00DB7D81 /* RoundedView.swift in Sources */,
+				DD60C6D12236A021005865B9 /* ForeignNames.swift in Sources */,
 				47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */,
 				18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */,
 				18AAD49122285F1B0059D3BA /* CardSetRepository.swift in Sources */,
 				183398E92236E37D006A1EF3 /* CardOrder.swift in Sources */,
 				DD9E78DF2228247300BF37F1 /* CardDetailViewController.swift in Sources */,
+				479456B22231D617002A4CA3 /* MagicCarouselFlowLayout.swift in Sources */,
 				DD9E78D82228244900BF37F1 /* CardDetailRouter.swift in Sources */,
 				187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */,
 				18AAD49B2228790F0059D3BA /* APIManager.swift in Sources */,
 				47788865222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
+				DD0C62632238183E003831FB /* FavoriteButton.swift in Sources */,
 				18AAD45022270D450059D3BA /* EndpointCards.swift in Sources */,
 				47631B73221B601200B78A21 /* UIImage+ImageColor.swift in Sources */,
 				DDE32C4A221B2FCE00426578 /* CardCollectionViewCell.swift in Sources */,
@@ -959,15 +1011,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD2895AE22394BED0009D8CC /* FavoritesPresenterMock.swift in Sources */,
 				DD9E78E6222869DE00BF37F1 /* CardDetailViewControllerSpec.swift in Sources */,
 				183398ED22393DA5006A1EF3 /* ErrorMock.swift in Sources */,
 				183398D72229B535006A1EF3 /* CardSetRepositoryMock.swift in Sources */,
 				47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */,
+				474F44FB223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift in Sources */,
 				183398DB2229B76F006A1EF3 /* CardListInteractorSpec.swift in Sources */,
 				4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */,
+				474F44F922372137008F3468 /* MagicCarouselFlowLayoutSpec.swift in Sources */,
 				47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */,
 				476D9D6A221C884100272793 /* MagicTabBarControllerSpec.swift in Sources */,
 				183398EF223963AA006A1EF3 /* CardLoaderSpec.swift in Sources */,
+				DD2895AC22394BA00009D8CC /* FavoritesPresenterSpec.swift in Sources */,
 				4754D21422287C2400FCE704 /* MagicFlowLayoutMock.swift in Sources */,
 				4754D21A22288A5D00FCE704 /* KIFExtensions.swift in Sources */,
 				DD9E78E32228687500BF37F1 /* CardDetailViewControllerMock.swift in Sources */,
@@ -1135,8 +1191,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.teamirinew.magicbyirineu;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.magicbyirineu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1158,8 +1215,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.teamirinew.magicbyirineu;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.magicbyirineu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

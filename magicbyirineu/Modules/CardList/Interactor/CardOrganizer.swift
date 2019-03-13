@@ -1,11 +1,3 @@
-//
-//  CardOrganizer.swift
-//  magicbyirineu
-//
-//  Created by daniel.da.cunha.lima on 07/03/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import Foundation
 
 ///Organiza as cartas
@@ -32,7 +24,7 @@ class CardOrganizer {
     func getElement(setIndex:Int, elementIndex:Int) -> Any? {
         if decks.indices.contains(setIndex){
             return decks[setIndex].getElement(at: elementIndex)
-        }else{
+        } else {
             return nil
         }
     }

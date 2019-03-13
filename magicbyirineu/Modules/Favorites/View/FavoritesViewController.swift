@@ -1,43 +1,44 @@
-//
-//  FavoritesViewController.swift
-//  magicbyirineu
-//
-//  Created by daniel.da.cunha.lima on 19/02/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import UIKit
 
 class FavoritesViewController: UIViewController {
-    
-    var presenter:FavoritesPresenter!
+    var presenter: FavoritesPresenter!
     let screen = CardListView()
-    
-    required init(title:String){
+
+    required init(title: String) {
         super.init(nibName: nil, bundle: nil)
         self.title = title
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func loadView() {
         super.loadView()
-        self.view = screen
+        view = screen
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
+    func set(status: Status) {
+        switch status {
+        case .normal:
+            screen.emptySearchLabel.isHidden = true
+            screen.emptySearchLabel.text = ""
+        case .empty:
+            screen.emptySearchLabel.isHidden = false
+            screen.emptySearchLabel.text = "You don't have any cards in your deck."
+        }
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         screen.searchBar.additionalSetupAfterDisplay()
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle{
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
-    
 }

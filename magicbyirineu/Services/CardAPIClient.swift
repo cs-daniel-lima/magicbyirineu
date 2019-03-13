@@ -1,17 +1,8 @@
-//
-//  MarvelAPIClient.swift
-//  magicbyirineu
-//
-//  Created by kaique.magno.santos on 28/02/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import Foundation
 
 class CardAPIClient {
-    
-    let apiManager:APIManager
-    
+    let apiManager: APIManager
+
     init(apiManager: APIManager = APIManager()) {
         self.apiManager = apiManager
     }

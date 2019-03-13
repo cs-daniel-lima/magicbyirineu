@@ -1,19 +1,11 @@
-//
-//  HTTPParameter.swift
-//  magicbyirineu
-//
-//  Created by kaique.magno.santos on 18/02/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import Foundation
 
-enum HTTPParameter:Decodable {
+enum HTTPParameter: Decodable {
     case string(String)
     case bool(Bool)
     case int(Int)
     case double(Double)
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let string = try? container.decode(String.self) {
@@ -30,16 +22,16 @@ enum HTTPParameter:Decodable {
     }
 }
 
-extension HTTPParameter:CustomStringConvertible {
+extension HTTPParameter: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .string(let string):
+        case let .string(string):
             return string
-        case .bool(let bool):
+        case let .bool(bool):
             return String(describing: bool)
-        case .int(let int):
+        case let .int(int):
             return String(describing: int)
-        case .double(let double):
+        case let .double(double):
             return String(describing: double)
         }
     }

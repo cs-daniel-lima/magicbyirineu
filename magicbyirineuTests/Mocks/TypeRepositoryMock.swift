@@ -1,24 +1,15 @@
-//
-//  TypeRepositoryMock.swift
-//  magicbyirineuTests
-//
-//  Created by kaique.magno.santos on 01/03/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
 import Foundation
 
 @testable import magicbyirineu
-class TypeRepositoryMock:TypeRepository {
-    
-    enum TypeRepositoryMockError:Error {
+class TypeRepositoryMock: TypeRepository {
+    enum TypeRepositoryMockError: Error {
         case couldNotLoad
     }
-    
+
     var isSuccessful = true
-    
+
     func fetchTypes(completion: @escaping (Result<[String]>) -> Void) {
-        if self.isSuccessful {
+        if isSuccessful {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             completion(.success([
@@ -38,12 +29,10 @@ class TypeRepositoryMock:TypeRepository {
                 "Summon",
                 "Tribal",
                 "Vanguard",
-                "You’ll"
-                ]))
-        }else{
+                "You’ll",
+            ]))
+        } else {
             completion(.failure(TypeRepositoryMockError.couldNotLoad))
         }
     }
 }
-
-

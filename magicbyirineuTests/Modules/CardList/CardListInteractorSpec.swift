@@ -1,19 +1,10 @@
-//
-//  CardListInteractorSpec.swift
-//  magicbyirineuTests
-//
-//  Created by kaique.magno.santos on 01/03/19.
-//  Copyright © 2019 DanielLima. All rights reserved.
-//
-
-import Quick
 import Nimble
 import Nimble_Snapshots
+import Quick
 
 @testable import magicbyirineu
 
-class CardListInteractorSpec:QuickSpec{
-    
+class CardListInteractorSpec: QuickSpec {
     override func spec() {
         
         var cardRepositoryMock:CardRepositoryMock!

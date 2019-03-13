@@ -1,16 +1,8 @@
-//
-//  CardsCollectionInteractor.swift
-//  CollectionWithSubSections
-//
-//  Created by kaique.magno.santos on 20/02/19.
-//  Copyright © 2019 kaique.magno.santos. All rights reserved.
-//
-
 import UIKit
 
-protocol CardListInteractorDelegate:class {
+protocol CardListInteractorDelegate: class {
     func didLoad()
-    func didLoad(error:Error)
+    func didLoad(error: Error)
 }
 
 ///Faz as requisições de dados
@@ -65,7 +57,7 @@ class CardListInteractor {
         
         if cardOrganizer.decks.indices.contains(setIndex) {
             return cardOrganizer.decks[setIndex].getElements().count
-        }else{
+        } else {
             return 0
         }
     }
@@ -104,8 +96,9 @@ class CardListInteractor {
         self.searchedCardOrganizer.clean()
         self.searchLoadManager.fetchCards(with: cardName)
     }
-    
-    //MARK: Public
+
+    // MARK: Public
+
     func cancelSearch() {
         self.searchLoadManager.cleanButKeepSetsAndTypes()
         self.searchedCardOrganizer.clean()
