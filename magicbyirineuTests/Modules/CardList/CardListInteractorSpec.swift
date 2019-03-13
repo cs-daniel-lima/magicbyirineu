@@ -19,6 +19,10 @@ class CardListInteractorSpec:QuickSpec{
         var cardRepositoryMock:CardRepositoryMock!
         var cardSetRepositoryMock:CardSetRepositoryMock!
         var typeRepositoryMock:TypeRepositoryMock!
+        var fetchCardLoader:CardsLoaderMock!
+        var searchCardLoader:CardsLoaderMock!
+        var fetchCardOrganizer:CardOrganizer!
+        var searchCardOrganizer:CardOrganizer!
         
         var sut:CardListInteractor!
         
@@ -26,41 +30,144 @@ class CardListInteractorSpec:QuickSpec{
             cardRepositoryMock = CardRepositoryMock()
             cardSetRepositoryMock = CardSetRepositoryMock()
             typeRepositoryMock = TypeRepositoryMock()
-            sut = CardListInteractor(cardRepository: cardRepositoryMock, cardSetRepository: cardSetRepositoryMock, typeRepository: typeRepositoryMock)
+            
+            fetchCardLoader = CardsLoaderMock(cardRepository: cardRepositoryMock, cardSetRepository: cardSetRepositoryMock, typeRepository: typeRepositoryMock)
+            searchCardLoader = CardsLoaderMock(cardRepository: cardRepositoryMock, cardSetRepository: cardSetRepositoryMock, typeRepository: typeRepositoryMock)
+            
+            fetchCardOrganizer = CardOrganizer()
+            searchCardOrganizer = CardOrganizer()
+            
+            sut = CardListInteractor(fetchLoader: fetchCardLoader, searchLoad: searchCardLoader, fetchCardOrganizer: fetchCardOrganizer, searchCardOrganizer: searchCardOrganizer)
         }
         
         context("when it is initialized"){
-            it("has CardSets count greater than zero"){
+            
+            it("the isSearching must be false"){
+                expect(sut.isSearching).notTo(beTrue())
+            }
+            
+            it("the waitingAPIResponse must be false"){
+                expect(sut.waitingAPIResponse).notTo(beTrue())
+            }
+            
+            it("the delegate must be nil"){
+                expect(sut.delegate).to(beNil())
+            }
+            
+            it("the number of sets must be 0"){
+                expect(sut.numberOfSets()).to(be(0))
+            }
+            
+            it("the delegate of the laoders must be the CardListInteractor"){
+                expect(fetchCardLoader.delegate).to(be(sut))
+                expect(searchCardLoader.delegate).to(be(sut))
+            }
+        }
+        
+        context("when fetchCard is called and success"){
+            beforeEach {
+                fetchCardLoader.isFetchedSuccess = true
                 sut.fetchCards()
-                expect(sut.numberOfSets() > 0).to(beTrue())
+            }
+            
+            it("the isSearching must be false"){
+                expect(sut.isSearching).notTo(beTrue())
+            }
+            
+            it("the number of sets must be 1"){
+                expect(sut.numberOfSets()).to(be(1))
+            }
+            
+            it("the number of elements for set must be 4, which are 1 type (String) and 3 cards (Card)"){
+                expect(sut.numberOfElementsForSet(setIndex: 0)).to(be(4))
+            }
+            
+            it("the first element from the set must be of kind 'String'"){
+                expect(sut.elementInSet(setIndex: 0, elementIndex: 0)).to(beAKindOf(String.self))
+            }
+            
+            it("the second element from the set must be of kind 'Card'"){
+                expect(sut.elementInSet(setIndex: 0, elementIndex: 1)).to(beAKindOf(Card.self))
+            }
+            
+            it("the first set musr be called 'Set A'"){
+                expect(sut.set(of: 0).name).to(be("Set A"))
             }
         }
         
-        context("when it is called fetchCards"){
-            it("organizer first element should not be nil"){
-//                sut.fetchCards()
-                expect(sut.fetchedCardOrganizer.getElement(setIndex: 0, elementIndex: 0)).toNot(beNil())
+        context("when fetchCard is called and fail"){
+            beforeEach {
+                fetchCardLoader.isFetchedSuccess = false
+                sut.fetchCards()
+            }
+            
+            it("the number of sets must be 1"){
+                expect(sut.numberOfSets()).to(be(0))
+            }
+            
+            it("the number of elements for set must be 4, which are 1 type (String) and 3 cards (Card)"){
+                expect(sut.numberOfElementsForSet(setIndex: 0)).to(be(0))
             }
         }
         
-        context("when it is called fetchCards"){
-            it("the first set should have 12 Elements"){
-//                sut.fetchCards()
-//                print(sut.fetchedCardOrganizer.decks[0].getElements().count)
-//                expect(sut.fetchedCardOrganizer.decks[0].getElements().count).to(be(12))
+        context("when fetchCardSearching is called passing the cardName 'Card B' and success"){
+            beforeEach {
+                searchCardLoader.isFetchedSuccess = true
+                sut.fetchSearchingCards(cardName: "Card B")
             }
-            it("has the first card with name Forest"){
-                expect((sut.fetchedCardOrganizer.getElement(setIndex: 0, elementIndex: 1) as! Card).name).to(be("Forest"))
+            
+            it("the isSearching must be true"){
+                expect(sut.isSearching).to(beTrue())
+            }
+            
+            it("the number of sets must be 1"){
+                expect(sut.numberOfSets()).to(be(1))
+            }
+            
+            it("the number of elements for set must be 4, which are 1 type (String) and 3 cards (Card)"){
+                expect(sut.numberOfElementsForSet(setIndex: 0)).to(be(2))
+            }
+            
+            it("the first element from the set must be of kind 'String'"){
+                expect(sut.elementInSet(setIndex: 0, elementIndex: 0)).to(beAKindOf(String.self))
+            }
+            
+            it("the second element from the set must be of kind 'Card'"){
+                expect(sut.elementInSet(setIndex: 0, elementIndex: 1)).to(beAKindOf(Card.self))
+            }
+            
+            it("the first set musr be called 'Set A'"){
+                expect(sut.set(of: 0).name).to(be("Set A"))
             }
         }
         
-        context("when it is called fetchCardSet"){
-            it("should have 4 Sets"){
-//                sut.fetchCards()
-                expect(sut.numberOfSets() == 4).to(beTrue())
+        context("when fetchCardSearching is called passing a card name which not exist and success"){
+            beforeEach {
+                searchCardLoader.isFetchedSuccess = true
+                sut.fetchSearchingCards(cardName: "Not Exist")
             }
-            it("the first Set should have the name Unlimited Edition"){
-                expect(sut.set(of: 0).name == "Unlimited Edition").to(beTrue())
+            
+            it("the number of sets must be 1"){
+                expect(sut.numberOfSets()).to(be(0))
+            }
+            
+            it("the number of elements for set must be 4, which are 1 type (String) and 3 cards (Card)"){
+                expect(sut.numberOfElementsForSet(setIndex: 0)).to(be(0))
+            }
+        }
+        
+        context("when fetchCardSearching is called and fail"){
+            beforeEach {
+                searchCardLoader.isFetchedSuccess = false
+                sut.fetchSearchingCards(cardName: "Card B")
+            }
+            
+            it("the number of sets must be 1"){
+                expect(sut.numberOfSets()).to(be(0))
+            }
+            
+            it("the number of elements for set must be 4, which are 1 type (String) and 3 cards (Card)"){
+                expect(sut.numberOfElementsForSet(setIndex: 0)).to(be(0))
             }
         }
     }
