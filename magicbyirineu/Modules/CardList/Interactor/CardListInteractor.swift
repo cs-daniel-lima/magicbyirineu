@@ -21,38 +21,28 @@ class CardListInteractor {
     private var fetchedCardsType:String?
     private var currentCardTypePagination:Int = 0
     private var searchingCardsPage:Int = 0
+    private var fetchedCardOrganizer:CardOrganizer
+    private var searchedCardOrganizer:CardOrganizer
+    private var fetchLoadManager:CardsLoader
+    private var searchLoadManager:CardsLoader
     
     private(set) var isSearching:Bool = false
     
     weak var delegate:CardListInteractorDelegate?
     
-    let cardRepository:CardRepository
-    let cardSetRepository:CardSetRepository
-    let typeRepository:TypeRepository
-    
     var waitingAPIResponse = false
-    var fetchedCardOrganizer:CardOrganizer
-    var searchedCardOrganizer:CardOrganizer
-    var fetchLoadManager:CardsLoader
-    var searchLoadManager:CardsLoader
     
     //MARK: - NSObject functions
-    init(cardRepository:CardRepository, cardSetRepository:CardSetRepository, typeRepository:TypeRepository) {
-        self.cardRepository = cardRepository
-        self.cardSetRepository = cardSetRepository
-        self.typeRepository = typeRepository
+    init(fetchLoader:CardsLoader, searchLoad:CardsLoader, fetchCardOrganizer:CardOrganizer, searchCardOrganizer:CardOrganizer) {
         
+        self.fetchLoadManager = fetchLoader
+        self.searchLoadManager = searchLoad
         
-        self.fetchedCardOrganizer = CardOrganizer()
-        self.searchedCardOrganizer = CardOrganizer()
-        
-        self.fetchLoadManager = CardsLoader(cardRepository: cardRepository, cardSetRepository: cardSetRepository, typeRepository: typeRepository)
-        self.searchLoadManager = CardsLoader(cardRepository: cardRepository, cardSetRepository: cardSetRepository, typeRepository: typeRepository)
+        self.fetchedCardOrganizer = fetchCardOrganizer
+        self.searchedCardOrganizer = searchCardOrganizer
         
         self.fetchLoadManager.delegate = self
         self.searchLoadManager.delegate = self
-        
-        self.fetchCards()
     }
     
     //MARK: - Functions
