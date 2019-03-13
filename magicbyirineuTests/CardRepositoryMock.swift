@@ -17,7 +17,7 @@ class CardRepositoryMock: CardRepository {
     
     var isSuccessfull = true
     
-    func fetchCards(page:Int?, name:String?, setCode:String?, type:String?, orderParameter: CardOrder?, completion: @escaping (Result<[Card]>, Int?) -> Void) {
+    func fetchCards(page:Int?, name:String?, setCode:String?, type:String?, orderParameter: CardOrder?, completion: @escaping (Result<[Card]>, HTTPHeaderCards?) -> Void) {
         
         if self.isSuccessfull {
             completion(.success([
@@ -26,7 +26,7 @@ class CardRepositoryMock: CardRepository {
                 Card(name: "Time Sieve", set: "ARB", setName: "Alara Reborn", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=189649&type=card", types: ["Artifact"]),
                 Card(name: "Vedalken Ghoul", set: "ARB", setName: "Alara Reborn", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=183010&type=card", types: ["Creature"]),
                 Card(name: "Naga Oracle", set: "AKH", setName: "Amonkhet", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426764&type=card", types: ["Creature"])
-                ]), 5)
+                ]), HTTPHeaderCards(count: 0, totalCount: 5))
         } else {
             completion(.failure(CardRepositoryMockError.couldNotLoad), nil)
         }
