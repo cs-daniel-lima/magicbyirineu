@@ -12,6 +12,9 @@
 		183398D72229B535006A1EF3 /* CardSetRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398D62229B535006A1EF3 /* CardSetRepositoryMock.swift */; };
 		183398D92229B6BD006A1EF3 /* TypeRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398D82229B6BD006A1EF3 /* TypeRepositoryMock.swift */; };
 		183398DB2229B76F006A1EF3 /* CardListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398DA2229B76F006A1EF3 /* CardListInteractorSpec.swift */; };
+		183398E32236D19D006A1EF3 /* HTTPHeaderCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398E22236D19D006A1EF3 /* HTTPHeaderCards.swift */; };
+		183398E52236DF86006A1EF3 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398E42236DF86006A1EF3 /* CardDeck.swift */; };
+		183398E92236E37D006A1EF3 /* CardOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183398E82236E37D006A1EF3 /* CardOrder.swift */; };
 		187D3430221B192D008E13C3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D342F221B192D008E13C3 /* Result.swift */; };
 		187D3433221B1958008E13C3 /* HTTPParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3432221B1958008E13C3 /* HTTPParameter.swift */; };
 		187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D3434221B1988008E13C3 /* URLQueryEncoder.swift */; };
@@ -48,7 +51,6 @@
 		4766BA2322314D9E00986ADD /* EndpointTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAD44F22270D450059D3BA /* EndpointTypes.swift */; };
 		4766BA2422314DE200986ADD /* ResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18834D35222466EB00565141 /* ResponseTypes.swift */; };
 		4766BA2622314E9500986ADD /* CardsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766BA2522314E9500986ADD /* CardsLoader.swift */; };
-		4766BA282231708400986ADD /* CardListInteractor+LoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766BA272231708400986ADD /* CardListInteractor+LoadManager.swift */; };
 		476D9D57221C729800272793 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D56221C729800272793 /* FavoritesViewController.swift */; };
 		476D9D5A221C72F400272793 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D59221C72F400272793 /* FavoritesPresenter.swift */; };
 		476D9D5C221C730900272793 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9D5B221C730900272793 /* FavoritesInteractor.swift */; };
@@ -114,6 +116,9 @@
 		183398D62229B535006A1EF3 /* CardSetRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetRepositoryMock.swift; sourceTree = "<group>"; };
 		183398D82229B6BD006A1EF3 /* TypeRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRepositoryMock.swift; sourceTree = "<group>"; };
 		183398DA2229B76F006A1EF3 /* CardListInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListInteractorSpec.swift; sourceTree = "<group>"; };
+		183398E22236D19D006A1EF3 /* HTTPHeaderCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderCards.swift; sourceTree = "<group>"; };
+		183398E42236DF86006A1EF3 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+		183398E82236E37D006A1EF3 /* CardOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOrder.swift; sourceTree = "<group>"; };
 		187D342F221B192D008E13C3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		187D3432221B1958008E13C3 /* HTTPParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPParameter.swift; sourceTree = "<group>"; };
 		187D3434221B1988008E13C3 /* URLQueryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryEncoder.swift; sourceTree = "<group>"; };
@@ -148,7 +153,6 @@
 		47631B72221B601200B78A21 /* UIImage+ImageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageColor.swift"; sourceTree = "<group>"; };
 		4766BA212231403400986ADD /* CardOrganizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOrganizer.swift; sourceTree = "<group>"; };
 		4766BA2522314E9500986ADD /* CardsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLoader.swift; sourceTree = "<group>"; };
-		4766BA272231708400986ADD /* CardListInteractor+LoadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardListInteractor+LoadManager.swift"; sourceTree = "<group>"; };
 		476D9D56221C729800272793 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		476D9D59221C72F400272793 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		476D9D5B221C730900272793 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
@@ -224,6 +228,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		183398DC223692C4006A1EF3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				18AAD49A2228790F0059D3BA /* APIManager.swift */,
+				18AAD44C22270D450059D3BA /* Endpoint */,
+				183398E12236D17E006A1EF3 /* Headers */,
+				187D343D221B1B1C008E13C3 /* Response */,
+				187D3439221B19B9008E13C3 /* Protocol */,
+				187D3431221B1948008E13C3 /* Support Classes */,
+				187D3436221B1998008E13C3 /* Errors */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		183398E12236D17E006A1EF3 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				183398E22236D19D006A1EF3 /* HTTPHeaderCards.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		183398E62236E366006A1EF3 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				183398E72236E370006A1EF3 /* Parameters */,
+				18AAD44D22270D450059D3BA /* EndpointCards.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		183398E72236E370006A1EF3 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				183398E82236E37D006A1EF3 /* CardOrder.swift */,
+			);
+			path = Parameters;
+			sourceTree = "<group>";
+		};
 		185C0AD04A7F8793A52F7E1E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,7 +330,7 @@
 		18AAD44C22270D450059D3BA /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
-				18AAD44D22270D450059D3BA /* EndpointCards.swift */,
+				183398E62236E366006A1EF3 /* Cards */,
 				18AAD44E22270D450059D3BA /* EndpointSets.swift */,
 				18AAD44F22270D450059D3BA /* EndpointTypes.swift */,
 			);
@@ -574,9 +617,9 @@
 			isa = PBXGroup;
 			children = (
 				DDE32C30221AF1F800426578 /* CardListInteractor.swift */,
-				4766BA272231708400986ADD /* CardListInteractor+LoadManager.swift */,
-				4766BA212231403400986ADD /* CardOrganizer.swift */,
 				4766BA2522314E9500986ADD /* CardsLoader.swift */,
+				4766BA212231403400986ADD /* CardOrganizer.swift */,
+				183398E42236DF86006A1EF3 /* CardDeck.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -613,12 +656,7 @@
 		DDE32C2C221AF1B800426578 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				18AAD49A2228790F0059D3BA /* APIManager.swift */,
-				18AAD44C22270D450059D3BA /* Endpoint */,
-				187D343D221B1B1C008E13C3 /* Response */,
-				187D3439221B19B9008E13C3 /* Protocol */,
-				187D3431221B1948008E13C3 /* Support Classes */,
-				187D3436221B1998008E13C3 /* Errors */,
+				183398DC223692C4006A1EF3 /* API */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -855,6 +893,7 @@
 				4766BA2422314DE200986ADD /* ResponseTypes.swift in Sources */,
 				4766BA2322314D9E00986ADD /* EndpointTypes.swift in Sources */,
 				18AAD497222874BE0059D3BA /* TypeAPIClient.swift in Sources */,
+				183398E52236DF86006A1EF3 /* CardDeck.swift in Sources */,
 				18AAD48E222845490059D3BA /* CardAPIClient.swift in Sources */,
 				DD9E78E12228292000BF37F1 /* CardDetailScreen.swift in Sources */,
 				DD60C6CF22318B5F005865B9 /* UIFont + FontWeightt.swift in Sources */,
@@ -862,6 +901,7 @@
 				187D3435221B1988008E13C3 /* URLQueryEncoder.swift in Sources */,
 				18AAD495222874190059D3BA /* CardSetAPIClient.swift in Sources */,
 				DD9E78DC2228246000BF37F1 /* CardDetailPresenter.swift in Sources */,
+				183398E32236D19D006A1EF3 /* HTTPHeaderCards.swift in Sources */,
 				DDE32C2F221AF1EA00426578 /* CardListRouter.swift in Sources */,
 				187D3433221B1958008E13C3 /* HTTPParameter.swift in Sources */,
 				478BC45A22171E27000579FE /* AppDelegate.swift in Sources */,
@@ -890,10 +930,10 @@
 				47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */,
 				18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */,
 				18AAD49122285F1B0059D3BA /* CardSetRepository.swift in Sources */,
+				183398E92236E37D006A1EF3 /* CardOrder.swift in Sources */,
 				DD9E78DF2228247300BF37F1 /* CardDetailViewController.swift in Sources */,
 				DD9E78D82228244900BF37F1 /* CardDetailRouter.swift in Sources */,
 				187D344C221B2205008E13C3 /* ResponseSets.swift in Sources */,
-				4766BA282231708400986ADD /* CardListInteractor+LoadManager.swift in Sources */,
 				18AAD49B2228790F0059D3BA /* APIManager.swift in Sources */,
 				47788865222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift in Sources */,
 				DDE32C3C221B11E300426578 /* Card.swift in Sources */,
@@ -1073,7 +1113,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VY9L7K3A35;
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1096,7 +1136,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VY9L7K3A35;
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1119,7 +1159,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1144,7 +1184,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K36U8NS5NP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

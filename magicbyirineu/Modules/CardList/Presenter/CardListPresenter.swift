@@ -57,40 +57,18 @@ extension CardListPresenter: UICollectionViewDataSource {
         }
         isFirstLoad = false
         return numberOfSections
-
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if(!interactor.isSearching){
-            
-            return self.interactor.numberOfElementsForSet(setIndex: section)
-            
-        }else{
-            
-            let keys = self.interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
-                return set
-            }
-            let set = keys[section]
-            
-            guard let objectList = self.interactor.objectsBySet[set] else {
-                Logger.logError(in: self, message: "Could not get objectList in CardSet: \(set)")
-                return 0
-            }
-            
-            return objectList.count
-            
-        }
-        
-        
+        return self.interactor.numberOfElementsForSet(setIndex: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
         var cell:UICollectionViewCell = UICollectionViewCell()
         
-        guard let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+        guard let object = self.interactor.elementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
             Logger.logError(in: self, message: "Could not get an object")
             return cell
         }
@@ -139,7 +117,7 @@ extension CardListPresenter: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
         
-        cell.label.text = self.interactor.sets[indexPath.section].name
+        cell.label.text = self.interactor.set(of: indexPath.section).name
         
         return cell
     }
@@ -157,7 +135,7 @@ extension CardListPresenter: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+        guard let object = self.interactor.elementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
             Logger.logError(in: self, message: "Could not get an object")
             return
         }
@@ -176,18 +154,15 @@ extension CardListPresenter: UICollectionViewDelegate {
         
         if(indexPath.row == currentSet && !interactor.waitingAPIResponse){
             
-            interactor.paginate()
-            
+            self.interactor.fetchCards()
         }
-        
     }
-    
 }
 
 extension CardListPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        guard let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+        guard let object = self.interactor.elementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
             Logger.logError(in: self, message: "Could not get the object from CardSet at index:\(indexPath.section)")
             return CGSize.zero
         }
@@ -218,10 +193,20 @@ extension CardListPresenter: CardListInteractorDelegate {
 
 extension CardListPresenter: UISearchBarDelegate{
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if searchBar.text == nil || searchBar.text?.isEmpty ?? false {
+            self.interactor.cancelSearch()
+            self.view.screen.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            self.view.screen.collectionView.reloadData()
+        }
+    }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         searchBar.resignFirstResponder()
         self.query = nil
+        self.interactor.cancelSearch()
+        self.view.screen.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         self.view.screen.collectionView.reloadData()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -232,13 +217,9 @@ extension CardListPresenter: UISearchBarDelegate{
                 Logger.logError(in: self, message: "Query is nil")
                 return
             }
-            self.interactor.fetchSearchingCards(cardName: query)
-        }
-    }
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        if searchBar.text == nil || searchBar.text?.isEmpty ?? false {
             self.interactor.cancelSearch()
+            self.interactor.fetchSearchingCards(cardName: query)
+            self.view.screen.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             self.view.screen.collectionView.reloadData()
         }
     }

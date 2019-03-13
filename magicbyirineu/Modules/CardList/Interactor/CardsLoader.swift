@@ -8,61 +8,232 @@
 
 import Foundation
 
-protocol LoadManagerDelegate{
-    
-    func requestApiCardsDataFor(set:CardSet?, andType type:String?, withPage page:Int)
-    func loaded(cards:[Card] ,forType type:String, andSet set:CardSet)
-    
+protocol CardsLoaderDelegate {
+    func loaded(cards:[Card] ,forType type:String, andSet set:CardSet, from loader:CardsLoader)
+    func loaded(error:Error)
 }
 
+///Carrega cartas de um Set
 class CardsLoader{
     
-    var delegate:LoadManagerDelegate?
+    private let cardRepository:CardRepository
+    private let cardSetRepository:CardSetRepository
+    private let typeRepository:TypeRepository
     
+    private var types:[String] = [String]()
+    private var sets:[CardSet] = [CardSet]()
     private var currentType:String?
     private var currentSet:CardSet?
-    private var currentPage = 0
+    private var typesIterator:IndexingIterator<[String]>?
+    private var setsIterator:IndexingIterator<[CardSet]>?
     private var loadedCards:Array<Card> = Array()
+    private var currentPage = 1
+    private var requestedCardsCounter = 0
     
-    private var tempCount = 0
-    
-    func loadCards(fromSet set:CardSet, withType type:String, page:Int){
-        
-        currentType = type
-        currentSet = set
-        currentPage = page
-        loadedCards = Array()
-        
-        requestCards()
-        
+    //Computed
+    private var isSetsAndTypesLoaded:Bool {
+        return self.types.count > 0 && self.sets.count > 0
     }
-    
-    func requestCards(){
-        delegate?.requestApiCardsDataFor(set: currentSet, andType: currentType, withPage: currentPage)
-    }
-    
-    func appendCards(_ cards:[Card], totalExpected:Int){
-        
-        loadedCards = cards
-        
-        if(currentPage == 1){
-            tempCount = loadedCards.count
-        }else{
-            tempCount +=  loadedCards.count
+    private var orignalTypes:[String] = [String](){
+        didSet{
+            self.types = self.orignalTypes
         }
-        
-        
-        if(tempCount == totalExpected){
-            
-            if let type = currentType, let set = currentSet{
-                delegate?.loaded(cards: loadedCards, forType: type, andSet: set)
+    }
+    private var orignalSets:[CardSet] = [CardSet](){
+        didSet{
+            self.sets = self.orignalSets
+        }
+    }
+    
+    var delegate:CardsLoaderDelegate?
+    
+    init(cardRepository:CardRepository, cardSetRepository:CardSetRepository, typeRepository:TypeRepository) {
+        self.cardRepository = cardRepository
+        self.cardSetRepository = cardSetRepository
+        self.typeRepository = typeRepository
+    }
+    
+    //MARK - Functions
+    //MARK Private
+    private func loadCards(fromSet set:CardSet, withType type:String, page:Int) {
+        self.currentType = type
+        self.currentSet = set
+        self.currentPage = page
+        self.loadedCards = Array()
+    }
+    
+    //MARK Public
+    func clean() {
+        self.sets = [CardSet]()
+        self.types = [String]()
+        self.cleanButKeepSetsAndTypes()
+    }
+    
+    func cleanButKeepSetsAndTypes() {
+        self.currentSet = nil
+        self.currentType = nil
+        self.currentPage = 0
+        self.requestedCardsCounter = 0
+        self.loadedCards = Array()
+        self.setsIterator = self.setsIterator?.makeIterator()
+        self.typesIterator = self.typesIterator?.makeIterator()
+    }
+    
+    func fetchSets(completion: ((_ success:Bool) -> Void)? = nil ) {
+        self.cardSetRepository.fetchCardSets { (result) in
+            switch result {
+            case .success(let sets):
+                self.sets = sets
+                self.sets.sort(by: { (before, after) -> Bool in
+                    return before.releaseDate > after.releaseDate
+                })
+                self.setsIterator = self.sets.makeIterator()
+                completion?(true)
+                
+            case .failure(let error):
+                self.delegate?.loaded(error: error)
+                completion?(false)
+            }
+        }
+    }
+    
+    func fetchTypes(completion: ((_ success:Bool) -> Void)? = nil ) {
+        self.typeRepository.fetchTypes { (result) in
+            switch result {
+            case .success(let types):
+                self.types = types.filter{$0 != "instant"}
+                self.types.sort(by: { (before, after) -> Bool in
+                    before.compare(after) ==  ComparisonResult.orderedAscending
+                })
+                self.typesIterator = self.types.makeIterator()
+                completion?(true)
+                
+            case .failure(let error):
+                self.delegate?.loaded(error: error)
+                completion?(false)
             }
             
-        }else{
-            currentPage += 1
-            requestCards()
+        }
+    }
+    
+    func fetchSetsAndTypes(completion: (() -> Void)? = nil ) {
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        //Pegar Sets
+        self.fetchSets { (success) in
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        //Pegar Tipos
+        self.fetchTypes { (success) in
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.wait()
+        
+        DispatchQueue.main.async {
+            completion?()
         }
         
     }
     
+    func fetchAllCardFrom(set:CardSet, of type:String, with name:String? = nil, and cards:[Card]? = nil, completion: @escaping ([Card]) -> Void) {
+        var allCardsOfASet:[Card]
+        
+        if let cards = cards {
+            allCardsOfASet = cards
+        }else{
+            allCardsOfASet = [Card]()
+        }
+        self.cardRepository.fetchCards(page: self.currentPage, name: name, setCode: set.code, type: type, orderParameter: CardOrder.type) {[weak self] (result, header) in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let result):
+                //Atualizar o contador
+                self.updateCounter(on: result.count)
+                
+                //Atualiza o Tipo
+                self.currentType = type
+                
+                //Adicionar as cartas a um cache local
+                allCardsOfASet.append(contentsOf: result)
+                
+                //Verificar se o contador ja foi chegou na quantidade de cartas estimadas do set
+                if let header = header,
+                    self.requestedCardsCounter == header.totalCount {
+                    
+                    //Reseta o contador e page
+                    self.requestedCardsCounter = 0
+                    self.currentPage = 1
+                    
+                    //Finaliza função entrgando cartas
+                    if let nextType = self.typesIterator?.next() {
+                        self.fetchAllCardFrom(set: set, of: nextType, with: name, and: allCardsOfASet, completion: completion)
+                        completion(allCardsOfASet)
+                    }else{
+                        completion(allCardsOfASet)
+                        self.typesIterator = self.types.makeIterator()
+                    }
+                }else{
+                    
+                    //Atualiza página e chama denovo
+                    self.currentPage += 1
+                    self.fetchAllCardFrom(set: set, of: type, with: name, and: allCardsOfASet, completion: completion)
+                }
+                
+            case .failure(let error):
+                self.delegate?.loaded(error: error)
+            }
+        }
+    }
+    
+    func fetchCards(with name:String? = nil){
+        if !self.isSetsAndTypesLoaded {
+            self.fetchSetsAndTypes {
+                self.fetchCards(with: name)
+            }
+            return
+        }
+        
+        //
+        if let set = self.setsIterator?.next(),
+            let type = self.typesIterator?.next() {
+            self.currentSet = set
+            self.fetchAllCardFrom(set: set, of: type, with: name) {[weak self] (cards) in
+                guard let self = self else {
+                    return
+                }
+                if cards.count > 0 {
+                    self.currentSet = set
+                    self.delegate?.loaded(cards: cards, forType: self.currentType!, andSet: self.currentSet!, from: self)
+                }else{
+                    self.fetchCards(with: name)
+                }
+            }
+        }
+    }
+    
+    func updateCounter(on numberOfCards:Int) {
+        if self.currentPage == 1 {
+            self.requestedCardsCounter = numberOfCards
+        }else{
+            self.requestedCardsCounter +=  numberOfCards
+        }
+    }
+    
+    func iterateSetBased(totalExpected:Int? = nil) -> CardSet? {
+        
+        if let totalExpected = totalExpected,
+            self.requestedCardsCounter == totalExpected {
+            self.requestedCardsCounter = 0
+            self.currentSet = self.setsIterator?.next()
+        }else{
+            self.currentPage += 1
+        }
+        return self.currentSet
+    }
 }
