@@ -21,7 +21,6 @@ class MagicFlowLayoutSpec:QuickSpec{
         var viewController:CollectionViewControllerMock!
         
         beforeEach {
-            
             sut = MagicFlowLayoutMock()
             
             let view = CollectionMock(mockLayout: sut)
@@ -30,36 +29,27 @@ class MagicFlowLayoutSpec:QuickSpec{
             UIApplication.shared.keyWindow?.rootViewController = viewController
             
             _ = viewController.view
-            
         }
         
         
         context("when it is initialized"){
             
             it("has minimumInteritemSpacing equal to 0"){
-                
                 expect(sut.minimumInteritemSpacing).to(equal(0))
-                
             }
             
             it("has minimumInteritemSpacing equal to 0"){
-                
                 expect(sut.minimumLineSpacing).to(equal(16))
-                
             }
             
             it("has section header should pin visible bounds"){
                 expect(sut.sectionHeadersPinToVisibleBounds).to(beTrue())
-                
             }
             
             it("has built layout properly") {
-                
                 self.tester().waitForAnimationsToFinish()
                 expect(viewController) == snapshot()
-                
             }
-            
         }
         
         
@@ -84,11 +74,7 @@ class MagicFlowLayoutSpec:QuickSpec{
                 self.tester().waitForAnimationsToFinish()
                 expect(sut.getCollectionWidthWasCalled).to(beTrue())
             }
-            
         }
-        
-        
-        
     }
 }
 
