@@ -10,11 +10,10 @@ class CardDetailViewController: MagicViewController {
 
         view = screen
         screen.dismissButton.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
+        screen.favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    override func viewDidLoad() {}
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -23,5 +22,9 @@ class CardDetailViewController: MagicViewController {
 
     @objc func dismissButtonTapped() {
         dismiss(animated: true, completion: nil)
+    }
+
+    @objc func favoriteButtonTapped() {
+        screen.switchButtonStatus()
     }
 }
