@@ -19,8 +19,20 @@ class CardListViewControllerSpec:QuickSpec{
         var sut:CardListViewController!
         
         beforeEach {
+            let cardRepositoryMock = CardRepositoryMock()
+            let cardSetRepositoryMock = CardSetRepositoryMock()
+            let typeRepositoryMock = TypeRepositoryMock()
+            
+            let fetchCardLoader = CardsLoaderMock(cardRepository: cardRepositoryMock, cardSetRepository: cardSetRepositoryMock, typeRepository: typeRepositoryMock)
+            let searchCardLoader = CardsLoaderMock(cardRepository: cardRepositoryMock, cardSetRepository: cardSetRepositoryMock, typeRepository: typeRepositoryMock)
+            
+            let fetchCardOrganizer = CardOrganizer()
+            let searchCardOrganizer = CardOrganizer()
+            
+            let interactor = CardListInteractor(fetchLoader: fetchCardLoader, searchLoad: searchCardLoader, fetchCardOrganizer: fetchCardOrganizer, searchCardOrganizer: searchCardOrganizer)
+            
+            
             sut = CardListViewController(title: "CardList")
-            let interactor = CardListInteractor(cardRepository: CardRepositoryMock(), cardSetRepository: CardSetRepositoryMock(), typeRepository: TypeRepositoryMock())
             sut.presenter = CardListPresenterMock(router: CardListRouter(), interactor: interactor, view: sut)
             UIApplication.shared.keyWindow?.rootViewController = sut
         }
@@ -52,9 +64,5 @@ class CardListViewControllerSpec:QuickSpec{
             })
             
         }
-        
-        
-        
-        
     }
 }
