@@ -15,6 +15,11 @@ class DatabaseManagerMock: DatabaseManager {
         }
     }
 
+    func getAllCards() -> [Card] {
+        let result = realm.objects(CardDao.self)
+        return result.toArray()
+    }
+
     func getCards(forSets sets: [CardSet]) -> [Card] {
         var cards = [Card]()
 

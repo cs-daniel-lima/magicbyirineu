@@ -77,6 +77,12 @@ class DatabaseManagerSpec: QuickSpec {
                     specificCards = sut.getCards(name: "Forest")
                 }
 
+                it("has every card from specificCards array identified as favorited") {
+                    for card in specificCards {
+                        expect(sut.isfavorited(card: card)).to(beTrue())
+                    }
+                }
+
                 it("has specificCards count equal to 1") {
                     expect(specificCards.count).to(equal(1))
                 }
@@ -98,7 +104,7 @@ class DatabaseManagerSpec: QuickSpec {
                 }
             }
 
-            context("when searching for specific card name specific setcode") {
+            context("when searching for specific card name and specific setcode") {
                 var specificCards: [Card]!
 
                 beforeEach {
@@ -123,6 +129,53 @@ class DatabaseManagerSpec: QuickSpec {
 
                 it("found card har foreignName equal to Peneira de Tempo") {
                     expect(specificCards.first?.foreignNames?.first?.name).to(equal("Peneira de Tempo"))
+                }
+            }
+
+            context("when one card is removed from favorites") {
+                var cardToRemove: Card!
+                var remainingCards: [Card]!
+
+                beforeEach {
+                    cardToRemove = storedCards.first!
+                    sut.removeFavorite(card: cardToRemove, set: storedSets.setFor(card: cardToRemove)!)
+                    remainingCards = sut.getCards(forSets: storedSets)
+                }
+
+                it("has the removed car identified as not favorited") {
+                    expect(sut.isfavorited(card: cardToRemove)).to(beFalse())
+                }
+
+                it("has remainingCards count equal to 4") {
+                    expect(remainingCards.count).to(equal(4))
+                }
+            }
+
+            context("when all cards are removed from favorites") {
+                var remaingingCards: [Card]!
+                var remainingTypes: [String]!
+                var remainingSets: [CardSet]!
+
+                beforeEach {
+                    for card in storedCards {
+                        sut.removeFavorite(card: card, set: storedSets.setFor(card: card)!)
+                    }
+
+                    remaingingCards = sut.getAllCards()
+                    remainingSets = sut.getSets()
+                    remainingTypes = sut.getTypes()
+                }
+
+                it("has empty remaingingCards") {
+                    expect(remaingingCards.isEmpty).to(beTrue())
+                }
+
+                it("has empty remainingTypes") {
+                    expect(remainingTypes.isEmpty).to(beTrue())
+                }
+
+                it("has empty remainingSets") {
+                    expect(remainingSets.isEmpty).to(beTrue())
                 }
             }
         }
