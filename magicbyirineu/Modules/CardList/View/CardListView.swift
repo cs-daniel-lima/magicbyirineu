@@ -1,7 +1,7 @@
 import UIKit
 
 class CardListView: UIView {
-    var activityIndicator: UIActivityIndicatorView = {
+    let activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(frame: .zero)
         view.isHidden = true
         return view
