@@ -17,7 +17,7 @@ class CardRepositoryMock: CardRepository {
     
     var isSuccessfull = true
     
-    func fetchCards(page:Int?, name:String?, setCode:String?, type:String?, orderParameter: CardOrder?, completion: @escaping (Result<[Card]>, HTTPHeaderCards?) -> Void) {
+    func fetchCards(page: Int?, name: String?, setCode: String?, type: String?, orderParameter:CardOrder?, completion: @escaping (Result<[Card]>, HTTPHeaderCards?) -> Void) {
         
         if self.isSuccessfull {
             completion(.success([
