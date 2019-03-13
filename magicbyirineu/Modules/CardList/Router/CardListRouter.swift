@@ -5,21 +5,19 @@ class CardListRouter {
 
     init() {
         let viewController = CardListViewController(title: "Cards")
-        
-        
+
         let cardRepository = CardAPIClient()
         let cardSetRepository = CardSetAPIClient()
         let typeRepository = TypeAPIClient()
-        
+
         let fetchLoader = CardsLoader(cardRepository: cardRepository, cardSetRepository: cardSetRepository, typeRepository: typeRepository)
         let searchLoader = CardsLoader(cardRepository: cardRepository, cardSetRepository: cardSetRepository, typeRepository: typeRepository)
-        
+
         let fetchOrganizer = CardOrganizer()
         let searchOrganizer = CardOrganizer()
-        
+
         let interactor = CardListInteractor(fetchLoader: fetchLoader, searchLoad: searchLoader, fetchCardOrganizer: fetchOrganizer, searchCardOrganizer: searchOrganizer)
-        self.presenter = CardListPresenter(router:self, interactor:interactor, view:viewController)
-        
+        presenter = CardListPresenter(router: self, interactor: interactor, view: viewController)
     }
 
     func goToCardDetail(cards: [Card], selectedCard: Card) {

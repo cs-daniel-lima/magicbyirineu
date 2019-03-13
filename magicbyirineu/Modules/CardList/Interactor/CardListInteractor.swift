@@ -5,128 +5,130 @@ protocol CardListInteractorDelegate: class {
     func didLoad(error: Error)
 }
 
-///Faz as requisições de dados
+/// Faz as requisições de dados
 class CardListInteractor {
-    
-    //MARK: - Properties
-    private var fetchedSetCode:String?
-    private var fetchedCardsType:String?
-    private var currentCardTypePagination:Int = 0
-    private var searchingCardsPage:Int = 0
-    private var fetchedCardOrganizer:CardOrganizer
-    private var searchedCardOrganizer:CardOrganizer
-    private var fetchLoadManager:CardsLoader
-    private var searchLoadManager:CardsLoader
-    
-    private(set) var isSearching:Bool = false
-    
-    weak var delegate:CardListInteractorDelegate?
-    
+    // MARK: - Properties
+
+    private var fetchedSetCode: String?
+    private var fetchedCardsType: String?
+    private var currentCardTypePagination: Int = 0
+    private var searchingCardsPage: Int = 0
+    private var fetchedCardOrganizer: CardOrganizer
+    private var searchedCardOrganizer: CardOrganizer
+    private var fetchLoadManager: CardsLoader
+    private var searchLoadManager: CardsLoader
+
+    private(set) var isSearching: Bool = false
+
+    weak var delegate: CardListInteractorDelegate?
+
     var waitingAPIResponse = false
-    
-    //MARK: - NSObject functions
-    init(fetchLoader:CardsLoader, searchLoad:CardsLoader, fetchCardOrganizer:CardOrganizer, searchCardOrganizer:CardOrganizer) {
-        
-        self.fetchLoadManager = fetchLoader
-        self.searchLoadManager = searchLoad
-        
-        self.fetchedCardOrganizer = fetchCardOrganizer
-        self.searchedCardOrganizer = searchCardOrganizer
-        
-        self.fetchLoadManager.delegate = self
-        self.searchLoadManager.delegate = self
+
+    // MARK: - NSObject functions
+
+    init(fetchLoader: CardsLoader, searchLoad: CardsLoader, fetchCardOrganizer: CardOrganizer, searchCardOrganizer: CardOrganizer) {
+        fetchLoadManager = fetchLoader
+        searchLoadManager = searchLoad
+
+        fetchedCardOrganizer = fetchCardOrganizer
+        searchedCardOrganizer = searchCardOrganizer
+
+        fetchLoadManager.delegate = self
+        searchLoadManager.delegate = self
     }
-    
-    //MARK: - Functions
+
+    // MARK: - Functions
+
     func numberOfSets() -> Int {
-        if !self.isSearching {
-            return self.fetchedCardOrganizer.decks.count
-        }else{
-            return self.searchedCardOrganizer.decks.count
+        if !isSearching {
+            return fetchedCardOrganizer.decks.count
+        } else {
+            return searchedCardOrganizer.decks.count
         }
     }
-    
-    func numberOfElementsForSet(setIndex:Int) -> Int {
-        var cardOrganizer:CardOrganizer
-        
-        if self.isSearching {
-            cardOrganizer = self.searchedCardOrganizer
-        }else{
-            cardOrganizer = self.fetchedCardOrganizer
+
+    func numberOfElementsForSet(setIndex: Int) -> Int {
+        var cardOrganizer: CardOrganizer
+
+        if isSearching {
+            cardOrganizer = searchedCardOrganizer
+        } else {
+            cardOrganizer = fetchedCardOrganizer
         }
-        
+
         if cardOrganizer.decks.indices.contains(setIndex) {
             return cardOrganizer.decks[setIndex].getElements().count
         } else {
             return 0
         }
     }
-    
-    func elementInSet(setIndex:Int, elementIndex:Int) -> Any? {
-        var cardOrganizer:CardOrganizer
-        
-        if self.isSearching {
-            cardOrganizer = self.searchedCardOrganizer
-        }else{
-            cardOrganizer = self.fetchedCardOrganizer
+
+    func allCards() -> [Card] {
+        return fetchLoadManager.cards
+    }
+
+    func elementInSet(setIndex: Int, elementIndex: Int) -> Any? {
+        var cardOrganizer: CardOrganizer
+
+        if isSearching {
+            cardOrganizer = searchedCardOrganizer
+        } else {
+            cardOrganizer = fetchedCardOrganizer
         }
-       
+
         return cardOrganizer.getElement(setIndex: setIndex, elementIndex: elementIndex)
     }
-    
-    func set(of index:Int) -> CardSet {
-        var cardOrganizer:CardOrganizer
-        
-        if self.isSearching {
-            cardOrganizer = self.searchedCardOrganizer
-        }else{
-            cardOrganizer = self.fetchedCardOrganizer
+
+    func set(of index: Int) -> CardSet {
+        var cardOrganizer: CardOrganizer
+
+        if isSearching {
+            cardOrganizer = searchedCardOrganizer
+        } else {
+            cardOrganizer = fetchedCardOrganizer
         }
-        
+
         return cardOrganizer.decks[index].identification
     }
-    
-    //MARK: Public
+
     func fetchCards() {
-        self.fetchLoadManager.fetchCards()
-    }
-    
-    func fetchSearchingCards(cardName:String) {
-        self.isSearching = true
-        self.searchedCardOrganizer.clean()
-        self.searchLoadManager.fetchCards(with: cardName)
+        fetchLoadManager.fetchCards()
     }
 
-    // MARK: Public
+    func fetchSearchingCards(cardName: String) {
+        isSearching = true
+        searchedCardOrganizer.clean()
+        searchLoadManager.fetchCards(with: cardName)
+    }
 
     func cancelSearch() {
-        self.searchLoadManager.cleanButKeepSetsAndTypes()
-        self.searchedCardOrganizer.clean()
-        self.isSearching = false
-        self.delegate?.didLoad()
+        searchLoadManager.cleanButKeepSetsAndTypes()
+        searchedCardOrganizer.clean()
+        isSearching = false
+        delegate?.didLoad()
     }
 }
 
 extension CardListInteractor: CardsLoaderDelegate {
     func loaded(error: Error) {
-        self.delegate?.didLoad(error: error)
+        delegate?.didLoad(error: error)
     }
-    
-    func loaded(cards: [Card], forType type: String, andSet set: CardSet, from loader:CardsLoader) {
-        var cardOrganizer:CardOrganizer
-        
-        if loader === self.searchLoadManager {
-            cardOrganizer = self.searchedCardOrganizer
+
+    func loaded(cards: [Card], forType type: String, andSet set: CardSet, from loader: CardsLoader) {
+        var cardOrganizer: CardOrganizer
+
+        if loader === searchLoadManager {
+            cardOrganizer = searchedCardOrganizer
         } else {
-            cardOrganizer = self.fetchedCardOrganizer
+            cardOrganizer = fetchedCardOrganizer
         }
-        
-        if cards.count > 0 {
+
+        if !cards.isEmpty {
             cardOrganizer.append(cards: cards, set: set, type: type)
-            self.delegate?.didLoad()
-            self.waitingAPIResponse = false
-        }else{
-            self.waitingAPIResponse = true
+            delegate?.didLoad()
+            waitingAPIResponse = false
+        } else {
+            waitingAPIResponse = true
         }
     }
 }

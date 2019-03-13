@@ -20,15 +20,13 @@ class MagicFlowLayoutSpec: QuickSpec {
 
             _ = viewController.view
         }
-        
-        
-        context("when it is initialized"){
-            
-            it("has minimumInteritemSpacing equal to 0"){
+
+        context("when it is initialized") {
+            it("has minimumInteritemSpacing equal to 0") {
                 expect(sut.minimumInteritemSpacing).to(equal(0))
             }
-            
-            it("has minimumInteritemSpacing equal to 0"){
+
+            it("has minimumInteritemSpacing equal to 0") {
                 expect(sut.minimumLineSpacing).to(equal(16))
             }
 
