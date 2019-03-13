@@ -46,9 +46,7 @@ class APIManager {
                     let httpResponse = response as? HTTPURLResponse
 
                     self.setStatusBar(loading: false)
-DispatchQueue.main.async {
-       completion(Result.success(magicResponse), httpResponse?.allHeaderFields)
-}                   
+                    completion(Result.success(magicResponse), httpResponse?.allHeaderFields)
 
                 } catch {
                     self.setStatusBar(loading: false)
