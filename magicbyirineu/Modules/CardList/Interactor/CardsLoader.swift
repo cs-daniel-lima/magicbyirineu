@@ -21,6 +21,7 @@ class CardsLoader {
     private var setsIterator: IndexingIterator<[CardSet]>?
     private var currentPage = 1
     private var requestedCardsCounter = 0
+    private var requestTimeOut = 2
 
     // MARK: Public
 
@@ -170,8 +171,11 @@ class CardsLoader {
 
     func fetchCards(with name: String? = nil) {
         if !isSetsAndTypesLoaded {
-            fetchSetsAndTypes {
-                self.fetchCards(with: name)
+            if requestTimeOut > 0 {
+                requestTimeOut -= 1
+                fetchSetsAndTypes {
+                    self.fetchCards(with: name)
+                }
             }
             return
         }

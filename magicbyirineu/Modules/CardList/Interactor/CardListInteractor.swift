@@ -93,10 +93,6 @@ class CardListInteractor {
 
     func fetchCards() {
         fetchLoadManager.fetchCards()
-        
-        if !sets.isEmpty, !types.isEmpty {
-            loadManager.loadCards(fromSet: sets[currentSetPagination], withType: types[currentCardTypePagination], page: 1)
-        }
     }
 
     func fetchSearchingCards(cardName: String) {
@@ -112,60 +108,14 @@ class CardListInteractor {
         delegate?.didLoad()
     }
     
+    func clean() {
+        self.fetchLoadManager.clean()
+        self.searchLoadManager.clean()
+    }
     
-    func sequenceOfTypesAndCards(_ cards: [Card], by section: Int) -> [Any] {
-        let set = sets[section]
-
-        return sequenceOfTypesAndCards(cards, by: set)
-    }
-
-    func sequenceOfTypesAndCardsBySection(_ cards: [Card]) -> [CardSet: [Any]] {
-        var objects: [CardSet: [Any]] = [CardSet: [Any]]()
-
-        var section = 0
-
-        for i in 0 ..< sets.count {
-            let set = sets[i]
-            let objectsArray = sequenceOfTypesAndCards(cards, by: set)
-            if !objectsArray.isEmpty {
-                objects[set] = objectsArray
-                section += 1
-            }
-        }
-
-        return objects
-    }
-
-    func appendCards(_: [Card], totalExpected _: Int) {}
-
-    // MARK: - Pagination
-
-    func updatePagination() {
-        if !sets.isEmpty {
-            fetchedSetCode = sets[currentSetPagination].code
-        }
-
-        if !types.isEmpty {
-            fetchedCardsType = types[currentCardTypePagination]
-        }
-    }
-
-    func paginate() {
-        waitingAPIResponse = true
-
-        if !isSearching {
-            if currentCardTypePagination < types.count - 1 {
-                currentCardTypePagination += 1
-                fetchCards()
-            } else {
-                if currentSetPagination < sets.count - 1 {
-                    currentSetPagination += 1
-                    currentCardTypePagination = 0
-                    fetchCards()
-                }
-            }
-
-        } else {}
+    func cleanButKeepSetsAndTypes() {
+        self.fetchLoadManager.cleanButKeepSetsAndTypes()
+        self.searchLoadManager.cleanButKeepSetsAndTypes()
     }
 }
 
