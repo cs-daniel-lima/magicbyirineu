@@ -22,6 +22,23 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    func set(status: Status) {
+        switch status {
+        case .normal:
+            screen.emptySearchLabel.isHidden = true
+            screen.emptySearchLabel.text = ""
+            screen.set(status: .normal)
+        case .empty:
+            screen.emptySearchLabel.isHidden = false
+            screen.emptySearchLabel.text = "You don't have any cards in your deck."
+            screen.set(status: .empty)
+        case .searching:
+            screen.emptySearchLabel.isHidden = false
+            screen.emptySearchLabel.text = "You don't have any cards in your deck."
+            screen.set(status: .searching)
+        }
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         screen.searchBar.additionalSetupAfterDisplay()
