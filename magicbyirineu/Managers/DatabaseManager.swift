@@ -12,40 +12,56 @@ class DatabaseManager {
     // MARK: - Insert Data
 
     func addFavorite(card: Card, set: CardSet) {
-        addFavorite(set: set)
-        addFavorite(card: card)
-        addFavorite(types: card.types)
-    }
-
-    private func addFavorite(card: Card) {
-        let newCard = CardDao(card: card)
-
-        try! realm.write {
-            realm.add(newCard)
+        do {
+            try addFavorite(set: set)
+            try addFavorite(card: card)
+            try addFavorite(types: card.types)
+        } catch let error as NSError {
+            Logger.log(in: self, message: error.description)
         }
     }
 
-    private func addFavorite(set: CardSet) {
+    private func addFavorite(card: Card) throws {
+        let newCard = CardDao(card: card)
+
+        do {
+            try realm.write {
+                realm.add(newCard)
+            }
+        } catch let error as NSError {
+            throw error
+        }
+    }
+
+    private func addFavorite(set: CardSet) throws {
         let newSet = CardSetDao(set: set)
 
         let preExistingSets = realm.objects(CardSetDao.self).filter(NSPredicate(format: "code = %@", newSet.code))
 
         if preExistingSets.isEmpty {
-            try! realm.write {
-                realm.add(newSet)
+            do {
+                try realm.write {
+                    realm.add(newSet)
+                }
+            } catch let error as NSError {
+                throw error
             }
         }
     }
 
-    private func addFavorite(types: [String]) {
+    private func addFavorite(types: [String]) throws {
         for type in types {
             let newType = CardTypeDao(type: type)
 
             let preExistingTypes = realm.objects(CardTypeDao.self).filter(NSPredicate(format: "name = %@", newType.name))
 
             if preExistingTypes.isEmpty {
-                try! realm.write {
-                    realm.add(newType)
+                do {
+                    try realm.write {
+                        realm.add(newType)
+                    }
+                } catch let error as NSError {
+                    throw error
                 }
             }
         }
@@ -78,7 +94,7 @@ class DatabaseManager {
 
     func getCards(name: String) -> [Card] {
         let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name CONTAINS[cd] %@", name))
-        
+
         return result.toArray()
     }
 
@@ -96,8 +112,12 @@ class DatabaseManager {
 
     func removeFavorite(card: Card, set: CardSet) {
         if let favoritedCard = realm.object(ofType: CardDao.self, forPrimaryKey: card.id) {
-            try! realm.write {
-                realm.delete(favoritedCard)
+            do {
+                try realm.write {
+                    realm.delete(favoritedCard)
+                }
+            } catch let error as NSError {
+                Logger.logError(in: self, message: error.description)
             }
 
             removeFavorite(set: set)
@@ -111,8 +131,12 @@ class DatabaseManager {
         if cardsWithSet.isEmpty {
             let result = realm.objects(CardSetDao.self).filter(NSPredicate(format: "code = %@", set.code))
 
-            try! realm.write {
-                realm.delete(result)
+            do {
+                try realm.write {
+                    realm.delete(result)
+                }
+            } catch let error as NSError {
+                Logger.logError(in: self, message: error.description)
             }
         }
     }
@@ -124,8 +148,12 @@ class DatabaseManager {
             if cardsWithType.isEmpty {
                 let result = realm.objects(CardTypeDao.self).filter(NSPredicate(format: "name = %@", type))
 
-                try! realm.write {
-                    realm.delete(result)
+                do {
+                    try realm.write {
+                        realm.delete(result)
+                    }
+                } catch let error as NSError {
+                    Logger.logError(in: self, message: error.description)
                 }
             }
         }
