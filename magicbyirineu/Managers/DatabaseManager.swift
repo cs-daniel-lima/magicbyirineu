@@ -4,9 +4,8 @@ import RealmSwift
 class DatabaseManager {
     let realm: Realm
 
-    init() {
-        let config = Utils.createConfigurationFile()
-        realm = try! Realm(configuration: config)
+    init(realm: Realm = try! Realm(configuration: Utils.createConfigurationFile())) {
+        self.realm = realm
     }
 
     // MARK: - Insert Data

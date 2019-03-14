@@ -1,17 +1,22 @@
 import Nimble
 import Nimble_Snapshots
 import Quick
+import Realm
+import RealmSwift
 
 @testable import magicbyirineu
 
 class DatabaseManagerSpec: QuickSpec {
     override func spec() {
-        var sut: DatabaseManagerMock!
+        var testRealm: Realm!
+        var sut: DatabaseManager!
         var cards: [Card]!
         var sets: [CardSet]!
 
         beforeEach {
-            sut = DatabaseManagerMock()
+            testRealm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "DatabaseManagerSpec"))
+
+            sut = DatabaseManager(realm: testRealm)
 
             cards = CardRepositoryMock.mockCardsList()
             sets = CardSetRepositoryMock.mockCardsSet()

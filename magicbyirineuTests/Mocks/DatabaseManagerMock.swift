@@ -2,7 +2,7 @@ import Foundation
 
 @testable import magicbyirineu
 
-class DatabaseManagerMock: DatabaseManager {
+extension DatabaseManager {
     func eraseAllData() {
         let cardsToDelete = realm.objects(CardDao.self)
         let setsToDelete = realm.objects(CardSetDao.self)
