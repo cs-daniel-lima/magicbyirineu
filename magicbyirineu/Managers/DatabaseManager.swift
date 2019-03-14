@@ -90,6 +90,13 @@ class DatabaseManager {
         let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name = %@ AND set = %@", name, setCode))
         return result.toArray()
     }
+    
+    func getCards(setCode: String, type:String) -> [Card] {
+        
+        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "set = %@ AND %@ IN types.stringValue", setCode, type))
+        
+        return result.toArray()
+    }
 
     func getCards(name: String) -> [Card] {
         let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name CONTAINS[cd] %@", name))

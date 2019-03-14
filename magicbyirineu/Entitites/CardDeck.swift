@@ -20,15 +20,22 @@ struct CardDeck {
     }
     
     mutating func add(type:String) {
-        elements.append(type)
+        
+        if(!elements.contains(string: type)){
+            elements.append(type)
+        }
+        
+        
     }
     
     mutating func add(card:Card) {
-        elements.append(card)
+        if(!elements.contains(card: card)){
+            elements.append(card)
+        }
     }
     
     mutating func add(cards:Array<Card>) {
-        elements.append(contentsOf: cards)
+        elements.appendCards(cards)
     }
     
     func getElements() -> Array<Any> {

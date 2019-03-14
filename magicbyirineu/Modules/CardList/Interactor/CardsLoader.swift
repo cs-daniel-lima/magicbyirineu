@@ -180,7 +180,6 @@ class CardsLoader {
             return
         }
 
-        //
         if let set = self.setsIterator?.next(),
             let type = self.typesIterator?.next() {
             currentSet = set

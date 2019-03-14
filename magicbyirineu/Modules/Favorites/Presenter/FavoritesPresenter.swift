@@ -48,6 +48,8 @@ extension FavoritesPresenter: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("section: ",section)
+        print(interactor.numberOfElementsForSet(setIndex: section))
         return interactor.numberOfElementsForSet(setIndex: section)
     }
 
@@ -141,6 +143,16 @@ extension FavoritesPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 60)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let currentSet = collectionView.numberOfItems(inSection: indexPath.section) - 1
+        
+        if indexPath.row == currentSet, !interactor.waitingAPIResponse {
+            interactor.fetchCards()
+        }
+    }
+    
 }
 
 extension FavoritesPresenter: CardListInteractorDelegate {

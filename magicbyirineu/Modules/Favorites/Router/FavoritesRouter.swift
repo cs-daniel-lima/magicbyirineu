@@ -6,9 +6,9 @@ class FavoritesRouter {
     init() {
         let viewController = FavoritesViewController(title: "Favorites")
         
-        let cardRepository = RealmCards()
-        let cardSetRepository = RealmSets()
-        let typeRepository = RealmTypes()
+        let cardRepository = DatabaseCardsService()
+        let cardSetRepository = DatabaseSetsService()
+        let typeRepository = DatabaseTypesService()
         
         let fetchLoader = CardsLoader(cardRepository: cardRepository, cardSetRepository: cardSetRepository, typeRepository: typeRepository)
         let searchLoader = CardsLoader(cardRepository: cardRepository, cardSetRepository: cardSetRepository, typeRepository: typeRepository)
