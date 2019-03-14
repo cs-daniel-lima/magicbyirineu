@@ -1,5 +1,13 @@
 import Foundation
 
+class CardsLoaderError:Error {
+    class RequestTimeOut:Error {
+        var localizedDescription: String {
+            return "Not possible to access the data"
+        }
+    }
+}
+
 protocol CardsLoaderDelegate {
     func loaded(cards: [Card], forType type: String, andSet set: CardSet, from loader: CardsLoader)
     func loaded(error: Error)
@@ -169,6 +177,12 @@ class CardsLoader {
         }
     }
 
+    
+    /// Fetch Cards by set, each time this fuction is called it calls the next set. If the set or types are not loaded this function request both data and only after both the requests are completed it calls it self again.
+    ///
+    /// This function can generate the error of request limits. If it happens you must call **cleanButKeepSetsAndTypes** or **clean** function.
+    ///
+    /// - Parameter name: The card name to be used as searching parameter
     func fetchCards(with name: String? = nil) {
         if !isSetsAndTypesLoaded {
             if requestTimeOut > 0 {
@@ -176,11 +190,13 @@ class CardsLoader {
                 fetchSetsAndTypes {
                     self.fetchCards(with: name)
                 }
+            }else{
+                self.delegate?.loaded(error: CardsLoaderError.RequestTimeOut())
             }
             return
         }
-
-        //
+        requestTimeOut = 2
+        
         if let set = self.setsIterator?.next(),
             let type = self.typesIterator?.next() {
             currentSet = set
