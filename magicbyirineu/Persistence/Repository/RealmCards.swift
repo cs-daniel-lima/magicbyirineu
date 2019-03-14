@@ -9,7 +9,8 @@ class RealmCards {
 }
 
 extension RealmCards: CardRepository {
-    func fetchCards(page _: Int?, name: String?, setCode: String?, type _: String?, orderParameter _: CardOrder?, completion: @escaping (Result<[Card]>, Int?) -> Void) {
+    func fetchCards(page: Int?, name: String?, setCode: String?, type: String?, orderParameter: CardOrder?, completion: @escaping (Result<[Card]>, Int?) -> Void) {
+        
         if let nameToSearch = name, let setToSearch = setCode {
             let cards = databaseManager.getCards(name: nameToSearch, setCode: setToSearch)
             completion(.success(cards), nil)

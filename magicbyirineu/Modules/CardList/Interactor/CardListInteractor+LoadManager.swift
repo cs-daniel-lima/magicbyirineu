@@ -21,6 +21,10 @@ extension CardListInteractor: LoadManagerDelegate {
 
                     if let total = totalCount {
                         self.loadManager.appendCards(cardsResponse, totalExpected: total)
+                    }else{
+                        
+                        self.loadManager.appendCards(cardsResponse, totalExpected: cardsResponse.count)
+                        
                     }
 
                 case let .failure(error):

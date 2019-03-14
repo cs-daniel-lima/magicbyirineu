@@ -167,6 +167,7 @@ class CardListInteractor {
     }
 
     func fetchCards() {
+        
         if !sets.isEmpty, !types.isEmpty {
             loadManager.loadCards(fromSet: sets[currentSetPagination], withType: types[currentCardTypePagination], page: 1)
         }
