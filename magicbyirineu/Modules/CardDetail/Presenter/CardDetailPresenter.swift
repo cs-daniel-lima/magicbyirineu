@@ -19,6 +19,7 @@ class CardDetailPresenter: NSObject {
         self.interactor = interactor
 
         super.init()
+        self.interactor.delegate = self
 
         self.view.presenter = self
 
@@ -84,6 +85,16 @@ extension CardDetailPresenter: UICollectionViewDelegate {
 
         if let indexPath = self.view.screen.collectionView.indexPathForItem(at: relatedPositionInCollectionView) {
             collectionViewDidScroolToItemAt(indexPath: indexPath)
+        }
+    }
+}
+
+extension CardDetailPresenter: CardDetailInteractorDelegate {
+    func didChangeSelectedCard() {
+        if view.checkForFavorite(card: interactor.selectedCard) {
+            view.screen.favoriteButton.isFavorite = true
+        } else {
+            view.screen.favoriteButton.isFavorite = false
         }
     }
 }

@@ -1,16 +1,27 @@
 import Foundation
 
+protocol CardDetailInteractorDelegate {
+    func didChangeSelectedCard()
+}
+
 class CardDetailInteractor {
+    var delegate: CardDetailInteractorDelegate?
+
+    let sets: [CardSet]
     let cards: [Card]
     var selectedCard: Card
 
-    init(cards: [Card], selectedCard: Card) {
+    var dbManager = DatabaseManager()
+
+    init(cards: [Card], selectedCard: Card, sets: [CardSet]) {
         self.cards = cards
+        self.sets = sets
         self.selectedCard = selectedCard
     }
 
     func changeSelectedCard(index: Int) {
         selectedCard = cards[index]
+        delegate?.didChangeSelectedCard()
     }
 
     func indexOfSelectedCard() -> Int {
@@ -21,5 +32,17 @@ class CardDetailInteractor {
         }
 
         return index
+    }
+
+    func saveCardAsFavorite() {
+        if let set = self.sets.setFor(card: self.selectedCard) {
+            dbManager.addFavorite(card: selectedCard, set: set)
+        }
+    }
+
+    func removeCardFromFavorite() {
+        if let set = self.sets.setFor(card: self.selectedCard) {
+            dbManager.removeFavorite(card: selectedCard, set: set)
+        }
     }
 }

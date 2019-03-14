@@ -8,7 +8,7 @@ class CardRepositoryMock: CardRepository {
 
     var isSuccessfull = true
 
-    func fetchCards(page _: Int?, name _: String?, setCode _: String?, type _: String?, orderParameter _: CardOrder?, completion: @escaping (Result<[Card]>, Int?) -> Void) {
+    func fetchCards(page _: Int?, name _: String?, setCode _: String?, type _: String?, orderParameter _: CardOrder?, completion: @escaping (Result<[Card]>, HTTPHeaderCards?) -> Void) {
         if isSuccessfull {
             completion(.success([
                 Card(id: "3b072bac-4508-5bfa-adc3-13a9163284d3", name: "Forest", set: "2ED", setName: "Unlimited Edition", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=890&type=card", types: ["Land"], foreignNames: [ForeignNames(name: "Floresta", imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=890&type=card")]),

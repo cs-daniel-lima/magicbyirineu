@@ -29,6 +29,8 @@ class FavoritesPresenter: NSObject {
         view.screen.collectionView.register(cellType: CardCollectionViewCell.self)
         view.screen.collectionView.register(cellType: SubSectionCollectionViewCell.self)
         view.screen.collectionView.register(supplementaryViewType: SetCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
+        
+        self.interactor.fetchCards()
     }
 }
 
@@ -46,26 +48,29 @@ extension FavoritesPresenter: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if !interactor.isSearching {
-            return interactor.numberOfElementsForSet(setIndex: section)
-        } else {
-            let keys = interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
-                set
-            }
-            let set = keys[section]
+        return interactor.numberOfElementsForSet(setIndex: section)
+    }
 
-            guard let objectList = self.interactor.objectsBySet[set] else {
-                Logger.logError(in: self, message: "Could not get objectList in CardSet: \(set)")
-                return 0
-            }
-
-            return objectList.count
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let object = self.interactor.elementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+            Logger.logError(in: self, message: "Could not get an object")
+            return
         }
+
+        guard let card = object as? Card else {
+            Logger.log(in: self, message: "Couldn't cast object to type Card")
+            return
+        }
+
+        router.goToCardDetail(cards: interactor.allCards(), selectedCard: card, sets: interactor.allSets())
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let object = interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row)
-
+        guard let object = self.interactor.elementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+            Logger.logError(in: self, message: "Could not get an object")
+            return UICollectionViewCell()
+        }
+        
         if let category = object as? String {
             let subsectionCell: SubSectionCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
 
@@ -106,9 +111,9 @@ extension FavoritesPresenter: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind _: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view: SetCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
-
-        view.label.text = interactor.sets[indexPath.section].name
-
+        
+        view.label.text = interactor.set(of: indexPath.section).name
+        
         return view
     }
 
@@ -121,7 +126,7 @@ extension FavoritesPresenter: UICollectionViewDataSource {
 
 extension FavoritesPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+        guard let object = self.interactor.elementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
             Logger.logError(in: self, message: "Could not get the object from CardSet at index:\(indexPath.section)")
             return CGSize.zero
         }
@@ -141,7 +146,6 @@ extension FavoritesPresenter: UICollectionViewDelegateFlowLayout {
 extension FavoritesPresenter: CardListInteractorDelegate {
     func didLoad(error: Error) {
         print(error)
-        print("Não carregou")
     }
 
     func didLoad() {
