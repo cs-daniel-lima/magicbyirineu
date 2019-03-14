@@ -22,15 +22,15 @@ class CardListViewControllerSpec: QuickSpec {
             }
 
             it("isFirstLoad should begin as true", closure: {
-                expect(sut.presenter.isFirstLoad).to(beTrue())
+                expect(sut.presenter?.isFirstLoad).to(beTrue())
             })
 
             it("router should not be nil", closure: {
-                expect(sut.presenter.router).notTo(beNil())
+                expect(sut.presenter?.router).notTo(beNil())
             })
 
             it("interactor should not be nil", closure: {
-                expect(sut.presenter.interactor).notTo(beNil())
+                expect(sut.presenter?.interactor).notTo(beNil())
             })
         }
 
@@ -45,16 +45,24 @@ class CardListViewControllerSpec: QuickSpec {
                 expect((sut.presenter as! CardListPresenterMock).wasCellForItemAtCalled).to(beTrue())
             })
 
+            context("when querying for cards", {
+                it("should display the activity indicator", closure: {
+                    sut.set(status: .searching)
+                    self.tester().waitForAnimationsToFinish()
+                    expect(sut) == snapshot()
+                })
+            })
+
             context("Regarding loaded cards", {
                 var cards = [Card]()
 
                 beforeEach {
                     cards = []
 
-                    let card1 = sut.presenter.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 1)
-                    let card2 = sut.presenter.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 2)
-                    let card3 = sut.presenter.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 3)
-                    let card4 = sut.presenter.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 4)
+                    let card1 = sut.presenter?.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 1)
+                    let card2 = sut.presenter?.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 2)
+                    let card3 = sut.presenter?.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 3)
+                    let card4 = sut.presenter?.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 4)
 
                     cards.append(card1 as! Card)
                     cards.append(card2 as! Card)

@@ -22,7 +22,6 @@ class CardListPresenter: NSObject {
         self.view.screen.collectionView.dataSource = self
         self.view.screen.collectionView.delegate = self
         self.view.screen.searchBar.delegate = self
-
         self.interactor.delegate = self
 
         setup()
@@ -41,7 +40,7 @@ extension CardListPresenter: UICollectionViewDataSource {
 
         if numberOfSections == 0, isFirstLoad == false {
             view.set(status: .empty)
-        } else {
+        } else if view.isQuering == false {
             view.set(status: .normal)
         }
         isFirstLoad = false
@@ -176,7 +175,8 @@ extension CardListPresenter: CardListInteractorDelegate {
 
     func didLoad() {
         DispatchQueue.main.async {
-            self.view.screen.collectionView.reloadData()
+            self.view.reloadData()
+            self.view.set(status: .normal)
         }
     }
 }
@@ -194,6 +194,7 @@ extension CardListPresenter: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         if let text = searchBar.text {
             self.query = text
+            view.set(status: .searching)
             guard let query = self.query else {
                 Logger.logError(in: self, message: "Query is nil")
                 return
