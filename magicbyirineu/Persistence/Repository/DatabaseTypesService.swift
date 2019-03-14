@@ -1,6 +1,6 @@
 import Foundation
 
-class RealmTypes {
+class DatabaseTypesService {
     let databaseManager: DatabaseManager
 
     init(databaseManager: DatabaseManager = DatabaseManager()) {
@@ -8,7 +8,7 @@ class RealmTypes {
     }
 }
 
-extension RealmTypes: TypeRepository {
+extension DatabaseTypesService: TypeRepository {
     func fetchTypes(completion: @escaping (Result<[String]>) -> Void) {
         let types = databaseManager.getTypes()
 

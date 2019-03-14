@@ -1,6 +1,6 @@
 import Foundation
 
-class RealmSets {
+class DatabaseSetsService {
     let databaseManager: DatabaseManager
 
     init(databaseManager: DatabaseManager = DatabaseManager()) {
@@ -8,7 +8,7 @@ class RealmSets {
     }
 }
 
-extension RealmSets: CardSetRepository {
+extension DatabaseSetsService: CardSetRepository {
     func fetchCardSets(completion: @escaping (Result<[CardSet]>) -> Void) {
         let sets = databaseManager.getSets()
 

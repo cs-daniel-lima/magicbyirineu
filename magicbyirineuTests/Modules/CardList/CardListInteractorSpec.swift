@@ -29,15 +29,25 @@ class CardListInteractorSpec: QuickSpec {
         }
 
         context("when it is called fetchCards") {
-            it("organizer first element should not be nil") {
+            
+            beforeEach {
                 sut.fetchCards()
+            }
+            
+            it("organizer first element should not be nil") {
+                
                 expect(sut.cardOrganizer.getElement(setIndex: 0, elementIndex: 0)).toNot(beNil())
             }
         }
 
         context("when it is called fetchCards") {
-            it("the first set should have 12 Elements") {
+            
+            beforeEach {
                 sut.fetchCards()
+            }
+            
+            it("the first set should have 12 Elements") {
+                
                 expect(sut.cardOrganizer.decks[0].getElements().count).to(be(12))
             }
             it("has the first card with name Forest") {
@@ -46,8 +56,13 @@ class CardListInteractorSpec: QuickSpec {
         }
 
         context("when it is called fetchCardSet") {
-            it("should have 4 Sets") {
+            
+            beforeEach {
                 sut.fetchSets()
+            }
+            
+            it("should have 4 Sets") {
+                
                 expect(sut.sets.count == 4).to(beTrue())
             }
             it("the first Set should have the name Unlimited Edition") {
@@ -56,8 +71,13 @@ class CardListInteractorSpec: QuickSpec {
         }
 
         context("when it is called fetchCards") {
-            it("should have 16 types") {
+            
+            beforeEach {
                 sut.fetchTypes()
+            }
+            
+            it("should have 16 types") {
+                
                 expect(sut.types.count == 16).to(beTrue())
             }
             it("the last Type should have the name You'll") {
