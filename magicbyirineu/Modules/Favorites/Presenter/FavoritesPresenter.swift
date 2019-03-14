@@ -6,7 +6,7 @@ class FavoritesPresenter: NSObject {
     private var query: String?
     
     var router: FavoritesRouter
-    var interactor: CardListInteractor
+    let interactor: CardListInteractor
     var view: FavoritesViewController
 
     init(router: FavoritesRouter, interactor: CardListInteractor, view: FavoritesViewController) {
