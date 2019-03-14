@@ -48,7 +48,7 @@ class CardListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func set(status: Status) {
+    func set(status: Status, sender: AnyObject) {
         switch status {
         case .normal:
             emptySearchLabel.isHidden = true
@@ -57,13 +57,25 @@ class CardListView: UIView {
             collectionView.isHidden = false
             activityIndicator.stopAnimating()
         case .empty:
-            emptySearchLabel.text = "We couldn't find the card you were looking for."
+
+            if sender is CardListViewController {
+                emptySearchLabel.text = "We couldn't find the card you were looking for."
+            } else {
+                emptySearchLabel.text = "You don't have any cards in your deck."
+            }
+
         case .searching:
             emptySearchLabel.isHidden = true
             collectionView.isHidden = true
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
             collectionView.reloadData()
+        }
+    }
+
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
 }

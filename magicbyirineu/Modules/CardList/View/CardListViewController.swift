@@ -34,16 +34,20 @@ class CardListViewController: MagicViewController {
         switch status {
         case .normal:
             isQuering = false
-            screen.set(status: .normal)
+            screen.set(status: .normal, sender: self)
         case .empty:
             if isQuering == false {
                 screen.emptySearchLabel.isHidden = false
             }
-            screen.set(status: .empty)
+            screen.set(status: .empty, sender: self)
         case .searching:
             isQuering = true
-            screen.set(status: .searching)
+            screen.set(status: .searching, sender: self)
         }
+    }
+
+    func reloadData() {
+        screen.reloadData()
     }
 
     func switchActivityIndicator(status _: Status) {}
