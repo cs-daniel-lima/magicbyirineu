@@ -5,7 +5,9 @@ class FavoritesRouter {
 
     init() {
         let viewController = FavoritesViewController(title: "Favorites")
-        let interactor = FavoritesInteractor()
+        let interactor = CardListInteractor(cardRepository: RealmCards(),
+                                            cardSetRepository: RealmSets(),
+                                            typeRepository: RealmTypes())
 
         presenter = FavoritesPresenter(router: self, interactor: interactor, view: viewController)
     }

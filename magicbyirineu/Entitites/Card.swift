@@ -1,6 +1,7 @@
 import Foundation
 
 struct Card: Decodable, Equatable {
+    let id: String
     let name: String
     let set: String
     let setName: String
@@ -29,5 +30,17 @@ struct Card: Decodable, Equatable {
         }
 
         return true
+    }
+}
+
+extension Card {
+    init(fromRealmObject object: CardDao) {
+        name = object.name
+        set = object.set
+        setName = object.setName
+        imageUrl = object.imageUrl
+        types = object.types.toStrings()
+        foreignNames = object.foreignNames.toArray()
+        id = object.uniqueIdentifierId
     }
 }

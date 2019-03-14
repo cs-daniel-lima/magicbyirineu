@@ -33,15 +33,15 @@ class CardListViewControllerSpec: QuickSpec {
             }
 
             it("isFirstLoad should begin as true", closure: {
-                expect(sut.presenter.isFirstLoad).to(beTrue())
+                expect(sut.presenter?.isFirstLoad).to(beTrue())
             })
 
             it("router should not be nil", closure: {
-                expect(sut.presenter.router).notTo(beNil())
+                expect(sut.presenter?.router).notTo(beNil())
             })
 
             it("interactor should not be nil", closure: {
-                expect(sut.presenter.interactor).notTo(beNil())
+                expect(sut.presenter?.interactor).notTo(beNil())
             })
         }
 
@@ -54,6 +54,14 @@ class CardListViewControllerSpec: QuickSpec {
             it("should call numberOfSections", closure: {
                 self.tester().waitForAnimationsToFinish()
                 expect((sut.presenter as! CardListPresenterMock).wasCellForItemAtCalled).to(beTrue())
+            })
+
+            context("when querying for cards", {
+                it("should display the activity indicator", closure: {
+                    sut.set(status: .searching)
+                    self.tester().waitForAnimationsToFinish()
+                    expect(sut) == snapshot()
+                })
             })
 
             context("Regarding loaded cards", {

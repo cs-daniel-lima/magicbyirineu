@@ -10,6 +10,7 @@ target 'magicbyirineu' do
   pod 'SnapKit', '4.2.0'
   pod 'Reusable', '4.0.5'
   pod 'SwiftFormat/CLI', '0.39.0'
+  pod 'RealmSwift', '3.13.1'
   
   def testing_pods
     pod 'Nimble-Snapshots', '6.9.1'

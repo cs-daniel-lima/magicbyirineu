@@ -1,6 +1,12 @@
 import UIKit
 
 class CardListView: UIView {
+    let activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(frame: .zero)
+        view.isHidden = true
+        return view
+    }()
+
     let emptySearchLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.sfProDisplay(size: 22, weight: .bold)
@@ -41,6 +47,37 @@ class CardListView: UIView {
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func set(status: Status, sender: AnyObject) {
+        switch status {
+        case .normal:
+            emptySearchLabel.isHidden = true
+            emptySearchLabel.text = ""
+            activityIndicator.isHidden = true
+            collectionView.isHidden = false
+            activityIndicator.stopAnimating()
+        case .empty:
+
+            if sender is CardListViewController {
+                emptySearchLabel.text = "We couldn't find the card you were looking for."
+            } else {
+                emptySearchLabel.text = "You don't have any cards in your deck."
+            }
+
+        case .searching:
+            emptySearchLabel.isHidden = true
+            collectionView.isHidden = true
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            collectionView.reloadData()
+        }
+    }
+
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 extension CardListView: CodeView {
@@ -49,6 +86,7 @@ extension CardListView: CodeView {
         backgroundImageView.addSubview(emptySearchLabel)
         addSubview(collectionView)
         addSubview(searchBar)
+        addSubview(activityIndicator)
     }
 
     func setupConstraints() {
@@ -71,6 +109,10 @@ extension CardListView: CodeView {
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().inset(16)
             make.height.equalTo(56)
+        }
+        activityIndicator.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
     }
 
