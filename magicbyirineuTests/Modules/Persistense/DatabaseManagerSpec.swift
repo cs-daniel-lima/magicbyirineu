@@ -13,30 +13,8 @@ class DatabaseManagerSpec: QuickSpec {
         beforeEach {
             sut = DatabaseManagerMock()
 
-            let cardsRepository = CardRepositoryMock()
-            let setsRepository = CardSetRepositoryMock()
-
-            cardsRepository.fetchCards(page: 1, name: nil, setCode: nil, type: nil, orderParameter: nil, completion: { result, _ in
-
-                switch result {
-                case let .success(cardsResponse):
-                    cards = cardsResponse
-                case .failure:
-                    cards = []
-                }
-
-            })
-
-            setsRepository.fetchCardSets(completion: { result in
-
-                switch result {
-                case let .success(setsResponse):
-                    sets = setsResponse
-                case .failure:
-                    sets = []
-                }
-
-            })
+            cards = CardRepositoryMock.mockCardsList()
+            sets = CardSetRepositoryMock.mockCardsSet()
         }
 
         context("when cards are favorited") {
