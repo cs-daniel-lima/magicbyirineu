@@ -7,7 +7,7 @@ class FavoritesPresenter: NSObject {
     
     var router: FavoritesRouter
     let interactor: CardListInteractor
-    var view: FavoritesViewController
+    let view: FavoritesViewController
 
     init(router: FavoritesRouter, interactor: CardListInteractor, view: FavoritesViewController) {
         self.router = router
