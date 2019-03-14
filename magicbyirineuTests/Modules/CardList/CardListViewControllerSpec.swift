@@ -9,8 +9,19 @@ class CardListViewControllerSpec: QuickSpec {
         var sut: CardListViewController!
 
         beforeEach {
+            let cardRepositoryMock = CardRepositoryMock()
+            let cardSetRepositoryMock = CardSetRepositoryMock()
+            let typeRepositoryMock = TypeRepositoryMock()
+
+            let fetchCardLoader = CardsLoaderMock(cardRepository: cardRepositoryMock, cardSetRepository: cardSetRepositoryMock, typeRepository: typeRepositoryMock)
+            let searchCardLoader = CardsLoaderMock(cardRepository: cardRepositoryMock, cardSetRepository: cardSetRepositoryMock, typeRepository: typeRepositoryMock)
+
+            let fetchCardOrganizer = CardOrganizer()
+            let searchCardOrganizer = CardOrganizer()
+
+            let interactor = CardListInteractor(fetchLoader: fetchCardLoader, searchLoad: searchCardLoader, fetchCardOrganizer: fetchCardOrganizer, searchCardOrganizer: searchCardOrganizer)
+
             sut = CardListViewController(title: "CardList")
-            let interactor = CardListInteractor(cardRepository: CardRepositoryMock(), cardSetRepository: CardSetRepositoryMock(), typeRepository: TypeRepositoryMock())
             sut.presenter = CardListPresenterMock(router: CardListRouter(), interactor: interactor, view: sut)
             UIApplication.shared.keyWindow?.rootViewController = sut
         }
@@ -57,12 +68,14 @@ class CardListViewControllerSpec: QuickSpec {
                 var cards = [Card]()
 
                 beforeEach {
+                    sut.presenter.interactor!.fetchCards()
+
                     cards = []
 
-                    let card1 = sut.presenter?.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 1)
-                    let card2 = sut.presenter?.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 2)
-                    let card3 = sut.presenter?.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 3)
-                    let card4 = sut.presenter?.interactor.cardOrganizer.getElement(setIndex: 0, elementIndex: 4)
+                    let card1 = sut.presenter.interactor!.elementInSet(setIndex: 0, elementIndex: 1)
+                    let card2 = sut.presenter.interactor!.elementInSet(setIndex: 0, elementIndex: 2)
+                    let card3 = sut.presenter.interactor!.elementInSet(setIndex: 0, elementIndex: 3)
+                    let card4 = sut.presenter.interactor!.elementInSet(setIndex: 0, elementIndex: 4)
 
                     cards.append(card1 as! Card)
                     cards.append(card2 as! Card)
