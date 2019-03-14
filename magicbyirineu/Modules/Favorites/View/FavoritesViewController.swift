@@ -26,16 +26,13 @@ class FavoritesViewController: UIViewController {
         switch status {
         case .normal:
             screen.emptySearchLabel.isHidden = true
-            screen.emptySearchLabel.text = ""
-            screen.set(status: .normal)
+            screen.set(status: .normal, sender: self)
         case .empty:
             screen.emptySearchLabel.isHidden = false
-            screen.emptySearchLabel.text = "You don't have any cards in your deck."
-            screen.set(status: .empty)
+            screen.set(status: .empty, sender: self)
         case .searching:
             screen.emptySearchLabel.isHidden = false
-            screen.emptySearchLabel.text = "You don't have any cards in your deck."
-            screen.set(status: .searching)
+            screen.set(status: .searching, sender: self)
         }
     }
 

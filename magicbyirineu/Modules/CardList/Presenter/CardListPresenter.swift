@@ -175,7 +175,7 @@ extension CardListPresenter: CardListInteractorDelegate {
 
     func didLoad() {
         DispatchQueue.main.async {
-            self.view.screen.collectionView.reloadData()
+            self.view.reloadData()
             self.view.set(status: .normal)
         }
     }
