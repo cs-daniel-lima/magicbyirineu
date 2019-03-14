@@ -49,7 +49,7 @@ extension FavoritesPresenter: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+        guard let object = self.interactor.elementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
             Logger.logError(in: self, message: "Could not get an object")
             return
         }
@@ -59,7 +59,7 @@ extension FavoritesPresenter: UICollectionViewDataSource {
             return
         }
 
-        router.goToCardDetail(cards: interactor.cardOrganizer.getAllCards(), selectedCard: card, sets: interactor.sets)
+        router.goToCardDetail(cards: interactor.allCards(), selectedCard: card, sets: interactor.allSets())
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

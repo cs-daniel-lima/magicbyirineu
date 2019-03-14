@@ -127,7 +127,7 @@ extension CardListPresenter: UICollectionViewDelegate {
             return
         }
 
-        router.goToCardDetail(cards: interactor.cardOrganizer.getAllCards(), selectedCard: card, sets: interactor.sets)
+        router.goToCardDetail(cards: interactor.allCards(), selectedCard: card, sets: interactor.allSets())
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
