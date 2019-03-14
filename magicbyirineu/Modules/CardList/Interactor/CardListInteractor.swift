@@ -5,32 +5,18 @@ protocol CardListInteractorDelegate: class {
     func didLoad(error: Error)
 }
 
-enum CardOrder: String {
-    case name
-    case type
-}
-
+/// Faz as requisições de dados
 class CardListInteractor {
     // MARK: - Properties
-
-    let cardRepository: CardRepository
-    let cardSetRepository: CardSetRepository
-    let typeRepository: TypeRepository
-
-    var fetchedCardsPage: Int = 1
-    var currentSetPagination: Int = 0
-
-    private var fetchedCards: [Card] = [Card]()
-    private var searchedCards: [Card] = [Card]()
 
     private var fetchedSetCode: String?
     private var fetchedCardsType: String?
     private var currentCardTypePagination: Int = 0
     private var searchingCardsPage: Int = 0
-
-    private var isLoaded: Bool {
-        return !sets.isEmpty && !types.isEmpty
-    }
+    private var fetchedCardOrganizer: CardOrganizer
+    private var searchedCardOrganizer: CardOrganizer
+    private var fetchLoadManager: CardsLoader
+    private var searchLoadManager: CardsLoader
 
     private(set) var isSearching: Bool = false
 
@@ -38,74 +24,38 @@ class CardListInteractor {
 
     var waitingAPIResponse = false
 
-    private(set) var sets: [CardSet] = [CardSet]()
-    private(set) var types: [String] = [String]()
-    var cards: [Card] {
-        if isSearching {
-            return searchedCards
-        } else {
-            return fetchedCards
-        }
-    }
-
-    var objectsBySet: [CardSet: [Any]] = [CardSet: [Any]]()
-
-    var cardOrganizer: CardOrganizer
-    var loadManager: CardsLoader
-
     // MARK: - NSObject functions
 
-    init(cardRepository: CardRepository, cardSetRepository: CardSetRepository, typeRepository: TypeRepository) {
-        self.cardRepository = cardRepository
-        self.cardSetRepository = cardSetRepository
-        self.typeRepository = typeRepository
+    init(fetchLoader: CardsLoader, searchLoad: CardsLoader, fetchCardOrganizer: CardOrganizer, searchCardOrganizer: CardOrganizer) {
+        fetchLoadManager = fetchLoader
+        searchLoadManager = searchLoad
 
-        cardOrganizer = CardOrganizer()
-        loadManager = CardsLoader()
+        fetchedCardOrganizer = fetchCardOrganizer
+        searchedCardOrganizer = searchCardOrganizer
 
-        loadManager.delegate = self
-
-        fetchTypes { _ in
-            self.fetchSets { _ in
-                self.fetchCards()
-            }
-        }
+        fetchLoadManager.delegate = self
+        searchLoadManager.delegate = self
     }
 
     // MARK: - Functions
 
-    // MARK: Private
-
-    private func cleanSearchData() {
-        searchingCardsPage = 1
-        searchedCards = [Card]()
-    }
-
-    private func cleanCardsData() {
-        fetchedCardsPage = 1
-        fetchedCards = [Card]()
-    }
-
-    private func cleanCardData() {
-        cleanSearchData()
-        cleanCardsData()
-    }
-
-    func cleanAll() {
-        sets = [CardSet]()
-        types = [String]()
-        cleanCardData()
-    }
-
     func numberOfSets() -> Int {
         if !isSearching {
-            return cardOrganizer.decks.count
+            return fetchedCardOrganizer.decks.count
         } else {
-            return objectsBySet.keys.count
+            return searchedCardOrganizer.decks.count
         }
     }
 
     func numberOfElementsForSet(setIndex: Int) -> Int {
+        var cardOrganizer: CardOrganizer
+
+        if isSearching {
+            cardOrganizer = searchedCardOrganizer
+        } else {
+            cardOrganizer = fetchedCardOrganizer
+        }
+
         if cardOrganizer.decks.indices.contains(setIndex) {
             return cardOrganizer.decks[setIndex].getElements().count
         } else {
@@ -113,227 +63,82 @@ class CardListInteractor {
         }
     }
 
-    func getElementInSet(setIndex: Int, elementIndex: Int) -> Any? {
-        if !isSearching {
-            return cardOrganizer.getElement(setIndex: setIndex, elementIndex: elementIndex)
+    func allCards() -> [Card] {
+        return fetchLoadManager.cards
+    }
 
+    func elementInSet(setIndex: Int, elementIndex: Int) -> Any? {
+        var cardOrganizer: CardOrganizer
+
+        if isSearching {
+            cardOrganizer = searchedCardOrganizer
         } else {
-            let keys = objectsBySet.keys.map { (set) -> CardSet in
-                set
-            }
-            let set = keys[setIndex]
-
-            guard let objectList = self.objectsBySet[set] else {
-                Logger.logError(in: self, message: "Could not get the objectList from CardSet:\(set)")
-                return CGSize.zero
-            }
-
-            return objectList[elementIndex]
+            cardOrganizer = fetchedCardOrganizer
         }
+
+        return cardOrganizer.getElement(setIndex: setIndex, elementIndex: elementIndex)
     }
 
-    // MARK: Public
+    func set(of index: Int) -> CardSet {
+        var cardOrganizer: CardOrganizer
 
-    func fetchSets(completion: ((_ success: Bool) -> Void)? = nil) {
-        cardSetRepository.fetchCardSets { result in
-            switch result {
-            case let .success(sets):
-                self.sets = sets
-                self.sets.sort(by: { (before, after) -> Bool in
-                    before.releaseDate > after.releaseDate
-                })
-                self.updatePagination()
-                completion?(true)
-
-            case let .failure(error):
-                self.delegate?.didLoad(error: error)
-                completion?(false)
-            }
+        if isSearching {
+            cardOrganizer = searchedCardOrganizer
+        } else {
+            cardOrganizer = fetchedCardOrganizer
         }
-    }
 
-    func fetchTypes(completion: ((_ success: Bool) -> Void)? = nil) {
-        typeRepository.fetchTypes { result in
-            switch result {
-            case let .success(types):
-                self.types = types.filter { $0 != "instant" }
-                completion?(true)
-
-            case let .failure(error):
-                self.delegate?.didLoad(error: error)
-                completion?(false)
-            }
-        }
+        return cardOrganizer.decks[index].identification
     }
 
     func fetchCards() {
-        if !sets.isEmpty, !types.isEmpty {
-            loadManager.loadCards(fromSet: sets[currentSetPagination], withType: types[currentCardTypePagination], page: 1)
-        }
-    }
-
-    func fetchCards(completion: @escaping (_ success: Bool) -> Void) {
-        if isLoaded {
-            cardRepository.fetchCards(page: fetchedCardsPage, name: nil, setCode: fetchedSetCode, type: fetchedCardsType, orderParameter: CardOrder.name, completion: { result, totalCount in
-                switch result {
-                case let .success(cardsResponse):
-                    self.fetchedCardsPage += 1
-
-                    if let total = totalCount {
-                        self.appendCards(cardsResponse, totalExpected: total)
-                    }
-
-                    completion(true)
-
-                case let .failure(error):
-                    self.delegate?.didLoad(error: error)
-                    completion(false)
-                }
-                self.delegate?.didLoad()
-            })
-
-        } else if sets.isEmpty {
-            fetchSets { success in
-                switch success {
-                case true:
-                    self.fetchCards(completion: completion)
-                case false:
-                    completion(true)
-                }
-            }
-        } else if types.isEmpty {
-            fetchTypes { success in
-                switch success {
-                case true:
-                    self.fetchCards(completion: completion)
-                case false:
-                    completion(false)
-                }
-            }
-        }
+        fetchLoadManager.fetchCards()
     }
 
     func fetchSearchingCards(cardName: String) {
-        cleanSearchData()
         isSearching = true
-        searchingCardsPage += 1
-
-        cardRepository.fetchCards(page: searchingCardsPage, name: cardName, setCode: nil, type: nil, orderParameter: CardOrder.type) { result, _ in
-            switch result {
-            case let .success(cards):
-                self.searchedCards.append(contentsOf: cards)
-                self.objectsBySet = self.sequenceOfTypesAndCardsBySection(self.cards)
-                self.delegate?.didLoad()
-
-            case let .failure(error):
-                self.delegate?.didLoad(error: error)
-            }
-        }
+        searchedCardOrganizer.clean()
+        searchLoadManager.fetchCards(with: cardName)
     }
 
-    // MARK: Public
-
     func cancelSearch() {
-        cleanSearchData()
+        searchLoadManager.cleanButKeepSetsAndTypes()
+        searchedCardOrganizer.clean()
         isSearching = false
         delegate?.didLoad()
     }
+    
+    func clean() {
+        self.fetchLoadManager.clean()
+        self.searchLoadManager.clean()
+    }
+    
+    func cleanButKeepSetsAndTypes() {
+        self.fetchLoadManager.cleanButKeepSetsAndTypes()
+        self.searchLoadManager.cleanButKeepSetsAndTypes()
+    }
+}
 
-    // MARK: Card
-
-    func cards(_ cards: [Card], from type: String, in set: CardSet) -> [Card] {
-        let someCards = cards.filter { (card) -> Bool in
-            (card.set == set.code && card.types.contains(type))
-        }
-
-        return someCards.sorted { (before, after) -> Bool in
-            before.name.compare(after.name) == .orderedAscending
-        }
+extension CardListInteractor: CardsLoaderDelegate {
+    func loaded(error: Error) {
+        delegate?.didLoad(error: error)
     }
 
-    func cardsByType(_ cards: [Card], in set: CardSet) -> [String: [Card]] {
-        var cardsByType: [String: [Card]] = [String: [Card]]()
+    func loaded(cards: [Card], forType type: String, andSet set: CardSet, from loader: CardsLoader) {
+        var cardOrganizer: CardOrganizer
 
-        for type in types {
-            cardsByType[type] = self.cards(cards, from: type, in: set)
+        if loader === searchLoadManager {
+            cardOrganizer = searchedCardOrganizer
+        } else {
+            cardOrganizer = fetchedCardOrganizer
         }
 
-        return cardsByType
-    }
-
-    func cardsByType(_ cards: [Card], in section: Int) -> [String: [Card]] {
-        let set = sets[section]
-
-        return cardsByType(cards, in: set)
-    }
-
-    func sequenceOfTypesAndCards(_ cards: [Card], by set: CardSet) -> [Any] {
-        let cardsByTypes = cardsByType(cards, in: set)
-
-        var arraySequence = [Any]()
-
-        for object in cardsByTypes {
-            if !object.value.isEmpty {
-                arraySequence.append(object.key)
-                arraySequence.append(contentsOf: object.value)
-            }
+        if !cards.isEmpty {
+            cardOrganizer.append(cards: cards, set: set, type: type)
+            delegate?.didLoad()
+            waitingAPIResponse = false
+        } else {
+            waitingAPIResponse = true
         }
-
-        return arraySequence
-    }
-
-    func sequenceOfTypesAndCards(_ cards: [Card], by section: Int) -> [Any] {
-        let set = sets[section]
-
-        return sequenceOfTypesAndCards(cards, by: set)
-    }
-
-    func sequenceOfTypesAndCardsBySection(_ cards: [Card]) -> [CardSet: [Any]] {
-        var objects: [CardSet: [Any]] = [CardSet: [Any]]()
-
-        var section = 0
-
-        for i in 0 ..< sets.count {
-            let set = sets[i]
-            let objectsArray = sequenceOfTypesAndCards(cards, by: set)
-            if !objectsArray.isEmpty {
-                objects[set] = objectsArray
-                section += 1
-            }
-        }
-
-        return objects
-    }
-
-    func appendCards(_: [Card], totalExpected _: Int) {}
-
-    // MARK: - Pagination
-
-    func updatePagination() {
-        if !sets.isEmpty {
-            fetchedSetCode = sets[currentSetPagination].code
-        }
-
-        if !types.isEmpty {
-            fetchedCardsType = types[currentCardTypePagination]
-        }
-    }
-
-    func paginate() {
-        waitingAPIResponse = true
-
-        if !isSearching {
-            if currentCardTypePagination < types.count - 1 {
-                currentCardTypePagination += 1
-                fetchCards()
-            } else {
-                if currentSetPagination < sets.count - 1 {
-                    currentSetPagination += 1
-                    currentCardTypePagination = 0
-                    fetchCards()
-                }
-            }
-
-        } else {}
     }
 }
