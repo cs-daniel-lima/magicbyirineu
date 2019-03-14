@@ -77,7 +77,8 @@ class DatabaseManager {
     }
 
     func getCards(name: String) -> [Card] {
-        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name = %@", name))
+        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name CONTAINS[cd] %@", name))
+        
         return result.toArray()
     }
 

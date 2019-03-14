@@ -2,6 +2,9 @@ import Foundation
 import UIKit
 
 class FavoritesPresenter: NSObject {
+    
+    private var query: String?
+    
     var router: FavoritesRouter
     var interactor: CardListInteractor
     var view: FavoritesViewController
@@ -15,6 +18,7 @@ class FavoritesPresenter: NSObject {
 
         self.view.screen.collectionView.dataSource = self
         self.view.screen.collectionView.delegate = self
+        self.view.screen.searchBar.delegate = self
         self.view.presenter = self
         
         self.interactor.delegate = self
@@ -47,7 +51,21 @@ extension FavoritesPresenter: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        if !interactor.isSearching {
         return interactor.numberOfElementsForSet(setIndex: section)
+        }else{
+            let keys = interactor.objectsBySet.keys.compactMap { (set) -> CardSet in
+                set
+            }
+            let set = keys[section]
+            
+            guard let objectList = self.interactor.objectsBySet[set] else {
+                Logger.logError(in: self, message: "Could not get objectList in CardSet: \(set)")
+                return 0
+            }
+            
+            return objectList.count
+        }
         
     }
 
@@ -146,4 +164,38 @@ extension FavoritesPresenter: CardListInteractorDelegate {
         }
     }
     
+}
+
+extension FavoritesPresenter: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        query = nil
+        view.screen.collectionView.reloadData()
+        view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if let text = searchBar.text {
+            self.query = text
+            view.set(status: .searching)
+            guard let query = self.query else {
+                Logger.logError(in: self, message: "Query is nil")
+                return
+            }
+            view.screen.collectionView.reloadData()
+            view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            interactor.fetchSearchingCards(cardName: query)
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if searchBar.text == nil || searchBar.text?.isEmpty ?? false {
+            interactor.cancelSearch()
+            view.screen.collectionView.reloadData()
+            view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        }
+    }
 }
