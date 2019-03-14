@@ -5,7 +5,7 @@ class FavoritesPresenter: NSObject {
     
     private var query: String?
     
-    var router: FavoritesRouter
+    let router: FavoritesRouter
     let interactor: CardListInteractor
     let view: FavoritesViewController
 
