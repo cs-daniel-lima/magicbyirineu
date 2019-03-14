@@ -46,6 +46,14 @@ class CardListInteractor {
             return searchedCardOrganizer.decks.count
         }
     }
+    
+    func allSets() -> [CardSet] {
+        if !isSearching {
+            return fetchLoadManager.sets
+        } else {
+            return searchLoadManager.sets
+        }
+    }
 
     func numberOfElementsForSet(setIndex: Int) -> Int {
         var cardOrganizer: CardOrganizer

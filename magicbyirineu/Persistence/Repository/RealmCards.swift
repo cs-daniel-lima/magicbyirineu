@@ -13,17 +13,17 @@ extension RealmCards: CardRepository {
         
         if let nameToSearch = name, let setToSearch = setCode {
             let cards = databaseManager.getCards(name: nameToSearch, setCode: setToSearch)
-            completion(.success(cards), nil)
+            completion(.success(cards), HTTPHeaderCards(count:cards.count, totalCount: cards.count))
 
         } else {
             if let nameToSearch = name {
                 let cards = databaseManager.getCards(name: nameToSearch)
-                completion(.success(cards), nil)
+                completion(.success(cards), HTTPHeaderCards(count:cards.count, totalCount: cards.count))
             }
 
             if let setToSearch = setCode {
                 let cards = databaseManager.getCards(setCode: setToSearch)
-                completion(.success(cards), nil)
+                completion(.success(cards), HTTPHeaderCards(count:cards.count, totalCount: cards.count))
             }
         }
     }

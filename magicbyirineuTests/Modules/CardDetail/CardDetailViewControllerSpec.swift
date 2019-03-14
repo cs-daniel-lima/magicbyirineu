@@ -23,7 +23,7 @@ class CardDetailViewControllerSpec: QuickSpec {
 
             })
 
-            let router = CardDetailRouter(cards: cards, selectedCard: cards.last!)
+            let router = CardDetailRouter(cards: cards, selectedCard: cards.last!, sets: )
 
             sut = router.presenter.view
             UIApplication.shared.keyWindow?.rootViewController = sut
