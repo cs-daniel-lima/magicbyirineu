@@ -27,8 +27,9 @@ class FavoritesPresenter: NSObject {
         view.screen.collectionView.register(cellType: CardCollectionViewCell.self)
         view.screen.collectionView.register(cellType: SubSectionCollectionViewCell.self)
         view.screen.collectionView.register(supplementaryViewType: SetCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
+        
+        self.interactor.fetchCards()
     }
-    
 }
 
 extension FavoritesPresenter: UICollectionViewDataSource {
@@ -52,8 +53,10 @@ extension FavoritesPresenter: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row)
+        guard let object = self.interactor.elementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+            Logger.logError(in: self, message: "Could not get an object")
+            return UICollectionViewCell()
+        }
         
         if let category = object as? String {
             let subsectionCell: SubSectionCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
@@ -99,7 +102,7 @@ extension FavoritesPresenter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind _: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view: SetCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
         
-        view.label.text = interactor.sets[indexPath.section].name
+        view.label.text = interactor.set(of: indexPath.section).name
         
         return view
     }
@@ -114,7 +117,7 @@ extension FavoritesPresenter: UICollectionViewDataSource {
 
 extension FavoritesPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let object = self.interactor.getElementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
+        guard let object = self.interactor.elementInSet(setIndex: indexPath.section, elementIndex: indexPath.row) else {
             Logger.logError(in: self, message: "Could not get the object from CardSet at index:\(indexPath.section)")
             return CGSize.zero
         }

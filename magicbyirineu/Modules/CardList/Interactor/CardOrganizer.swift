@@ -1,59 +1,22 @@
 import Foundation
 
-struct CardDeck {
-    let identification: CardSet
-    private var elements: [Any]
-
-    init(set: CardSet) {
-        identification = set
-        elements = Array()
-    }
-
-    mutating func add(type: String) {
-        elements.append(type)
-    }
-
-    mutating func add(card: Card) {
-        elements.append(card)
-    }
-
-    mutating func add(cards: [Card]) {
-        elements.append(contentsOf: cards)
-    }
-
-    func getElements() -> [Any] {
-        return elements
-    }
-
-    func getCards() -> [Card] {
-        guard let cards = elements.filter({ $0 is Card }) as? [Card] else {
-            return []
-        }
-
-        return cards
-    }
-
-    func getElement(at index: Int) -> Any? {
-        if elements.indices.contains(index) {
-            return elements[index]
-        } else {
-            return nil
-        }
-    }
-}
-
+/// Organiza as cartas
 class CardOrganizer {
     var decks: [CardDeck] = Array()
 
-    func append(cards: [Card], set: CardSet, type: String, setIndex: Int) {
-        if decks.indices.contains(setIndex) {
-            decks[setIndex].add(type: type)
-            decks[setIndex].add(cards: cards)
-        } else {
+    private var lastSet: CardSet?
+
+    func append(cards: [Card], set: CardSet, type: String) {
+        // Se for um Set novo cria-se um deck
+        if lastSet == nil || lastSet != set {
+            lastSet = set
             var deck = CardDeck(set: set)
             deck.add(type: type)
             deck.add(cards: cards)
             decks.append(deck)
+        } else {
+            decks[self.decks.count - 1].add(type: type)
+            decks[self.decks.count - 1].add(cards: cards)
         }
     }
 
@@ -65,13 +28,8 @@ class CardOrganizer {
         }
     }
 
-    func getAllCards() -> [Card] {
-        var allCards: [Card] = Array()
-
-        for deck in decks {
-            allCards.append(contentsOf: deck.getCards())
-        }
-
-        return allCards
+    func clean() {
+        decks = Array()
+        lastSet = nil
     }
 }

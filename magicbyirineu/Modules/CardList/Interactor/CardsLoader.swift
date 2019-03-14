@@ -1,50 +1,209 @@
 import Foundation
 
-protocol LoadManagerDelegate {
-    func requestApiCardsDataFor(set: CardSet?, andType type: String?, withPage page: Int)
-    func loaded(cards: [Card], forType type: String, andSet set: CardSet)
+protocol CardsLoaderDelegate {
+    func loaded(cards: [Card], forType type: String, andSet set: CardSet, from loader: CardsLoader)
+    func loaded(error: Error)
 }
 
+/// Carrega cartas de um Set
 class CardsLoader {
-    var delegate: LoadManagerDelegate?
+    // MARK: - Properties
+
+    // MARK: Private
+
+    private let cardRepository: CardRepository
+    private let cardSetRepository: CardSetRepository
+    private let typeRepository: TypeRepository
 
     private var currentType: String?
     private var currentSet: CardSet?
-    private var currentPage = 0
-    private var loadedCards: [Card] = Array()
+    private var typesIterator: IndexingIterator<[String]>?
+    private var setsIterator: IndexingIterator<[CardSet]>?
+    private var currentPage = 1
+    private var requestedCardsCounter = 0
+    private var requestTimeOut = 2
 
-    private var tempCount = 0
+    // MARK: Public
 
-    func loadCards(fromSet set: CardSet, withType type: String, page: Int) {
-        currentType = type
-        currentSet = set
-        currentPage = page
-        loadedCards = Array()
+    private(set) var cards: [Card] = Array()
+    private(set) var types: [String] = [String]()
+    private(set) var sets: [CardSet] = [CardSet]()
 
-        requestCards()
+    var isSetsAndTypesLoaded: Bool {
+        return !types.isEmpty && !sets.isEmpty
     }
 
-    func requestCards() {
-        delegate?.requestApiCardsDataFor(set: currentSet, andType: currentType, withPage: currentPage)
+    var delegate: CardsLoaderDelegate?
+
+    // MARK: - Init
+
+    init(cardRepository: CardRepository, cardSetRepository: CardSetRepository, typeRepository: TypeRepository) {
+        self.cardRepository = cardRepository
+        self.cardSetRepository = cardSetRepository
+        self.typeRepository = typeRepository
     }
 
-    func appendCards(_ cards: [Card], totalExpected: Int) {
-        loadedCards = cards
+    // MARK: - Functions
 
-        if currentPage == 1 {
-            tempCount = loadedCards.count
-        } else {
-            tempCount += loadedCards.count
+    func clean() {
+        sets = [CardSet]()
+        types = [String]()
+        cleanButKeepSetsAndTypes()
+    }
+
+    func cleanButKeepSetsAndTypes() {
+        currentSet = nil
+        currentType = nil
+        currentPage = 0
+        requestedCardsCounter = 0
+        cards = Array()
+        setsIterator = setsIterator?.makeIterator()
+        typesIterator = typesIterator?.makeIterator()
+    }
+
+    func fetchSets(completion: ((_ success: Bool) -> Void)? = nil) {
+        cardSetRepository.fetchCardSets { result in
+            switch result {
+            case let .success(sets):
+                self.sets = sets
+                self.sets.sort(by: { (before, after) -> Bool in
+                    before.releaseDate > after.releaseDate
+                })
+                self.setsIterator = self.sets.makeIterator()
+                completion?(true)
+
+            case let .failure(error):
+                self.delegate?.loaded(error: error)
+                completion?(false)
+            }
+        }
+    }
+
+    func fetchTypes(completion: ((_ success: Bool) -> Void)? = nil) {
+        typeRepository.fetchTypes { result in
+            switch result {
+            case let .success(types):
+                self.types = types.filter { $0 != "instant" }
+                self.types.sort(by: { (before, after) -> Bool in
+                    before.compare(after) == ComparisonResult.orderedAscending
+                })
+                self.typesIterator = self.types.makeIterator()
+                completion?(true)
+
+            case let .failure(error):
+                self.delegate?.loaded(error: error)
+                completion?(false)
+            }
+        }
+    }
+
+    func fetchSetsAndTypes(completion: (() -> Void)? = nil) {
+        let dispatchGroup = DispatchGroup()
+
+        dispatchGroup.enter()
+        // Pegar Sets
+        fetchSets { _ in
+            dispatchGroup.leave()
         }
 
-        if tempCount == totalExpected {
-            if let type = currentType, let set = currentSet {
-                delegate?.loaded(cards: loadedCards, forType: type, andSet: set)
-            }
+        dispatchGroup.enter()
+        // Pegar Tipos
+        fetchTypes { _ in
+            dispatchGroup.leave()
+        }
 
+        dispatchGroup.wait()
+
+        DispatchQueue.main.async {
+            completion?()
+        }
+    }
+
+    func fetchAllCardFrom(set: CardSet, of type: String, with name: String? = nil, and cards: [Card]? = nil, completion: @escaping ([Card]) -> Void) {
+        var allCardsOfASet: [Card]
+
+        if let cards = cards {
+            allCardsOfASet = cards
         } else {
-            currentPage += 1
-            requestCards()
+            allCardsOfASet = [Card]()
+        }
+        cardRepository.fetchCards(page: currentPage, name: name, setCode: set.code, type: type, orderParameter: CardOrder.type) { [weak self] result, header in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case let .success(result):
+                // Atualizar o contador
+                self.updateCounter(on: result.count)
+
+                // Atualiza o Tipo
+                self.currentType = type
+
+                // Adicionar as cartas a um cache local
+                allCardsOfASet.append(contentsOf: result)
+
+                // Verificar se o contador ja foi chegou na quantidade de cartas estimadas do set
+                if let header = header,
+                    self.requestedCardsCounter == header.totalCount {
+                    // Reseta o contador e page
+                    self.requestedCardsCounter = 0
+                    self.currentPage = 1
+
+                    // Finaliza função entrgando cartas
+                    if let nextType = self.typesIterator?.next() {
+                        self.fetchAllCardFrom(set: set, of: nextType, with: name, and: allCardsOfASet, completion: completion)
+                        completion(allCardsOfASet)
+                    } else {
+                        completion(allCardsOfASet)
+                        self.typesIterator = self.types.makeIterator()
+                    }
+                } else {
+                    // Atualiza página e chama denovo
+                    self.currentPage += 1
+                    self.fetchAllCardFrom(set: set, of: type, with: name, and: allCardsOfASet, completion: completion)
+                }
+
+            case let .failure(error):
+                self.delegate?.loaded(error: error)
+            }
+        }
+    }
+
+    func fetchCards(with name: String? = nil) {
+        if !isSetsAndTypesLoaded {
+            if requestTimeOut > 0 {
+                requestTimeOut -= 1
+                fetchSetsAndTypes {
+                    self.fetchCards(with: name)
+                }
+            }
+            return
+        }
+
+        //
+        if let set = self.setsIterator?.next(),
+            let type = self.typesIterator?.next() {
+            currentSet = set
+            fetchAllCardFrom(set: set, of: type, with: name) { [weak self] cards in
+                guard let self = self else {
+                    return
+                }
+                if !cards.isEmpty {
+                    self.currentSet = set
+                    self.cards.append(contentsOf: cards)
+                    self.delegate?.loaded(cards: cards, forType: self.currentType!, andSet: self.currentSet!, from: self)
+                } else {
+                    self.fetchCards(with: name)
+                }
+            }
+        }
+    }
+
+    func updateCounter(on numberOfCards: Int) {
+        if currentPage == 1 {
+            requestedCardsCounter = numberOfCards
+        } else {
+            requestedCardsCounter += numberOfCards
         }
     }
 }
