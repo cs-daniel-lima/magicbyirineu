@@ -1,14 +1,18 @@
 import Foundation
+import Realm
+import RealmSwift
 
 class FavoritesRouter {
     var presenter: FavoritesPresenter!
 
-    init() {
+    init(realm: Realm) {
+        let databaseManager = DatabaseManager(realm: realm)
+
         let viewController = FavoritesViewController(title: "Favorites")
-        
-        
-        
-        //presenter = FavoritesPresenter(router: self, interactor: interactor, view: viewController)
+
+        let interactor = FavoritesInteractor(databaseManager: databaseManager)
+
+        presenter = FavoritesPresenter(router: self, interactor: interactor, view: viewController)
     }
 
     func goToCardDetail(cards: [Card], selectedCard: Card, sets: [CardSet]) {

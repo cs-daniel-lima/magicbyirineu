@@ -33,7 +33,6 @@ class CardDetailViewControllerSpec: QuickSpec {
             it("should match view with snapshot") {
                 sut.screen.favoriteButton.isFavorite = true
                 self.tester().waitForAnimationsToFinish()
-                expect(sut.screen.favoriteButton.isFavorite).to(beTrue())
                 expect(sut) == snapshot()
             }
         }

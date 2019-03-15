@@ -5,7 +5,7 @@ class FavoritesPresenter: NSObject {
     private var query: String?
 
     let router: FavoritesRouter
-    let interactor: CardListInteractor
+    let interactor: FavoritesInteractor
     let view: FavoritesViewController
 
     init(router: FavoritesRouter, interactor: FavoritesInteractor, view: FavoritesViewController) {
@@ -20,8 +20,6 @@ class FavoritesPresenter: NSObject {
         self.view.screen.searchBar.delegate = self
         self.view.presenter = self
 
-        self.interactor.delegate = self
-
         setup()
     }
 
@@ -30,13 +28,18 @@ class FavoritesPresenter: NSObject {
         view.screen.collectionView.register(cellType: SubSectionCollectionViewCell.self)
         view.screen.collectionView.register(supplementaryViewType: SetCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
 
-        interactor.fetchCards()
+        interactor.fetchData()
+    }
+
+    func update() {
+        interactor.fetchData()
+        view.screen.collectionView.reloadData()
     }
 }
 
 extension FavoritesPresenter: UICollectionViewDataSource {
     func numberOfSections(in _: UICollectionView) -> Int {
-        let numberOfSections = interactor.numberOfSets()
+        let numberOfSections = interactor.decks.count
 
         if numberOfSections == 0 {
             view.set(status: .empty)
@@ -62,7 +65,7 @@ extension FavoritesPresenter: UICollectionViewDataSource {
             return
         }
 
-        router.goToCardDetail(cards: interactor.allCards(), selectedCard: card, sets: interactor.allSets())
+        router.goToCardDetail(cards: interactor.allCards(), selectedCard: card, sets: interactor.sets)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -112,7 +115,7 @@ extension FavoritesPresenter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind _: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view: SetCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
 
-        view.label.text = interactor.set(of: indexPath.section).name
+        view.label.text = interactor.sets[indexPath.section].name
 
         return view
     }
@@ -140,14 +143,6 @@ extension FavoritesPresenter: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 60)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let currentSet = collectionView.numberOfItems(inSection: indexPath.section) - 1
-
-        if indexPath.row == currentSet, !interactor.waitingAPIResponse {
-            interactor.fetchCards()
-        }
     }
 }
 
@@ -184,15 +179,15 @@ extension FavoritesPresenter: UISearchBarDelegate {
             }
             view.screen.collectionView.reloadData()
             view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            interactor.fetchSearchingCards(cardName: query)
+            interactor.search(name: query)
         }
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         if searchBar.text == nil || searchBar.text?.isEmpty ?? false {
-            interactor.cancelSearch()
-            view.screen.collectionView.reloadData()
+            update()
+
             view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
     }

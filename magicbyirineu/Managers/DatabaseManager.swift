@@ -7,7 +7,7 @@ class DatabaseManager {
     init(realm: Realm) {
         self.realm = realm
     }
-    
+
     // MARK: - Insert Data
 
     func addFavorite(card: Card, set: CardSet) {
@@ -97,6 +97,12 @@ class DatabaseManager {
         return result.toArray()
     }
 
+    func getCards(setCode: String, type: String, name: String) -> [Card] {
+        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name = %@ AND set = %@ AND %@ IN types.stringValue", name, setCode, type))
+
+        return result.toArray()
+    }
+
     func getCards(name: String) -> [Card] {
         let result = realm.objects(CardDao.self).filter(NSPredicate(format: "name CONTAINS[cd] %@", name))
 
@@ -109,7 +115,8 @@ class DatabaseManager {
     }
 
     func getCards(type: String) -> [Card] {
-        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "%@ IN foreignNames.name", type))
+        let result = realm.objects(CardDao.self).filter(NSPredicate(format: "%@ IN types.stringValue", type))
+
         return result.toArray()
     }
 

@@ -13,16 +13,15 @@ class CardDetailInteractor {
     let cards: [Card]
     var selectedCard: Card
 
-    var dbManager:DatabaseManager
+    var dbManager: DatabaseManager
 
     init(cards: [Card], selectedCard: Card, sets: [CardSet]) {
         self.cards = cards
         self.sets = sets
         self.selectedCard = selectedCard
-        
+
         let realm = try! Realm(configuration: Utils.createConfigurationFile())
         dbManager = DatabaseManager(realm: realm)
-        
     }
 
     func changeSelectedCard(index: Int) {

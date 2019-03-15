@@ -1,4 +1,6 @@
 import Reachability
+import Realm
+import RealmSwift
 import UIKit
 
 @UIApplicationMain
@@ -12,10 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initializing the Root ViewController for working with CodeView
         window = UIWindow(frame: UIScreen.main.bounds)
 
+        let realm = try! Realm(configuration: Utils.createConfigurationFile())
+
         let cardListRouter = CardListRouter()
-        let favoritesRouter = FavoritesRouter()
+        let favoritesRouter = FavoritesRouter(realm: realm)
 
         let rootViewController = MagicTabBarController(viewControllers: [cardListRouter.presenter.view, favoritesRouter.presenter.view])
+
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
 

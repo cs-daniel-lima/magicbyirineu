@@ -35,4 +35,12 @@ struct CardDeck {
             return nil
         }
     }
+
+    func getCards() -> [Card] {
+        guard let cards = elements.filter({ $0 is Card }) as? [Card] else {
+            return []
+        }
+
+        return cards
+    }
 }

@@ -130,10 +130,10 @@ class CardListInteractor {
 extension CardListInteractor: CardsLoaderDelegate {
     func loaded(error: Error) {
         if error is CardsLoaderError.RequestTimeOut {
-            self.fetchLoadManager.cleanButKeepSetsAndTypes()
-            self.searchLoadManager.cleanButKeepSetsAndTypes()
+            fetchLoadManager.cleanButKeepSetsAndTypes()
+            searchLoadManager.cleanButKeepSetsAndTypes()
         }
-        self.delegate?.didLoad(error: error)
+        delegate?.didLoad(error: error)
     }
 
     func loaded(cards: [Card], forType type: String, andSet set: CardSet, from loader: CardsLoader) {
