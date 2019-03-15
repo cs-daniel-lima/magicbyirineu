@@ -134,7 +134,6 @@ extension CardListPresenter: UICollectionViewDelegate {
         let currentSet = collectionView.numberOfItems(inSection: indexPath.section) - 1
 
         if indexPath.row == currentSet, !interactor.waitingAPIResponse {
-            
             interactor.fetchCards()
         }
     }

@@ -68,14 +68,14 @@ class CardListViewControllerSpec: QuickSpec {
                 var cards = [Card]()
 
                 beforeEach {
-                    sut.presenter.interactor!.fetchCards()
+                    sut.presenter!.interactor!.fetchCards()
 
                     cards = []
 
-                    let card1 = sut.presenter.interactor!.elementInSet(setIndex: 0, elementIndex: 1)
-                    let card2 = sut.presenter.interactor!.elementInSet(setIndex: 0, elementIndex: 2)
-                    let card3 = sut.presenter.interactor!.elementInSet(setIndex: 0, elementIndex: 3)
-                    let card4 = sut.presenter.interactor!.elementInSet(setIndex: 0, elementIndex: 4)
+                    let card1 = sut.presenter!.interactor!.elementInSet(setIndex: 0, elementIndex: 1)
+                    let card2 = sut.presenter!.interactor!.elementInSet(setIndex: 0, elementIndex: 2)
+                    let card3 = sut.presenter!.interactor!.elementInSet(setIndex: 0, elementIndex: 3)
+                    let card4 = sut.presenter!.interactor!.elementInSet(setIndex: 0, elementIndex: 4)
 
                     cards.append(card1 as! Card)
                     cards.append(card2 as! Card)

@@ -8,7 +8,7 @@ class CardOrganizer {
 
     func append(cards: [Card], set: CardSet, type: String) {
         // Se for um Set novo cria-se um deck
-        if(cards.count > 0){
+        if !cards.isEmpty {
             if lastSet == nil || lastSet != set {
                 lastSet = set
                 var deck = CardDeck(set: set)
@@ -20,7 +20,6 @@ class CardOrganizer {
                 decks[self.decks.count - 1].add(cards: cards)
             }
         }
-        
     }
 
     func getElement(setIndex: Int, elementIndex: Int) -> Any? {

@@ -29,8 +29,8 @@ class FavoritesPresenter: NSObject {
         view.screen.collectionView.register(cellType: CardCollectionViewCell.self)
         view.screen.collectionView.register(cellType: SubSectionCollectionViewCell.self)
         view.screen.collectionView.register(supplementaryViewType: SetCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
-        
-        self.interactor.fetchCards()
+
+        interactor.fetchCards()
     }
 }
 
@@ -48,8 +48,6 @@ extension FavoritesPresenter: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("section: ",section)
-        print(interactor.numberOfElementsForSet(setIndex: section))
         return interactor.numberOfElementsForSet(setIndex: section)
     }
 
@@ -72,7 +70,7 @@ extension FavoritesPresenter: UICollectionViewDataSource {
             Logger.logError(in: self, message: "Could not get an object")
             return UICollectionViewCell()
         }
-        
+
         if let category = object as? String {
             let subsectionCell: SubSectionCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
 
@@ -113,9 +111,9 @@ extension FavoritesPresenter: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind _: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view: SetCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
-        
+
         view.label.text = interactor.set(of: indexPath.section).name
-        
+
         return view
     }
 
@@ -143,16 +141,14 @@ extension FavoritesPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 60)
     }
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, willDisplay _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let currentSet = collectionView.numberOfItems(inSection: indexPath.section) - 1
-        
+
         if indexPath.row == currentSet, !interactor.waitingAPIResponse {
             interactor.fetchCards()
         }
     }
-    
 }
 
 extension FavoritesPresenter: CardListInteractorDelegate {
