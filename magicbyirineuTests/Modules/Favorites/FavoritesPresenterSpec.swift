@@ -6,12 +6,11 @@ import Quick
 
 class FavoritesPresenterSpec: QuickSpec {
     override func spec() {
-        
         var sut: FavoritesPresenterMock!
 
         beforeEach {
             let router = FavoritesRouter()
-            sut = router.presenter as? FavoritesPresenterMock
+            sut = router.presenter as! FavoritesPresenterMock
 
             UIApplication.shared.keyWindow?.rootViewController = sut.view
         }

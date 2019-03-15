@@ -4,10 +4,10 @@ import RealmSwift
 class DatabaseManager {
     let realm: Realm
 
-    init(realm: Realm = try! Realm(configuration: Utils.createConfigurationFile())) {
+    init(realm: Realm) {
         self.realm = realm
     }
-
+    
     // MARK: - Insert Data
 
     func addFavorite(card: Card, set: CardSet) {

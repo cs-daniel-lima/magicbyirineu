@@ -3,7 +3,7 @@ import Foundation
 class DatabaseTypesService {
     let databaseManager: DatabaseManager
 
-    init(databaseManager: DatabaseManager = DatabaseManager()) {
+    init(databaseManager: DatabaseManager) {
         self.databaseManager = databaseManager
     }
 }
