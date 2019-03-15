@@ -38,8 +38,9 @@ class MagicTabBarController: UITabBarController {
         layerGradient.startPoint = CGPoint(x: 0.5, y: 0)
         layerGradient.endPoint = CGPoint(x: 0.5, y: 0.1)
         layerGradient.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+        layerGradient.zPosition = -1
         tabBar.layer.addSublayer(layerGradient)
-
+    
         let tabBarBackground = UIImage(color: .clear, size: tabBar.frame.size)
 
         tabBar.backgroundColor = .clear
@@ -80,7 +81,7 @@ class MagicTabBarController: UITabBarController {
         let tabbarFont = UIFont.sfProDisplay(size: 16, weight: .bold)
 
         item.setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor(red: 0.73, green: 0.73, blue: 0.78, alpha: 1.0),
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray,
             NSAttributedString.Key.font: tabbarFont as Any,
         ], for: UIControl.State.normal)
 

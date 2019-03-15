@@ -7,6 +7,7 @@ class SetCollectionReusableView: UICollectionReusableView, Reusable {
         var view = UILabel(frame: .zero)
         view.textColor = UIColor.white
         view.font = UIFont.sfProDisplay(size: 36, weight: .bold)
+        view.adjustsFontSizeToFitWidth = true
         return view
     }()
 
@@ -39,7 +40,7 @@ extension SetCollectionReusableView: CodeView {
     func setupConstraints() {
         label.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.left.right.equalTo(16)
+            make.left.right.equalToSuperview().inset(16)
         }
 
         blurEffectView.snp.makeConstraints { make in
