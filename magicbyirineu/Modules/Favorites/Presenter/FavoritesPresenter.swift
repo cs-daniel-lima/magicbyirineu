@@ -2,9 +2,11 @@ import Foundation
 import UIKit
 
 class FavoritesPresenter: NSObject {
-    var router: FavoritesRouter
-    var interactor: CardListInteractor
-    var view: FavoritesViewController
+    private var query: String?
+
+    let router: FavoritesRouter
+    let interactor: CardListInteractor
+    let view: FavoritesViewController
 
     init(router: FavoritesRouter, interactor: CardListInteractor, view: FavoritesViewController) {
         self.router = router
@@ -15,6 +17,7 @@ class FavoritesPresenter: NSObject {
 
         self.view.screen.collectionView.dataSource = self
         self.view.screen.collectionView.delegate = self
+        self.view.screen.searchBar.delegate = self
         self.view.presenter = self
 
         self.interactor.delegate = self
@@ -26,8 +29,8 @@ class FavoritesPresenter: NSObject {
         view.screen.collectionView.register(cellType: CardCollectionViewCell.self)
         view.screen.collectionView.register(cellType: SubSectionCollectionViewCell.self)
         view.screen.collectionView.register(supplementaryViewType: SetCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
-        
-        self.interactor.fetchCards()
+
+        interactor.fetchCards()
     }
 }
 
@@ -67,7 +70,7 @@ extension FavoritesPresenter: UICollectionViewDataSource {
             Logger.logError(in: self, message: "Could not get an object")
             return UICollectionViewCell()
         }
-        
+
         if let category = object as? String {
             let subsectionCell: SubSectionCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
 
@@ -108,9 +111,9 @@ extension FavoritesPresenter: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind _: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view: SetCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
-        
+
         view.label.text = interactor.set(of: indexPath.section).name
-        
+
         return view
     }
 
@@ -138,6 +141,14 @@ extension FavoritesPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 60)
     }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let currentSet = collectionView.numberOfItems(inSection: indexPath.section) - 1
+
+        if indexPath.row == currentSet, !interactor.waitingAPIResponse {
+            interactor.fetchCards()
+        }
+    }
 }
 
 extension FavoritesPresenter: CardListInteractorDelegate {
@@ -149,6 +160,40 @@ extension FavoritesPresenter: CardListInteractorDelegate {
         DispatchQueue.main.async {
             self.view.screen.collectionView.reloadData()
             self.view.set(status: .normal)
+        }
+    }
+}
+
+extension FavoritesPresenter: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        query = nil
+        view.screen.collectionView.reloadData()
+        view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if let text = searchBar.text {
+            self.query = text
+            view.set(status: .searching)
+            guard let query = self.query else {
+                Logger.logError(in: self, message: "Query is nil")
+                return
+            }
+            view.screen.collectionView.reloadData()
+            view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            interactor.fetchSearchingCards(cardName: query)
+        }
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if searchBar.text == nil || searchBar.text?.isEmpty ?? false {
+            interactor.cancelSearch()
+            view.screen.collectionView.reloadData()
+            view.screen.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
     }
 }

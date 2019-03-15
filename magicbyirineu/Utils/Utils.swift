@@ -2,7 +2,7 @@ import Realm
 import RealmSwift
 
 class Utils {
-    class func createConfigurationFile() -> Realm.Configuration {
+    static func createConfigurationFile() -> Realm.Configuration {
         return Realm.Configuration(
             schemaVersion: 1,
             migrationBlock: { _, oldSchemaVersion in

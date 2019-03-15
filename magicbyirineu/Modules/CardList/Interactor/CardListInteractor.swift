@@ -46,7 +46,7 @@ class CardListInteractor {
             return searchedCardOrganizer.decks.count
         }
     }
-    
+
     func allSets() -> [CardSet] {
         if !isSearching {
             return fetchLoadManager.sets
@@ -115,15 +115,15 @@ class CardListInteractor {
         isSearching = false
         delegate?.didLoad()
     }
-    
+
     func clean() {
-        self.fetchLoadManager.clean()
-        self.searchLoadManager.clean()
+        fetchLoadManager.clean()
+        searchLoadManager.clean()
     }
-    
+
     func cleanButKeepSetsAndTypes() {
-        self.fetchLoadManager.cleanButKeepSetsAndTypes()
-        self.searchLoadManager.cleanButKeepSetsAndTypes()
+        fetchLoadManager.cleanButKeepSetsAndTypes()
+        searchLoadManager.cleanButKeepSetsAndTypes()
     }
 }
 

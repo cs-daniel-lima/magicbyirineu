@@ -1,42 +1,25 @@
 import Nimble
 import Nimble_Snapshots
 import Quick
+import Realm
+import RealmSwift
 
 @testable import magicbyirineu
 
 class DatabaseManagerSpec: QuickSpec {
     override func spec() {
-        var sut: DatabaseManagerMock!
+        var testRealm: Realm!
+        var sut: DatabaseManager!
         var cards: [Card]!
         var sets: [CardSet]!
 
         beforeEach {
-            sut = DatabaseManagerMock()
+            testRealm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "DatabaseManagerSpec"))
 
-            let cardsRepository = CardRepositoryMock()
-            let setsRepository = CardSetRepositoryMock()
+            sut = DatabaseManager(realm: testRealm)
 
-            cardsRepository.fetchCards(page: 1, name: nil, setCode: nil, type: nil, orderParameter: nil, completion: { result, _ in
-
-                switch result {
-                case let .success(cardsResponse):
-                    cards = cardsResponse
-                case .failure:
-                    cards = []
-                }
-
-            })
-
-            setsRepository.fetchCardSets(completion: { result in
-
-                switch result {
-                case let .success(setsResponse):
-                    sets = setsResponse
-                case .failure:
-                    sets = []
-                }
-
-            })
+            cards = CardRepositoryMock.mockCardsList()
+            sets = CardSetRepositoryMock.mockCardsSet()
         }
 
         context("when cards are favorited") {

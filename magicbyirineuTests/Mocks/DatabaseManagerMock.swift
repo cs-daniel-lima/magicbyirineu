@@ -2,16 +2,20 @@ import Foundation
 
 @testable import magicbyirineu
 
-class DatabaseManagerMock: DatabaseManager {
+extension DatabaseManager {
     func eraseAllData() {
         let cardsToDelete = realm.objects(CardDao.self)
         let setsToDelete = realm.objects(CardSetDao.self)
         let typesToDelete = realm.objects(CardTypeDao.self)
 
-        try! realm.write {
-            realm.delete(cardsToDelete)
-            realm.delete(setsToDelete)
-            realm.delete(typesToDelete)
+        do {
+            try realm.write {
+                realm.delete(cardsToDelete)
+                realm.delete(setsToDelete)
+                realm.delete(typesToDelete)
+            }
+        } catch let error as NSError {
+            Logger.logError(in: self, message: error.description)
         }
     }
 

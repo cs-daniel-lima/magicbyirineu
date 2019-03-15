@@ -44,9 +44,6 @@
 		4718D30422398A5F006F3B4F /* Results+CardTypeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718D30322398A5F006F3B4F /* Results+CardTypeDao.swift */; };
 		4720528622384E7F00ACAF01 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720528522384E7F00ACAF01 /* DatabaseManager.swift */; };
 		472052882238524400ACAF01 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052872238524400ACAF01 /* Utils.swift */; };
-		4720528F22385FDB00ACAF01 /* RealmCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720528E22385FDB00ACAF01 /* RealmCards.swift */; };
-		4720529122385FE500ACAF01 /* RealmSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720529022385FE500ACAF01 /* RealmSets.swift */; };
-		4720529322385FF700ACAF01 /* RealmTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720529222385FF700ACAF01 /* RealmTypes.swift */; };
 		472052952239458F00ACAF01 /* DatabaseManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052942239458F00ACAF01 /* DatabaseManagerMock.swift */; };
 		472052982239463100ACAF01 /* DatabaseManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052972239463100ACAF01 /* DatabaseManagerSpec.swift */; };
 		4720529A223947BC00ACAF01 /* CardDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47205299223947BC00ACAF01 /* CardDao.swift */; };
@@ -56,6 +53,10 @@
 		472052A22239611900ACAF01 /* Results+CardDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052A12239611900ACAF01 /* Results+CardDao.swift */; };
 		472052A422396D0200ACAF01 /* ForeignNamesDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052A322396D0200ACAF01 /* ForeignNamesDao.swift */; };
 		472052A622396D8000ACAF01 /* List+ForeignNamesDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472052A522396D8000ACAF01 /* List+ForeignNamesDao.swift */; };
+		47295AA8223AF1D600286C65 /* DatabaseSetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295AA5223AF1D600286C65 /* DatabaseSetsService.swift */; };
+		47295AA9223AF1D600286C65 /* DatabaseTypesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295AA6223AF1D600286C65 /* DatabaseTypesService.swift */; };
+		47295AAA223AF1D600286C65 /* DatabaseCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295AA7223AF1D600286C65 /* DatabaseCardsService.swift */; };
+		47295AAC223B0F9F00286C65 /* Array+Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47295AAB223B0F9F00286C65 /* Array+Any.swift */; };
 		474F44F922372137008F3468 /* MagicCarouselFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */; };
 		474F44FB223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */; };
 		4754D21122287A7B00FCE704 /* MagicFlowLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */; };
@@ -83,6 +84,8 @@
 		47941D6122256EB900202E73 /* CardListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47941D6022256EB900202E73 /* CardListViewControllerSpec.swift */; };
 		479456B02231CAFB002A4CA3 /* CardDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479456AF2231CAFB002A4CA3 /* CardDetailInteractor.swift */; };
 		479456B22231D617002A4CA3 /* MagicCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479456B12231D616002A4CA3 /* MagicCarouselFlowLayout.swift */; };
+		4799C9F8223B251F004A3540 /* CardsLoaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4799C9F7223B251F004A3540 /* CardsLoaderMock.swift */; };
+		4799C9FA223B2554004A3540 /* ErrorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4799C9F9223B2554004A3540 /* ErrorMock.swift */; };
 		47C4A964221C934E00E8F23A /* MagicSearchBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */; };
 		47E25B1A2229CFDB0031482F /* CardListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E25B192229CFDB0031482F /* CardListPresenterMock.swift */; };
 		D806F94E4A954E9C910382E4 /* Pods_magicbyirineu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0223602AF3E5AD2F6158451B /* Pods_magicbyirineu.framework */; };
@@ -156,9 +159,6 @@
 		4718D30322398A5F006F3B4F /* Results+CardTypeDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+CardTypeDao.swift"; sourceTree = "<group>"; };
 		4720528522384E7F00ACAF01 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		472052872238524400ACAF01 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		4720528E22385FDB00ACAF01 /* RealmCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCards.swift; sourceTree = "<group>"; };
-		4720529022385FE500ACAF01 /* RealmSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSets.swift; sourceTree = "<group>"; };
-		4720529222385FF700ACAF01 /* RealmTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTypes.swift; sourceTree = "<group>"; };
 		472052942239458F00ACAF01 /* DatabaseManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerMock.swift; sourceTree = "<group>"; };
 		472052972239463100ACAF01 /* DatabaseManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerSpec.swift; sourceTree = "<group>"; };
 		47205299223947BC00ACAF01 /* CardDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDao.swift; sourceTree = "<group>"; };
@@ -168,6 +168,10 @@
 		472052A12239611900ACAF01 /* Results+CardDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+CardDao.swift"; sourceTree = "<group>"; };
 		472052A322396D0200ACAF01 /* ForeignNamesDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignNamesDao.swift; sourceTree = "<group>"; };
 		472052A522396D8000ACAF01 /* List+ForeignNamesDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+ForeignNamesDao.swift"; sourceTree = "<group>"; };
+		47295AA5223AF1D600286C65 /* DatabaseSetsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseSetsService.swift; sourceTree = "<group>"; };
+		47295AA6223AF1D600286C65 /* DatabaseTypesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseTypesService.swift; sourceTree = "<group>"; };
+		47295AA7223AF1D600286C65 /* DatabaseCardsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseCardsService.swift; sourceTree = "<group>"; };
+		47295AAB223B0F9F00286C65 /* Array+Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Any.swift"; sourceTree = "<group>"; };
 		474F44F822372137008F3468 /* MagicCarouselFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutSpec.swift; sourceTree = "<group>"; };
 		474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayoutMock.swift; sourceTree = "<group>"; };
 		4754D21022287A7B00FCE704 /* MagicFlowLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicFlowLayoutSpec.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 		47941D6022256EB900202E73 /* CardListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewControllerSpec.swift; sourceTree = "<group>"; };
 		479456AF2231CAFB002A4CA3 /* CardDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailInteractor.swift; sourceTree = "<group>"; };
 		479456B12231D616002A4CA3 /* MagicCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCarouselFlowLayout.swift; sourceTree = "<group>"; };
+		4799C9F7223B251F004A3540 /* CardsLoaderMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsLoaderMock.swift; sourceTree = "<group>"; };
+		4799C9F9223B2554004A3540 /* ErrorMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMock.swift; sourceTree = "<group>"; };
 		47C4A963221C934E00E8F23A /* MagicSearchBarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSearchBarSpec.swift; sourceTree = "<group>"; };
 		47E25B192229CFDB0031482F /* CardListPresenterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListPresenterMock.swift; sourceTree = "<group>"; };
 		B7AA5EDA7BBB11599890F6E7 /* Pods-magicbyirineuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicbyirineuTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-magicbyirineuTests/Pods-magicbyirineuTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -280,6 +286,7 @@
 				4720529D2239568000ACAF01 /* List+RealmString.swift */,
 				472052A522396D8000ACAF01 /* List+ForeignNamesDao.swift */,
 				4720529F223956DB00ACAF01 /* Array+CardSet.swift */,
+				47295AAB223B0F9F00286C65 /* Array+Any.swift */,
 				472052A12239611900ACAF01 /* Results+CardDao.swift */,
 				4718D301223989B2006F3B4F /* Results+CardSetDao.swift */,
 				4718D30322398A5F006F3B4F /* Results+CardTypeDao.swift */,
@@ -417,9 +424,9 @@
 		4720528D22385AD000ACAF01 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				4720528E22385FDB00ACAF01 /* RealmCards.swift */,
-				4720529022385FE500ACAF01 /* RealmSets.swift */,
-				4720529222385FF700ACAF01 /* RealmTypes.swift */,
+				47295AA7223AF1D600286C65 /* DatabaseCardsService.swift */,
+				47295AA5223AF1D600286C65 /* DatabaseSetsService.swift */,
+				47295AA6223AF1D600286C65 /* DatabaseTypesService.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -539,12 +546,14 @@
 				183398D82229B6BD006A1EF3 /* TypeRepositoryMock.swift */,
 				DD9E78E22228687500BF37F1 /* CardDetailViewControllerMock.swift */,
 				4754D21322287C2400FCE704 /* MagicFlowLayoutMock.swift */,
+				4799C9F7223B251F004A3540 /* CardsLoaderMock.swift */,
 				474F44FA223721B6008F3468 /* MagicCarouselFlowLayoutMock.swift */,
 				4754D21522287CF000FCE704 /* CollectionMock.swift */,
 				47E25B192229CFDB0031482F /* CardListPresenterMock.swift */,
 				183398D42229B12D006A1EF3 /* CardRepositoryMock.swift */,
 				472052942239458F00ACAF01 /* DatabaseManagerMock.swift */,
 				DD2895AD22394BED0009D8CC /* FavoritesPresenterMock.swift */,
+				4799C9F9223B2554004A3540 /* ErrorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1060,8 +1069,6 @@
 				18D8A59D22246D2D00663C44 /* SubSectionCollectionViewCell.swift in Sources */,
 				18A31EB5223AC4BD005540B5 /* ResponseTypes.swift in Sources */,
 				DDE32C34221AF20900426578 /* CardListView.swift in Sources */,
-				4720529322385FF700ACAF01 /* RealmTypes.swift in Sources */,
-				4720528F22385FDB00ACAF01 /* RealmCards.swift in Sources */,
 				472052A0223956DB00ACAF01 /* Array+CardSet.swift in Sources */,
 				4720529A223947BC00ACAF01 /* CardDao.swift in Sources */,
 				18A31EB4223AC4BD005540B5 /* ResponseSets.swift in Sources */,
@@ -1071,8 +1078,8 @@
 				18A31EBB223AC4BD005540B5 /* Endpoint.swift in Sources */,
 				47631B70221B56C100B78A21 /* MagicTabBarController.swift in Sources */,
 				47631B61221B3F0300B78A21 /* MagicSearchBar.swift in Sources */,
+				47295AAA223AF1D600286C65 /* DatabaseCardsService.swift in Sources */,
 				18A31EB7223AC4BD005540B5 /* HTTPParameter.swift in Sources */,
-				4720529122385FE500ACAF01 /* RealmSets.swift in Sources */,
 				18A31EB6223AC4BD005540B5 /* ResponseCards.swift in Sources */,
 				DDE32C36221AF21600426578 /* CardListPresenter.swift in Sources */,
 				18A31EC1223AC4BD005540B5 /* Error.swift in Sources */,
@@ -1091,14 +1098,17 @@
 				18A31EBC223AC4BD005540B5 /* HTTPHeaderCards.swift in Sources */,
 				DDCA2EDD22271BDE00DB7D81 /* RoundedView.swift in Sources */,
 				DD60C6D12236A021005865B9 /* ForeignNames.swift in Sources */,
+				47295AA8223AF1D600286C65 /* DatabaseSetsService.swift in Sources */,
 				472052A622396D8000ACAF01 /* List+ForeignNamesDao.swift in Sources */,
 				47941D5F222482D900202E73 /* MagicFlowLayout.swift in Sources */,
 				18D8A59F22246EBB00663C44 /* SetCollectionReusableView.swift in Sources */,
 				18AAD49122285F1B0059D3BA /* CardSetRepository.swift in Sources */,
 				DD9E78DF2228247300BF37F1 /* CardDetailViewController.swift in Sources */,
 				479456B22231D617002A4CA3 /* MagicCarouselFlowLayout.swift in Sources */,
+				47295AAC223B0F9F00286C65 /* Array+Any.swift in Sources */,
 				DD9E78D82228244900BF37F1 /* CardDetailRouter.swift in Sources */,
 				18A31EBD223AC4BD005540B5 /* EndpointCards.swift in Sources */,
+				47295AA9223AF1D600286C65 /* DatabaseTypesService.swift in Sources */,
 				479456B02231CAFB002A4CA3 /* CardDetailInteractor.swift in Sources */,
 				47788865222842F8006B4FFA /* UICollectionViewLayoutAttributes+AlignLeft.swift in Sources */,
 				18A31EB8223AC4BD005540B5 /* Result.swift in Sources */,
@@ -1139,6 +1149,8 @@
 				47E25B1A2229CFDB0031482F /* CardListPresenterMock.swift in Sources */,
 				4754D21622287CF000FCE704 /* CollectionMock.swift in Sources */,
 				472052952239458F00ACAF01 /* DatabaseManagerMock.swift in Sources */,
+				4799C9FA223B2554004A3540 /* ErrorMock.swift in Sources */,
+				4799C9F8223B251F004A3540 /* CardsLoaderMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

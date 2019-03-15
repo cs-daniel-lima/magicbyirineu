@@ -9,6 +9,8 @@ extension Results where Iterator.Element == CardTypeDao {
             types.append(element.name)
         }
 
+        types = types.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
+
         return types
     }
 }

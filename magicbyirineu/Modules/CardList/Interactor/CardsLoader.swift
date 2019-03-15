@@ -196,7 +196,7 @@ class CardsLoader {
             return
         }
         requestTimeOut = 2
-        
+      
         if let set = self.setsIterator?.next(),
             let type = self.typesIterator?.next() {
             currentSet = set
