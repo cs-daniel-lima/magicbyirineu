@@ -5,21 +5,22 @@ import Quick
 @testable import magicbyirineu
 
 class FavoritesPresenterSpec: QuickSpec {
-    /*
-     override func spec() {
-     let cardRepository = CardRepository()
-     var sut = FavoritesPresenterMock(router: FavoritesRouter(), interactor: CardListInteractor(cardRepository: cardRepository), view: FavoritesViewController(title: "Favorites"))
+    override func spec() {
+        
+        var sut: FavoritesPresenterMock!
 
-     beforeEach {
-     UIApplication.shared.keyWindow?.rootViewController = sut.view
-     }
+        beforeEach {
+            let router = FavoritesRouter()
+            sut = router.presenter as? FavoritesPresenterMock
 
-     context("when it is initialized") {
-     it("should go through numberOfSections", closure: {
-     self.tester().waitForAnimationsToFinish()
-     expect(sut.wasNumberOfSectionCalled).to(beTrue())
-     })
-     }
-     }
-     */
+            UIApplication.shared.keyWindow?.rootViewController = sut.view
+        }
+
+        context("when it is initialized") {
+            it("should go through numberOfSections", closure: {
+                self.tester().waitForAnimationsToFinish()
+                expect(sut.wasNumberOfSectionCalled).to(beTrue())
+            })
+        }
+    }
 }
