@@ -72,7 +72,15 @@ class CardListInteractor {
     }
 
     func allCards() -> [Card] {
-        return fetchLoadManager.cards
+        var cardsLoader: CardsLoader
+        
+        if isSearching {
+            cardsLoader = searchLoadManager
+        } else {
+            cardsLoader = fetchLoadManager
+        }
+        
+        return cardsLoader.cards
     }
 
     func elementInSet(setIndex: Int, elementIndex: Int) -> Any? {
