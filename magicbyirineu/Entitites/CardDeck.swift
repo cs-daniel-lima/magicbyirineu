@@ -29,13 +29,11 @@ struct CardDeck {
     }
     
     mutating func add(card:Card) {
-        if(!elements.contains(card: card)){
             elements.append(card)
-        }
     }
     
     mutating func add(cards:Array<Card>) {
-        elements.appendCards(cards)
+        elements.append(contentsOf: cards)
     }
     
     func getElements() -> Array<Any> {

@@ -93,9 +93,23 @@ class DatabaseManager {
     
     func getCards(setCode: String, type:String) -> [Card] {
         
+        
         let result = realm.objects(CardDao.self).filter(NSPredicate(format: "set = %@ AND %@ IN types.stringValue", setCode, type))
         
+        if(result.count > 0){
+            print("---------")
+            print(setCode)
+            print(type)
+            
+            print(result.count)
+            
+            print("////////")
+        }
+        
+        
         return result.toArray()
+        
+        
     }
 
     func getCards(name: String) -> [Card] {
